@@ -1,69 +1,159 @@
+<!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/Webpage">
 <head>
   <title>Dietrich Ayala</title>
-  <meta name="description" content="The Web Page of Dietrich Ayala" />
+      <meta charset="utf-8"/>
+      <meta name="description" content="The Web Page of Dietrich Ayala" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- for web -->
-  <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9?size=16" />
+      <!-- for web -->
+      <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9?size=16" />
 
-  <!-- for apple -->
-  <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
-  <link rel="apple-touch-icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
+      <!-- for apple -->
+      <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
+      <link rel="apple-touch-icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
 
-  <!-- Schema.org for Google -->
-  <meta itemprop="name" content="Dietrich Ayala">
-  <meta itemprop="description" content="The Web Page of Dietrich Ayala">
-  <meta itemprop="image" content="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9">
+      <!-- Schema.org for Google -->
+      <meta itemprop="name" content="Dietrich Ayala">
+      <meta itemprop="description" content="The Web Page of Dietrich Ayala">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@dietrich">
-  <meta name="twitter:title" content="Dietrich Ayala">
-  <meta name="twitter:description" content="The Web Page of Dietrich Ayala">
-  <meta name="twitter:creator" content="@dietrich">
-  <meta name="twitter:image" content="http://metafluff.com/octo.jpg">
-  <meta name="twitter:image:alt" content="The Web Page of Dietrich Ayala">
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:site" content="@dietrich">
+      <meta name="twitter:title" content="Dietrich Ayala">
+      <meta name="twitter:description" content="The Web Page of Dietrich Ayala">
+      <meta name="twitter:creator" content="@dietrich">
+      <meta name="twitter:image" content="http://metafluff.com/octo.jpg">
+      <meta name="twitter:image:alt" content="The Web Page of Dietrich Ayala">
 
-  <!-- Open Graph for Facebook, Pinterest -->
-  <meta property="og:title" content="Dietrich Ayala" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="http://metafluff.com" />
-  <meta property="og:image" content="http://metafluff.com/octo.jpg" />
-  <meta property="og:description" content="The Web Page of Dietrich Ayala" />
-  <meta property="og:site_name" content="Dietrich Ayala's Web Page" />
+      <!-- Open Graph for Facebook, Pinterest -->
+      <meta property="og:title" content="Dietrich Ayala" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://metafluff.com" />
+      <meta property="og:image" content="http://metafluff.com/octo.jpg" />
+      <meta property="og:description" content="The Web Page of Dietrich Ayala" />
+      <meta property="og:site_name" content="Dietrich Ayala's Web Page" />
 
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <style type="text/css">
-    body {
-      margin: 1em;
-      background: url('octo.jpg') no-repeat center center/cover fixed;
+    * {
+      padding: 0;
+      margin: 0;
     }
-
+    html, body {
+      height: 100%;
+    }
+    body {
+    }
     div.container {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      height: 100%;
     }
-
-    div.content {
-      background-color: #fff;
-      margin: 0.5rem;
-      padding: 0.5rem;
-      border-radius: 3px;
-      width: 100%;
-      max-width: 50rem;
+		.title {
+      width: 80%;
+      /*border: 1px solid black;*/
+      padding-left: 1em;
+      padding-top: 1em;
+		}
+		.hero {
+			fill: url(#pattern);
+			font: bold italic 7em/1.5 Georgia;
+			/*font: bold italic 10em/1.5 Georgia;*/
+		}
+    svg.subtitle {
+      margin-top: -6.5em;
+      margin-bottom: 1em;
+			font: bold italic 1.5em/1.5 Georgia;
     }
-
-    .photo {
-      float: left;
-      margin-right: 4px;
+    .subtitle {
+      margin-top: -3.5em;
+      padding-bottom: 1em;
+			font: bold italic 1.5em/1.5 Georgia;
+      text-align: center;
     }
+		.icons {
+      text-align: center;
+		}
+    .icons a {
+      text-decoration: none;
+    }
+		.icon {
+			width: 1em;
+			height: 1em;
+			margin: 0.3em;
+			position: relative;
+			line-height: 1.1em;
+			text-align: center;
+			color: black;
+			font-family: 'FontAwesome';
+			font-size: 2em;
+      /*border: solid 1px black;*/
+		}
   </style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    class="title" viewBox="0 0 500 300">
+		<defs>
+			<pattern id="pattern"
+				patternUnits="userSpaceOnUse"
+				width="800" height="300"
+				viewbox="225 0 700 300">
+				<image xlink:href="octo.jpg" width="805" height="300" />
+			</pattern>
+	  </defs>
+		<text y="1em" class="hero">dietrich</text>
+    <!--<text y="8em" class="svg-subtitle">Mozilla, the Web and Freedom.</text>-->
+	</svg>
+
+  <!--
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    class="title" viewBox="0 0 500 300" height="5em">
+		<defs>
+			<pattern id="pattern"
+				patternUnits="userSpaceOnUse"
+				width="800" height="300">
+				<image xlink:href="octo.jpg" width="805" height="300" />
+			</pattern>
+	  </defs>
+		<text y="1em" class="hero">dietrich</text>
+	</svg>
+  -->
+  <div class="subtitle">
+    Mozilla, the Web and Freedom.
+  </div>
+
+	<div class="icons">
+    <a href="mailto:autonome@gmail.com">
+      <i class="fa fa-envelope icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://twitter.com/dietrich">
+      <i class="fa fa-twitter icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://github.com/autonome">
+      <i class="fa fa-github icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.instagram.com/autonome">
+      <i class="fa fa-instagram icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/dietrich">
+      <i class="fa fa-linkedin icon" aria-hidden="true"></i>
+    </a>
+    <a href="TODO">
+      <i class="fa fa-skype icon" aria-hidden="true"></i>
+    </a>
+	</div>
+
+<!--
   <div id="hcard-Dietrich-Ayala" class="vcard content">
     <img src="http://www.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9.png" alt="photo of" class="photo"/>
     <a class="url fn" href="http://metafluff.com">Dietrich Ayala</a>
@@ -96,8 +186,9 @@
       <li><a class="url" href="aim:goim?screenname=autonomatic">AIM</a></li>
     </ul>
   </div>
+-->
 
-  </div>
+</div>
 
 </body>
 </html>
