@@ -43,10 +43,6 @@
     }
     html, body {
       min-height: 100vh;
-      margin: 0;
-      padding: 0;
-    }
-    body {
     }
     div.container {
       display: flex;
@@ -55,13 +51,13 @@
       flex-direction: column;
       height: 100%;
     }
-    .title {
-      width: 70%;
+    .hero {
+      width: 70vw;
       margin-top: 10vh;
     }
-    .hero {
+    .title {
       fill: url(#pattern);
-      font: bold italic 7em/1.5 Georgia;
+      font: bold italic 7em Georgia;
     }
     .subtitle {
       font: bold italic 1.5em/1.5 Georgia;
@@ -90,20 +86,13 @@
 <body>
 
 <div class="container">
-
-  <svg class="title" viewBox="-16 24 500 90"
-    version="1.1" xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg class="hero" viewBox="0 -100 460 120">
     <defs>
-      <pattern id="pattern"
-        patternUnits="userSpaceOnUse"
-        width="800" height="300"
-        viewbox="225 0 700 300">
-        <image xlink:href="octo.jpg" width="805" height="300" />
+      <pattern id="pattern" x="0" y="0" width="1" height="1">
+        <image xlink:href="octo.jpg" x="0" y="0" width="520" height="350"/>
       </pattern>
     </defs>
-    <text y="1em" class="hero">dietrich</text>
-    <!--<text y="8em" class="svg-subtitle">Mozilla, the Web and Freedom.</text>-->
+    <text class="title">dietrich</text>
   </svg>
 
   <div class="subtitle">
