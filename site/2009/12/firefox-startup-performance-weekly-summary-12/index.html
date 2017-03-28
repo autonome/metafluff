@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - Dietrich Ayala</title>
+    <meta name="description" content="Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2009/12/firefox-startup-performance-weekly-summary-12/index.html" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup">
+
+        <header class="post-header">
+            <h1 class="post-title">Firefox Startup Performance Weekly Summary</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2009-12-05">05 December 2009</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/firefox/">firefox</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/performance/">Performance</a>, <a href="/tag/startup/">startup</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Current numbers are available on the <a href="http://graphs.mozilla.org/dashboard/snapshot/">Performance  Snapshot</a> page for all tests.</p>
+<p>Summary current startup performance, relative to Firefox 3.5:</p>
+<ul>
+<li>Warm startup: For Mac, 34% better on 3.6 and 32% better on 3.7. Flat on Windows for 3.6, and since Windows 3.6 was ~5% improved over 3.5 last post, so there appears to be a regression here. However, the graph data is not showing a 5% regression, so something might be incorrect in the snapshot code.</li>
+<li><p>Cold startup:  For Mac, I&#39;m discarding past numbers since we were not measuring it correctly (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=532965">bug 532965</a>). For  Windows, still not measuring yet. For Linux, the ~9% regression discrepancy from the last post is now gone,  putting 3.6 at 3% improved over 3.5 and trunk at a 3% regression. However, there are <a href="http://graphs.mozilla.org/#tests=[{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22188%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22190%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22191%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22192%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22193%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22194%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22195%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22196%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22197%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22198%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22200%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22201%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22202%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22203%22},{%22test%22:%2255%22,%22branch%22:%2210%22,%22machine%22:%22204%22}]">regular multi-run spikes in the graph</a>, so I&#39;m not sure we&#39;re getting the best data out of this measurement scheme either.
+This week&#39;s activity:</p>
+</li>
+<li><p>Rob Strong landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=532552">bug 532552</a>, which removes the blocklist service from the startup path. This <a href="http://exchangecode.com/robert/work/ce_logs/log.txt">log of WinCE startup</a>, generated from <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=470116">Taras&#39; patch here</a>, made it apparent that the service was in the startup path and taking a significant amount of time. Poke around that log, there&#39;s more goods to be had.</p>
+</li>
+<li>Taras landed a bunch of JAR related bugs on branch: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510844">bug 510844</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=511754">bug 511754</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=525755">bug 525755</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=523065">bug 523065</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=521227">bug 521227</a>.</li>
+<li>Rob Strong put up a <a href="http://blog.mozilla.com/rstrong/2009/11/29/the-fastest-code-is-the-code-that-never-runs/" title="http://blog.mozilla.com/rstrong/2009/11/29/the-fastest-code-is-the-code-that-never-runs/">detailed  post</a> about his startup improvements to the  update service, the  effect on mobile, and pointed out some other  front-end services that  could benefit from the same treatment.</li>
+<li>Joel&#39;s static Firefox is working (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=525013" title="https://bugzilla.mozilla.org/show_bug.cgi?id=525013">bug 525013</a>), and is showing ~10% improvement in  startup time on Mac. He&#39;s moved on to improving code locality (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=531406" title="https://bugzilla.mozilla.org/show_bug.cgi?id=531406">bug 531406</a>). However, time-ordering of symbols  doesn&#39;t seem to improve the sequentiality of the page-ins by much, so  maybe more improvements there. More data on the bug.</li>
+<li>Ben is making progress on the fastload replacement in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309" title="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">bug 520309</a>.</li>
+<li>No updates on Windows cold-startup testing for  Talos on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=522807">bug  522807</a>. I need to test on Vista, and turn off Pre/Superfetch.</li>
+<li>Taras has a new patch up for service caching (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085" title="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug 516085</a>).</li>
+<li>Rebasing on Windows in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=484799" title="https://bugzilla.mozilla.org/show_bug.cgi?id=484799">bug 484799</a> messed up mobile builds, was backed out.</li>
+<li><p>Jonathan Kew&#39;s patch on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug        519445</a> for further reductions in Mac startup       time spent in  font system initialization, is ready to land when the tree re-opens.
+Projects in a holding pattern:</p>
+</li>
+<li><p>Super-fast-path-ing of Components.* (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512584" title="https://bugzilla.mozilla.org/show_bug.cgi?id=512584">bug  512584</a>) is on hold, blocking on getting help from JS team or  someone else who knows that code.</p>
+</li>
+<li>Ryan Flint has a WIP patch to minify JS on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524858">bug  524858</a> that significantly reduces the size of shipped JavaScript  files.</li>
+<li>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS          modules into a JAR file</a>, since those files are fastloaded.         However, since we want things like post-extension-install  restarts  to   be     fast, and those cause fastload cache invalidation,  we might   want  to   do   things like this anyways. I filed a bug for  the same   treatment  for     components. These are lower priority,  since they&#39;re   not the  normal     startup case. Follow along with all  JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the         tracker  bug</a>.</li>
+<li>Startup Timeline: No updates, still not landed. Add [ft] in the        whiteboard of your bug w/ the function names you want timed and David        will generate it and update the bug.</li>
+<li>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug        506128</a>.  David needs to file a bug with the final log of        named-yet-uncalled  functions.</li>
+<li>Dirty Profile Testing: No progress. Need to list scenarios, file        bugs  for each, generate Talos config patches and profile data, and    then     move  it into Rel-Eng territory. Also, need to get a separate       Tinderbox  tree,  since it&#39;s going to cause a bazillion new  columns.</li>
+<li><a href="http://wagerlabs.com/">Joel        Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug        513076</a> that there are serious drawbacks to getting our libraries  in       the dyld  shared cache on Mac, so has deprioritized that work.</li>
+<li>No updates on Zack&#39;s CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug          513149</a>.
+As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the       project wiki</a>, and we&#39;re available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/33bd1644f6fe171d2b6f70af96c86185.jpeg)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location"> </span>
+                    <span class="author-link icon-link"><a href="http://metafluff.com">http://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Firefox%20Startup%20Performance%20Weekly%20Summary&amp;url=/2009/12/firefox-startup-performance-weekly-summary-12/index.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2009/12/firefox-startup-performance-weekly-summary-12/index.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2009/12/firefox-startup-performance-weekly-summary-12/index.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2009</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/js/index.js"></script>-->
+
+</body>
+</html>

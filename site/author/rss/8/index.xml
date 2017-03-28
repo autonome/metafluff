@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 12:19:25 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Thermals @ Crystal Ballroom]]></title><description><![CDATA[<p>We went to see <a href="http://www.subpop.com/artists/the_thermals">The Thermals</a> last night. First time at the <a href="http://www.mcmenamins.com/index.php?loc=2&amp;category=Location%20Homepage">Crystal Ballroom</a>, in downtown Portland. It&#39;s a <a href="http://www.mcmenamins.com/">McMenamins</a> joint, and as to be expected it was a beautiful old space, renovated and covered with faux-hippie murals. The floor of the place is springy, kinda like gymnastics flooring, brilliant idea.</p>
+<p><a href="http://www.teaforjulie.net/">
+Tea for Julie</a> was on we got there. Hey guys, get a new band name.</p>
+<p><a href="http://www.starsoftrackandfield.com/">Stars of Track and Field</a> were next. Wow I had no idea that you could have so many crescendos in a single song! Hey guys, it kinda detracts from the suspense WHEN THERE IS NONE. I believe this kind of music is known as &quot;anthemo&quot; (a-nth-ee-mo). They were interestingly derivative: The guitar had shades of 70s rock, U2, The Church. The vocals had a bit of Galaxy 500, and someone else that I haven&#39;t quite pinpointed yet. Sometimes they&#39;d bust out the cheesy drum machine and keyboard for some serious Postal Service rip-off action. Ok, I know it sounds like I hated them, but I actually really enjoyed some of the songs (especially those without the keyboard). Definitely talented guys... just haven&#39;t figured out who they want to sound like yet.</p>
+<p>After an awesomely short wait (no pretension here!) The Thermals came on. Great show, as to be expected. However, the sound was not so hot, bad acoustics seemed to eat up the guitar punch. We saw them at the Wonder Ballroom (Portland&#39;s got lots of ballrooms it seems) last fall, and the sound there was much better.</p>
+<p>The best part of the show though, was watching my daughter totally lose it when the Thermals played; she was head-banging throughout their set. Afterwards she was disappointed that &quot;it was so boring where we were&quot;. We were about 10 feet from the stage, the mosh pit was a few feet to the right, and some guy next to us was carried off basically unconscious from a blow to the head (due to a falling crowd-surfer). An explanation of basic mosh pit arithmetic ensued: falling 250 pound punker + 70 pound 11 year-old = emergency-room trip.</p>
+<p>Maybe when you grow another few inches :)</p>
+]]></description><link>/2007/02/thermals-crystal-ballroom/index.html</link><guid isPermaLink="true">/2007/02/thermals-crystal-ballroom/index.html</guid><category><![CDATA[music]]></category><category><![CDATA[portland]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 21 Feb 2007 00:00:00 GMT</pubDate></item><item><title><![CDATA[Happy Moz-o-ween!]]></title><description><![CDATA[<blockquote>
+<p><img src="283823957_20e4af594d.jpg" alt="moz-o-lantern @ daytime"></p>
+<p><img src="283820619_5801e02beb.jpg" alt="moz-o-lantern @ nighttime"></p>
+</blockquote>
+]]></description><link>/2006/10/happy-moz-o-ween/index.html</link><guid isPermaLink="true">/2006/10/happy-moz-o-ween/index.html</guid><category><![CDATA[halloween]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 31 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Foxylicious 0.7]]></title><description><![CDATA[<p>I updated <a href="http://dietrich.ganx4.com/foxylicious">Foxylicious</a> for <a href="http://www.mozilla.com/firefox/">Firefox 2</a>. It&#39;s home at <a href="https://addons.mozilla.org/firefox/342/">AMO</a> is not yet updated, as it&#39;s still awaiting approval. For those who can&#39;t wait, I&#39;ve made it available here.</p>
+<ul>
+<li>Updated to work with Firefox 2</li>
+<li>Uses the new secure del.icio.us API endpoint (fixes the auth prompt issue)</li>
+<li>Fixed some pref handling errors</li>
+<li>Added configurable post URLs. To load a different posting page, set the foxylicious.postURL to a URL that has %user%, %location% and %title%, for example, the default is: <a href="http://del.icio.us/%user%?v=2&amp;noui=yes&amp;jump=close&amp;url=%location%&amp;title=%title">http://del.icio.us/%user%?v=2&amp;noui=yes&amp;jump=close&amp;url=%location%&amp;title=%title</a></li>
+<li>Properly localize-able</li>
+</ul>
+<p><a href="http://dietrich.ganx4.com/foxylicious/foxylicious.xpi">INSTALL Foxylicious 0.7</a></p>
+<p>Please let me know if you have any problems, regressions, etc.</p>
+<p>XOXO,</p>
+<p>-d</p>
+]]></description><link>/2006/10/foxylicious-07/index.html</link><guid isPermaLink="true">/2006/10/foxylicious-07/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[foxylicious]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 27 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox 2 and the Northwest Pressure-washing Gutter-cleaners]]></title><description><![CDATA[<p>Here in the Northwest the rainy season is upon us. So, the other day I searched <a href="http://portland.craigslist.org/">Craigslist</a> and hired someone to clean out the gutters and pressure-wash the roof of our house. They showed up today, and while chatting with them I mentioned that I work on Firefox. Not only had both of these guys heard of Firefox, but they got excited and said that it&#39;s their default browser.</p>
+<p>Of course, I immediately used the opportunity to do that which is the point of this blog post: Plug Firefox 2.0 :)</p>
+<ul>
+<li>New theme</li>
+<li>Anti-phishing</li>
+<li>Microsummaries</li>
+<li>Spell-check</li>
+<li>Session-restore</li>
+<li>Undo-close-tab</li>
+<li>Search suggestions</li>
+<li>Feed handling</li>
+<li>And 23 other enhancements and bug-fixes (give or take a few thousand)</li>
+</ul>
+<p><a href="http://www.mozilla.com/firefox/">Download Firefox 2.0</a></p>
+<p>Enjoy :)</p>
+]]></description><link>/2006/10/firefox-2-and-the-northwest-pressure-washing-gutter-cleaners/index.html</link><guid isPermaLink="true">/2006/10/firefox-2-and-the-northwest-pressure-washing-gutter-cleaners/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 25 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[You are under surveillance.]]></title><description><![CDATA[<p>Last night we went to a panel discussion on the Bush administration&#39;s warrant-less wiretapping program, at <a href="http://www.pdx.edu/">PSU</a> in downtown Portland. It was put on by the <a href="http://www.nwcrc.org/">NWCRC</a> and <a href="http://www.pfaw.org/pfaw/general/">PFAW</a>, and featured a professor/lawyer, a lawyer handling a case against the government over warrant-less wiretapping, and an activist.</p>
+<p>It was f*ckin&#39; scary.</p>
+<p>But it was also extremely interesting, and at times even funny. It&#39;s inspiring and humbling to see these smart and talented people out there fighting our government&#39;s encroachments on our rights, on a daily basis. And it&#39;s uplifting to see that it&#39;s possible to keep a sense of humor while doing it... because if we can no longer laugh, then the fascists have truly won.</p>
+<p>Yes, you are under surveillance.</p>
+<p><strong>DANCE!</strong></p>
+]]></description><link>/2006/10/you-are-under-surveillance/index.html</link><guid isPermaLink="true">/2006/10/you-are-under-surveillance/index.html</guid><category><![CDATA[assholes]]></category><category><![CDATA[oregon]]></category><category><![CDATA[political]]></category><category><![CDATA[portland]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 14 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Wife on the Telly, Kicking Ass and Taking Names]]></title><description><![CDATA[<p>My wife <a href="http://www.girlwrites.com">Shauna</a> just started a fellowship at the <a href="http://www.nwcrc.org/">Northwest Constitutional Rights Center</a> as an attorney. During her first week on the job, there was an <a href="http://portland.indymedia.org/en/2006/10/347085.shtml">anti-Bush protest in downtown Portland</a>, that unfortunately turned violent when a group of protesters went off-route and were turned back by police, using pepper spray, rubber bullets and horses. Shauna was on one of the local news channels that night, giving the NWCRC&#39;s comment on what happened:</p>
+<p><a href="http://dietrich.ganx4.com/movies/portland-protest-k2-coverage-10-5-06.mp4">Watch video</a> (6mb MPEG4)</p>
+]]></description><link>/2006/10/wife-on-the-telly-kicking-ass-and-taking-names/index.html</link><guid isPermaLink="true">/2006/10/wife-on-the-telly-kicking-ass-and-taking-names/index.html</guid><category><![CDATA[oregon]]></category><category><![CDATA[political]]></category><category><![CDATA[politics]]></category><category><![CDATA[portland]]></category><category><![CDATA[Videos]]></category><category><![CDATA[war]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 12 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Cool it, baby.]]></title><description><![CDATA[<p>This software cocktail cooled my MacBook Pro by more than 40 degrees Fahrenheit:</p>
+<ol>
+<li>Install the <a href="http://shockwidgets.com/ministat2update1.8.htm">MiniStat2 Dashboard widget</a>. It shows CPU temperature as well as fan speed. This allows you to do easy before/after verification.</li>
+<li>Install <a href="http://www.bernhard-baehr.de/">SleepWatcher,</a> which executes commands at wake/sleep events.</li>
+<li>Finally, install <a href="http://members.optusnet.com.au/a1291762/2006/10/changing-fan-speed-to-beat-heat.html">FanSpeed</a>, which increases the minimum fan speed.</li>
+</ol>
+<p>Before: 132F
+After: 84F</p>
+<p>There are downsides (noticeable fan sound, uses more power), but having a laptop that I can have in my lap is well worth it.</p>
+]]></description><link>/2006/10/entering-a-brave-new-world-of-lap-computing/index.html</link><guid isPermaLink="true">/2006/10/entering-a-brave-new-world-of-lap-computing/index.html</guid><category><![CDATA[Apple]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 11 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mini-review: The Albina Press, North Portland (another coffeehouse)]]></title><description><![CDATA[<p>Great atmosphere, lots of places to sit inside and out. Sweet treats and Beta Band beats. Located a bit north of the main Mississippi area. It&#39;s east of Interstate 5, but the area seems to be referred to as North Portland, not Northeast.</p>
+<ul>
+<li>Wi-fi: free</li>
+<li>Coffee: Stumptown</li>
+<li>Food: cookies, scones, bagels</li>
+</ul>
+<p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;q=4637+N.+Albina+Ave,+portland+OR&amp;ie=UTF8&amp;om=1">Map</a></p>
+]]></description><link>/2006/08/mini-review-the-albina-press-north-portland-another-coffeehouse/index.html</link><guid isPermaLink="true">/2006/08/mini-review-the-albina-press-north-portland-another-coffeehouse/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mini-review: Northstar Coffeehouse, North Portland]]></title><description><![CDATA[<p>Good atmosphere, but small. Located off Interstate, one block north of Lombard, so it&#39;s pretty far out there, but accessible if you&#39;re stuck up in NOPO. It&#39;s right off the MAX line, and one block from the Fred Meyer.</p>
+<ul>
+<li>Wi-fi: free</li>
+<li>Coffee: Stumptown</li>
+<li>Food: quality baked goods, bagels</li>
+</ul>
+<p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;q=7540+N.+Interstate,+Portland+OR&amp;ie=UTF8&amp;om=1">Map</a></p>
+]]></description><link>/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</link><guid isPermaLink="true">/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Hello world!]]></title><description><![CDATA[<p>Welcome to <a href="http://wordpress.com/">WordPress.com</a>. This is your first post. Edit or delete it and start blogging!</p>
+]]></description><link>/2006/06/hello-world/index.html</link><guid isPermaLink="true">/2006/06/hello-world/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 15 Jun 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Tinderbox Microsummary Update: Tree Closures]]></title><description><![CDATA[<p>I updated the Tinderbox microsummary generator to show whether the tree is open or closed, and to properly display the tree name.</p>
+<p>You can install it <a href="http://dietrich.ganx4.com/mozilla/tinderbox-microsummary.xml">here</a>.</p>
+<p>The information shown:</p>
+<ul>
+<li>Tree Name</li>
+<li>Open/closed</li>
+<li>Ok/burning (and then lists the names of the burning tinderboxes)</li>
+</ul>
+]]></description><link>/2006/06/tinderbox-microsummary-update-tree-closures/index.html</link><guid isPermaLink="true">/2006/06/tinderbox-microsummary-update-tree-closures/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 15 Jun 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Programming the Masses with Amazon's Mechanical Turk]]></title><description><![CDATA[<p>Some notes I took while watching <a href="http://www.syndic8.com/weblog/">Jeff Barr&#39;s</a> <a href="http://xtech06.usefulinc.com/schedule/detail/192">presentation</a> at <a href="http://xtech06.usefulinc.com/">XTech</a>:</p>
+<ul>
+<li>Mass social-engineering: Hacking people by assigning them tasks.</li>
+<li>You can request certain skills/knowledge. Can you request geographical location? religious/political affiliation?</li>
+<li>Limited by cost? Might be able to buy large amounts of people/tasks by the stay-at-home workers, etc.</li>
+<li>Amazon only requires that users agree to abide by their license, and hands off responsibility for obeying local and international laws to the users.</li>
+</ul>
+<p>Two classes of people likely do Turk-tasks:</p>
+<ol>
+<li>The minority will be those with very specialized knowledge, doing analysis for high pay.</li>
+<li>The majority will be poor and uneducated, doing tasks that require little or no skills, for low pay.</li>
+</ol>
+<p>The key is finding axes of maximum paradigmatic effectiveness: Images or documents that elicit a gut-level reaction in the receiver, thereby planting a seed for consciousness change.</p>
+<ul>
+<li>Read and analyze negative/positive materials</li>
+<li>View images that contain embedded or subliminal messaging</li>
+</ul>
+<p>Could do this for whatever your particular cause or goal: political, religious, lifestyle (eg: vegan-ism) and marketing.</p>
+<p>Also, it might be an interesting platform for doing market-research.
+<a href="http://join.leashsex.com/track/MjA4MTo1OjU/"> </a><a href="http://join.over18under21.com/track/MjA4MTo1OjE5/"> </a><a href="http://join.secretaryhoes.com/track/MjA4MTo1OjE4/"> </a><a href="http://join.sloppygaggers.com/track/MjA4MTo1OjEy/"> </a><a href="http://join.spermblasters.com/track/MjA4MTo1OjQ/"> </a><a href="http://join.stockingstars.com/track/MjA4MTo1OjM/"> </a><a href="http://secure.fuckmyjeans.com/track/Mjg3OjI6Mg/"> </a><a href="http://secure.lustyoffice.com/track/Mjg3OjI6Mw/"> </a><a href="http://secure.thepussylicker.com/track/Mjg3OjI6MQ/"> </a><a href="http://signup.asianbabymakers.com/track/NjE0OjI5Ojk/"> </a><a href="http://signup.assholemassacre.com/track/NjE0OjI5OjI/"> </a><a href="http://signup.bangkokstreetwhores.com/track/NjE0OjI5OjEw/"> </a><a href="http://signup.blacksoneverything.com/track/NjE0OjI5OjQ/"> </a><a href="http://signup.forbiddentokyo.com/track/NjE0OjI5OjE/"> </a><a href="http://signup.racknrump.com/track/NjE0OjI5OjM/"> </a><a href="http://signup.siamslam.com/track/NjE0OjI5Ojg/"> </a><a href="http://signup.thedirtywhiteboy.com/track/NjE0OjI5Ojc/"> </a><a href="http://signup.trannyfluid.com/track/NjE0OjI5OjEy/"> </a><a href="http://join.classicbareback.com/track/MjA3OjExOjM/"> </a><a href="http://join.goodoldxxx.com/track/MjA3OjExOjE/"> </a><a href="http://join.nostalgiaporn.com/track/MjA3OjExOjQ/"> </a><a href="http://signup.dviantangels.com/track/MTc0OjM6MQ/"> </a><a href="http://signup.dviantboys.com/track/MTc0OjM6Mw/"> </a><a href="http://signup.dviantexoticbabes.com/track/MTc0OjM6NQ/"> </a><a href="http://signup.dvianthornyshemales.com/track/MTc0OjM6Nw/"> </a><a href="http://signup.dviantmanatwork.com/track/MTc0OjM6Ng/"> </a><a href="http://signup.dviantshemales.com/track/MTc0OjM6NA/"> </a><a href="http://join.sexylette.com/track/MTkzOjI6MQ/"> </a><a href="http://join.buttbunnies.com/track/MTAwMTM0OTo2OjE2/"> </a><a href="http://join.cutecouples.com/track/MTAwMTM0OTo2OjU3/"> </a><a href="http://join.dpbabes.com/track/MTAwMTM0OTo2OjQ0/"> </a><a href="http://join.drippingcreampies.com/track/MTAwMTM0OTo2OjM/"> </a><a href="http://join.interracial.com/track/MTAwMTM0OTo2OjI/"> </a><a href="http://join.lesbiantraining.com/track/MTAwMTM0OTo2OjQ/"> </a></p>
+]]></description><link>/2006/06/programming-the-masses-with-amazons-mechanical-turk/index.html</link><guid isPermaLink="true">/2006/06/programming-the-masses-with-amazons-mechanical-turk/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sun, 11 Jun 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[What a way to go]]></title><description><![CDATA[<p>Though tragic, I&#39;m still laughing after reading this::  </p>
+<blockquote>
+<p><strong>Purity Distilling Company tank, 1919</strong><br>You gotta keep your molasses somewhere - how about a rickety tank 50 feet tall and 90 feet in diameter in the middle of Boston? The structure was painted brown to hide the leaks. Eventually it burst (possibly exploding from fermentation), sending waves of molasses up to 15 feet high into the city and killing 21.That really was the best one in&nbsp; <a href="http://www.wired.com/wired/archive/14.06/start.html?pg=9">this list</a>.</p>
+</blockquote>
+]]></description><link>/2006/06/what-a-way-to-go/index.html</link><guid isPermaLink="true">/2006/06/what-a-way-to-go/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 02 Jun 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Tinderbox Status Microsummary]]></title><description><![CDATA[<p>The point at which I regressed browser startup time in the Firefox 2 Alpha 2 was about the same point at which I started keeping a very keen eye on <a href="http://tinderbox.mozilla.org">Tinderbox</a>. Thus, a Tinderbox status Microsummary! <a href="http://wiki.mozilla.org/Microsummaries">Microsummaries</a> are a hot new feature in Firefox 2 - basically a bookmark with a label that periodically updates. This Tinderbox Microsummary will show &quot;OK&quot; or &quot;{#} Burning ({hostnames})&quot; for the tree that you bookmark. Support for orange trees is not there yet.</p>
+<p>You can install it <a href="http://dietrich.ganx4.com/mozilla/tinderbox-microsummary.xml">here</a>.</p>
+<p>Also, here&#39;s a snippet of <a href="http://dietrich.ganx4.com/mozilla/microsummary.xsl">XSL</a> for allowing your generators to display themselves, as they traipse about the internets.</p>
+]]></description><link>/2006/05/tinderbox-status-microsummary/index.html</link><guid isPermaLink="true">/2006/05/tinderbox-status-microsummary/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 19 May 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[911 is a Joke (from my mobile anyway)]]></title><description><![CDATA[<p>This morning a guy fell off his bike in front of our house. He had his dog on a leash, and it looked like the dog or leash had gotten tangled in the bike. He wasn&#39;t wearing a helmet. Blood ran from his head, almost down to the gutter, about 6 feet.</p>
+<p>I grabbed my phone and ran out of the house when I heard a woman screaming for someone to call 911. After a glimpse at the scene out front,  I ran back in for a towel. While doing this, I called 911. I heard a voice answer, and I started to explain the situation. Almost immediately I noticed that the voice was still talking. It was a recording. I believe the recording said something about dialing more numbers to <em>really</em> get 911. But I&#39;m not sure. As soon as I realized it was a recording, I chucked the phone, while running back outside to try to keep this guy&#39;s brains where they belong.</p>
+<p>WTF. I wonder if that recording I heard was from 911, or from my phone company, T-<a href="http://www.phone-movies.org">Mobile</a>. Either way, people could die because of crap like that.</p>
+<p>A few other observations:</p>
+<ul>
+<li>Head wounds bleed a lot of very thick blood.</li>
+<li>Firefighters and EMTs walk very slowly, even in the presence of lots of very thick blood.</li>
+<li>To clean up large amounts of blood, the EMTs use a special disinfectant that looks a bit like cat litter. They said to not hose the area down until it had sat for a few hours. However, a car drove by a few seconds later, leaving a trail of it down our street.</li>
+<li>The dog shat itself because of the accident. Or it shat itself, causing the accident. Either way, it smelled really bad. (Can you tell I&#39;m not a dog person?)</li>
+<li>My wife is paralyzed by the sight of blood. If this happens to me, and she&#39;s the only one around, I&#39;m S.O.L.</li>
+<li>Note to self: Wear a friggin helmet.</li>
+</ul>
+]]></description><link>/2006/04/911-is-a-joke-from-my-mobile-anyway/index.html</link><guid isPermaLink="true">/2006/04/911-is-a-joke-from-my-mobile-anyway/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 22 Apr 2006 00:00:00 GMT</pubDate></item></channel></rss>

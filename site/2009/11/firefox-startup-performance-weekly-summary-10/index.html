@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - Dietrich Ayala</title>
+    <meta name="description" content="Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2009/11/firefox-startup-performance-weekly-summary-10/index.html" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup">
+
+        <header class="post-header">
+            <h1 class="post-title">Firefox Startup Performance Weekly Summary</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2009-11-14">14 November 2009</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/firefox/">firefox</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/performance/">Performance</a>, <a href="/tag/startup/">startup</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Current numbers are available on the <a href="http://graphs.mozilla.org/dashboard/snapshot/">Performance Snapshot</a> page. Thanks to <a href="http://atlee.ca/blog/">Chris Atlee</a> for deploying it to the graph server. The snapshot is updated every 5 minutes with fresh data from Talos.</p>
+<p>Summary, relative to Firefox 3.5:</p>
+<ul>
+<li>Warm startup: For Mac, 26% better on 3.6 and 31% better on 3.7. For Windows, 4% and 7%. Flat on Linux.</li>
+<li><p>Cold startup:  For Mac, 22% better on 3.6, 23% better on 3.7. For Windows, not measuring yet. For Linux, 3% and 9%.
+This week&#39;s activity:</p>
+</li>
+<li><p>Using the data from <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524202">bug 524202</a>, Joel is tracking down exactly how and when dynamic library code is loaded. They&#39;re past diagnostics, and are now into implementation, coaxing the linker into ordering functions in the optimal sequence. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524202#c3">this  comment</a> for a good summary of the issue. Joel put up <a href="http://wagerlabs.com/post/230853261/tracking-io-patterns-in-memory-mapped-dynamic-libaries">a very detailed blog post</a> about the work they&#39;ve been doing.</p>
+</li>
+<li>Ryan Flint updated the<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=496217"> spellcheck bug</a> with some new findings.</li>
+<li>I got a working (so far) patch for Windows cold-startup testing for Talos on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=522807">bug 522807</a>.</li>
+<li>Taras is in the patch review cycle for service caching in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug         516085</a>.</li>
+<li>Re-enabling rebasing on  Windows in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=484799">bug    484799</a> has review now, just needs landing.</li>
+<li>John Dagget and Jonathan Kew have a bunch of new findings in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug       519445</a> for further reductions in Mac startup       time spent in font system initialization. Sometimes the patch helps, sometimes it doesn&#39;t.</li>
+<li>B<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512645">ug    512645</a>, removing the setTimeout 10ms wait in chrome JS has landed.</li>
+<li><p>Drew&#39;s work on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506814">bug     506814</a>, getting rid of Change      GetPersistentDescriptor/SetPersistentDescriptor on Mac, has landed.
+Projects in a holding pattern:</p>
+</li>
+<li><p>Ben Hsieh has been prototyping a whole Fastload cache  replacement in  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">bug   520309</a>.</p>
+</li>
+<li>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS         modules into a JAR file</a>, since those files are fastloaded.        However, since we want things like post-extension-install restarts  to   be     fast, and those cause fastload cache invalidation, we might   want  to   do   things like this anyways. I filed a bug for the same   treatment  for     components. These are lower priority, since they&#39;re   not the  normal     startup case. Follow along with all JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the        tracker  bug</a>.</li>
+<li>Startup Timeline: No updates, still not landed. Add [ft] in the       whiteboard of your bug w/ the function names you want timed and David       will generate it and update the bug.</li>
+<li>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug       506128</a>.  David needs to file a bug with the final log of       named-yet-uncalled  functions.</li>
+<li>Dirty Profile Testing: No progress. Need to list scenarios, file       bugs  for each, generate Talos config patches and profile data, and   then     move  it into Rel-Eng territory. Also, need to get a separate      Tinderbox  tree,  since it&#39;s going to cause a bazillion new columns.</li>
+<li><a href="http://wagerlabs.com/">Joel       Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug       513076</a> that there are serious drawbacks to getting our libraries in       the dyld  shared cache on Mac, so has deprioritized that work.</li>
+<li>No updates on Zack&#39;s CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug         513149</a>.
+As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the      project wiki</a>, and we&#39;re available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/33bd1644f6fe171d2b6f70af96c86185.jpeg)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location"> </span>
+                    <span class="author-link icon-link"><a href="http://metafluff.com">http://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Firefox%20Startup%20Performance%20Weekly%20Summary&amp;url=/2009/11/firefox-startup-performance-weekly-summary-10/index.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2009/11/firefox-startup-performance-weekly-summary-10/index.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2009/11/firefox-startup-performance-weekly-summary-10/index.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2009</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/js/index.js"></script>-->
+
+</body>
+</html>

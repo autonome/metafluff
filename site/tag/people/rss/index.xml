@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 12:19:34 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Interesting Papers by Stephen Mazzocchi]]></title><description><![CDATA[<p>Several papers relating to XML from this Cocoon developer and Apache Group member. Examples:  </p>
+<ul>
+<li><p>Enabling Semantic Searching  </p>
+</li>
+<li><p>Reducing The Effects Of Growth Saturation With The Adoption Of A Publishing Framework Based On XML Technologies  </p>
+</li>
+<li><p>Adding XML Capabilities with Cocoon<a href="http://www.apache.org/~stefano/papers/">Link</a>  </p>
+</li>
+</ul>
+]]></description><link>/2002/11/interesting-papers-by-stephen-mazzocchi/index.html</link><guid isPermaLink="true">/2002/11/interesting-papers-by-stephen-mazzocchi/index.html</guid><category><![CDATA[cms]]></category><category><![CDATA[people]]></category><category><![CDATA[xml]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 21 Nov 2002 00:00:00 GMT</pubDate></item></channel></rss>

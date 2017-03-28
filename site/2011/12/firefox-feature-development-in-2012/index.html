@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - Dietrich Ayala</title>
+    <meta name="description" content="Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2011/12/firefox-feature-development-in-2012/index.html" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-mozilla nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-mozilla">
+
+        <header class="post-header">
+            <h1 class="post-title">Firefox Feature Development in 2012</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2011-12-23">23 December 2011</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/mozilla/">mozilla</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>This year we started talking about ways to improve the methods in which develop Firefox features. This is a snapshot of where we&#39;re at, and what&#39;s coming next.</p>
+<p>We began with some conversations about current problems regarding coordination, speed, contribution, regressions, ease of development: <a href="https://groups.google.com/forum/#!topic/mozilla.dev.planning/K1fr4VqtQTA">my initial dev.planning post</a>, <a href="http://incompleteness.me/mozblog/2011/09/16/how-to-eat-an-elephant/">Joe Walker&#39;s post &#39;How to Eat an Elephant&#39;</a>, <a href="http://autonome.wordpress.com/2011/10/25/building-firefox-in-the-post-browser-age/">my blog post</a>, <a href="https://groups.google.com/forum/#!topic/mozilla.dev.planning/oCMjhx5siEU/discussion">dev.planning add-on bundling post</a>.</p>
+<p>There was general recognition that the Firefox development model is not agile nor flexible enough to meet the needs of our 2012 goals. We need to be able to ship features that are developed mostly outside of what&#39;s considered the &quot;core&quot; Firefox team. We need to better support the use of external code repositories and bug tracking systems. We need to support features written using the Add-on SDK, both inside and bundled with Firefox.</p>
+<p>Here&#39;s where we&#39;re at:</p>
+<ul>
+<li>A group of people formed to start discussing how to make these things happen: the Jetpack Features group. We meet every other Friday (<a href="https://wiki.mozilla.org/Jetpack/Features">meeting details and notes</a>).</li>
+<li>We have a project branch (Cedar) where we can experiment and do performance testing.</li>
+<li>We corralled the Firefox and Toolkit module owners and the leads of the SDK project in a room to orchestrate the mechanics of landing the SDK inside Firefox itself (<a href="https://etherpad.mozilla.org/jetpack-in-firefox">notes</a>).</li>
+<li>L10n: The Jetpack team are hard at work on closing this gap with both <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=691782">localized strings in script</a> and <a href="https://github.com/mozilla/addon-sdk/wiki/HTML-Page-Localization">localization of HTML content inside add-ons</a>.</li>
+<li>Performance: <a href="http://blog.mozilla.com/addons/2011/12/12/sdk-1-3-performance-impact/">Jeff Griffiths blogged recently</a> about the performance impact of the core SDK runtime on startup time. More performance tests are coming.</li>
+<li>Feature bundling: The BrowserID feature will likely ship in Firefox as a bundled add-on. There are still open questions though: Is it uninstallable? Does it even show up in the Add-ons Manager? Can it upgrade outside of the Firefox dev cycle? More work to do here.</li>
+<li><p>Automation: We have the Jetpack unit tests being run with every Mozilla-central check-in (<a href="http://tbpl.mozilla.org/?tree=Firefox&amp;noignore=1">though hidden by default currently</a>). We have the SDK unit tests running on every SDK check-in for both Nightly and Aurora (<a href="https://tbpl.mozilla.org/?tree=Jetpack&amp;usetinderbox=1">tree</a>). We still need the Mozilla-central unit tests run on every SDK check-in (that&#39;ll come with integrating the SDK into Firefox), and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=702684">performance tests run for Mozilla-central and SDK check-ins</a>.
+What&#39;s coming up in 2012:</p>
+</li>
+<li><p>Completing the picture of addon-as-feature integration into the Moz-ecosystem: l10n, performance and unit test automation.</p>
+</li>
+<li>Ship BrowserID as a bundled add-on.</li>
+<li>Ship the SDK inside Firefox (the relevant parts, anyway).</li>
+<li>Ship Web Apps as a bundled add-on, if it makes sense to do so.</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/33bd1644f6fe171d2b6f70af96c86185.jpeg)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location"> </span>
+                    <span class="author-link icon-link"><a href="http://metafluff.com">http://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Firefox%20Feature%20Development%20in%202012&amp;url=/2011/12/firefox-feature-development-in-2012/index.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2011/12/firefox-feature-development-in-2012/index.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2011/12/firefox-feature-development-in-2012/index.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2011</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/js/index.js"></script>-->
+
+</body>
+</html>
