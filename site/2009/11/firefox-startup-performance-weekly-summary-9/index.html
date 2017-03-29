@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - Dietrich Ayala</title>
+    <meta name="description" content="Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2009/11/firefox-startup-performance-weekly-summary-9/index.html" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup">
+
+        <header class="post-header">
+            <h1 class="post-title">Firefox Startup Performance Weekly Summary</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2009-11-07">07 November 2009</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/firefox/">firefox</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/performance/">Performance</a>, <a href="/tag/startup/">startup</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>This week brings a boost in visibility of results, not just for startup, but for all the performance testing we&#39;re doing on all branches and platforms. As I mentioned last week, I was working on an automated method of generating the cross-branch startup results. Luckily <a href="http://blog.johnath.com/">Johnath </a>and <a href="http://atlee.ca/blog/">Chris Atlee</a> had done the hard work when making the <a href="http://graphs.mozilla.org/dashboard/">performance dashboard</a>. It has a JSON file that contains a roll-up of the previous 7 days performance data, which is updated every 5 minutes with new Talos results. Using that as the datasource, I wrote  a script summarizes the results for each test+branch+OS combination across all the boxes that returned results, as well as stable branch and previous week differences. The final product gives a snapshot view of how each branch compares to the stable branch.</p>
+<p>This is useful for a few different reasons. First, we (and the press and our users and our managers and everyone really) are able to know at-a-glance how any branch compares to the stable release branch. An example of another use is that before the JS team does a Tracemonkey merge, they can quickly see if any major performance effects can be expected.</p>
+<p>The table shows red or green for any differences that are outside of a 2% threshold, to take test noise into account. This is quite liberal, as I&#39;ve already calculated the numbers to take into account whether the difference is within the standard deviation. Reducing the noise in the tests would be a big help - perhaps some researcher will take up <a href="http://weblogs.mozillazine.org/roc/archives/2009/11/challenges_in_s.html">Roc&#39;s challenge</a>. A second point of trust is my math :) I&#39;m not a statistician, so please view source and let me know where I&#39;ve miscalculated.</p>
+<p>An example of the full report is <a href="http://people.mozilla.org/~dietrich/snapshot/">here</a>. I&#39;m going to file a bug and work with release-engineering to get it pushed out to the graph server, where the dashboard lives. The data from this week&#39;s startup table is copied below (though sans the color-coding of the real thing. Actually, now Wordpress keeps stripping out my styles, so you get an ugly table this week).</p>
+<h1 id="ts">Ts</h1>
+<p><table style="border-spacing:0;border-collapse:collapse;border:0 0 1px 1px solid #600;"></p>
+<p><tbody></p>
+<p><tr></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;"></td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">Firefox3.5</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">Firefox3.6</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">Firefox</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">TraceMonkey</td>
+</tr></p>
+<p><tr></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">Leopard</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  1469deviation: 110mean: 1481</p>
+<p>from last week: 2%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  1115
+deviation: 59
+mean: 1096
+from last week: 3%
+from 3.5: 26%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 1036
+deviation: 48
+mean: 1006
+from last week: 1%
+from 3.5: 32%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 1014
+deviation:  38
+mean: 1000
+from last week: 0%
+from 3.5: 32%</td>
+</tr></p>
+<p><tr></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">Linux</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  625
+deviation: 7
+mean: 626
+from last week: 0%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  632
+deviation: 7
+mean: 633
+from last week: 0%
+from 3.5: -1%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 619
+deviation: 10
+mean: 623
+from last week: 1%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 628
+deviation: 7
+mean: 628
+from last week: 0%</td>
+</tr></p>
+<p><tr></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">Vista</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  538
+deviation: 8
+mean: 540
+from last week: 0%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  533
+deviation: 13
+mean: 537
+from last week: 1%
+from 3.5: 1%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 503
+deviation: 23
+mean: 509
+from last week: 0%
+from  3.5: 6%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 511
+deviation: 41
+mean: 531
+from last week: 11%
+from 3.5: 2%</td>
+</tr></p>
+<p><tr></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">XP</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  461
+deviation: 6
+mean: 461
+from last week: 0%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median:  464
+deviation: 6
+mean: 464
+from last week: 1%
+from 3.5: -1%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 448
+deviation: 7
+mean: 448
+from last week: 0%
+from  3.5: 3%</td></p>
+<p><td style="background-color:#ffc;border:1px 1px 0 0 solid #600;margin:0;padding:4px;">median: 530
+deviation: 38
+mean: 501
+from last week: 10%
+from  3.5: -9%</td>
+</tr>
+</tbody></table>
+This week&#39;s activity:</p>
+<ul>
+<li>Taras and Joel are still working on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524202">bug 524202</a>, tracking down exactly how and when dynamic library code is loaded. They&#39;re past diagnostics, and are now into implementation, coaxing the linker into ordering functions in the optimal sequence. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524202#c3">this  comment</a> for a good summary of the issue. Joel put up <a href="http://wagerlabs.com/post/230853261/tracking-io-patterns-in-memory-mapped-dynamic-libaries">a very detailed blog post</a> about the work they&#39;ve been doing.</li>
+<li>Ryan Flint <a href="http://screwedbydesign.com/blog/2009/11/this-week-in-perf-nov06.php">posted an update on his startup bug activity</a> this week.</li>
+<li>Have a patch enabling Windows cold-startup testing for Talos for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=522807">bug 522807</a>, but it&#39;s causing the whole OS to freeze, only recoverable via reboot. Fun! I also added some <a href="https://wiki.mozilla.org/Firefox/Sprints/Startup_Time_Improvements#Tips.2C_Tools">details and links about how Prefetch/SuperFetch work</a> on Windows to the wiki.</li>
+<li>Rob Strong pushed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=311965">bug 311965</a> to mozilla-central, comm-central and 1.9.2 while also ensuring not to break all the toolkit apps that depend on this code. Truly a gentleman of the Mozilla ecosystem.</li>
+<li>Taras put a new patch up for service caching in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug         516085</a>.</li>
+<li>Everything is about ready for re-enabling rebasing on  Windows in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=484799">bug    484799</a>, just needs landing.</li>
+<li>John Dagget posted some test times in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug       519445</a> for yet further reductions in Mac startup       time spent in font system initialization, just needs review.</li>
+<li><p>B<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512645">ug    512645</a>, removing the setTimeout 10ms wait in chrome JS, is ready to land. I&#39;ll try to land this weekend if the bug owner doesn&#39;t get around to it first (hint hint).
+Projects in a holding pattern:</p>
+</li>
+<li><p>Drew has a patch up for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506814">bug    506814</a>, getting rid of Change     GetPersistentDescriptor/SetPersistentDescriptor on Mac, just needs   review from Josh.</p>
+</li>
+<li>Ben Hsieh has been prototyping a whole Fastload cache  replacement in  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">bug   520309</a>.</li>
+<li>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS         modules into a JAR file</a>, since those files are fastloaded.        However, since we want things like post-extension-install restarts  to   be     fast, and those cause fastload cache invalidation, we might   want  to   do   things like this anyways. I filed a bug for the same   treatment  for     components. These are lower priority, since they&#39;re   not the  normal     startup case. Follow along with all JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the        tracker  bug</a>.</li>
+<li>Startup Timeline: No updates, still not landed. Add [ft] in the       whiteboard of your bug w/ the function names you want timed and David       will generate it and update the bug.</li>
+<li>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug       506128</a>.  David needs to file a bug with the final log of       named-yet-uncalled  functions.</li>
+<li>Dirty Profile Testing: No progress. Need to list scenarios, file       bugs  for each, generate Talos config patches and profile data, and   then     move  it into Rel-Eng territory. Also, need to get a separate      Tinderbox  tree,  since it&#39;s going to cause a bazillion new columns.</li>
+<li><a href="http://wagerlabs.com/">Joel       Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug       513076</a> that there are serious drawbacks to getting our libraries in       the dyld  shared cache on Mac, so has deprioritized that work.</li>
+<li>No updates on Zack&#39;s CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug         513149</a>.
+As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the      project wiki</a>, and we&#39;re available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</li>
+</ul>
+<p>UPDATE: Fixed link to full report.</p>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/33bd1644f6fe171d2b6f70af96c86185.jpeg)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location"> </span>
+                    <span class="author-link icon-link"><a href="http://metafluff.com">http://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Firefox%20Startup%20Performance%20Weekly%20Summary&amp;url=/2009/11/firefox-startup-performance-weekly-summary-9/index.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2009/11/firefox-startup-performance-weekly-summary-9/index.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2009/11/firefox-startup-performance-weekly-summary-9/index.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2009</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/js/index.js"></script>-->
+
+</body>
+</html>

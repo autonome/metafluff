@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - Dietrich Ayala</title>
+    <meta name="description" content="Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox." />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2009/08/firefox-startup-performance/index.html" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-firefox tag-fx-team tag-mozilla tag-mozilla tag-performance nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-firefox tag-fx-team tag-mozilla tag-mozilla tag-performance">
+
+        <header class="post-header">
+            <h1 class="post-title">Firefox Startup Performance</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2009-08-08">08 August 2009</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/firefox/">firefox</a>, <a href="/tag/fx-team/">fx-team</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/performance/">Performance</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>A team of Firefox developers and others are working on making Firefox startup faster. Per <a href="http://beltzner.ca/mike/2009/08/07/firefox-team-weekly-roundups-planning-sprinting-and-reporting/">Mike Beltzner&#39;s post</a>, we&#39;ll be updating our status weekly. Here&#39;s the status of what the team did this week, as well as pointers to some other work going on. The list here highlights major points, but is not complete. Many more details of these projects, as well as other areas for investigation can be found on the <a href="https://wiki.mozilla.org/Firefox/Sprints/Startup_Time_Improvements">wiki page</a>, and on <a href="http://blog.vlad1.com/">Vlad</a> and <a href="http://blog.mozilla.com/tglek/">Taras&#39;</a> blogs.</p>
+<p><strong>Status</strong></p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=507101">XPCOM component combining</a> (Dietrich): Manually combined a bunch of files, and found improvements in sub 100ms, but varying results, so going to check-in to the Places branch temporarily to get better  numbers. Writing a script to hook into the build system to knit the components together automatically, but need better numbers before going further.</li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=419893">Enabling PGO for SQLite, mozStorage and Places</a> (Dietrich): Made a patch to re-enable PGO for these, and checked into the Places branch. Currently there are unit tests failing, but they look unrelated. Need to trigger more runs to ensure that&#39;s the case. Performance numbers are not definitive, need more runs to complete.</li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">Dead code  hunting with JSHydra</a> (DDahl): Have basic code for function finding,  making progress on code for building JS context for chrome URIs. (props  for help from taras, humph, jcranmer in #static)</li>
+<li>Combining XPT files on Mac (Drew): Potentially significant gain of a few seconds on startup, investigation continuing.</li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=480735">Startup Timeline</a> (Vlad, DDahl): This is still in review.</li>
+<li><p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=504864">Combining jar files</a> (Taras): This is ready to check-in (again).
+<strong>Next Steps</strong></p>
+</li>
+<li><p>Confirm numbers for combining JS components, finish script to automate combining, work with Ted to hook it into the packaging process, see if any modules can be combined.</p>
+</li>
+<li>Find out why tests are failing for PGO and quantify gain/loss when the slow tinderboxen finally report some numbers.</li>
+<li>Get the startup timeline reviewed, landed and start adding markers and performing analysis.</li>
+<li>Investigate why wall-clock time of combined jars doesn&#39;t decrease.</li>
+<li>Get full browser JS context working in JSHydra, write the uncalled-function script, file dead-code bugs, get it plugged into continuous integration on tinderbox.</li>
+<li>Get <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=475289">bug 475289</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=499123">bug 499123</a> landed, further reducing IO and component registration time spent at startup.</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/33bd1644f6fe171d2b6f70af96c86185.jpeg)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is a developer relationist working for internet freedom at Mozilla, the non-profit makers of Firefox.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location"> </span>
+                    <span class="author-link icon-link"><a href="http://metafluff.com">http://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Firefox%20Startup%20Performance&amp;url=/2009/08/firefox-startup-performance/index.html"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2009/08/firefox-startup-performance/index.html"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=/2009/08/firefox-startup-performance/index.html"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2009</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
+    <script src="/assets/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/js/index.js"></script>-->
+
+</body>
+</html>

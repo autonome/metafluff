@@ -1,0 +1,26 @@
+{
+  "name": "metafluff",
+  "version": "1.0.0",
+  "description": "my website yo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "render": "ghost-render --input ./posts/ --settings ./ghost-render.json --theme ./theme --output ./site",
+    "makeprod": "mv site/index.html site/posts.html && cp additive/*.* site/",
+    "newpost": "mkdir -p posts/$(date +\"%Y/%m/%d\")/$NAME",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-static": "^0.7.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autonome/metafluff.git"
+  },
+  "author": "Dietrich Ayala <autonome@gmail.com> (http://metafluff.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/autonome/metafluff/issues"
+  },
+  "homepage": "https://github.com/autonome/metafluff#readme"
+}

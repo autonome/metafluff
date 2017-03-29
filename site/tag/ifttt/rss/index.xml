@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 15:51:55 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT]]></title><description><![CDATA[<p><a href="http://sensorweb.io/">Project SensorWeb</a> is an experiment from the <a href="https://wiki.mozilla.org/Connected_Devices/Projects">Connected Devices</a> group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&#39;ve had some <a href="http://topics.oregonlive.com/tag/toxic%20air/">serious air quality discoveries in Portland</a> recently - our air is possibly <a href="http://koin.com/2016/03/02/study-portland-air-among-worst-in-nation/">the worst in the USA</a>, and bad enough that <a href="http://koin.com/2016/02/26/erin-brockovich-joins-portland-air-quality-fight/">mega-activists like Erin Brockovich are getting involved</a>.</p>
+<p><img src="screen-shot-2016-07-13-at-5-21-01-pm.png" alt="Screen Shot 2016-07-13 at 5.21.01 PM"></p>
+<p>A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&#39;re still setting up the project so I haven&#39;t gotten the configuration info from them yet...</p>
+<p>But you don&#39;t need the SensorWeb server to get your sensor up and running and pushing data to your own server! I want a copy of the data for myself anyway, to be able to do my own visualizations and notifications. I can then forward the data on to SensorWeb.</p>
+<p>So I started by flashing the current version of the SensorWeb code to the device, which is a Nodemcu 0.9 board with an ESP8266 wifi chip on board, and a PM2.5 sensor attached to it.</p>
+<p><img src="2016-07-13-17-05-59.jpg" alt="2016-07-13 17.05.59"></p>
+<p>I used <a href="https://rishav006.wordpress.com/2016/06/22/pm2-5-a-sensorweb-project-by-mozilla/">Kumar Rishav&#39;s excellent step-by-step post</a> to get through the process.</p>
+<p>Some things I learned along the way:</p>
+<ul>
+<li>On Mac OS X you need a <a href="https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx">serial port driver</a> in order for the Arduino IDE to detect the board.</li>
+<li>After much gnashing of teeth, I discovered that you can&#39;t have the PM2.5 sensor plugged into the board when you flash it.
+After getting the regular version flashed correctly, I tested with Kumar&#39;s API key and device id, and confirmed it was reporting the data correctly to the SensorWeb server.</li>
+</ul>
+<p>Now for the changes.</p>
+<ul>
+<li>I set up <a href="https://ifttt.com/maker">the Maker channel on IFTTT</a>, which allows me post data to an HTTP endpoint to get it into IFTTT&#39;s system.</li>
+<li>I then created a new <a href="https://ifttt.com/recipes/440904-save-pm2-5-data-to-a-spreadsheet">IFTTT recipe that accepts the data from the device and pushes it into a Google spreadsheet</a>.</li>
+<li>I forked the SensorWeb code and <a href="https://github.com/autonome/arduino-station/blob/master/station/nodemcu/nodemcu.ino">modified it to post to the Maker channel instead of the SensorWeb server</a>.
+I flashed the device and viola, it is publishing data to my spreadsheet.</li>
+</ul>
+<p>&nbsp;</p>
+<p><img src="screen-shot-2016-07-13-at-4-48-28-pm.png" alt="Screen Shot 2016-07-13 at 4.48.28 PM"></p>
+<p>And now once SensorWeb is ready to take new devices, I can set up a new IFTTT recipe to forward the posts to them, allowing me to own my own data and also publish to the project!</p>
+]]></description><link>/2016/07/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/index.html</link><guid isPermaLink="true">/2016/07/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/index.html</guid><category><![CDATA[arduino]]></category><category><![CDATA[ifttt]]></category><category><![CDATA[iot]]></category><category><![CDATA[iot]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 14 Jul 2016 00:00:00 GMT</pubDate></item></channel></rss>

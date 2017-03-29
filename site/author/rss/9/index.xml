@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 15:51:57 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[I've Got a Crack Problem]]></title><description><![CDATA[<p>The heat from my Macbook Pro put a giant crack in my desk.</p>
+<p><a href="http://flickr.com/photos/autonome/128156465/"><img src="128156465_e288d9fe37_m.jpg" alt="Mac Crack"></a></p>
+]]></description><link>/2006/04/ive-got-a-crack-problem/index.html</link><guid isPermaLink="true">/2006/04/ive-got-a-crack-problem/index.html</guid><category><![CDATA[Apple]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 14 Apr 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox 4 Kids]]></title><description><![CDATA[<p>Today I gave a presentation to 120 4th graders, as a participant in Career Day at Lowell Elementary School in Long Beach, California. I covered some general intarweb topics, places I had worked, and then talked about Mozilla, Firefox and open-source software.</p>
+<p>You can download my slides <a href="http://dietrich.ganx4.com/Lowell_Career_Day.pdf">here</a>. Obviously, some topics were presented in a very simplified manner.</p>
+<p>I did 3 presentations, to groups of 30-50 kids. I started the presentation by taking a survey (&quot;Raise your hand if...&quot;), then ran through my slides, and then took questions. Here are some observations from the day:</p>
+<ul>
+<li>All of the kids had used a computer (they have a computer lab at the school).</li>
+<li>Almost all of the kids said they had used the internet, and surfed the web.</li>
+<li>About half of the kids said they used email.</li>
+<li>About a quarter of the kids said that they used IM, and those kids were <em>really</em> excited about it.</li>
+<li>Though almost every kid said they surfed the web, when I asked if they knew what a &quot;browser&quot; was, only a couple kids knew. However, I know that they actually <em>were</em> surfing the web because of the questions that they asked. It seemed that the browser was a piece of infrastructure that blended into their general computer experience.</li>
+<li>They really didn&#39;t understand the difference between an internet connection and internet browser. When I said Firefox was free, some kids thought that meant they could get online for free.</li>
+<li>Anywhere from 5-10 kids in each group had heard of Firefox.</li>
+<li>1-2 kids in each group had heard of &quot;open-source&quot;.</li>
+<li>The kids knew of viruses and phishing. They didn&#39;t understand what they were, but knew that they were bad, and from the internet.</li>
+<li>The kids knew about MySpace, and were scared of predators. For real. In each group, someone brought up MySpace, and <em>always</em> in the context of a news story they saw on TV about how some creepy guy was trying to hook up with teenage girls. Local news must be pushing this story.</li>
+<li>Computing in public education means Mac OS8 and Netscape Communicator. And we live in an <em>affluent</em> area. It was crazy to be talking to a group of kids who all knew about Netscape and <em>not</em> Firefox.</li>
+<li>Games! The boys all played games via websites, and wanted to tell me all about them. The only game brought up by a girl was <a href="http://worldofwarcraft.com">WOW</a>.</li>
+<li>They thought the Firefox logo was cool. They thought the Mozilla logo was cooler :)  Especially the boys. Several started grilling me on the anatomical incorrectness of the dinosaur: &quot;If it&#39;s from the pleocistene family it&#39;d have a bump on it&#39;s head and the nostrils would be in a different place.&quot; I had no response to that.</li>
+<li>The kids all knew what &quot;non-profit&quot; meant, and each group had at least one of these kids: &quot;How does Mozilla make any money??!!&quot;. Long discussions about the economics of search referrals and advertising ensued.</li>
+<li>The kids liked &quot;free&quot;, and they only grokked &quot;freedom&quot; when I asked a kid&#39;s name, and said he could take the source code and make his own &quot;JakobBrowser&quot; if he wanted. They loved that.</li>
+</ul>
+<p>Overall, the kids seemed conversationally literate about the internet, more so than I was expecting. There was a general feeling that the internet was cool, but to be feared. They were definitely interested in Firefox, and asked where they could download it. They loved the Firefox stickers I gave out. Tons of thanks to <a href="http://weblogs.mozillazine.org/marcia/">Marcia</a>, who got me more stickers on short notice (I originally thought I was only presenting to my daughter&#39;s class).</p>
+]]></description><link>/2006/04/firefox-4-kids/index.html</link><guid isPermaLink="true">/2006/04/firefox-4-kids/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 08 Apr 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Javascript Style Guide For Mozilla Projects]]></title><description><![CDATA[<p>There doesn&#39;t seem to be one (or I couldn&#39;t find it!). Here are a few guidelines I&#39;ve picked up from recent patch review comments. Please comment if you have additions and corrections, and maybe we can coalesce this into a page on MDC, with examples and the reasoning behind the guidelines.</p>
+<ul>
+<li>Two space indentation is most common in browser/toolkit code</li>
+<li>Lines need to wrap at 80 characters</li>
+<li>Braces are usually same-line, and only used when surrounding a multiline block</li>
+<li>Use an underscore (&quot;_&quot;) as the private prefix for properties and methods</li>
+<li>When wrapping a long expression, the operator goes at the end of the line</li>
+<li>Use spaces instead of tabs</li>
+<li>Adhere to the style of the code you&#39;re fixing (or fix it, if it&#39;s incorrect!)</li>
+<li>Use inline comments liberally</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=317107">bz317107</a>, comments <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=317107#c43">43</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=317107#c46">46</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328159">bz328159</a>, comment <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328159#c8">8</a> (some of the other comments have good critique as well)</li>
+</ul>
+]]></description><link>/2006/03/javascript-style-guide-for-mozilla-projects/index.html</link><guid isPermaLink="true">/2006/03/javascript-style-guide-for-mozilla-projects/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 25 Mar 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Building Firefox on MacIntel]]></title><description><![CDATA[<p>I got Firefox building on my <a href="http://flickr.com/photos/autonome/106192491/">Macbook</a>! The <a href="http://developer.mozilla.org/en/docs/Mac_OS_X_Universal_Binaries">build instructions</a> on MDC were pretty good, and got me through most of the process. However, there were a few iffy spots. Here are some problems I had, and how I resolved them. Note that this mission was not entirely successful: I wasn&#39;t able to build a universal binary, only an Intel build. I was headed down the rabbit hole trying to track down the PPC errors, and didn&#39;t really need it, so gave up (for now!).</p>
+<p>Now that I&#39;m writing this, I wish I&#39;d saved the error messages that I got along the way :P Oh well, here&#39;s what I have, FWIW:</p>
+<ul>
+<li>XCode Doesn&#39;t install the 10.2.8 SDK: The default Universal build options are to build PPC using the 10.2.8 SDK. XCode 2.2.2 does not install this by default. You can find it in the XCode disk image at /Packages/MacOSX10.2.8.pkg.</li>
+<li>GCC Errors: Open a command prompt and just type &quot;gcc&quot;. I got some odd errors about not being able to find a bunch of libraries. I tried again with sudo, and it worked. There&#39;s obviously some permissions wonkiness going on, but I didn&#39;t have time to track it down, so just stuck with sudo-ing it.</li>
+<li><p>LibIDL/Libglib: I had to jump through a couple of hoops to get these installed properly. I couldn&#39;t get Fink to compile, so went with DarwinPorts, which worked ok for the most part.</p>
+<ul>
+<li>Download and compile DarwinPorts from source: <a href="http://darwinports.opendarwin.org/getdp/">link</a>.</li>
+<li>Install LibIDL: This will install libglib as well. The port recommended by the build documentation is libidl1. However, I got all kinds of errors when trying to install this port from source. I used libidl, which worked fine: sudo port install libidl</li>
+</ul>
+</li>
+<li>Remove Fink Residue: I migrated from a powerbook which had Fink installed. I has an init script which sets up include dirs and such. This was causing old non-Intel libraries to be included. The source of the problem was a line it added to ~/.bash_profile. Removed this line: test -r /sw/bin/init.sh &amp;&amp; . /sw/bin/init.sh</li>
+<li>Disable PPC Build: As I mentioned, I was not able to get the PPC build working. You can disable building PPC by adding this line to your .mozconfig: mk_add_options MOZ_BUILD_PROJECTS=&quot;i386&quot;</li>
+</ul>
+<p>Thanks to <a href="irc://irc.mozilla.org#camino">#camino</a> for help figuring this out.</p>
+]]></description><link>/2006/03/building-firefox-on-macintel/index.html</link><guid isPermaLink="true">/2006/03/building-firefox-on-macintel/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 08 Mar 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Transforming OPML into XUL]]></title><description><![CDATA[<p>I was trying to learn more about the <a href="http://xulplanet.com/references/elemref/ref_tree.html">XUL tree widget</a> this evening, and wrote up a quick XSLT for transforming <a href="http://en.wikipedia.org/wiki/OPML">OPML</a> into a XUL Tree:</p>
+<ul>
+<li><a href="http://dietrich.ganx4.com/xul/feeds.opml">The OPML</a></li>
+<li><a href="http://dietrich.ganx4.com/xul/opml2xultree.xsl">The XSLT</a></li>
+<li><a href="http://dietrich.ganx4.com/xul/feeds.xml">The output</a></li>
+</ul>
+<p>Mmmm, a <a href="http://developer.mozilla.org/en/docs/XULRunner">XULRunner</a> stand-alone outliner... wah, we <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=218642">don&#39;t have editable trees</a> in Mozilla yet :(</p>
+]]></description><link>/2006/03/transforming-opml-into-xul/index.html</link><guid isPermaLink="true">/2006/03/transforming-opml-into-xul/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[opml]]></category><category><![CDATA[Outliners]]></category><category><![CDATA[XSLT]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 08 Mar 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Gecko SDK for Mac OSX]]></title><description><![CDATA[<p>Much thanks to <a href="http://www.xulplanet.com/ndeakin/">Neil Deakin</a>, who commented on my previous post with a pointer to the <a href="http://wiki.mozilla.org/Gecko:SDK">Gecko SDK</a>. The Gecko SDK allows developers to compile XPIDL typelibs without having to fetch and build the Mozilla source tree. However, as usual there is no Mac version :P</p>
+<p>I&#39;ve zipped up my copy and put it <a href="http://dietrich.ganx4.com/mozilla/">here</a>. Compiled from the 1.8 tree, on OSX 10.4.5.</p>
+<p>Thanks to <a href="http://www.iosart.com/firefox/gecko-sdk-macosx/">Alex Sirota</a> for his helpful instructions for building a standalone SDK for OSX.</p>
+<p>Also, I&#39;ve moved the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">JS XPCOM &quot;Hello World&quot; tutorial</a> to the <a href="http://developer.mozilla.org/">Mozilla Developer Center</a>, and  updated it to use the SDK instead of building from the source.</p>
+<p>UPDATE: This evening, the surge of immense pain brought on by the masochistic activity known as &quot;jogging&quot; caused this thought to arise: &quot;Oh shit. Are there any licensing issues with having some Mozilla binaries posted here?&quot;</p>
+]]></description><link>/2006/02/gecko-sdk-for-mac-osx/index.html</link><guid isPermaLink="true">/2006/02/gecko-sdk-for-mac-osx/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 27 Feb 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Howto: Build an XPCOM Component in Javascript]]></title><description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Here&#39;s my first cut at a &quot;Hello World&quot; tutorial for creating an XPCOM component in Javascript. The tutorials, wiki pages and knowledge-base entries that exist on this subject are mostly from the perspective of a C++ developer, not a front-end developer, and therefore seemed to always leave out basic steps and information. Slay me with corrections in the comments :)</p>
+<p><span style="color:red;">UPDATE:</span> I&#39;ve moved this tutorial to the Mozilla Developer Center, and made a some of the changes recommended in the comments. Please read the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">updated version</a> instead of this one.</p>
+<p>This is a very utilitarian tutorial (say that 10x fast!): I&#39;m not going to describe how and why XPCOM works the way it does, or what every bit of the example code does. That&#39;s been detailed <a href="http://developer.mozilla.org/en/docs/XPCOM">elsewhere</a>. I&#39;m just going to show you what you need to do to get things <em>working</em>, in as few and as simple steps as possible.</p>
+<p>Caveat: This was done on a Mac. YMMV with Windows.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<strike>Download and compile Firefox. Haha, ok maybe this tutorial is not as simple as I thought :) Seriously though, it takes a while to build, but it&#39;s not hard, and the instructions (at least for Mac) are simple and intuitive. If you don&#39;t want to do this, then you probably don&#39;t need to implement your class as an XPCOM component, and should just stick with plain ol&#39; Javascript. (There is probably a way to fetch and build only what is needed to compile the typelib, but that&#39;s probably more complicated and less documented than building Firefox. Maybe it&#39;s time to build a web-service for compiling XPCOM typelibs...)</strike>
+
+<p><span style="color:red;">Please read the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">updated version</a> of this tutorial!</span></p>
+<h2 id="implementation">Implementation</h2>
+<p>This example component will expose a single method, which returns the string &quot;Hello World!&quot;.</p>
+<h3 id="defining-the-interface">Defining the Interface</h3>
+<p>XPCOM uses a dialect of IDL to define interfaces, called XPIDL. Here&#39;s the XPIDL for our HelloWorld component:</p>
+<p>HelloWorld.idl</p>
+<p><div style="font-size:-1px;overflow:auto;border:1px solid black;"></p>
+<pre>
+#include "nsISupports.idl"
+[scriptable, uuid(1C0E8D86-B661-40d0-AE3D-CA012FADF170)]
+interface nsIHelloWorld: nsISupports {
+  string hello();
+};
+</pre>
+
+
+<p>Note that you must generate a new UUID for each XPCOM component that you create. A web-based UUID generator is available <a href="http://www.bengoodger.com/software/mb/extensions/guidgen.html">here</a>.</p>
+<h3 id="creating-the-component">Creating the Component</h3>
+<p>HelloWorld.js</p>
+<p><div style="font-size:-1px;overflow:auto;border:1px solid black;"></p>
+<pre>
+/***********************************************************
+constants
+***********************************************************/
+
+// reference to the interface defined in nsIHelloWorld.idl
+const nsIHelloWorld = Components.interfaces.nsIHelloWorld;
+
+// reference to the required base interface that all components must support
+const nsISupports = Components.interfaces.nsISupports;
+
+// guid uniquely identifying our component
+const CLASS_ID = Components.ID("{1C0E8D86-B661-40d0-AE3D-CA012FADF170}");
+
+// description
+const CLASS_NAME = "My Hello World Javascript XPCOM Component";
+
+// textual unique identifier
+const CONTRACT_ID = "@dietrich.ganx4.com/helloworld;1";
+
+/***********************************************************
+class definition
+***********************************************************/
+
+//class constructor
+function HelloWorld() {
+};
+
+// class definition
+HelloWorld.prototype = {
+
+  // define the function we want to expose in our interface
+  hello: function() {
+      return "Hello World!";
+  },
+
+  QueryInterface: function(aIID)
+  {
+    if (!aIID.equals(nsIHelloWorld) &&
+        !aIID.equals(nsISupports))
+      throw Components.results.NS_ERROR_NO_INTERFACE;
+    return this;
+  }
+};
+
+/***********************************************************
+class factory
+
+This object is a member of the global-scope Components.classes.
+It is keyed off of the contract ID. Eg:
+
+myHelloWorld = Components.classes["@dietrich.ganx4.com/helloworld;1"].
+                          createInstance(Components.interfaces.nsIHelloWorld);
+
+***********************************************************/
+var HelloWorldFactory = {
+  createInstance: function (aOuter, aIID)
+  {
+    if (aOuter != null)
+      throw Components.results.NS_ERROR_NO_AGGREGATION;
+    return (new HelloWorld()).QueryInterface(aIID);
+  }
+};
+
+/***********************************************************
+module definition (xpcom registration)
+***********************************************************/
+var HelloWorldModule = {
+  _firstTime: true,
+  registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
+  {
+    if (this._firstTime) {
+      this._firstTime = false;
+      throw Components.results.NS_ERROR_FACTORY_REGISTER_AGAIN;
+    };
+    aCompMgr = aCompMgr.
+        QueryInterface(Components.interfaces.nsIComponentRegistrar);
+    aCompMgr.registerFactoryLocation(CLASS_ID, CLASS_NAME,
+        CONTRACT_ID, aFileSpec, aLocation, aType);
+  },
+
+  unregisterSelf: function(aCompMgr, aLocation, aType)
+  {
+    aCompMgr = aCompMgr.
+        QueryInterface(Components.interfaces.nsIComponentRegistrar);
+    aCompMgr.unregisterFactoryLocation(CLASS_ID, aLocation);
+  },
+
+  getClassObject: function(aCompMgr, aCID, aIID)
+  {
+    if (!aIID.equals(Components.interfaces.nsIFactory))
+      throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+
+    if (aCID.equals(CLASS_ID))
+      return HelloWorldFactory;
+
+    throw Components.results.NS_ERROR_NO_INTERFACE;
+  },
+
+  canUnload: function(aCompMgr) { return true; }
+};
+
+/***********************************************************
+module initialization
+
+When the application registers the component, this function
+is called.
+***********************************************************/
+function NSGetModule(aCompMgr, aFileSpec) { return HelloWorldModule; }
+
+</pre>
+
+
+<h2 id="usage">Usage</h2>
+<h3 id="compile-typelib">Compile Typelib</h3>
+<p>Here {objdir} is the directory specified for the MOZ_OBJDIR option in your .mozconfig file.</p>
+<ol>
+<li>Copy HelloWorld.idl to {objdir}/dist/idl/</li>
+<li>Copy HelloWorld.js to {objdir}/dist/bin/components/</li>
+<li>Change directories to {objdir}/dist/idl/</li>
+<li>$../bin/xpidl -m typelib -w -v -e ../bin/components/HelloWorld.xpt HelloWorld.idl</li>
+</ol>
+<p>This will create a typelib file at {objdir}/dist/bin/compontents/HelloWorld.xpt.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="for-extensions-">For extensions:</h3>
+<ol>
+<li>Copy HelloWorld.js and HelloWorld.xpt to {extensiondir}/components/</li>
+<li>Delete compreg.dat and xpti.dat from your profile directory.</li>
+<li>Restart application</li>
+</ol>
+<h3 id="for-firefox-core-using-the-application-that-you-just-built-">For Firefox core, using the application that you just built:</h3>
+<ol>
+<li>Copy HelloWorld.js and HelloWorld.xpt to the {objdir}/dist/bin/components directory</li>
+<li>Delete compreg.dat and xpti.dat from the components directory.</li>
+<li>Delete compreg.dat and xpti.dat from your profile directory.</li>
+<li>Restart application</li>
+</ol>
+<h2 id="using-your-component">Using Your Component</h2>
+<p><div style="font-size:-1px;overflow:auto;border:1px solid black;"></p>
+<pre>
+var oMyComponent = Components.classes['@dietrich.ganx4.com/helloworld;1'].
+                        createInstance(Components.interfaces.nsIHelloWorld);
+
+alert(oMyComponent.hello());
+</pre>
+]]></description><link>/2006/02/howto-build-an-xpcom-component-in-javascript/index.html</link><guid isPermaLink="true">/2006/02/howto-build-an-xpcom-component-in-javascript/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 25 Feb 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Enter The Dragon (er, Lizard)]]></title><description><![CDATA[<p>A new year, a new blog, and a new job too: I hung up my star, and am no longer a Technical Yahoo!. Working at Yahoo! was an amazing experience; I met great people, got to work on interesting projects, and learned more in a year than is probably healthy. But then I got the call...</p>
+<p>Last Monday was my first day as an employee of the <a href="http://www.mozilla.com" title="Mozilla Corporation">Mozilla Corporation</a>. I&#39;m working full-time on Firefox 2, on features such as <a href="http://wiki.mozilla.org/Session_Restore">session restoration</a>.</p>
+<p>New Year&#39;s Resolution: blog more.</p>
+]]></description><link>/2006/02/enter-the-dragon-er-lizard/index.html</link><guid isPermaLink="true">/2006/02/enter-the-dragon-er-lizard/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 16 Feb 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Ouch]]></title><description><![CDATA[<p>A comment (<a href="http://www.engadget.com/2006/01/06/live-from-yahoos-keynote/">via Engadget</a> ) from someone after Terry Semel&#39;s keynote at CES:  </p>
+<blockquote>
+<p>&quot;Well Steve Jobs is a fucking _Jedi Master _of this shit compared to these other clowns.&quot;   </p>
+</blockquote>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2006/01/ouch/index.html</link><guid isPermaLink="true">/2006/01/ouch/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 09 Jan 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[nfqf - The Netflix Queue Filter]]></title><description><![CDATA[<p>I was searching for a movie in my Netflix queue, and went up and down the queue a bunch of times before I finally found it. Yes, I know: a trivial annoyance. However, to quote Joel Spolsky, from his book <em>User Interface Design for Programmers</em>:  </p>
+<blockquote>
+<p>Even something that seems like a tiny, inconsequential frustration affects your mood. Your emotions don&#39;t seem to care about the magnitude of the event, only the quality. ... I started to learn that the days when I was happiest were the days with a lot of small successes and few small frustrations. So, here&#39;s a solution to a small frustration: <a href="http://dietrich.ganx4.com/nfqf/">nfqf</a> - a filtering search for your Netflix queue. It&#39;s a <a href="http://greasemonkey.mozdev.org/">Greasemonkey</a> script that adds a little search box at the top of your queue. Type characters in, and your queue will only show movies w/ titles that contain that string of characters.  </p>
+</blockquote>
+<p><a href="http://dietrich.ganx4.com/nfqf/nfqf.user.js">Install</a>    </p>
+<p>Caveat emptor: I&#39;m not responsible for any malfunctions that may occur due to Netflix changing their site, or your decision to trust my ineptitude.  </p>
+<p>Ta,  </p>
+<p>-d  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2005/09/nfqf-the-netflix-queue-filter/index.html</link><guid isPermaLink="true">/2005/09/nfqf-the-netflix-queue-filter/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[greasemonkey]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 12 Sep 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Katrina Caused by Skilled Yakuza Interferometer Operators]]></title><description><![CDATA[<p><blockquote><a href="http://www.weatherwars.info/Katrina.htm">&quot;Japanese Yakuza crews who leased large strategic Russian scalar interferometers from the KGB in latter 1989 ... have been engineering the weather over North America initially (and in some other places) since then, and have since become the most skilled interferometer operators on the planet.  They are also being used as direct protégées by the KGB/FSB, which has moved them into the final Operations Phase of the long asymmetric war against the United States. &quot;</a>&gt; Link</a>  </p>
+]]></description><link>/2005/09/katrina-caused-by-skilled-yakuza-interferometer-operators/index.html</link><guid isPermaLink="true">/2005/09/katrina-caused-by-skilled-yakuza-interferometer-operators/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 09 Sep 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[The 11th Commandment: Thou Shalt Not Redistribute Wealth to the Poor]]></title><description><![CDATA[<p><a href="http://news.yahoo.com/s/ap/20050823/ap_on_re_us/robertson_assassination;_ylt=Ap1zPGf7XwNdiuuH7WYM7xas0NUE;_ylu=X3oDMTA3b2NibDltBHNlYwM3MTY-">Or God will smite you with his heavenly... bullets.</a>  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2005/08/the-11th-commandment-thou-shalt-not-redistribute-wealth-to-the-poor/index.html</link><guid isPermaLink="true">/2005/08/the-11th-commandment-thou-shalt-not-redistribute-wealth-to-the-poor/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 24 Aug 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Lightning: Integrated Calendaring with Mozilla Thunderbird... on a Mac]]></title><description><![CDATA[<p>Today I set up a Mozilla build-environment on my Powerbook, and builded-ed Mozilla Lightning, which aims to add tightly integrated calendaring functionality to Mozilla Thunderbird, the mail/news client.</p>
+<p>From hanging out in #calendar on irc.mozilla.org, it appeared that most Lightning dev was happening on Windows, which meant that there weren&#39;t any nightly builds for us Mac users.</p>
+<p>Building was surprisingly easy... and unsurprisingly long. The attached shot shows what it looks like so far.</p>
+<p>I&#39;ll flex it&#39;s functionality when I get time, and will post about that as well. If you&#39;re brave/stupid, and want a copy of the xpi, let me know.</p>
+<p>Link</p>
+]]></description><link>/2005/08/lightning-integrated-calendaring-with-mozilla-thunderbird-on-a-mac/index.html</link><guid isPermaLink="true">/2005/08/lightning-integrated-calendaring-with-mozilla-thunderbird-on-a-mac/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 22 Aug 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Slow Ride in the Fast Lane...Finally]]></title><description><![CDATA[<p>On January 1st, 2005, <a href="http://democrats.assembly.ca.gov/members/a41/default2.htm?hybrids">California Assembly Bill 2628</a> was signed into law. It allows some hybrid cars to drive in the carpool lane, even if the vehicle has a single occupant. However, carpool lanes are funded by federal grants, and the federal government threatened to take away their funding if California allowed this law to take effect. The implementation of the law was <a href="http://www.sacbee.com/content/news/traffic/story/13322796p-14164921c.html">postponed indefinitely</a>.  </p>
+<p>The opposition to California&#39;s law was spearheaded by domestic auto manufacturers, <a href="http://www.freep.com/money/autonews/ford25e_20040825.htm">who consider AB2628 a &quot;buy japanese&quot; bill</a>. This is because domestically manufactured hybrid vehicles get far less miles-per-gallon than the Japanese hybrids, and don&#39;t satisfy the requirements of the bill.  </p>
+<p>In a positive development, the federal transportation bill which was just signed into law by <a href="http://www.whitehouse.com/">El Presidento Nepotsis</a> (nsfw), allows hybrids in federally-funded carpool lanes. The California ARB (Air Resources Board) have already updated <a href="http://www.arb.ca.gov/msprog/carpool/carpool.htm">their website</a>, adding a number of hybrid models to the list of single-occupant vehicles that qualify as able to drive in the carpool lane.  </p>
+<p>What&#39;s the effect on hybrid-driving commuters like myself? Well, here in southern California it means that the commute might be 5-10 minutes shorter. Yay. Now it should only take 55 minutes to drive 32 miles, instead of the usual hour.  </p>
+<p>The importance of this law taking effect is not about the commute however. It sends a message to domestic auto manufacturers, who have been working overtime for years to prevent mass-adoption of fuel-efficient and environmentally-friendly cars in America: Fuck you.  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2005/08/slow-ride-in-the-fast-lanefinally/index.html</link><guid isPermaLink="true">/2005/08/slow-ride-in-the-fast-lanefinally/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 12 Aug 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Making the Monkey Frown]]></title><description><![CDATA[<p>Looks like there is a serious exploit in <a href="http://greaseblog.blogspot.com/">Greasemonkey</a>. This <a href="http://mozdev.org/pipermail/greasemonkey/2005-July/004022.html">thread </a>provides the details. A <a href="http://greaseblog.blogspot.com/2005/07/mandatory-greasemonkey-update.html">&quot;neutered&quot; version</a> has been provided, for use until the security hole is patched. Good luck Aaron!</p>
+<p>Link</p>
+]]></description><link>/2005/07/making-the-monkey-frown/index.html</link><guid isPermaLink="true">/2005/07/making-the-monkey-frown/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 20 Jul 2005 00:00:00 GMT</pubDate></item></channel></rss>

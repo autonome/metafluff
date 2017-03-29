@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 15:51:55 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Building Firefox on MacIntel]]></title><description><![CDATA[<p>I got Firefox building on my <a href="http://flickr.com/photos/autonome/106192491/">Macbook</a>! The <a href="http://developer.mozilla.org/en/docs/Mac_OS_X_Universal_Binaries">build instructions</a> on MDC were pretty good, and got me through most of the process. However, there were a few iffy spots. Here are some problems I had, and how I resolved them. Note that this mission was not entirely successful: I wasn&#39;t able to build a universal binary, only an Intel build. I was headed down the rabbit hole trying to track down the PPC errors, and didn&#39;t really need it, so gave up (for now!).</p>
+<p>Now that I&#39;m writing this, I wish I&#39;d saved the error messages that I got along the way :P Oh well, here&#39;s what I have, FWIW:</p>
+<ul>
+<li>XCode Doesn&#39;t install the 10.2.8 SDK: The default Universal build options are to build PPC using the 10.2.8 SDK. XCode 2.2.2 does not install this by default. You can find it in the XCode disk image at /Packages/MacOSX10.2.8.pkg.</li>
+<li>GCC Errors: Open a command prompt and just type &quot;gcc&quot;. I got some odd errors about not being able to find a bunch of libraries. I tried again with sudo, and it worked. There&#39;s obviously some permissions wonkiness going on, but I didn&#39;t have time to track it down, so just stuck with sudo-ing it.</li>
+<li><p>LibIDL/Libglib: I had to jump through a couple of hoops to get these installed properly. I couldn&#39;t get Fink to compile, so went with DarwinPorts, which worked ok for the most part.</p>
+<ul>
+<li>Download and compile DarwinPorts from source: <a href="http://darwinports.opendarwin.org/getdp/">link</a>.</li>
+<li>Install LibIDL: This will install libglib as well. The port recommended by the build documentation is libidl1. However, I got all kinds of errors when trying to install this port from source. I used libidl, which worked fine: sudo port install libidl</li>
+</ul>
+</li>
+<li>Remove Fink Residue: I migrated from a powerbook which had Fink installed. I has an init script which sets up include dirs and such. This was causing old non-Intel libraries to be included. The source of the problem was a line it added to ~/.bash_profile. Removed this line: test -r /sw/bin/init.sh &amp;&amp; . /sw/bin/init.sh</li>
+<li>Disable PPC Build: As I mentioned, I was not able to get the PPC build working. You can disable building PPC by adding this line to your .mozconfig: mk_add_options MOZ_BUILD_PROJECTS=&quot;i386&quot;</li>
+</ul>
+<p>Thanks to <a href="irc://irc.mozilla.org#camino">#camino</a> for help figuring this out.</p>
+]]></description><link>/2006/03/building-firefox-on-macintel/index.html</link><guid isPermaLink="true">/2006/03/building-firefox-on-macintel/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 08 Mar 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Transforming OPML into XUL]]></title><description><![CDATA[<p>I was trying to learn more about the <a href="http://xulplanet.com/references/elemref/ref_tree.html">XUL tree widget</a> this evening, and wrote up a quick XSLT for transforming <a href="http://en.wikipedia.org/wiki/OPML">OPML</a> into a XUL Tree:</p>
+<ul>
+<li><a href="http://dietrich.ganx4.com/xul/feeds.opml">The OPML</a></li>
+<li><a href="http://dietrich.ganx4.com/xul/opml2xultree.xsl">The XSLT</a></li>
+<li><a href="http://dietrich.ganx4.com/xul/feeds.xml">The output</a></li>
+</ul>
+<p>Mmmm, a <a href="http://developer.mozilla.org/en/docs/XULRunner">XULRunner</a> stand-alone outliner... wah, we <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=218642">don&#39;t have editable trees</a> in Mozilla yet :(</p>
+]]></description><link>/2006/03/transforming-opml-into-xul/index.html</link><guid isPermaLink="true">/2006/03/transforming-opml-into-xul/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[opml]]></category><category><![CDATA[Outliners]]></category><category><![CDATA[XSLT]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 08 Mar 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Gecko SDK for Mac OSX]]></title><description><![CDATA[<p>Much thanks to <a href="http://www.xulplanet.com/ndeakin/">Neil Deakin</a>, who commented on my previous post with a pointer to the <a href="http://wiki.mozilla.org/Gecko:SDK">Gecko SDK</a>. The Gecko SDK allows developers to compile XPIDL typelibs without having to fetch and build the Mozilla source tree. However, as usual there is no Mac version :P</p>
+<p>I&#39;ve zipped up my copy and put it <a href="http://dietrich.ganx4.com/mozilla/">here</a>. Compiled from the 1.8 tree, on OSX 10.4.5.</p>
+<p>Thanks to <a href="http://www.iosart.com/firefox/gecko-sdk-macosx/">Alex Sirota</a> for his helpful instructions for building a standalone SDK for OSX.</p>
+<p>Also, I&#39;ve moved the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">JS XPCOM &quot;Hello World&quot; tutorial</a> to the <a href="http://developer.mozilla.org/">Mozilla Developer Center</a>, and  updated it to use the SDK instead of building from the source.</p>
+<p>UPDATE: This evening, the surge of immense pain brought on by the masochistic activity known as &quot;jogging&quot; caused this thought to arise: &quot;Oh shit. Are there any licensing issues with having some Mozilla binaries posted here?&quot;</p>
+]]></description><link>/2006/02/gecko-sdk-for-mac-osx/index.html</link><guid isPermaLink="true">/2006/02/gecko-sdk-for-mac-osx/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 27 Feb 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Howto: Build an XPCOM Component in Javascript]]></title><description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Here&#39;s my first cut at a &quot;Hello World&quot; tutorial for creating an XPCOM component in Javascript. The tutorials, wiki pages and knowledge-base entries that exist on this subject are mostly from the perspective of a C++ developer, not a front-end developer, and therefore seemed to always leave out basic steps and information. Slay me with corrections in the comments :)</p>
+<p><span style="color:red;">UPDATE:</span> I&#39;ve moved this tutorial to the Mozilla Developer Center, and made a some of the changes recommended in the comments. Please read the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">updated version</a> instead of this one.</p>
+<p>This is a very utilitarian tutorial (say that 10x fast!): I&#39;m not going to describe how and why XPCOM works the way it does, or what every bit of the example code does. That&#39;s been detailed <a href="http://developer.mozilla.org/en/docs/XPCOM">elsewhere</a>. I&#39;m just going to show you what you need to do to get things <em>working</em>, in as few and as simple steps as possible.</p>
+<p>Caveat: This was done on a Mac. YMMV with Windows.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<strike>Download and compile Firefox. Haha, ok maybe this tutorial is not as simple as I thought :) Seriously though, it takes a while to build, but it&#39;s not hard, and the instructions (at least for Mac) are simple and intuitive. If you don&#39;t want to do this, then you probably don&#39;t need to implement your class as an XPCOM component, and should just stick with plain ol&#39; Javascript. (There is probably a way to fetch and build only what is needed to compile the typelib, but that&#39;s probably more complicated and less documented than building Firefox. Maybe it&#39;s time to build a web-service for compiling XPCOM typelibs...)</strike>
+
+<p><span style="color:red;">Please read the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">updated version</a> of this tutorial!</span></p>
+<h2 id="implementation">Implementation</h2>
+<p>This example component will expose a single method, which returns the string &quot;Hello World!&quot;.</p>
+<h3 id="defining-the-interface">Defining the Interface</h3>
+<p>XPCOM uses a dialect of IDL to define interfaces, called XPIDL. Here&#39;s the XPIDL for our HelloWorld component:</p>
+<p>HelloWorld.idl</p>
+<p><div style="font-size:-1px;overflow:auto;border:1px solid black;"></p>
+<pre>
+#include "nsISupports.idl"
+[scriptable, uuid(1C0E8D86-B661-40d0-AE3D-CA012FADF170)]
+interface nsIHelloWorld: nsISupports {
+  string hello();
+};
+</pre>
+
+
+<p>Note that you must generate a new UUID for each XPCOM component that you create. A web-based UUID generator is available <a href="http://www.bengoodger.com/software/mb/extensions/guidgen.html">here</a>.</p>
+<h3 id="creating-the-component">Creating the Component</h3>
+<p>HelloWorld.js</p>
+<p><div style="font-size:-1px;overflow:auto;border:1px solid black;"></p>
+<pre>
+/***********************************************************
+constants
+***********************************************************/
+
+// reference to the interface defined in nsIHelloWorld.idl
+const nsIHelloWorld = Components.interfaces.nsIHelloWorld;
+
+// reference to the required base interface that all components must support
+const nsISupports = Components.interfaces.nsISupports;
+
+// guid uniquely identifying our component
+const CLASS_ID = Components.ID("{1C0E8D86-B661-40d0-AE3D-CA012FADF170}");
+
+// description
+const CLASS_NAME = "My Hello World Javascript XPCOM Component";
+
+// textual unique identifier
+const CONTRACT_ID = "@dietrich.ganx4.com/helloworld;1";
+
+/***********************************************************
+class definition
+***********************************************************/
+
+//class constructor
+function HelloWorld() {
+};
+
+// class definition
+HelloWorld.prototype = {
+
+  // define the function we want to expose in our interface
+  hello: function() {
+      return "Hello World!";
+  },
+
+  QueryInterface: function(aIID)
+  {
+    if (!aIID.equals(nsIHelloWorld) &&
+        !aIID.equals(nsISupports))
+      throw Components.results.NS_ERROR_NO_INTERFACE;
+    return this;
+  }
+};
+
+/***********************************************************
+class factory
+
+This object is a member of the global-scope Components.classes.
+It is keyed off of the contract ID. Eg:
+
+myHelloWorld = Components.classes["@dietrich.ganx4.com/helloworld;1"].
+                          createInstance(Components.interfaces.nsIHelloWorld);
+
+***********************************************************/
+var HelloWorldFactory = {
+  createInstance: function (aOuter, aIID)
+  {
+    if (aOuter != null)
+      throw Components.results.NS_ERROR_NO_AGGREGATION;
+    return (new HelloWorld()).QueryInterface(aIID);
+  }
+};
+
+/***********************************************************
+module definition (xpcom registration)
+***********************************************************/
+var HelloWorldModule = {
+  _firstTime: true,
+  registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
+  {
+    if (this._firstTime) {
+      this._firstTime = false;
+      throw Components.results.NS_ERROR_FACTORY_REGISTER_AGAIN;
+    };
+    aCompMgr = aCompMgr.
+        QueryInterface(Components.interfaces.nsIComponentRegistrar);
+    aCompMgr.registerFactoryLocation(CLASS_ID, CLASS_NAME,
+        CONTRACT_ID, aFileSpec, aLocation, aType);
+  },
+
+  unregisterSelf: function(aCompMgr, aLocation, aType)
+  {
+    aCompMgr = aCompMgr.
+        QueryInterface(Components.interfaces.nsIComponentRegistrar);
+    aCompMgr.unregisterFactoryLocation(CLASS_ID, aLocation);
+  },
+
+  getClassObject: function(aCompMgr, aCID, aIID)
+  {
+    if (!aIID.equals(Components.interfaces.nsIFactory))
+      throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+
+    if (aCID.equals(CLASS_ID))
+      return HelloWorldFactory;
+
+    throw Components.results.NS_ERROR_NO_INTERFACE;
+  },
+
+  canUnload: function(aCompMgr) { return true; }
+};
+
+/***********************************************************
+module initialization
+
+When the application registers the component, this function
+is called.
+***********************************************************/
+function NSGetModule(aCompMgr, aFileSpec) { return HelloWorldModule; }
+
+</pre>
+
+
+<h2 id="usage">Usage</h2>
+<h3 id="compile-typelib">Compile Typelib</h3>
+<p>Here {objdir} is the directory specified for the MOZ_OBJDIR option in your .mozconfig file.</p>
+<ol>
+<li>Copy HelloWorld.idl to {objdir}/dist/idl/</li>
+<li>Copy HelloWorld.js to {objdir}/dist/bin/components/</li>
+<li>Change directories to {objdir}/dist/idl/</li>
+<li>$../bin/xpidl -m typelib -w -v -e ../bin/components/HelloWorld.xpt HelloWorld.idl</li>
+</ol>
+<p>This will create a typelib file at {objdir}/dist/bin/compontents/HelloWorld.xpt.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="for-extensions-">For extensions:</h3>
+<ol>
+<li>Copy HelloWorld.js and HelloWorld.xpt to {extensiondir}/components/</li>
+<li>Delete compreg.dat and xpti.dat from your profile directory.</li>
+<li>Restart application</li>
+</ol>
+<h3 id="for-firefox-core-using-the-application-that-you-just-built-">For Firefox core, using the application that you just built:</h3>
+<ol>
+<li>Copy HelloWorld.js and HelloWorld.xpt to the {objdir}/dist/bin/components directory</li>
+<li>Delete compreg.dat and xpti.dat from the components directory.</li>
+<li>Delete compreg.dat and xpti.dat from your profile directory.</li>
+<li>Restart application</li>
+</ol>
+<h2 id="using-your-component">Using Your Component</h2>
+<p><div style="font-size:-1px;overflow:auto;border:1px solid black;"></p>
+<pre>
+var oMyComponent = Components.classes['@dietrich.ganx4.com/helloworld;1'].
+                        createInstance(Components.interfaces.nsIHelloWorld);
+
+alert(oMyComponent.hello());
+</pre>
+]]></description><link>/2006/02/howto-build-an-xpcom-component-in-javascript/index.html</link><guid isPermaLink="true">/2006/02/howto-build-an-xpcom-component-in-javascript/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 25 Feb 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Enter The Dragon (er, Lizard)]]></title><description><![CDATA[<p>A new year, a new blog, and a new job too: I hung up my star, and am no longer a Technical Yahoo!. Working at Yahoo! was an amazing experience; I met great people, got to work on interesting projects, and learned more in a year than is probably healthy. But then I got the call...</p>
+<p>Last Monday was my first day as an employee of the <a href="http://www.mozilla.com" title="Mozilla Corporation">Mozilla Corporation</a>. I&#39;m working full-time on Firefox 2, on features such as <a href="http://wiki.mozilla.org/Session_Restore">session restoration</a>.</p>
+<p>New Year&#39;s Resolution: blog more.</p>
+]]></description><link>/2006/02/enter-the-dragon-er-lizard/index.html</link><guid isPermaLink="true">/2006/02/enter-the-dragon-er-lizard/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 16 Feb 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Lightning: Integrated Calendaring with Mozilla Thunderbird... on a Mac]]></title><description><![CDATA[<p>Today I set up a Mozilla build-environment on my Powerbook, and builded-ed Mozilla Lightning, which aims to add tightly integrated calendaring functionality to Mozilla Thunderbird, the mail/news client.</p>
+<p>From hanging out in #calendar on irc.mozilla.org, it appeared that most Lightning dev was happening on Windows, which meant that there weren&#39;t any nightly builds for us Mac users.</p>
+<p>Building was surprisingly easy... and unsurprisingly long. The attached shot shows what it looks like so far.</p>
+<p>I&#39;ll flex it&#39;s functionality when I get time, and will post about that as well. If you&#39;re brave/stupid, and want a copy of the xpi, let me know.</p>
+<p>Link</p>
+]]></description><link>/2005/08/lightning-integrated-calendaring-with-mozilla-thunderbird-on-a-mac/index.html</link><guid isPermaLink="true">/2005/08/lightning-integrated-calendaring-with-mozilla-thunderbird-on-a-mac/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 22 Aug 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Making the Monkey Frown]]></title><description><![CDATA[<p>Looks like there is a serious exploit in <a href="http://greaseblog.blogspot.com/">Greasemonkey</a>. This <a href="http://mozdev.org/pipermail/greasemonkey/2005-July/004022.html">thread </a>provides the details. A <a href="http://greaseblog.blogspot.com/2005/07/mandatory-greasemonkey-update.html">&quot;neutered&quot; version</a> has been provided, for use until the security hole is patched. Good luck Aaron!</p>
+<p>Link</p>
+]]></description><link>/2005/07/making-the-monkey-frown/index.html</link><guid isPermaLink="true">/2005/07/making-the-monkey-frown/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 20 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Trust, Identity and the GUIDMail]]></title><description><![CDATA[<p>One of the changes in Firefox 1.1 (aka Deer Park) is that an email address is a treated as a valid GUID value.</p>
+<p>So in any place in your Firefox extension where you previously used a GUID to uniquely represent your extension, you can now use your email address.</p>
+<p>I really don&#39;t know more than that, as it was just mentioned in <a href="http://dietrich.ganx4.com/blog/wp-admin/post.php#//mozilla.org#umo">irc://mozilla.org#umo</a> (is that how you represent an irc channel in a URL?) but I haven&#39;t looked into it further.</p>
+<p>I wonder how they handle authors with multiple extensions? Or how about when you change your email address? Also, guids are kinda anonymous. Emails have owners... I wonder if they do any kind of send/reply validation...</p>
+<p>Listening to:� Tabla Beat Science - Live in SF</p>
+<p>Drinking: cheap champagne (heheh, ran out of Chopin, and this was sitting in the fridge looking lonely)</p>
+<p>Link
+<a href="http://secure.hisfirstbigcock.com/track/Mzg0ODozOjIx/"> </a><a href="http://secure.hisfirstgayfuck.com/track/Mzg0ODozOjI1/"> </a><a href="http://secure.hunnycam.com/track/Mzg0ODozOjk3/"> </a><a href="http://secure.meandmydildo.com/track/Mzg0ODozOjIz/"> </a><a href="http://secure.peeandfuck.com/track/Mzg0ODozOjky/"> </a><a href="http://secure.rawhentaisex.com/track/Mzg0ODozOjgw/"> </a><a href="http://secure.rawtoonsex.com/track/Mzg0ODozOjc2/"> </a><a href="http://secure.screwmilf.com/track/Mzg0ODozOjI5/"> </a><a href="http://secure.voyeurcampus.com/track/Mzg0ODozOjE4/"> </a><a href="http://secure.yougangbang.com/track/Mzg0ODozOjY/"> </a><a href="http://join.amateurbondagevideos.com/track/MTQ5NzcxOTo1OjI/"> </a><a href="http://join.amateursmothering.com/track/MTQ5NzcxOTo1OjE2/"> </a><a href="http://join.painfreaks.com/track/MTQ5NzcxOTo1OjU/"> </a><a href="http://join.purespanking.com/track/MTQ5NzcxOTo1Ojc/"> </a><a href="http://join.ricksavage.com/track/MTQ5NzcxOTo1OjE/"> </a><a href="http://join.titanictitties.com/track/MTQ5NzcxOTo1OjY/"> </a><a href="http://join.tokyoslaves.com/track/MTQ5NzcxOTo1OjEx/"> </a><a href="http://site.fetishflixx.com/track/MjU2OTozOjE3/"> </a><a href="http://site.girlsbottom.com/track/MjU2OTozOjEx/"> </a><a href="http://site.slutspanking.com/track/MjU2OTozOjI0/"> </a><a href="http://site.spankmybottom.com/track/MjU2OTozOjM/"> </a><a href="http://site.spankedschoolgirl.com/track/MjU2OTozOjU/"> </a><a href="http://site.spankingdigital.com/track/MjU2OTozOjI/"> </a><a href="http://site.spankingimages.com/track/MjU2OTozOjQ/"> </a></p>
+]]></description><link>/2005/07/trust-identity-and-the-guidmail/index.html</link><guid isPermaLink="true">/2005/07/trust-identity-and-the-guidmail/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 01 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Eep, Another Foxylicious Release!]]></title><description><![CDATA[<p>Foxylicious 0.3 is now available. This release adds several new features:  </p>
+<pre class="hljs"><code>-The ability <span class="hljs-built_in">to</span> choose <span class="hljs-keyword">any</span> location <span class="hljs-operator">in</span> your FF bookmarks tree <span class="hljs-built_in">to</span> be <span class="hljs-operator">the</span> <span class="hljs-built_in">folder</span> <span class="hljs-operator">in</span> which your del.icio.us bookmarks are placed. Setting up your del.icio.us <span class="hljs-built_in">folder</span> <span class="hljs-operator">in</span> your Bookmarks Toolbar <span class="hljs-built_in">folder</span> is especially cool.<br>
+- Foxylicious now <em>syncs</em> your remote bookmarks <span class="hljs-built_in">to</span> <span class="hljs-operator">the</span> <span class="hljs-built_in">local</span> store, thereby incorporating adds, updates <span class="hljs-operator">and</span> deletes.<br>
+- The context-menu <span class="hljs-keyword">for</span> adding links <span class="hljs-built_in">to</span> del.icio.us now works, thanks <span class="hljs-built_in">to</span> Rob Harris, who contributed <span class="hljs-operator">the</span> code.  </code></pre><p>One feature that did not make it in to 0.3 is exporting FF bookmarks to del.icio.us. I have it mostly implemented, but it either takes forever, or pounds the heck out of the server, due to limitations in the current API. Hopefully full bi-directionality will come in 0.4<img src="http://dietrich.ganx4.com/foxylicious" alt="Link">  </p>
+]]></description><link>/2005/01/eep-another-foxylicious-release/index.html</link><guid isPermaLink="true">/2005/01/eep-another-foxylicious-release/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 14 Jan 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sooo del.icio.us]]></title><description><![CDATA[<p>Ok, I might be tooting my own horn here:  </p>
+<p>Foxylicious just might be the <a href="http://lists.burri.to/pipermail/delicious-discuss/2004-December/001485.html">third most popular link in del.icious</a>.  </p>
+<p>Btw, the next Foxylicious release is coming out real soon now. Well, as soon as I finish it up, anyway.<a href="http://lists.burri.to/pipermail/delicious-discuss/2004-December/001485.html">Link</a>  </p>
+]]></description><link>/2004/12/sooo-delicious/index.html</link><guid isPermaLink="true">/2004/12/sooo-delicious/index.html</guid><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 08 Dec 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[Foxylicious 0.2 Released!]]></title><description><![CDATA[<p>Foxylicious 0.2 is now available.  </p>
+<p>This version adds two new features:  </p>
+<ol>
+<li>Daily automatic updates  </li>
+</ol>
+<p>Foxylicious periodically checks to see if a new day has dawned since  </p>
+<p>the last update. If it&#39;s a brand new day, an update will run  </p>
+<p>automatically. This is off by default, and can be enabled via the  </p>
+<p>Foxylicious settings page under the Tools menu.  </p>
+<ol>
+<li>Folder-based sub-categorization by a user-specified delimiter.  </li>
+</ol>
+<p>How&#39;s that for a feature name! Here&#39;s an example: If you  </p>
+<p>sub-categorize your delicious tags using a dot syntax (windows.iis,  </p>
+<p>windows.monopoly, windows.bsod), you can specify the dot as your  </p>
+<p>delimiter, and Foxylicious will create subfolders for each  </p>
+<p>sub-categorized tag! I&#39;ve tested this up to 4 levels deep, and had no  </p>
+<p>problems. THEORETICALLY, you should be able to create hierarchies as  </p>
+<p>deep as whatever FF&#39;s maximum supported folder depth is (ie:  </p>
+<p>cosmos.milky-way.solar-sytem.earth.primate.human.female.secretary.tickle-fetish  </p>
+<ul>
+<li>you get the picture).  </li>
+</ul>
+<p>Remember: This extension is only 2/10 of the way to 1.0, so if you  </p>
+<p>find any bugs, please report them to me (politely) and I&#39;ll  </p>
+<p>incorporate the fix into the next release.  </p>
+<p><a href="http://dietrich.ganx4.com/foxylicious/">http://dietrich.ganx4.com/foxylicious/</a>  </p>
+<p>ENJOI.  </p>
+<p><a href="http://dietrich.ganx4.com/foxylicious/">Link</a>  </p>
+]]></description><link>/2004/11/foxylicious-02-released/index.html</link><guid isPermaLink="true">/2004/11/foxylicious-02-released/index.html</guid><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 16 Nov 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[Brendan the Soothsayer]]></title><description><![CDATA[<p>Layin&#39; it all out on the table.<a href="http://groups.google.com/groups?as_umsgid=40724396.1000303@meer.net">Link</a>  </p>
+]]></description><link>/2004/04/brendan-the-soothsayer/index.html</link><guid isPermaLink="true">/2004/04/brendan-the-soothsayer/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 08 Apr 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[WSDL Proxying in Mozilla]]></title><description><![CDATA[<p>Tons o&#39; fun to be had with this.<a href="http://devedge.netscape.com/viewsource/2003/wsdl/01/">Link</a>  </p>
+]]></description><link>/2003/06/wsdl-proxying-in-mozilla/index.html</link><guid isPermaLink="true">/2003/06/wsdl-proxying-in-mozilla/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[SOAP]]></category><category><![CDATA[WSDL]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 11 Jun 2003 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mozilla + XSLT]]></title><description><![CDATA[<p>Code snippet from Sjeord  Fischer on the OPML-DEV list:  </p>
+<p>var xslProcessor = new XSLTProcessor();  </p>
+<p>var outputDoc = document.implementation.createDocument(&quot;text/xml&quot;, &quot;&quot;, null);  </p>
+<p>xslProcessor.transformDocument(xmlNode, xslNode, outputDoc, null);  </p>
+<p>(code taken from Q42&#39;s Mozilla2IE converter for Xopus, available at   </p>
+<p>xopus.org)  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2002/10/mozilla-xslt/index.html</link><guid isPermaLink="true">/2002/10/mozilla-xslt/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[XSLT]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 24 Oct 2002 00:00:00 GMT</pubDate></item></channel></rss>

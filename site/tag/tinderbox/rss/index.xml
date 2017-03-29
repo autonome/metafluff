@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 15:51:55 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Easing Orange: Jetpack for Correlating Tinderbox Test Failures with Bugs]]></title><description><![CDATA[<p>This is a <a href="https://jetpack.mozillalabs.com/">Jetpack </a>feature for finding out if a bug is already filed for a test failure on <a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox">Tinderbox</a>. When viewing log files for failed test runs, the Jetpack will add a link next to the test failure summary at the top of the log, that looks like &quot;(maybe bug XXXXXX?)&quot;. This allows sheriff&#39;s and other awesome community members to easily mark known-oranges, and update the bug with log&#39;s URL.</p>
+<p><a href="http://people.mozilla.org/~dietrich/jetpack-orange.html">Install the Jetpack feature</a>.</p>
+<p>Notes:</p>
+<ul>
+<li>So far it only pulls file names out of error text, so won&#39;t match leaks, crashes or oranges without a filename in the summary.</li>
+<li>Only searches the bug summary, and only searches known orange bugs (ie: has &quot;[orange]&quot; in the bug whiteboard).</li>
+<li>Scrapes bugzilla.mozilla.org, since the new REST api is very very slow, so might break with bugzilla upgrades.</li>
+<li>It doesn&#39;t run until the log has completed loading, which sometimes can  be a while. Load that shit in a background tab and be patient yo.
+Let me know if this helps you out, or any bugs or improvements you&#39;d like to see!</li>
+</ul>
+]]></description><link>/2009/11/easing-orange-jetpack-for-correlating-tinderbox-test-failures-with-bugs/index.html</link><guid isPermaLink="true">/2009/11/easing-orange-jetpack-for-correlating-tinderbox-test-failures-with-bugs/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[jetpack]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[tinderbox]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 19 Nov 2009 00:00:00 GMT</pubDate></item></channel></rss>

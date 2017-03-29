@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 15:51:57 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[A Foolish Consistency...]]></title><description><![CDATA[<p>&quot;A foolish consistency is the hobgoblin of little minds.&quot; - Ralph Waldo  </p>
+<p>Emerson<a href="">Link</a>  </p>
+]]></description><link>/2005/07/a-foolish-consistency/index.html</link><guid isPermaLink="true">/2005/07/a-foolish-consistency/index.html</guid><category><![CDATA[quotes]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 16 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Any Fool]]></title><description><![CDATA[<p>&quot;Any fool can write code that computers can understand, a good programmer writes code a human can understand.&quot; - Martin Fowler<a href="">Link</a>  </p>
+]]></description><link>/2005/07/any-fool/index.html</link><guid isPermaLink="true">/2005/07/any-fool/index.html</guid><category><![CDATA[quotes]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 15 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Trust, Identity and the GUIDMail]]></title><description><![CDATA[<p>One of the changes in Firefox 1.1 (aka Deer Park) is that an email address is a treated as a valid GUID value.</p>
+<p>So in any place in your Firefox extension where you previously used a GUID to uniquely represent your extension, you can now use your email address.</p>
+<p>I really don&#39;t know more than that, as it was just mentioned in <a href="http://dietrich.ganx4.com/blog/wp-admin/post.php#//mozilla.org#umo">irc://mozilla.org#umo</a> (is that how you represent an irc channel in a URL?) but I haven&#39;t looked into it further.</p>
+<p>I wonder how they handle authors with multiple extensions? Or how about when you change your email address? Also, guids are kinda anonymous. Emails have owners... I wonder if they do any kind of send/reply validation...</p>
+<p>Listening to:� Tabla Beat Science - Live in SF</p>
+<p>Drinking: cheap champagne (heheh, ran out of Chopin, and this was sitting in the fridge looking lonely)</p>
+<p>Link
+<a href="http://secure.hisfirstbigcock.com/track/Mzg0ODozOjIx/"> </a><a href="http://secure.hisfirstgayfuck.com/track/Mzg0ODozOjI1/"> </a><a href="http://secure.hunnycam.com/track/Mzg0ODozOjk3/"> </a><a href="http://secure.meandmydildo.com/track/Mzg0ODozOjIz/"> </a><a href="http://secure.peeandfuck.com/track/Mzg0ODozOjky/"> </a><a href="http://secure.rawhentaisex.com/track/Mzg0ODozOjgw/"> </a><a href="http://secure.rawtoonsex.com/track/Mzg0ODozOjc2/"> </a><a href="http://secure.screwmilf.com/track/Mzg0ODozOjI5/"> </a><a href="http://secure.voyeurcampus.com/track/Mzg0ODozOjE4/"> </a><a href="http://secure.yougangbang.com/track/Mzg0ODozOjY/"> </a><a href="http://join.amateurbondagevideos.com/track/MTQ5NzcxOTo1OjI/"> </a><a href="http://join.amateursmothering.com/track/MTQ5NzcxOTo1OjE2/"> </a><a href="http://join.painfreaks.com/track/MTQ5NzcxOTo1OjU/"> </a><a href="http://join.purespanking.com/track/MTQ5NzcxOTo1Ojc/"> </a><a href="http://join.ricksavage.com/track/MTQ5NzcxOTo1OjE/"> </a><a href="http://join.titanictitties.com/track/MTQ5NzcxOTo1OjY/"> </a><a href="http://join.tokyoslaves.com/track/MTQ5NzcxOTo1OjEx/"> </a><a href="http://site.fetishflixx.com/track/MjU2OTozOjE3/"> </a><a href="http://site.girlsbottom.com/track/MjU2OTozOjEx/"> </a><a href="http://site.slutspanking.com/track/MjU2OTozOjI0/"> </a><a href="http://site.spankmybottom.com/track/MjU2OTozOjM/"> </a><a href="http://site.spankedschoolgirl.com/track/MjU2OTozOjU/"> </a><a href="http://site.spankingdigital.com/track/MjU2OTozOjI/"> </a><a href="http://site.spankingimages.com/track/MjU2OTozOjQ/"> </a></p>
+]]></description><link>/2005/07/trust-identity-and-the-guidmail/index.html</link><guid isPermaLink="true">/2005/07/trust-identity-and-the-guidmail/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 01 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[The  Power and Wonder of Extensibility]]></title><description><![CDATA[<p>Um yeah, right.  </p>
+<p>I have 30+ Firefox extensions installed. One or more (or maybe just the combined weight of them all put together) are now causing a 20 second delay every time a new window opens.  </p>
+<p>Yay extensibility!  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2005/06/the-power-and-wonder-of-extensibility/index.html</link><guid isPermaLink="true">/2005/06/the-power-and-wonder-of-extensibility/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 13 Jun 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Overheard in New York...]]></title><description><![CDATA[<p>The subway doors open. A hobo enters, holding a bottle of windex in one hand and a tube of toothpaste in the other. He says: Which is the better time to read Dostyevsky? Winter?</p>
+<p>He sprays the windex.</p>
+<p>Hobo: Or Spring? </p>
+<p>He squeezes toothpaste out of the tube.</p>
+<p>Japanese girl: Spring!  </p>
+<p>Hobo: You are correct.</p>
+<p>Truly brilliant (and funny as <em>**</em>) snatches of real life in NYC on this <a href="http://www.overheardinnewyork.com/">excellent blog</a>.  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2005/05/overheard-in-new-york/index.html</link><guid isPermaLink="true">/2005/05/overheard-in-new-york/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 07 May 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Calendaring Revisited]]></title><description><![CDATA[<p>Ok, I said I&#39;d come back with a more positive view of calendaring. Here it goes:  </p>
+<p><a href="http://www.calconnect.org/">The Calendaring and Scheduling Consortium</a>  </p>
+<ul>
+<li>&quot;The consortium is focused on the interoperable  </li>
+</ul>
+<p>exchange of calendaring and scheduling information between dissimilar  </p>
+<p>programs,  </p>
+<p>platforms, and technologies.&quot; Now <em>that&#39;s</em> what I&#39;m talkin bout. But  </p>
+<p>like any one of these interoperability groups, we&#39;ll have to wait and  </p>
+<p>see if it has legs.  </p>
+<p>[  </p>
+<p>The Open Source Application Foundation](<a href="http://www.osafoundation.org/">http://www.osafoundation.org/</a>) - Led by Mitch Kapor, this group is working on a PIM client that has sharing/syncing built into it&#39;s core.  </p>
+<p><a href="http://www.apple.com/macosx/features/dotmacsync/">iSync in OS X Tiger</a>  </p>
+<ul>
+<li>Supposedly iSync in Tiger has an extensible architecture that allows  </li>
+</ul>
+<p>developers to easily hook into it. Wow, that would be cool if it is  </p>
+<p><em>actually</em> open, and doesn&#39;t just allow developers to easily hook into  </p>
+<p>.Mac...  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2005/04/calendaring-revisited/index.html</link><guid isPermaLink="true">/2005/04/calendaring-revisited/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 20 Apr 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Any Skype users out there?]]></title><description><![CDATA[<p>I installed <a href="http://www.skype.com">Skype</a>, a free  </p>
+<p>voice-over-IP app. It recognized my PS2 USB headset (which seems to be  </p>
+<p>a regular Logitech USB headset with a Playstation logo on it), and the  </p>
+<p>Skype test call worked just fine.  </p>
+<p> So I bought 10 Euros of  </p>
+<p>Skypeout credit. Skypeout is the service which allows you use Skype to  </p>
+<p>call non-Skype numbers. I.E., regular phones. This also worked without  </p>
+<p>a hitch. Well, almost: the sound quality is BAD. And the delay is BAD  </p>
+<p>too. What a shame.  </p>
+<p> Has anyone else used Skype or Skypeout? Any tips on making it usable?  </p>
+<p> <a href="">Link</a>  </p>
+]]></description><link>/2005/04/any-skype-users-out-there/index.html</link><guid isPermaLink="true">/2005/04/any-skype-users-out-there/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sun, 17 Apr 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mobiledump]]></title><description><![CDATA[<p>I made a page that logs a text dump of all headers and data in the request. Very helpful for viewing the request headers of <a href="http://www.clubmogames.com">mobile devices</a>. It is available <a href="http://dietrich.ganx4.com/mobiledump/">here</a>.<a href="http://dietrich.ganx4.com/mobiledump/">Link</a>  </p>
+]]></description><link>/2005/04/mobiledump/index.html</link><guid isPermaLink="true">/2005/04/mobiledump/index.html</guid><category><![CDATA[dev]]></category><category><![CDATA[mobile]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 09 Apr 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Bookmarklet for Posting to Allconsuming.net from BarnesAndNoble.com]]></title><description><![CDATA[<p>Based on <a href="http://philwilson.org">Phil Wilson&#39;s</a> great <a href="http://philwilson.org/blog/2004/09/allconsumingnet-amazon-bookmarklet.html">bookmarklet</a> for posting to AllConsuming.net from Amazon.com.  </p>
+<p>However, Amazon.com has a <a href="http://www.buyblue.org/detail.php?corpId=34#">41% rating</a> from <a href="http://www.buyblue.org/">BuyBlue.org</a>, whereas <a href="http://www.bn.com">Barnes and Noble</a> has a <a href="http://www.buyblue.org/detail.php?corpId=43">100%</a> rating!  </p>
+<p>To install, drag this link to your bookmarks toolbar: <a href="//www.allconsuming.net/item.cgi?isbn=">Consume  Responsibly!</a><a href="http://philwilson.org/blog/2004/09/allconsumingnet-amazon-bookmarklet.html">Link</a>  </p>
+]]></description><link>/2005/03/bookmarklet-for-posting-to-allconsumingnet-from-barnesandnoblecom/index.html</link><guid isPermaLink="true">/2005/03/bookmarklet-for-posting-to-allconsumingnet-from-barnesandnoblecom/index.html</guid><category><![CDATA[books]]></category><category><![CDATA[pim]]></category><category><![CDATA[politics]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 22 Mar 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mobile Art from Wooster Collective]]></title><description><![CDATA[<p>Wooster Collective has a cool new service that sends great urban art pieces to your phone. The images are $1.99, and can be installed directly as wallpaper (depending on phone model), or saved. Proceeds benefit <a href="http://www.keepachildalive.org/">Keep a Child Alive</a>.<a href="http://www.woostercollective.com/mobile/">Link</a>  </p>
+]]></description><link>/2005/03/mobile-art-from-wooster-collective/index.html</link><guid isPermaLink="true">/2005/03/mobile-art-from-wooster-collective/index.html</guid><category><![CDATA[art]]></category><category><![CDATA[mobile]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 17 Mar 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Eep, Another Foxylicious Release!]]></title><description><![CDATA[<p>Foxylicious 0.3 is now available. This release adds several new features:  </p>
+<pre class="hljs"><code>-The ability <span class="hljs-built_in">to</span> choose <span class="hljs-keyword">any</span> location <span class="hljs-operator">in</span> your FF bookmarks tree <span class="hljs-built_in">to</span> be <span class="hljs-operator">the</span> <span class="hljs-built_in">folder</span> <span class="hljs-operator">in</span> which your del.icio.us bookmarks are placed. Setting up your del.icio.us <span class="hljs-built_in">folder</span> <span class="hljs-operator">in</span> your Bookmarks Toolbar <span class="hljs-built_in">folder</span> is especially cool.<br>
+- Foxylicious now <em>syncs</em> your remote bookmarks <span class="hljs-built_in">to</span> <span class="hljs-operator">the</span> <span class="hljs-built_in">local</span> store, thereby incorporating adds, updates <span class="hljs-operator">and</span> deletes.<br>
+- The context-menu <span class="hljs-keyword">for</span> adding links <span class="hljs-built_in">to</span> del.icio.us now works, thanks <span class="hljs-built_in">to</span> Rob Harris, who contributed <span class="hljs-operator">the</span> code.  </code></pre><p>One feature that did not make it in to 0.3 is exporting FF bookmarks to del.icio.us. I have it mostly implemented, but it either takes forever, or pounds the heck out of the server, due to limitations in the current API. Hopefully full bi-directionality will come in 0.4<img src="http://dietrich.ganx4.com/foxylicious" alt="Link">  </p>
+]]></description><link>/2005/01/eep-another-foxylicious-release/index.html</link><guid isPermaLink="true">/2005/01/eep-another-foxylicious-release/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 14 Jan 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sooo del.icio.us]]></title><description><![CDATA[<p>Ok, I might be tooting my own horn here:  </p>
+<p>Foxylicious just might be the <a href="http://lists.burri.to/pipermail/delicious-discuss/2004-December/001485.html">third most popular link in del.icious</a>.  </p>
+<p>Btw, the next Foxylicious release is coming out real soon now. Well, as soon as I finish it up, anyway.<a href="http://lists.burri.to/pipermail/delicious-discuss/2004-December/001485.html">Link</a>  </p>
+]]></description><link>/2004/12/sooo-delicious/index.html</link><guid isPermaLink="true">/2004/12/sooo-delicious/index.html</guid><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 08 Dec 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[Cross-browser Opacity]]></title><description><![CDATA[<p>#elementid {  </p>
+<p>  opacity: 0.5;  </p>
+<p>  -moz-opacity: 0.5;  </p>
+<p>  -khtml-opacity: 0.5;  </p>
+<p>  filter: alpha(opacity=50);  </p>
+<p>}<a href="http://www.sitepoint.com/blog-post-view.php?id=211431">Link</a>  </p>
+]]></description><link>/2004/11/cross-browser-opacity/index.html</link><guid isPermaLink="true">/2004/11/cross-browser-opacity/index.html</guid><category><![CDATA[css]]></category><category><![CDATA[dhtml]]></category><category><![CDATA[webdev]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 25 Nov 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[Foxylicious 0.2 Released!]]></title><description><![CDATA[<p>Foxylicious 0.2 is now available.  </p>
+<p>This version adds two new features:  </p>
+<ol>
+<li>Daily automatic updates  </li>
+</ol>
+<p>Foxylicious periodically checks to see if a new day has dawned since  </p>
+<p>the last update. If it&#39;s a brand new day, an update will run  </p>
+<p>automatically. This is off by default, and can be enabled via the  </p>
+<p>Foxylicious settings page under the Tools menu.  </p>
+<ol>
+<li>Folder-based sub-categorization by a user-specified delimiter.  </li>
+</ol>
+<p>How&#39;s that for a feature name! Here&#39;s an example: If you  </p>
+<p>sub-categorize your delicious tags using a dot syntax (windows.iis,  </p>
+<p>windows.monopoly, windows.bsod), you can specify the dot as your  </p>
+<p>delimiter, and Foxylicious will create subfolders for each  </p>
+<p>sub-categorized tag! I&#39;ve tested this up to 4 levels deep, and had no  </p>
+<p>problems. THEORETICALLY, you should be able to create hierarchies as  </p>
+<p>deep as whatever FF&#39;s maximum supported folder depth is (ie:  </p>
+<p>cosmos.milky-way.solar-sytem.earth.primate.human.female.secretary.tickle-fetish  </p>
+<ul>
+<li>you get the picture).  </li>
+</ul>
+<p>Remember: This extension is only 2/10 of the way to 1.0, so if you  </p>
+<p>find any bugs, please report them to me (politely) and I&#39;ll  </p>
+<p>incorporate the fix into the next release.  </p>
+<p><a href="http://dietrich.ganx4.com/foxylicious/">http://dietrich.ganx4.com/foxylicious/</a>  </p>
+<p>ENJOI.  </p>
+<p><a href="http://dietrich.ganx4.com/foxylicious/">Link</a>  </p>
+]]></description><link>/2004/11/foxylicious-02-released/index.html</link><guid isPermaLink="true">/2004/11/foxylicious-02-released/index.html</guid><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 16 Nov 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[How To Host a Remote Object in a Windows Service]]></title><description><![CDATA[<p><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/secmod/html/secmod29.asp">Link</a>  </p>
+]]></description><link>/2004/10/how-to-host-a-remote-object-in-a-windows-service/index.html</link><guid isPermaLink="true">/2004/10/how-to-host-a-remote-object-in-a-windows-service/index.html</guid><category><![CDATA[.net]]></category><category><![CDATA[remoting]]></category><category><![CDATA[windows]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 30 Oct 2004 00:00:00 GMT</pubDate></item></channel></rss>
