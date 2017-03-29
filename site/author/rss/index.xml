@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 28 Mar 2017 15:51:57 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[FOSSAsia 2017]]></title><description><![CDATA[<p>Seven years after attending my first FOSSAsia in Ho Chi Min City, I was able to join again this year! The difference is amazing - the conference has grown to be one of the largest open source events in Asia, with more than <a href="http://2017.fossasia.org/speakers.html">200 speakers</a> over three days across 13 tracks and now hosted in Singapore.</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 29 Mar 2017 05:25:09 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[FOSSAsia 2017]]></title><description><![CDATA[<p>Seven years after attending my first FOSSAsia in Ho Chi Min City, I was able to join again this year! The difference is amazing - the conference has grown to be one of the largest open source events in Asia, with more than <a href="http://2017.fossasia.org/speakers.html">200 speakers</a> over three days across 13 tracks and now hosted in Singapore.</p>
 <script src="//unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/842543000320335873"></script>
 
 <p>The conference is entirely open source and volunteer-run, which is really neat. Kudos to the organizers for putting it on, which is a huge amount of work. The focus on free and open source software and tracks on relevant topics like AI, Bitcoin, and IoT combine to make a great collection of people to put in one place for a weekend.</p>
@@ -13,7 +13,7 @@
 <p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/comprock/32663678044/in/faves-49503183968@N01/" title="FOSSASIA 2017"><img src="https://c1.staticflickr.com/4/3788/32663678044_8a8e2d7b12_z.jpg" width="640" height="427" alt="FOSSASIA 2017"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 <p>After three days of rapping with everyone who came by the booth, here are a few impressions:</p>
 <ul>
-<li><p>Most people, developers included, haven&#39;t strongly engaged in VR yet. If you assume everyone is doing it, you&#39;re probably in the VR industry and you&#39;re wrong. I&#39;ve been demoing VR at conferences for the last couple of years and I <em>always</em> ask if people have tried it before and the answer is usually &quot;no&quot;. VR may be in the limelight in tech news, but the on-the-ground experience says it&#39;s still very early days.</p>
+<li><p>Most people, developers included, haven&#39;t strongly engaged in VR yet. If you assume everyone is doing it, you&#39;re probably in the VR industry and you&#39;re wrong. I&#39;ve been demoing VR at conferences for the last couple of years and I always ask if people have tried it before and the answer is usually &quot;no&quot;. VR may be in the limelight in tech news, but the on-the-ground experience says it&#39;s still very early days.</p>
 </li>
 <li><p>A-Frame has excellent name recognition. This conversation a lot: &quot;This was made with a JavaScript library called A-Frame.&quot; &quot;Oh, A-Frame!&quot; &quot;You&#39;ve used it?&quot; &quot;No, but I&#39;ve heard of it and it looks awesome!&quot;.</p>
 </li>
@@ -27,14 +27,14 @@
 <h2 id="conference">Conference</h2>
 <p>What I liked:</p>
 <ul>
-<li>Great crowd. So many people I talked to are members of open source projects, so it really feels like a peer conference.</li>
+<li>Great crowd. It really feels like a practitioners conference where people are learning reciprocally.</li>
 <li>Talk topics are really good. Very little fluff on the schedule. Great mix of interesting and practical topics. Good job by organizers here.</li>
 <li>Excellent conference website and apps. They&#39;re writing their own FOSS event management stack, and it seems pretty great so far.</li>
 <li>Communication from organizers prior to the event was really good. Combination of emails for important things, and Google Group and Slack for general communication really worked well.</li>
 </ul>
 <p>What I&#39;d like to see next year:</p>
 <ul>
-<li>Speakers should not have to pay ticket price. It&#39;s already expensive enough to fly and stay in Singapore. That added cost just means the conference isn&#39;t accessible to everyone - we&#39;re not hearing all the voices.</li>
+<li>Speakers should not have to pay for tickets.</li>
 <li>Need a venue that&#39;s centrally located, easier to navigate and that lets attendees focus on the conference.</li>
 <li>Singapore already has lots of events, and is famously expensive for hotel and venue space. To make a truly pan-Asian conference, should move around to different cities.</li>
 <li>The schedule was changed at the last minute without warning to speakers, causing some to miss their talks. Need to lock the schedule down, and communicate changes very clearly.</li>
