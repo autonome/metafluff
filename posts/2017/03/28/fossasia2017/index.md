@@ -65,7 +65,7 @@ What I'd like to see next year:
 
 Huge thanks to [Engineers.sg](https://engineers.sg), who recorded almost all of talks. The complete set of FOSSAsia 2017 recorded talks is [here on their website](https://engineers.sg/conference/fossasia-2017).
 
-* [OpenSec and Why WebAppSec Matters - Shah Mijanur Rahman (SYLHET, Bangladesh)] (https://engineers.sg/video/opensec-and-why-webappsec-matters-fossasia-2017--1547)
+* [OpenSec and Why WebAppSec Matters - Shah Mijanur Rahman (SYLHET, Bangladesh)](https://engineers.sg/video/opensec-and-why-webappsec-matters-fossasia-2017--1547)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8KK-lQQfYXs?rel=0" frameborder="0" allowfullscreen></iframe>
 
 * [Tea Linux OS, Designed for Programmer / Developer - Diky Arga Anggara (Semarang, Indonesia)](https://engineers.sg/video/tea-linux-os-designed-for-programmer-developer-fossasia-2017--1591)
@@ -74,13 +74,13 @@ Huge thanks to [Engineers.sg](https://engineers.sg), who recorded almost all of 
 * [Creating your own Pokemon-world in Web based Virtual Reality - Santosh Viswanatham (Hyderabad, India)](https://engineers.sg/video/creating-your-own-pokemon-world-in-web-based-virtual-reality-workshop-1hr-fossasia-2017--1553)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e4HbnJ_-u0o?rel=0" frameborder="0" allowfullscreen></iframe>
 
-* [WebRTC - future of Video Chats - Trishul Goel (Delhi, India)] (https://engineers.sg/video/webrtc-future-of-video-chats-fossasia-2017--1548)
+* [WebRTC - future of Video Chats - Trishul Goel (Delhi, India)](https://engineers.sg/video/webrtc-future-of-video-chats-fossasia-2017--1548)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7hEVzSUv7sg?rel=0" frameborder="0" allowfullscreen></iframe>
 
-* [WebAssembly: now web is a new compiler target architecture - Noritada Shimizu (Tokyo, Japan)] (https://engineers.sg/video/webassembly-now-web-is-a-new-compiler-target-architecture-fossasia-2017--1555)
+* [WebAssembly: now web is a new compiler target architecture - Noritada Shimizu (Tokyo, Japan)](https://engineers.sg/video/webassembly-now-web-is-a-new-compiler-target-architecture-fossasia-2017--1555)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VAcyLP9RdfQ?rel=0" frameborder="0" allowfullscreen></iframe>
 
-* [Integrated Physical Computing on the Web - Dietrich Ayala (Portland, OR, USA)] (https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567)
+* [Integrated Physical Computing on the Web - Dietrich Ayala (Portland, OR, USA)](https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_TWGDklUlD4?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## THANKS FOSSASIA!

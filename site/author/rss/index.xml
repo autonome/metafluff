@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 29 Mar 2017 05:25:09 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[FOSSAsia 2017]]></title><description><![CDATA[<p>Seven years after attending my first FOSSAsia in Ho Chi Min City, I was able to join again this year! The difference is amazing - the conference has grown to be one of the largest open source events in Asia, with more than <a href="http://2017.fossasia.org/speakers.html">200 speakers</a> over three days across 13 tracks and now hosted in Singapore.</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 29 Mar 2017 05:32:38 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[FOSSAsia 2017]]></title><description><![CDATA[<p>Seven years after attending my first FOSSAsia in Ho Chi Min City, I was able to join again this year! The difference is amazing - the conference has grown to be one of the largest open source events in Asia, with more than <a href="http://2017.fossasia.org/speakers.html">200 speakers</a> over three days across 13 tracks and now hosted in Singapore.</p>
 <script src="//unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/842543000320335873"></script>
 
 <p>The conference is entirely open source and volunteer-run, which is really neat. Kudos to the organizers for putting it on, which is a huge amount of work. The focus on free and open source software and tracks on relevant topics like AI, Bitcoin, and IoT combine to make a great collection of people to put in one place for a weekend.</p>
@@ -51,7 +51,7 @@
 <h2 id="our-talks">Our Talks</h2>
 <p>Huge thanks to <a href="https://engineers.sg">Engineers.sg</a>, who recorded almost all of talks. The complete set of FOSSAsia 2017 recorded talks is <a href="https://engineers.sg/conference/fossasia-2017">here on their website</a>.</p>
 <ul>
-<li><p>[OpenSec and Why WebAppSec Matters - Shah Mijanur Rahman (SYLHET, Bangladesh)] (<a href="https://engineers.sg/video/opensec-and-why-webappsec-matters-fossasia-2017--1547">https://engineers.sg/video/opensec-and-why-webappsec-matters-fossasia-2017--1547</a>)</p>
+<li><p><a href="https://engineers.sg/video/opensec-and-why-webappsec-matters-fossasia-2017--1547">OpenSec and Why WebAppSec Matters - Shah Mijanur Rahman (SYLHET, Bangladesh)</a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8KK-lQQfYXs?rel=0" frameborder="0" allowfullscreen></iframe>
 </li>
 <li><p><a href="https://engineers.sg/video/tea-linux-os-designed-for-programmer-developer-fossasia-2017--1591">Tea Linux OS, Designed for Programmer / Developer - Diky Arga Anggara (Semarang, Indonesia)</a></p>
@@ -60,13 +60,13 @@
 <li><p><a href="https://engineers.sg/video/creating-your-own-pokemon-world-in-web-based-virtual-reality-workshop-1hr-fossasia-2017--1553">Creating your own Pokemon-world in Web based Virtual Reality - Santosh Viswanatham (Hyderabad, India)</a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/e4HbnJ_-u0o?rel=0" frameborder="0" allowfullscreen></iframe>
 </li>
-<li><p>[WebRTC - future of Video Chats - Trishul Goel (Delhi, India)] (<a href="https://engineers.sg/video/webrtc-future-of-video-chats-fossasia-2017--1548">https://engineers.sg/video/webrtc-future-of-video-chats-fossasia-2017--1548</a>)</p>
+<li><p><a href="https://engineers.sg/video/webrtc-future-of-video-chats-fossasia-2017--1548">WebRTC - future of Video Chats - Trishul Goel (Delhi, India)</a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7hEVzSUv7sg?rel=0" frameborder="0" allowfullscreen></iframe>
 </li>
-<li><p>[WebAssembly: now web is a new compiler target architecture - Noritada Shimizu (Tokyo, Japan)] (<a href="https://engineers.sg/video/webassembly-now-web-is-a-new-compiler-target-architecture-fossasia-2017--1555">https://engineers.sg/video/webassembly-now-web-is-a-new-compiler-target-architecture-fossasia-2017--1555</a>)</p>
+<li><p><a href="https://engineers.sg/video/webassembly-now-web-is-a-new-compiler-target-architecture-fossasia-2017--1555">WebAssembly: now web is a new compiler target architecture - Noritada Shimizu (Tokyo, Japan)</a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VAcyLP9RdfQ?rel=0" frameborder="0" allowfullscreen></iframe>
 </li>
-<li><p>[Integrated Physical Computing on the Web - Dietrich Ayala (Portland, OR, USA)] (<a href="https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567">https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567</a>)</p>
+<li><p><a href="https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567">Integrated Physical Computing on the Web - Dietrich Ayala (Portland, OR, USA)</a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_TWGDklUlD4?rel=0" frameborder="0" allowfullscreen></iframe>
 
 </li>
