@@ -14,7 +14,7 @@ The conference is entirely open source and volunteer-run, which is really neat. 
 
 <script src="//unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/842638503473233921"></script>
 
-Mozilla didn't sponsor this year, but myself and some of our Tech Speakers had talks accepted, so joined. We had seven people from six countries, speaking about VR, WebAssembly, Web-RTC, security, IoT, AR and more. Big thanks to Bob Reyes, Diky Arga Anggara, Noritada Shimizu, Santosh Viswanatham, Shah Mijanur Rahman and Trishul Goel for speaking at the conference and putting in a bunch of hours at our table every day.
+Mozilla didn't directly sponsor this year, but instead sent some of our Tech Speakers who had talks accepted and myself. We were seven people from six countries, speaking about VR, WebAssembly, Web-RTC, security, IoT, AR and more. Big thanks to Bob Reyes, Diky Arga Anggara, Noritada Shimizu, Santosh Viswanatham, Shah Mijanur Rahman and Trishul Goel for speaking at the conference and putting in a bunch of hours at our table every day.
 
 <script src="//unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/843647232393924609"></script>
 
@@ -26,30 +26,28 @@ The response was *fantastic* - lots of people having their first VR experience o
 
 After three days of rapping with everyone who came by the booth, here are a few impressions:
 
-* Everyone loves Mozilla, and most of those people quickly follow up their expression of love by saying they use Chrome. It's going to be SO nice to have these conversations when Firefox is ridiculously fast.
-
-* Most people, developers included, haven't really engaged in VR yet. If you assume everyone is doing it, you're probably in the VR industry and you're wrong. I've been demoing VR at conferences for the last couple of years and I *always* ask if people have tried it before and the answer is usually "no". VR may be in the limelight in tech news, but the on-the-ground experience says it's still very early days.
+* Most people, developers included, haven't strongly engaged in VR yet. If you assume everyone is doing it, you're probably in the VR industry and you're wrong. I've been demoing VR at conferences for the last couple of years and I always ask if people have tried it before and the answer is usually "no". VR may be in the limelight in tech news, but the on-the-ground experience says it's still very early days.
 
 * A-Frame has excellent name recognition. This conversation a lot: "This was made with a JavaScript library called A-Frame." "Oh, A-Frame!" "You've used it?" "No, but I've heard of it and it looks awesome!".
 
 * Almost nobody was talking about bots.
 
-* Almost everybody was talking about AI.
+* Almost everybody was talking about AI and machine learning.
 
-* People are still asking us about Firefox OS.
+* People are *still* asking us about Firefox OS.
 
 ## Conference
 
 What I liked:
 
-* Great crowd. So many people I talked to are members of open source projects, so it really feels like a peer conference.
+* Great crowd. It really feels like a practitioners conference where people are learning reciprocally.
 * Talk topics are really good. Very little fluff on the schedule. Great mix of interesting and practical topics. Good job by organizers here.
 * Excellent conference website and apps. They're writing their own FOSS event management stack, and it seems pretty great so far.
 * Communication from organizers prior to the event was really good. Combination of emails for important things, and Google Group and Slack for general communication really worked well.
 
 What I'd like to see next year:
 
-* Speakers should not have to pay ticket price. It's already expensive enough to fly and stay in Singapore. That added cost just means the conference isn't accessible to everyone - we're not hearing all the voices.
+* Speakers should not have to pay for tickets.
 * Need a venue that's centrally located, easier to navigate and that lets attendees focus on the conference.
 * Singapore already has lots of events, and is famously expensive for hotel and venue space. To make a truly pan-Asian conference, should move around to different cities.
 * The schedule was changed at the last minute without warning to speakers, causing some to miss their talks. Need to lock the schedule down, and communicate changes very clearly.
