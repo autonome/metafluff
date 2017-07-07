@@ -56,9 +56,9 @@ Glitch.com lets you author and run full web projects, with HTML, CSS, JavaScript
 
 Some basic things to try:
 
-* Positioning of objects in your scene
-* [Animation of objects in your scene](https://aframe.io/docs/0.5.0/core/animations.html)
-* Link traversal - navigating between different VR web pages!
+* [Positioning of objects in your scene](https://aframe.io/docs/0.6.0/components/position.html)
+* [Animation of objects in your scene](https://aframe.io/docs/0.6.0/core/animations.html)
+* [Link traversal - navigating between different VR web pages!](https://aframe.io/docs/0.6.0/components/link.html)
 
 A-Frame's extensibility is an entity component system, which has enabled a huge number of components to be created to add functionality. A few useful modules are listed below. You can [create your own components](https://aframe.io/docs/0.6.0/introduction/writing-a-component.html) also.
 
