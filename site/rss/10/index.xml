@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 29 Mar 2017 05:32:36 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[A Foolish Consistency...]]></title><description><![CDATA[<p>&quot;A foolish consistency is the hobgoblin of little minds.&quot; - Ralph Waldo  </p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 07 Jul 2017 05:13:54 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Slow Ride in the Fast Lane...Finally]]></title><description><![CDATA[<p>On January 1st, 2005, <a href="http://democrats.assembly.ca.gov/members/a41/default2.htm?hybrids">California Assembly Bill 2628</a> was signed into law. It allows some hybrid cars to drive in the carpool lane, even if the vehicle has a single occupant. However, carpool lanes are funded by federal grants, and the federal government threatened to take away their funding if California allowed this law to take effect. The implementation of the law was <a href="http://www.sacbee.com/content/news/traffic/story/13322796p-14164921c.html">postponed indefinitely</a>.  </p>
+<p>The opposition to California&#39;s law was spearheaded by domestic auto manufacturers, <a href="http://www.freep.com/money/autonews/ford25e_20040825.htm">who consider AB2628 a &quot;buy japanese&quot; bill</a>. This is because domestically manufactured hybrid vehicles get far less miles-per-gallon than the Japanese hybrids, and don&#39;t satisfy the requirements of the bill.  </p>
+<p>In a positive development, the federal transportation bill which was just signed into law by <a href="http://www.whitehouse.com/">El Presidento Nepotsis</a> (nsfw), allows hybrids in federally-funded carpool lanes. The California ARB (Air Resources Board) have already updated <a href="http://www.arb.ca.gov/msprog/carpool/carpool.htm">their website</a>, adding a number of hybrid models to the list of single-occupant vehicles that qualify as able to drive in the carpool lane.  </p>
+<p>What&#39;s the effect on hybrid-driving commuters like myself? Well, here in southern California it means that the commute might be 5-10 minutes shorter. Yay. Now it should only take 55 minutes to drive 32 miles, instead of the usual hour.  </p>
+<p>The importance of this law taking effect is not about the commute however. It sends a message to domestic auto manufacturers, who have been working overtime for years to prevent mass-adoption of fuel-efficient and environmentally-friendly cars in America: Fuck you.  </p>
+<p><a href="">Link</a>  </p>
+]]></description><link>/2005/08/slow-ride-in-the-fast-lanefinally/index.html</link><guid isPermaLink="true">/2005/08/slow-ride-in-the-fast-lanefinally/index.html</guid><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 12 Aug 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Making the Monkey Frown]]></title><description><![CDATA[<p>Looks like there is a serious exploit in <a href="http://greaseblog.blogspot.com/">Greasemonkey</a>. This <a href="http://mozdev.org/pipermail/greasemonkey/2005-July/004022.html">thread </a>provides the details. A <a href="http://greaseblog.blogspot.com/2005/07/mandatory-greasemonkey-update.html">&quot;neutered&quot; version</a> has been provided, for use until the security hole is patched. Good luck Aaron!</p>
+<p>Link</p>
+]]></description><link>/2005/07/making-the-monkey-frown/index.html</link><guid isPermaLink="true">/2005/07/making-the-monkey-frown/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[Yahoo360]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 20 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[A Foolish Consistency...]]></title><description><![CDATA[<p>&quot;A foolish consistency is the hobgoblin of little minds.&quot; - Ralph Waldo  </p>
 <p>Emerson<a href="">Link</a>  </p>
 ]]></description><link>/2005/07/a-foolish-consistency/index.html</link><guid isPermaLink="true">/2005/07/a-foolish-consistency/index.html</guid><category><![CDATA[quotes]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 16 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Any Fool]]></title><description><![CDATA[<p>&quot;Any fool can write code that computers can understand, a good programmer writes code a human can understand.&quot; - Martin Fowler<a href="">Link</a>  </p>
 ]]></description><link>/2005/07/any-fool/index.html</link><guid isPermaLink="true">/2005/07/any-fool/index.html</guid><category><![CDATA[quotes]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 15 Jul 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Trust, Identity and the GUIDMail]]></title><description><![CDATA[<p>One of the changes in Firefox 1.1 (aka Deer Park) is that an email address is a treated as a valid GUID value.</p>
@@ -71,34 +79,4 @@
 <p>  -khtml-opacity: 0.5;  </p>
 <p>  filter: alpha(opacity=50);  </p>
 <p>}<a href="http://www.sitepoint.com/blog-post-view.php?id=211431">Link</a>  </p>
-]]></description><link>/2004/11/cross-browser-opacity/index.html</link><guid isPermaLink="true">/2004/11/cross-browser-opacity/index.html</guid><category><![CDATA[css]]></category><category><![CDATA[dhtml]]></category><category><![CDATA[webdev]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 25 Nov 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[Foxylicious 0.2 Released!]]></title><description><![CDATA[<p>Foxylicious 0.2 is now available.  </p>
-<p>This version adds two new features:  </p>
-<ol>
-<li>Daily automatic updates  </li>
-</ol>
-<p>Foxylicious periodically checks to see if a new day has dawned since  </p>
-<p>the last update. If it&#39;s a brand new day, an update will run  </p>
-<p>automatically. This is off by default, and can be enabled via the  </p>
-<p>Foxylicious settings page under the Tools menu.  </p>
-<ol>
-<li>Folder-based sub-categorization by a user-specified delimiter.  </li>
-</ol>
-<p>How&#39;s that for a feature name! Here&#39;s an example: If you  </p>
-<p>sub-categorize your delicious tags using a dot syntax (windows.iis,  </p>
-<p>windows.monopoly, windows.bsod), you can specify the dot as your  </p>
-<p>delimiter, and Foxylicious will create subfolders for each  </p>
-<p>sub-categorized tag! I&#39;ve tested this up to 4 levels deep, and had no  </p>
-<p>problems. THEORETICALLY, you should be able to create hierarchies as  </p>
-<p>deep as whatever FF&#39;s maximum supported folder depth is (ie:  </p>
-<p>cosmos.milky-way.solar-sytem.earth.primate.human.female.secretary.tickle-fetish  </p>
-<ul>
-<li>you get the picture).  </li>
-</ul>
-<p>Remember: This extension is only 2/10 of the way to 1.0, so if you  </p>
-<p>find any bugs, please report them to me (politely) and I&#39;ll  </p>
-<p>incorporate the fix into the next release.  </p>
-<p><a href="http://dietrich.ganx4.com/foxylicious/">http://dietrich.ganx4.com/foxylicious/</a>  </p>
-<p>ENJOI.  </p>
-<p><a href="http://dietrich.ganx4.com/foxylicious/">Link</a>  </p>
-]]></description><link>/2004/11/foxylicious-02-released/index.html</link><guid isPermaLink="true">/2004/11/foxylicious-02-released/index.html</guid><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 16 Nov 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[How To Host a Remote Object in a Windows Service]]></title><description><![CDATA[<p><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/secmod/html/secmod29.asp">Link</a>  </p>
-]]></description><link>/2004/10/how-to-host-a-remote-object-in-a-windows-service/index.html</link><guid isPermaLink="true">/2004/10/how-to-host-a-remote-object-in-a-windows-service/index.html</guid><category><![CDATA[.net]]></category><category><![CDATA[remoting]]></category><category><![CDATA[windows]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 30 Oct 2004 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2004/11/cross-browser-opacity/index.html</link><guid isPermaLink="true">/2004/11/cross-browser-opacity/index.html</guid><category><![CDATA[css]]></category><category><![CDATA[dhtml]]></category><category><![CDATA[webdev]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 25 Nov 2004 00:00:00 GMT</pubDate></item></channel></rss>
