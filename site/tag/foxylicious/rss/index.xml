@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 12 Jul 2017 05:35:36 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Foxylicious 0.7]]></title><description><![CDATA[<p>I updated <a href="http://dietrich.ganx4.com/foxylicious">Foxylicious</a> for <a href="http://www.mozilla.com/firefox/">Firefox 2</a>. It&#39;s home at <a href="https://addons.mozilla.org/firefox/342/">AMO</a> is not yet updated, as it&#39;s still awaiting approval. For those who can&#39;t wait, I&#39;ve made it available here.</p>
+<ul>
+<li>Updated to work with Firefox 2</li>
+<li>Uses the new secure del.icio.us API endpoint (fixes the auth prompt issue)</li>
+<li>Fixed some pref handling errors</li>
+<li>Added configurable post URLs. To load a different posting page, set the foxylicious.postURL to a URL that has %user%, %location% and %title%, for example, the default is: <a href="http://del.icio.us/%user%?v=2&amp;noui=yes&amp;jump=close&amp;url=%location%&amp;title=%title">http://del.icio.us/%user%?v=2&amp;noui=yes&amp;jump=close&amp;url=%location%&amp;title=%title</a></li>
+<li>Properly localize-able</li>
+</ul>
+<p><a href="http://dietrich.ganx4.com/foxylicious/foxylicious.xpi">INSTALL Foxylicious 0.7</a></p>
+<p>Please let me know if you have any problems, regressions, etc.</p>
+<p>XOXO,</p>
+<p>-d</p>
+]]></description><link>/2006/10/foxylicious-07/index.html</link><guid isPermaLink="true">/2006/10/foxylicious-07/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[foxylicious]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 27 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Eep, Another Foxylicious Release!]]></title><description><![CDATA[<p>Foxylicious 0.3 is now available. This release adds several new features:  </p>
+<pre class="hljs"><code>-The ability <span class="hljs-built_in">to</span> choose <span class="hljs-keyword">any</span> location <span class="hljs-operator">in</span> your FF bookmarks tree <span class="hljs-built_in">to</span> be <span class="hljs-operator">the</span> <span class="hljs-built_in">folder</span> <span class="hljs-operator">in</span> which your del.icio.us bookmarks are placed. Setting up your del.icio.us <span class="hljs-built_in">folder</span> <span class="hljs-operator">in</span> your Bookmarks Toolbar <span class="hljs-built_in">folder</span> is especially cool.<br>
+- Foxylicious now <em>syncs</em> your remote bookmarks <span class="hljs-built_in">to</span> <span class="hljs-operator">the</span> <span class="hljs-built_in">local</span> store, thereby incorporating adds, updates <span class="hljs-operator">and</span> deletes.<br>
+- The context-menu <span class="hljs-keyword">for</span> adding links <span class="hljs-built_in">to</span> del.icio.us now works, thanks <span class="hljs-built_in">to</span> Rob Harris, who contributed <span class="hljs-operator">the</span> code.  </code></pre><p>One feature that did not make it in to 0.3 is exporting FF bookmarks to del.icio.us. I have it mostly implemented, but it either takes forever, or pounds the heck out of the server, due to limitations in the current API. Hopefully full bi-directionality will come in 0.4<img src="http://dietrich.ganx4.com/foxylicious" alt="Link">  </p>
+]]></description><link>/2005/01/eep-another-foxylicious-release/index.html</link><guid isPermaLink="true">/2005/01/eep-another-foxylicious-release/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 14 Jan 2005 00:00:00 GMT</pubDate></item><item><title><![CDATA[Sooo del.icio.us]]></title><description><![CDATA[<p>Ok, I might be tooting my own horn here:  </p>
+<p>Foxylicious just might be the <a href="http://lists.burri.to/pipermail/delicious-discuss/2004-December/001485.html">third most popular link in del.icious</a>.  </p>
+<p>Btw, the next Foxylicious release is coming out real soon now. Well, as soon as I finish it up, anyway.<a href="http://lists.burri.to/pipermail/delicious-discuss/2004-December/001485.html">Link</a>  </p>
+]]></description><link>/2004/12/sooo-delicious/index.html</link><guid isPermaLink="true">/2004/12/sooo-delicious/index.html</guid><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 08 Dec 2004 00:00:00 GMT</pubDate></item><item><title><![CDATA[Foxylicious 0.2 Released!]]></title><description><![CDATA[<p>Foxylicious 0.2 is now available.  </p>
+<p>This version adds two new features:  </p>
+<ol>
+<li>Daily automatic updates  </li>
+</ol>
+<p>Foxylicious periodically checks to see if a new day has dawned since  </p>
+<p>the last update. If it&#39;s a brand new day, an update will run  </p>
+<p>automatically. This is off by default, and can be enabled via the  </p>
+<p>Foxylicious settings page under the Tools menu.  </p>
+<ol>
+<li>Folder-based sub-categorization by a user-specified delimiter.  </li>
+</ol>
+<p>How&#39;s that for a feature name! Here&#39;s an example: If you  </p>
+<p>sub-categorize your delicious tags using a dot syntax (windows.iis,  </p>
+<p>windows.monopoly, windows.bsod), you can specify the dot as your  </p>
+<p>delimiter, and Foxylicious will create subfolders for each  </p>
+<p>sub-categorized tag! I&#39;ve tested this up to 4 levels deep, and had no  </p>
+<p>problems. THEORETICALLY, you should be able to create hierarchies as  </p>
+<p>deep as whatever FF&#39;s maximum supported folder depth is (ie:  </p>
+<p>cosmos.milky-way.solar-sytem.earth.primate.human.female.secretary.tickle-fetish  </p>
+<ul>
+<li>you get the picture).  </li>
+</ul>
+<p>Remember: This extension is only 2/10 of the way to 1.0, so if you  </p>
+<p>find any bugs, please report them to me (politely) and I&#39;ll  </p>
+<p>incorporate the fix into the next release.  </p>
+<p><a href="http://dietrich.ganx4.com/foxylicious/">http://dietrich.ganx4.com/foxylicious/</a>  </p>
+<p>ENJOI.  </p>
+<p><a href="http://dietrich.ganx4.com/foxylicious/">Link</a>  </p>
+]]></description><link>/2004/11/foxylicious-02-released/index.html</link><guid isPermaLink="true">/2004/11/foxylicious-02-released/index.html</guid><category><![CDATA[foxylicious]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 16 Nov 2004 00:00:00 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 12 Jul 2017 05:35:35 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Live Screencasting on a Mac with Mogulus and CamTwist]]></title><description><![CDATA[<p>This is bare-bones for now, just basic instructions to point folks at.</p>
+<ol>
+<li>Download and install <a href="http://www.macupdate.com/info.php/id/24275/camtwist">CamTwist</a></li>
+<li>Go to <a href="http://www.mogulus.com">Mogulus.com</a> create an account and a new channel</li>
+<li>Start CamTwist</li>
+<li>Select &quot;Desktop&quot; from the video sources list on the far left</li>
+<li>Select &quot;Full Screen&quot; from the settings pane on the far right</li>
+<li>Restart your browser (yes, do it)</li>
+<li>Log in to your channel&#39;s studio on Mogulus.com</li>
+<li>On the left, in the Sources section, under the Cameras tab, your camera should show up</li>
+<li>In your camera settings, select &quot;CamTwist&quot; as the Video Source, and click the Cue button</li>
+<li>On the right, in the &quot;Cued clip&quot; section, press the big &quot;Transition to cued clip&quot; button
+Boom, you&#39;re now screencasting live.</li>
+</ol>
+]]></description><link>/2008/06/live-screencasting-on-a-mac-with-mogulus-and-camtwist/index.html</link><guid isPermaLink="true">/2008/06/live-screencasting-on-a-mac-with-mogulus-and-camtwist/index.html</guid><category><![CDATA[Mac]]></category><category><![CDATA[Mac]]></category><category><![CDATA[OSX]]></category><category><![CDATA[OSX]]></category><category><![CDATA[screencasting]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 21 Jun 2008 00:00:00 GMT</pubDate></item><item><title><![CDATA[Live Screencasting on a Mac with Mogulus and CamTwist]]></title><description><![CDATA[<p>This is bare-bones for now, just basic instructions to point folks at.</p>
+<ol>
+<li>Download and install <a href="http://www.macupdate.com/info.php/id/24275/camtwist">CamTwist</a></li>
+<li>Go to <a href="http://www.mogulus.com">Mogulus.com</a> create an account and a new channel</li>
+<li>Start CamTwist</li>
+<li>Select &quot;Desktop&quot; from the video sources list on the far left</li>
+<li>Select &quot;Full Screen&quot; from the settings pane on the far right</li>
+<li>Restart your browser (yes, do it)</li>
+<li>Log in to your channel&#39;s studio on Mogulus.com</li>
+<li>On the left, in the Sources section, under the Cameras tab, your camera should show up</li>
+<li>In your camera settings, select &quot;CamTwist&quot; as the Video Source, and click the Cue button</li>
+<li>On the right, in the &quot;Cued clip&quot; section, press the big &quot;Transition to cued clip&quot; button
+Boom, you&#39;re now screencasting live.</li>
+</ol>
+]]></description><link>/2008/06/live-screencasting-on-a-mac-with-mogulus-and-camtwist/index.html</link><guid isPermaLink="true">/2008/06/live-screencasting-on-a-mac-with-mogulus-and-camtwist/index.html</guid><category><![CDATA[Mac]]></category><category><![CDATA[Mac]]></category><category><![CDATA[OSX]]></category><category><![CDATA[OSX]]></category><category><![CDATA[screencasting]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 21 Jun 2008 00:00:00 GMT</pubDate></item><item><title><![CDATA[Installing the Lexmark P4350 on Mac OS X Leopard]]></title><description><![CDATA[<ol>
+<li>Uninstall the printer, if already installed from a previous version of OS X, or from previous attempts to install Lexmark&#39;s drivers</li>
+<li>Open Finder, click on your HD, find Library/Printers/Lexmark, and rename it to Lexmark.bak</li>
+<li>Reboot</li>
+<li>Insert your Leopard DVD, double-click Optional Installs, double-click Optional Installs.mpkg</li>
+<li>When Optional Installs has loaded, open Printer Drivers, and check the box next to Lexmark, then finish the installation process.</li>
+<li>Open System Preferences, and then Printer and Fax</li>
+<li>Click the + sign to add a new printer</li>
+<li>Your P4350 should show up as &quot;4300 Series Printer&quot; in the list. Select it.</li>
+<li>The dialog may spin for a few minutes. When done, it will enable the driver selection list. Select &quot;4300 Series&quot; from the list and click OK.
+You should now be able to print. I did this on two different Macs, and it worked for both.</li>
+</ol>
+]]></description><link>/2008/06/installing-the-lexmark-p4350-on-mac-os-x-leopard/index.html</link><guid isPermaLink="true">/2008/06/installing-the-lexmark-p4350-on-mac-os-x-leopard/index.html</guid><category><![CDATA[Apple]]></category><category><![CDATA[Leopard]]></category><category><![CDATA[Lexmark]]></category><category><![CDATA[Mac]]></category><category><![CDATA[Mac]]></category><category><![CDATA[OS]]></category><category><![CDATA[X]]></category><category><![CDATA[OSX]]></category><category><![CDATA[P4350]]></category><category><![CDATA[printers]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 02 Jun 2008 00:00:00 GMT</pubDate></item><item><title><![CDATA[Quicksilver]]></title><description><![CDATA[<p><a href="http://whatdoiknow.org/archives/001601.shtml">This</a> is the most convincing software review/rant ever. Definitely trying this one out.<a href="http://whatdoiknow.org/archives/001601.shtml">Link</a>  </p>
+]]></description><link>/2004/03/quicksilver/index.html</link><guid isPermaLink="true">/2004/03/quicksilver/index.html</guid><category><![CDATA[OSX]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 26 Mar 2004 00:00:00 GMT</pubDate></item></channel></rss>

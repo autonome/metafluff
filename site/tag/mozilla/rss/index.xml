@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 12 Jul 2017 05:35:22 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT]]></title><description><![CDATA[<p><a href="http://sensorweb.io/">Project SensorWeb</a> is an experiment from the <a href="https://wiki.mozilla.org/Connected_Devices/Projects">Connected Devices</a> group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&#39;ve had some <a href="http://topics.oregonlive.com/tag/toxic%20air/">serious air quality discoveries in Portland</a> recently - our air is possibly <a href="http://koin.com/2016/03/02/study-portland-air-among-worst-in-nation/">the worst in the USA</a>, and bad enough that <a href="http://koin.com/2016/02/26/erin-brockovich-joins-portland-air-quality-fight/">mega-activists like Erin Brockovich are getting involved</a>.</p>
+<p><img src="screen-shot-2016-07-13-at-5-21-01-pm.png" alt="Screen Shot 2016-07-13 at 5.21.01 PM"></p>
+<p>A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&#39;re still setting up the project so I haven&#39;t gotten the configuration info from them yet...</p>
+<p>But you don&#39;t need the SensorWeb server to get your sensor up and running and pushing data to your own server! I want a copy of the data for myself anyway, to be able to do my own visualizations and notifications. I can then forward the data on to SensorWeb.</p>
+<p>So I started by flashing the current version of the SensorWeb code to the device, which is a Nodemcu 0.9 board with an ESP8266 wifi chip on board, and a PM2.5 sensor attached to it.</p>
+<p><img src="2016-07-13-17-05-59.jpg" alt="2016-07-13 17.05.59"></p>
+<p>I used <a href="https://rishav006.wordpress.com/2016/06/22/pm2-5-a-sensorweb-project-by-mozilla/">Kumar Rishav&#39;s excellent step-by-step post</a> to get through the process.</p>
+<p>Some things I learned along the way:</p>
+<ul>
+<li>On Mac OS X you need a <a href="https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx">serial port driver</a> in order for the Arduino IDE to detect the board.</li>
+<li>After much gnashing of teeth, I discovered that you can&#39;t have the PM2.5 sensor plugged into the board when you flash it.
+After getting the regular version flashed correctly, I tested with Kumar&#39;s API key and device id, and confirmed it was reporting the data correctly to the SensorWeb server.</li>
+</ul>
+<p>Now for the changes.</p>
+<ul>
+<li>I set up <a href="https://ifttt.com/maker">the Maker channel on IFTTT</a>, which allows me post data to an HTTP endpoint to get it into IFTTT&#39;s system.</li>
+<li>I then created a new <a href="https://ifttt.com/recipes/440904-save-pm2-5-data-to-a-spreadsheet">IFTTT recipe that accepts the data from the device and pushes it into a Google spreadsheet</a>.</li>
+<li>I forked the SensorWeb code and <a href="https://github.com/autonome/arduino-station/blob/master/station/nodemcu/nodemcu.ino">modified it to post to the Maker channel instead of the SensorWeb server</a>.
+I flashed the device and viola, it is publishing data to my spreadsheet.</li>
+</ul>
+<p>&nbsp;</p>
+<p><img src="screen-shot-2016-07-13-at-4-48-28-pm.png" alt="Screen Shot 2016-07-13 at 4.48.28 PM"></p>
+<p>And now once SensorWeb is ready to take new devices, I can set up a new IFTTT recipe to forward the posts to them, allowing me to own my own data and also publish to the project!</p>
+]]></description><link>/2016/07/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/index.html</link><guid isPermaLink="true">/2016/07/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/index.html</guid><category><![CDATA[arduino]]></category><category><![CDATA[ifttt]]></category><category><![CDATA[iot]]></category><category><![CDATA[iot]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 14 Jul 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT]]></title><description><![CDATA[<p><a href="http://sensorweb.io/">Project SensorWeb</a> is an experiment from the <a href="https://wiki.mozilla.org/Connected_Devices/Projects">Connected Devices</a> group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&#39;ve had some <a href="http://topics.oregonlive.com/tag/toxic%20air/">serious air quality discoveries in Portland</a> recently - our air is possibly <a href="http://koin.com/2016/03/02/study-portland-air-among-worst-in-nation/">the worst in the USA</a>, and bad enough that <a href="http://koin.com/2016/02/26/erin-brockovich-joins-portland-air-quality-fight/">mega-activists like Erin Brockovich are getting involved</a>.</p>
+<p><img src="screen-shot-2016-07-13-at-5-21-01-pm.png" alt="Screen Shot 2016-07-13 at 5.21.01 PM"></p>
+<p>A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&#39;re still setting up the project so I haven&#39;t gotten the configuration info from them yet...</p>
+<p>But you don&#39;t need the SensorWeb server to get your sensor up and running and pushing data to your own server! I want a copy of the data for myself anyway, to be able to do my own visualizations and notifications. I can then forward the data on to SensorWeb.</p>
+<p>So I started by flashing the current version of the SensorWeb code to the device, which is a Nodemcu 0.9 board with an ESP8266 wifi chip on board, and a PM2.5 sensor attached to it.</p>
+<p><img src="2016-07-13-17-05-59.jpg" alt="2016-07-13 17.05.59"></p>
+<p>I used <a href="https://rishav006.wordpress.com/2016/06/22/pm2-5-a-sensorweb-project-by-mozilla/">Kumar Rishav&#39;s excellent step-by-step post</a> to get through the process.</p>
+<p>Some things I learned along the way:</p>
+<ul>
+<li>On Mac OS X you need a <a href="https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx">serial port driver</a> in order for the Arduino IDE to detect the board.</li>
+<li>After much gnashing of teeth, I discovered that you can&#39;t have the PM2.5 sensor plugged into the board when you flash it.
+After getting the regular version flashed correctly, I tested with Kumar&#39;s API key and device id, and confirmed it was reporting the data correctly to the SensorWeb server.</li>
+</ul>
+<p>Now for the changes.</p>
+<ul>
+<li>I set up <a href="https://ifttt.com/maker">the Maker channel on IFTTT</a>, which allows me post data to an HTTP endpoint to get it into IFTTT&#39;s system.</li>
+<li>I then created a new <a href="https://ifttt.com/recipes/440904-save-pm2-5-data-to-a-spreadsheet">IFTTT recipe that accepts the data from the device and pushes it into a Google spreadsheet</a>.</li>
+<li>I forked the SensorWeb code and <a href="https://github.com/autonome/arduino-station/blob/master/station/nodemcu/nodemcu.ino">modified it to post to the Maker channel instead of the SensorWeb server</a>.
+I flashed the device and viola, it is publishing data to my spreadsheet.</li>
+</ul>
+<p>&nbsp;</p>
+<p><img src="screen-shot-2016-07-13-at-4-48-28-pm.png" alt="Screen Shot 2016-07-13 at 4.48.28 PM"></p>
+<p>And now once SensorWeb is ready to take new devices, I can set up a new IFTTT recipe to forward the posts to them, allowing me to own my own data and also publish to the project!</p>
+]]></description><link>/2016/07/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/index.html</link><guid isPermaLink="true">/2016/07/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/index.html</guid><category><![CDATA[arduino]]></category><category><![CDATA[ifttt]]></category><category><![CDATA[iot]]></category><category><![CDATA[iot]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 14 Jul 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Bubble and Tweak - IoT at the Ends of the Earth]]></title><description><![CDATA[<p><img src="screen-shot-2016-07-12-at-3-19-07-pm.png" alt="Screen Shot 2016-07-12 at 3.19.07 PM"></p>
+<p>Last month I spent a week working on IoT projects with a group of 40 researchers, designers and coders... in Anstruther, a small fishing village in Scotland. Not a high-tech hub, but that was the point. We immersed ourselves in a small community with limited connectivity and interesting weather (and <a href="https://www.tripadvisor.com/Restaurant_Review-g551743-d1898308-Reviews-The_Wee_Chippy-Anstruther_Fife_Scotland.html">fantastic F&amp;C</a>) in order to explore how they use technology and how ubiquitous physical computing might be woven into their lives.</p>
+<p>The ideamonsters behind this event were <a href="https://twitter.com/thornet">Michelle Thorne</a> and <a href="https://twitter.com/ileddigital">Jon Rogers</a>, who are putting on a series of these exploratory events around the world this year as part of the Mozilla Foundation&#39;s <a href="https://wiki.mozilla.org/Open_IoT">Open IoT Studio</a>. The two previous editions of this event were a train caravan in India and a fablab sprint in Berlin (which I also attended, and will write up as well. I SWEAR.).</p>
+<p>Michelle and Jon will be writing a proper summary of the week as a whole, so I&#39;m going to focus on the project my group built: Bubble.</p>
+<p><img src="screen-shot-2016-07-12-at-3-18-39-pm.png" alt="Screen Shot 2016-07-12 at 3.18.39 PM"></p>
+<h2 id="-context-"><strong>Context</strong></h2>
+<p>From research conducted with local fishing folk, farmers from a bit inland, and a group of teenagers from the local school, we figured out a few things:</p>
+<ul>
+<li><strong>Mobile connectivity is sparse and unreliable</strong> throughout the whole region. In this particular town, only about half the town had any service.</li>
+<li>The important <strong>information, places and things aren&#39;t immediately obvious</strong> unless you know a local.</li>
+<li>Just like I was, growing up in a small town: <strong>The kids are just looking for something to do.</strong>
+Initially we focused on the teens... fun things like virtual secret messaging at the red telephone boxes. Imagine you connect to the wifi at the phone box, and the captive portal is a web UI for leaving and receiving secret messages. Perhaps they&#39;re only read once before dying, like a hyperlocal Snapchat. Perhaps the system is user-less, mediated only by secret combinations of emojis as keys. The street corner becomes the hangout, physically and digitally.</li>
+</ul>
+<p>We meandered to public messaging from there, thinking about how there&#39;s so much to learn and share about the physical space. What&#39;s the story behind the messages to fairies that are being left in that phone box? I can see the island off the coast from here - what&#39;s it called and what&#39;s out there? Who the hell is Urquardt and what&#39;s a &quot;wynd&quot;? Maybe we make a public message board as well - disconnected from the internet but connected to anything within view.</p>
+<p>We kept going back to the physical space. We talked about a virtual graffiti wall, and then started exploring AR and ways of marking up the surroundings - the people, the history, the local pro-tip on which fish and chips shop is the best. But all of this available only to people in close physical proximity.</p>
+<p><img src="screen-shot-2016-07-12-at-3-40-49-pm.png" alt="Screen Shot 2016-07-12 at 3.40.49 PM"></p>
+<h2 id="-implementation-"><strong>Implementation</strong></h2>
+<p>Given the context and the constraints, as well as watching direction some of the other groups were going in, we started designing a general approach to bringing digital interactivity to disconnected spaces.</p>
+<p>The first cut is <strong>Bubble</strong>: A <strong>wi-fi access point</strong> with a <strong>captive portal</strong> that opens a web page that displays an <strong>augmented reality</strong> view of your <strong>immediate surroundings</strong>, with messages overlaid on what you&#39;re seeing:</p>
+<p><img src="screen-shot-2016-07-12-at-2-36-26-pm.png" alt="Screen Shot 2016-07-12 at 2.36.26 PM"></p>
+<p>A few implementation notes:</p>
+<ul>
+<li>We used a Raspberry Pi 3, running as a wi-fi access point.</li>
+<li>It ran a node.js script that served up the captive portal web UI.</li>
+<li>The web UI used getUserMedia to access the device camera awe.js for the AR bits and A-Frame for a VR backup view on iOS.</li>
+<li>We designed a logo and descriptive text and then lasercut some plaques to put up where hotspots are.
+<strong>Designs, board, battery and boxes:</strong></li>
+</ul>
+<p><img src="screen-shot-2016-07-12-at-3-58-10-pm.png" alt="Screen Shot 2016-07-12 at 3.58.10 PM">
+<strong>Connected to the front-end:</strong></p>
+<p><img src="screen-shot-2016-07-12-at-3-57-57-pm.png" alt="Screen Shot 2016-07-12 at 3.57.57 PM"></p>
+<p><strong>In the final box:</strong></p>
+<p><img src="screen-shot-2016-07-12-at-3-58-33-pm.png" alt="Screen Shot 2016-07-12 at 3.58.33 PM"></p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Captive portals are hobbled web pages. You can&#39;t do things like use getUserMedia to get access to the camera.</li>
+<li>iOS doesn&#39;t have <em>any</em> way to let web pages access the camera.</li>
+<li>Power can be hard. We talked about solar and other ways of powering these.</li>
+<li>Gotta hope they don&#39;t get nicked.
+Bubble was an experimental prototype. There are no plans to work further on it at this time. If you&#39;re interested, everything is on Github <a href="https://github.com/autonome/bubble">here</a>. You can read more about the design <a href="https://www.dropbox.com/s/yj11w3g3scwu93q/Bubble_DesignSprint_Scotland.pdf?dl=0">here (PDF)</a>.</li>
+</ul>
+<p>Thanks to fellow team members <a href="https://twitter.com/juliagratsova">Julia Gratsova</a>, <a href="https://twitter.com/kc_coffeekid">Katie Caldwell</a>, <a href="https://twitter.com/thecreatureslab">Vladan Joler</a>. (Sadly, no Julia in the phonebox!)</p>
+<p><img src="screen-shot-2016-07-12-at-3-19-51-pm.png" alt="Screen Shot 2016-07-12 at 3.19.51 PM"></p>
+]]></description><link>/2016/07/bubble-and-tweak-iot-at-the-ends-of-the-earth/index.html</link><guid isPermaLink="true">/2016/07/bubble-and-tweak-iot-at-the-ends-of-the-earth/index.html</guid><category><![CDATA[anstruther]]></category><category><![CDATA[iot]]></category><category><![CDATA[iot]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[scotland]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 13 Jul 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Bubble and Tweak - IoT at the Ends of the Earth]]></title><description><![CDATA[<p><img src="screen-shot-2016-07-12-at-3-19-07-pm.png" alt="Screen Shot 2016-07-12 at 3.19.07 PM"></p>
+<p>Last month I spent a week working on IoT projects with a group of 40 researchers, designers and coders... in Anstruther, a small fishing village in Scotland. Not a high-tech hub, but that was the point. We immersed ourselves in a small community with limited connectivity and interesting weather (and <a href="https://www.tripadvisor.com/Restaurant_Review-g551743-d1898308-Reviews-The_Wee_Chippy-Anstruther_Fife_Scotland.html">fantastic F&amp;C</a>) in order to explore how they use technology and how ubiquitous physical computing might be woven into their lives.</p>
+<p>The ideamonsters behind this event were <a href="https://twitter.com/thornet">Michelle Thorne</a> and <a href="https://twitter.com/ileddigital">Jon Rogers</a>, who are putting on a series of these exploratory events around the world this year as part of the Mozilla Foundation&#39;s <a href="https://wiki.mozilla.org/Open_IoT">Open IoT Studio</a>. The two previous editions of this event were a train caravan in India and a fablab sprint in Berlin (which I also attended, and will write up as well. I SWEAR.).</p>
+<p>Michelle and Jon will be writing a proper summary of the week as a whole, so I&#39;m going to focus on the project my group built: Bubble.</p>
+<p><img src="screen-shot-2016-07-12-at-3-18-39-pm.png" alt="Screen Shot 2016-07-12 at 3.18.39 PM"></p>
+<h2 id="-context-"><strong>Context</strong></h2>
+<p>From research conducted with local fishing folk, farmers from a bit inland, and a group of teenagers from the local school, we figured out a few things:</p>
+<ul>
+<li><strong>Mobile connectivity is sparse and unreliable</strong> throughout the whole region. In this particular town, only about half the town had any service.</li>
+<li>The important <strong>information, places and things aren&#39;t immediately obvious</strong> unless you know a local.</li>
+<li>Just like I was, growing up in a small town: <strong>The kids are just looking for something to do.</strong>
+Initially we focused on the teens... fun things like virtual secret messaging at the red telephone boxes. Imagine you connect to the wifi at the phone box, and the captive portal is a web UI for leaving and receiving secret messages. Perhaps they&#39;re only read once before dying, like a hyperlocal Snapchat. Perhaps the system is user-less, mediated only by secret combinations of emojis as keys. The street corner becomes the hangout, physically and digitally.</li>
+</ul>
+<p>We meandered to public messaging from there, thinking about how there&#39;s so much to learn and share about the physical space. What&#39;s the story behind the messages to fairies that are being left in that phone box? I can see the island off the coast from here - what&#39;s it called and what&#39;s out there? Who the hell is Urquardt and what&#39;s a &quot;wynd&quot;? Maybe we make a public message board as well - disconnected from the internet but connected to anything within view.</p>
+<p>We kept going back to the physical space. We talked about a virtual graffiti wall, and then started exploring AR and ways of marking up the surroundings - the people, the history, the local pro-tip on which fish and chips shop is the best. But all of this available only to people in close physical proximity.</p>
+<p><img src="screen-shot-2016-07-12-at-3-40-49-pm.png" alt="Screen Shot 2016-07-12 at 3.40.49 PM"></p>
+<h2 id="-implementation-"><strong>Implementation</strong></h2>
+<p>Given the context and the constraints, as well as watching direction some of the other groups were going in, we started designing a general approach to bringing digital interactivity to disconnected spaces.</p>
+<p>The first cut is <strong>Bubble</strong>: A <strong>wi-fi access point</strong> with a <strong>captive portal</strong> that opens a web page that displays an <strong>augmented reality</strong> view of your <strong>immediate surroundings</strong>, with messages overlaid on what you&#39;re seeing:</p>
+<p><img src="screen-shot-2016-07-12-at-2-36-26-pm.png" alt="Screen Shot 2016-07-12 at 2.36.26 PM"></p>
+<p>A few implementation notes:</p>
+<ul>
+<li>We used a Raspberry Pi 3, running as a wi-fi access point.</li>
+<li>It ran a node.js script that served up the captive portal web UI.</li>
+<li>The web UI used getUserMedia to access the device camera awe.js for the AR bits and A-Frame for a VR backup view on iOS.</li>
+<li>We designed a logo and descriptive text and then lasercut some plaques to put up where hotspots are.
+<strong>Designs, board, battery and boxes:</strong></li>
+</ul>
+<p><img src="screen-shot-2016-07-12-at-3-58-10-pm.png" alt="Screen Shot 2016-07-12 at 3.58.10 PM">
+<strong>Connected to the front-end:</strong></p>
+<p><img src="screen-shot-2016-07-12-at-3-57-57-pm.png" alt="Screen Shot 2016-07-12 at 3.57.57 PM"></p>
+<p><strong>In the final box:</strong></p>
+<p><img src="screen-shot-2016-07-12-at-3-58-33-pm.png" alt="Screen Shot 2016-07-12 at 3.58.33 PM"></p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Captive portals are hobbled web pages. You can&#39;t do things like use getUserMedia to get access to the camera.</li>
+<li>iOS doesn&#39;t have <em>any</em> way to let web pages access the camera.</li>
+<li>Power can be hard. We talked about solar and other ways of powering these.</li>
+<li>Gotta hope they don&#39;t get nicked.
+Bubble was an experimental prototype. There are no plans to work further on it at this time. If you&#39;re interested, everything is on Github <a href="https://github.com/autonome/bubble">here</a>. You can read more about the design <a href="https://www.dropbox.com/s/yj11w3g3scwu93q/Bubble_DesignSprint_Scotland.pdf?dl=0">here (PDF)</a>.</li>
+</ul>
+<p>Thanks to fellow team members <a href="https://twitter.com/juliagratsova">Julia Gratsova</a>, <a href="https://twitter.com/kc_coffeekid">Katie Caldwell</a>, <a href="https://twitter.com/thecreatureslab">Vladan Joler</a>. (Sadly, no Julia in the phonebox!)</p>
+<p><img src="screen-shot-2016-07-12-at-3-19-51-pm.png" alt="Screen Shot 2016-07-12 at 3.19.51 PM"></p>
+]]></description><link>/2016/07/bubble-and-tweak-iot-at-the-ends-of-the-earth/index.html</link><guid isPermaLink="true">/2016/07/bubble-and-tweak-iot-at-the-ends-of-the-earth/index.html</guid><category><![CDATA[anstruther]]></category><category><![CDATA[iot]]></category><category><![CDATA[iot]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[scotland]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 13 Jul 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Remixable Quilts for the Web]]></title><description><![CDATA[<p><a href="https://twitter.com/toolness">Atul Varma</a> set up a <a href="http://quilts.mozillacamp.org/2012/asia/">quilt</a> for MozCamp Asia 2012 which I thought was a fantastic tool for that type of event. It provided an engaging visualization, was collaboratively created, and allowed a quick and easy way to dive further into the details about the participating groups.</p>
+<p><a href="http://quilts.mozillacamp.org/2012/asia/"><img src="screenshot-2014-12-18-15-23-19.png" alt="Screenshot 2014-12-18 15.23.19"></a>I wanted to use it for a couple of projects, but the code was tied pretty closely to that specific content and layout.</p>
+<p>This week I finally got around to moving the code over to Mozilla Webmaker, so it could be easily copied and remixed. I made a couple of changes:</p>
+<ul>
+<li>Update font to Open Sans</li>
+<li>Make it easy and clear how to re-theme the colors</li>
+<li>Allow arbitrary content in squares
+The JS code is still a bit too complex for what&#39;s needed, but it works on Webmaker now!</li>
+</ul>
+<p><a href="https://dietrich.makes.org/thimble/MjAzNzUxNDQ5Ng==/web-quilt"><img src="screenshot-2014-12-18-15-09-42.png" alt="Screenshot 2014-12-18 15.09.42"></a></p>
+<p><a href="https://dietrich.makes.org/thimble/MjAzNzUxNDQ5Ng==/web-quilt">View my demo quilt</a>. Hit the &quot;remix&quot; button to clone it and make your own.</p>
+<p>The source for the core JS and CSS is at <a href="https://github.com/autonome/quilt">https://github.com/autonome/quilt</a>.</p>
+]]></description><link>/2014/12/remixable-quilts-for-the-web/index.html</link><guid isPermaLink="true">/2014/12/remixable-quilts-for-the-web/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[quilting]]></category><category><![CDATA[webdev]]></category><category><![CDATA[webmaker]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 19 Dec 2014 00:00:00 GMT</pubDate></item><item><title><![CDATA[Remixable Quilts for the Web]]></title><description><![CDATA[<p><a href="https://twitter.com/toolness">Atul Varma</a> set up a <a href="http://quilts.mozillacamp.org/2012/asia/">quilt</a> for MozCamp Asia 2012 which I thought was a fantastic tool for that type of event. It provided an engaging visualization, was collaboratively created, and allowed a quick and easy way to dive further into the details about the participating groups.</p>
+<p><a href="http://quilts.mozillacamp.org/2012/asia/"><img src="screenshot-2014-12-18-15-23-19.png" alt="Screenshot 2014-12-18 15.23.19"></a>I wanted to use it for a couple of projects, but the code was tied pretty closely to that specific content and layout.</p>
+<p>This week I finally got around to moving the code over to Mozilla Webmaker, so it could be easily copied and remixed. I made a couple of changes:</p>
+<ul>
+<li>Update font to Open Sans</li>
+<li>Make it easy and clear how to re-theme the colors</li>
+<li>Allow arbitrary content in squares
+The JS code is still a bit too complex for what&#39;s needed, but it works on Webmaker now!</li>
+</ul>
+<p><a href="https://dietrich.makes.org/thimble/MjAzNzUxNDQ5Ng==/web-quilt"><img src="screenshot-2014-12-18-15-09-42.png" alt="Screenshot 2014-12-18 15.09.42"></a></p>
+<p><a href="https://dietrich.makes.org/thimble/MjAzNzUxNDQ5Ng==/web-quilt">View my demo quilt</a>. Hit the &quot;remix&quot; button to clone it and make your own.</p>
+<p>The source for the core JS and CSS is at <a href="https://github.com/autonome/quilt">https://github.com/autonome/quilt</a>.</p>
+]]></description><link>/2014/12/remixable-quilts-for-the-web/index.html</link><guid isPermaLink="true">/2014/12/remixable-quilts-for-the-web/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[quilting]]></category><category><![CDATA[webdev]]></category><category><![CDATA[webmaker]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 19 Dec 2014 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mozlandia - A Portland mini-guide for Mozillians]]></title><description><![CDATA[<p>Around 1,100 Mozillians will be in Portland next week. WELCOME!</p>
+<p>Here is a list of things I recommend that you see, do, eat and drink and some handy tips. I&#39;ve focused on places that are in or near downtown, though included some spots worth going out of your way for.</p>
+<p>That said, downtown is not Portland. Well, obviously it&#39;s part of it, duh. But it&#39;s not overly representative of the Portland you&#39;ve heard so much about. Get out of downtown for an evening or afternoon - and check out one of the neighborhoods. Nothing listed here is very far from downtown - Portland is pretty small.</p>
+<p>I&#39;ve left a LOT out. And forgot the rest. If you have recommendations, leave them in the comments.</p>
+<p>UPDATE: Blue Star donuts, which are far more delicious but far less penis-shaped than Voodoo donuts, will be <a href="http://pdx.eater.com/2014/11/26/7295121/blue-star-donuts-anniversary-free-beignets-expanded-menu">giving away free beignets on Friday Dec 5</a>.</p>
+<p>GENERAL TIPS</p>
+<ul>
+<li>Portland has no Uber or Uber-like services. If you have Car2Go in your city you can use that here too. <a href="http://gocurb.com/">Curb </a>is the app for local taxi service through a couple of providers. You can get a bus to pretty much anywhere without too much of a wait. Ride the MAX and streetcar if you&#39;re headed to areas that they service.</li>
+<li>Oregon has no sales tax. Do your Christmas shopping while you&#39;re here.</li>
+<li>It gets dark around 16:30 - 17:00, so factor that into any plans for hikes, etc.</li>
+<li>If you go into the mountains, check the road conditions to see if you need chains for the car, or if the area is accessible at all.</li>
+<li>Go to Powell&#39;s books. Go a few times. Then go back again. Check out the Science Fiction pillar there - how many have you read?</li>
+<li>Get high... for a good view of the city: Have a drink at Departures, dinner at Portland City Grill or visit Pittock Mansion for great views of the city. Even driving over the Fremont bridge (Highway 405) provides a spectacular view of downtown, the Willamette River and our many bridges.</li>
+<li>There aren&#39;t a ton of restaurants/bars/coffeehouses that can hold large numbers of people. If you break up into groups of four (max), you&#39;ll have a much better time and the servers, chefs, baristas and bartenders will like you for it.</li>
+<li>Be patient. Oregon is home to the slow-food movement in America. Regardless if this explains why your coffee took 20 f<em>*</em>ing minutes to make, it&#39;ll make you feel better to think about that. See also the above note about small group sizes to mitigate the waits.</li>
+<li><p>Tipping: I tip a dollar for a good coffee. I generally tip ~20% for any kind of sit-down meal. But I also worked as a barista, server and chef before getting into tech, so I&#39;m biased towards tipping ;)
+CARTS - Just the 9th &amp; Alder pod for the purposes of this post. If you&#39;re from California - up here they are not &quot;food trucks&quot;, they are &quot;food carts&quot;... even when they are trucks.</p>
+</li>
+<li><p>Hoang&#39;s - Get soup #17.</p>
+</li>
+<li>Nong&#39;s khao man gai - Simple and good and oddly famous.</li>
+<li>Wolf &amp; Bear - Israeli street food that is amazing. And vegan.</li>
+<li>Güero - Excellent tortas. Add an egg.</li>
+<li>La Jarochita 2 - Great Mexican cart. The only Mexican cart (aside from Güero) worth going to at the 9th and Alder cart pod.</li>
+<li>Brunch Box - A cart that graduated to a proper storefront, but is right by the 9th and Alder carts. Great egg sandwiches for breakfast (try the Black and Blue) and terribly good burgers the rest of time. Very fast.</li>
+<li><p>Kargi Gogo - Georgian food. The country, not the American state. Irakli says it&#39;s legit too.
+DRINK</p>
+</li>
+<li><p>Multnomah Whiskey Library</p>
+</li>
+<li>Clyde Common</li>
+<li>Pepe le Moko</li>
+<li>Teardrop</li>
+<li><p>Bailey&#39;s Taproom
+COFFEE</p>
+</li>
+<li><p>Courier - They also make fresh canneles daily.</p>
+</li>
+<li>Heart - Excellent coffee.</li>
+<li>Barista</li>
+<li>Coffeehouse Northwest</li>
+<li>Stumptown</li>
+<li>Case Study</li>
+<li>Coava - Not downtown but my favorite coffee roaster in town.</li>
+<li><p>Ristretto - Not downtown, but fantastic coffee in beautiful spaces. The Nicolai location is especially great - check out the custom metalwork and crazy woodwork, and visit Schoolhouse Electric in the same space.
+EAT - I&#39;ve only noted a few of my go-to places, or those that are near where Mozillians are staying, or open late, etc. I&#39;ve got a <a href="https://www.evernote.com/shard/s1/sh/054ed2b6-227a-4934-aaf5-afaeff3f09e6/8b18f677e359bdd1823ec784dc22bfb1">somewhat-up-to-date list here</a> with more recommendations, but there&#39;s just really too much to cover. Go out and explore.</p>
+</li>
+<li><p>Clyde Common - Always interesting menu, good whiskey selection, great cocktails. Fries + harissa and a cocktail is a great way to end your day and start your evening.</p>
+</li>
+<li>Tasty and Alder (downtown) - Shared plates, everything is good.</li>
+<li>Luc Lac - Vietnamese + cocktails, serves food VERY late, and closest place worth going to that&#39;s also near the Waterfront Marriot.</li>
+<li>Bunk - Excellent sandwiches.</li>
+<li>Lardo - Excellent sandwiches as well.</li>
+<li>Racion - Amazing cocktails and fun Spanish-tinged molecular gastronomy.</li>
+<li>Little Big Burger - Fast and good late night burger.</li>
+<li><p>Not downtown, but places I always want to go back to...</p>
+<ul>
+<li>Biwa - Izakaya, open late, always amazing. Burger served only after 11pm.</li>
+<li>Tarad - Northern Thai food, open late. Pok Pok gets all the attention but after living in northern Thailand, this is where we go for the real thing.</li>
+<li>Mee Sen - Another good Northern Thai food spot we go to.</li>
+<li>Podnah&#39;s BBQ - Worth heading up into NE Portland for.</li>
+<li>La Taq - Next door to Podnah&#39;s, fantastic Mexican bar food.</li>
+<li>Sweedeedee - Most likely to feel like you&#39;re in Portlandia at this spot. Amazing house-baked breads. Tiny. Expect a long wait but good people watching and excellent food.</li>
+<li>Por Que No (Mississippi location) - Great tacos.</li>
+<li>Ha &amp; VL - Get the special soup of the day, whatever it is.
+NEIGHBORHOODS - Places to walk, eat, drink, shop and experience parts of Portland that are far more interesting than downtown.</li>
+</ul>
+</li>
+<li><p>Alberta St - <a href="https://www.google.com/maps/place/Portland,+OR+97211/@45.559091,-122.649713,17z/data=!3m1!4b1!4m2!3m1!1s0x5495a71f16982601:0xcfb5dec4cb0cc592">Between NE 15th Ave and NE 31st Ave</a></p>
+</li>
+<li>Belmont St - A few blocks on either side of <a href="https://www.google.com/maps/place/Portland,+OR+97214/@45.5164534,-122.6295558,18z/data=!3m1!4b1!4m2!3m1!1s0x5495a093801c7a69:0x3044c74094029fc5">SE Belmont and SE 34th</a></li>
+<li>Division St - Between <a href="https://www.google.com/maps/place/Portland,+OR+97202/@45.5048033,-122.634579,17z/data=!3m1!4b1!4m2!3m1!1s0x5495a08423947f4d:0x94ab9ca89f536476">SE 30th and SE 39th</a></li>
+<li>East Burnside - From <a href="https://www.google.com/maps/place/Portland,+OR+97214/@45.5117972,-122.6233484,16z/data=!4m2!3m1!1s0x5495a08d8c6660a1:0x65c0bc7bcfa0bfa8">NE Grand Ave to NE 12th Ave</a> and then up and down <a href="https://www.google.com/maps/place/Portland,+OR+97214/@45.5228888,-122.6372625,17z/data=!3m1!4b1!4m2!3m1!1s0x5495a0bf1c10f7e1:0xc2712506ca1f815c">NE 28th and Burnside</a></li>
+<li>Hawthorne Blvd - Between <a href="https://www.google.com/maps/place/Portland,+OR+97214/@45.5117972,-122.6233484,16z/data=!4m2!3m1!1s0x5495a08d8c6660a1:0x65c0bc7bcfa0bfa8">SE 32nd Ave and SE 49th Ave</a></li>
+<li>N Mississippi Ave - Between <a href="https://www.google.com/maps/place/Portland,+OR+97227/@45.5478202,-122.675562,17z/data=!3m1!4b1!4m2!3m1!1s0x5495a74217de3b6b:0xa592780957a53110">N Fremont Ave and N Skidmore Ave</a></li>
+<li>NW 23rd Ave - Between <a href="https://www.google.com/maps/place/Portland,+OR+97210/@45.5262249,-122.6984709,17z/data=!3m1!4b1!4m2!3m1!1s0x549509f13449968b:0x73b4e9cf1403cc8c">W Burnside and NW Thurman Ave</a></li>
+<li><p>NE Williams Ave - Between <a href="https://www.google.com/maps/place/Portland,+OR+97212/@45.5507983,-122.6667064,17z/data=!3m1!4b1!4m2!3m1!1s0x5495a73fc02c7eaf:0x471d67f545f071aa">NE Fremont Ave and NE Skidmore Ave</a>
+EXCURSIONS</p>
+</li>
+<li><p>Columbia Gorge - See Multnomah Falls, the view from Vista House, climb Beacon Rock, stop at the Bonneville Dam and see Herman the Sturgeon, drive across the Bridge of the Gods (and back), then go for lunch at one of the Hood River breweries. Some easy/moderate 1-2 hour hikes I like: Angel&#39;s Rest, the Multnomah/Wahkeena Falls loop, Triple Falls,  Horsetail Falls, Punchbowl Falls, <a href="http://www.portlandhikersfieldguide.org/wiki/Columbia_River_Gorge_Hikes">all listed here</a>.</p>
+</li>
+<li>Mount Hood - Drive out Highway 26 to the historic Timberline Lodge with amazing views of Mt Hood (if it&#39;s clear), then down to Hood River and head home through the Columbia Gorge on Hwy 84.</li>
+<li>Mount St Helens - A couple of hours north, but the view of the blast zone and crater from the visitor center on the NW side is well worth it if the view is clear. On the SE side you can hike one mile underground through Ape Cave, and check out the amazing rock formations and brave the cable bridge at Lava Canyon.</li>
+<li>Oregon Coast - About two hours drive. Walk the promenade at Seaside, get ice cream at Tillamook, watch storms from the tip of Oregon at the mouth of the Columbia river.</li>
+</ul>
+]]></description><link>/2014/11/mozlandia-a-portland-mini-guide-for-mozillians/index.html</link><guid isPermaLink="true">/2014/11/mozlandia-a-portland-mini-guide-for-mozillians/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[mozlandia]]></category><category><![CDATA[pdx]]></category><category><![CDATA[portland]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 27 Nov 2014 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox OS and Academic Programs]]></title><description><![CDATA[<p>Although Mozilla feels almost like a household name at this point, it is a relatively small organization - tiny, actually - compared to the companies that ship similar types of software [1]. We must, however, have the impact of a much larger entity in order to ensure that the <a href="http://www.mozilla.org/en-US/about/manifesto/" title="The Mozilla Manifesto">internet stays an open platform accessible to all</a>.</p>
+<p>Producing consumer software which influences the browser and smartphone OS markets in specific ways is how we make that impact. Shipping that software requires teams of people to design, build and test it, and all the countless other aspects of the release process. We can hire some of these people, but remember: we&#39;re relatively tiny. We cannot compete with multi-billion-dollar mega-companies while operating in traditional ways. <strong>Mozilla has to be far more than the sum of its paid-employee parts in order to accomplish audaciously ambitious things.</strong></p>
+<p>Open source code and open communication allow participation and contribution from people that are not employees. And this is where opportunities lie for both Mozilla and universities.</p>
+<p>For universities, undergraduates can earn credit, get real world experience, and ship software to hundreds of millions of people. Graduate researchers can break ground in areas where their findings can be applied to real world problems, and where they can see the impact of their work in the hands of people around the world. And students of any kind can participate before, during and after any involvement that is formally part of their school program.</p>
+<p>For Mozilla, we receive contributions that help move our products and projects forward, often in areas that aren&#39;t getting enough attention only because we don&#39;t have the resources to do so. We get an influx of new ideas and new directions. We gain awesome contributors and can educate tomorrow&#39;s technology workers about our mission.</p>
+<p>I&#39;ve been working with a few different programs recently to increase student involvement in the Firefox OS:</p>
+<ul>
+<li><strong><a href="http://www.pdx.edu/computer-science/cs-469-software-engineering-capstone-i" title="PSU CS Capstone">Portland State University</a>:  </strong>The PSU CS Capstone program, run by Prof. Warren Harrison, has teams of students tackling projects for open source groups. The teams are responsible for all parts of the software life-cycle during the project. In the spring of 2013, a group of five students implemented an example messaging app using Persona and Firebase, documenting the challenges of Web platform development and the Firefox OS  development/debugging workflow. This year&#39;s group will implement a feature inside Firefox OS itself.</li>
+<li><strong><a href="https://www.facebook.com/notes/facebook-engineering/facebook-open-academy-bringing-open-source-to-cs-curricula/10151806121378920" title="Facebook Open Academy">Facebook Open Academy</a>: </strong>This is a program coordinated by Stanford and Facebook, that puts teams from multiple universities together to build something proposed by an existing open source project. The Firefox OS team includes students from Carnegie-Mellon, Purdue, Harvard, Columbia in the US, and Tampere UT in Finland. They&#39;re adding a new feature to Firefox OS which allows you to share apps directly between devices using NFC and Bluetooth. With 14 members across five universities, this team is collaborating via Github, Google Groups, IRC and weekly meetings for both the front-end and back-end parts, providing experience with remote working, group coordination and cross-team collaboration.</li>
+<li><strong><a href="http://web.eecs.umich.edu/~zmao/" title="UMich Prof. Mao">University of Michigan</a>: </strong>Prof. Z. Morley Mao&#39;s mobile research group has started looking at device and network performance in Firefox OS. They&#39;ve got a stack of phones and SIM cards, and we&#39;re working with them to find ways to improve battery life and network efficiency on our devices. They&#39;ve started <a href="https://wiki.mozilla.org/FirefoxOS/Research" title="Firefox OS Research">a collection of focus areas and related research</a> on the Mozilla wiki.
+If you&#39;re at an academic institution and would like to learn more about how to get your department or your students involved, or if you&#39;re a Mozillian who wants to coordinate a project with your alma mater, <a href="mailto:dietrich@mozilla.com">email me</a>!</li>
+</ul>
+<p>&nbsp;</p>
+<ol>
+<li>Mozilla has ~1000 employees. According to Wikipedia, Google has ~50,000 employees, Apple ~80,000 and Microsoft ~100,000.</li>
+</ol>
+]]></description><link>/2014/04/firefox-os-and-academic-programs/index.html</link><guid isPermaLink="true">/2014/04/firefox-os-and-academic-programs/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[os]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 18 Apr 2014 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox OS: Devices and Dark Matter]]></title><description><![CDATA[<p>UPDATE: Scroll down for update on May 26, 2013.</p>
+<p>Since beginning work on the Firefox OS project, the number one question I&#39;m asked is &quot;Does it run on my phone?&quot;. Sadly, the answer for almost everyone is &quot;no&quot;. The question itself is interesting though, and shows how people - even geeky technical people - don&#39;t have a good understanding of how mobile devices work, nor the whole business and technical ecosystem that brings these things into the hands of consumers (hm, maybe that&#39;ll be my next blog post). Porting an operating system to a device is tricky work in the best of circumstances and when done without the direct assistance of the various business entities involved in the stack for any single device (OEM, chipset manufacturer, original OS vendor), involves a lot of, well, fiddling around. The kind of fiddling around that voids warranties and turns $600 hardware into a paperweight. The success and hackability of Android simplified things a lot, creating a relatively large community of people doing OS-to-device porting, and enabling a lot of what allowed Firefox OS to bootstrap so quickly. However, it&#39;s still not easy.</p>
+<p>I was curious about who is playing around with Firefox OS in the dark corners of the Mos Eisley of the device-porting porting world,the <a href="http://forum.xda-developers.com" title="XDA-Developers Forums">XDA-Developers forums.</a> Below, I&#39;ve listed a number of threads involving efforts to port Firefox OS to various devices. Some have builds, some are aborted attempts, but the totality shows the level of interest in putting a truly open Web operating system on low-powered commodity mobile hardware that is very exciting.</p>
+<p>Oh, and if you&#39;re interested in porting Firefox OS to your device, the basic instructions to get started are on the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Porting">MDN B2G Porting Guide</a>. If you scan any of the threads below or have ever tried doing this kind of work before, you already know: Thar be dragons. You could lose your device and your sanity, and will very likely void the warranty. Consider yourself warned.</p>
+<ul>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1787010">Samsung Epic 4G Touch, Samsung d710</a> (and <a href="https://github.com/EpicB2G">some code on Github)</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1879508">HTC Wildfire S</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1921033&amp;page=3">HTC Sensation</a> - Some talk of debugging the porting process, and links to other ports such as Razr, Ascend g300.</li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1827571">Samsung Galaxy Gio</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=2067196">HTC Jewel (EVO + LTE)</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1805282">Samsung Galaxy Nexus</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=2058315">LG Optimus 2X</a></li>
+<li>Samsung Nexus S &amp; Nexus S 4G - <a href="http://forum.xda-developers.com/showthread.php?t=1924367">thread 1</a>, <a href="http://forum.xda-developers.com/showthread.php?t=1814302">thread 2</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1796960">HTC Dream/G1</a> (old skool!)</li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1920984">Samsung Galaxy S III</a>
+There are also some efforts at porting to other types of devices, such as <a href="http://www.raspberrypi.org/archives/1787">Oleg Romashin&#39;s experiments with Firefox on Raspberry Pi</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Pandaboard">MDN instructions for building for Pandaboard</a>, and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=731498">a bug for some core changes to Firefox OS to ease porting to basic Linux systems</a> like Beagleboard and Chromebox.</li>
+</ul>
+<p>&nbsp;</p>
+<p>UPDATE May 26, 2013</p>
+<p>New devices since this was originally posted, and some fantastic updates:</p>
+<ul>
+<li>Raspberry Pi! Philipp Wagner, a student from Germany, updated Oleg Romashkin&#39;s porting work, and wrote the <a href="http://j.mp/Z9hXN4">Raspberry Pi for Firefox OS guide</a>, where you can download builds and read instructions for building it yourself. I installed his build and was up and running on my Raspberry Pi in minutes. Check out <a href="http://j.mp/13mFMz8">his blog post</a>, and buy him something from his <a href="http://j.mp/12Xy40R">Amazon wishlist</a> :)</li>
+<li>As I&#39;m sure you&#39;ve heard by now, <a href="http://j.mp/16YYuDM">Geeksphone</a> has two devices available with Firefox OS pre-installed now available for purchase. The devices keep selling out FAST, so keep a watch on their <a href="https://twitter.com/geeksphone">Twitter account</a>. Also, according to their forums they&#39;re going to make nightly updates available over-the-air soon, so you can stay on the latest versions of Firefox OS.</li>
+<li>At this year&#39;s Mobile World Congress, <a href="http://j.mp/13UpQYo">Sony released ROMs for the Experia E</a>.</li>
+<li>The XDA-Developers blog reported on a <a href="http://j.mp/12b5lJt">Firefox OS port for the HTC HD2.</a></li>
+<li>Also on the XDA-Developers blog was a <a href="http://j.mp/14UMNu3">port for the HTC Explorer (aka Pico)</a>.</li>
+<li><p>You can find build instructions for running <a href="http://j.mp/159Lh71">Firefox OS on Pandaboard</a> up on the Mozilla Developer Network.
+A couple of other notes:</p>
+</li>
+<li><p>XDA-Developers now has a <a href="http://j.mp/16jzcRk">Firefox OS forum</a>, where there are lots of threads on the porting process, individual devices, and app development.</p>
+</li>
+<li>All XDA-Developers <a href="http://www.xda-developers.com/tag/firefox-os/">blog posts tagged Firefox OS</a>.</li>
+</ul>
+]]></description><link>/2013/01/firefox-os-devices-and-dark-matter/index.html</link><guid isPermaLink="true">/2013/01/firefox-os-devices-and-dark-matter/index.html</guid><category><![CDATA[Boot2Gecko]]></category><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[os]]></category><category><![CDATA[Firefox]]></category><category><![CDATA[OS]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 15 Jan 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox OS: Devices and Dark Matter]]></title><description><![CDATA[<p>UPDATE: Scroll down for update on May 26, 2013.</p>
+<p>Since beginning work on the Firefox OS project, the number one question I&#39;m asked is &quot;Does it run on my phone?&quot;. Sadly, the answer for almost everyone is &quot;no&quot;. The question itself is interesting though, and shows how people - even geeky technical people - don&#39;t have a good understanding of how mobile devices work, nor the whole business and technical ecosystem that brings these things into the hands of consumers (hm, maybe that&#39;ll be my next blog post). Porting an operating system to a device is tricky work in the best of circumstances and when done without the direct assistance of the various business entities involved in the stack for any single device (OEM, chipset manufacturer, original OS vendor), involves a lot of, well, fiddling around. The kind of fiddling around that voids warranties and turns $600 hardware into a paperweight. The success and hackability of Android simplified things a lot, creating a relatively large community of people doing OS-to-device porting, and enabling a lot of what allowed Firefox OS to bootstrap so quickly. However, it&#39;s still not easy.</p>
+<p>I was curious about who is playing around with Firefox OS in the dark corners of the Mos Eisley of the device-porting porting world,the <a href="http://forum.xda-developers.com" title="XDA-Developers Forums">XDA-Developers forums.</a> Below, I&#39;ve listed a number of threads involving efforts to port Firefox OS to various devices. Some have builds, some are aborted attempts, but the totality shows the level of interest in putting a truly open Web operating system on low-powered commodity mobile hardware that is very exciting.</p>
+<p>Oh, and if you&#39;re interested in porting Firefox OS to your device, the basic instructions to get started are on the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Boot_to_Gecko/Porting">MDN B2G Porting Guide</a>. If you scan any of the threads below or have ever tried doing this kind of work before, you already know: Thar be dragons. You could lose your device and your sanity, and will very likely void the warranty. Consider yourself warned.</p>
+<ul>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1787010">Samsung Epic 4G Touch, Samsung d710</a> (and <a href="https://github.com/EpicB2G">some code on Github)</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1879508">HTC Wildfire S</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1921033&amp;page=3">HTC Sensation</a> - Some talk of debugging the porting process, and links to other ports such as Razr, Ascend g300.</li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1827571">Samsung Galaxy Gio</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=2067196">HTC Jewel (EVO + LTE)</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1805282">Samsung Galaxy Nexus</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=2058315">LG Optimus 2X</a></li>
+<li>Samsung Nexus S &amp; Nexus S 4G - <a href="http://forum.xda-developers.com/showthread.php?t=1924367">thread 1</a>, <a href="http://forum.xda-developers.com/showthread.php?t=1814302">thread 2</a></li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1796960">HTC Dream/G1</a> (old skool!)</li>
+<li><a href="http://forum.xda-developers.com/showthread.php?t=1920984">Samsung Galaxy S III</a>
+There are also some efforts at porting to other types of devices, such as <a href="http://www.raspberrypi.org/archives/1787">Oleg Romashin&#39;s experiments with Firefox on Raspberry Pi</a>, <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Pandaboard">MDN instructions for building for Pandaboard</a>, and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=731498">a bug for some core changes to Firefox OS to ease porting to basic Linux systems</a> like Beagleboard and Chromebox.</li>
+</ul>
+<p>&nbsp;</p>
+<p>UPDATE May 26, 2013</p>
+<p>New devices since this was originally posted, and some fantastic updates:</p>
+<ul>
+<li>Raspberry Pi! Philipp Wagner, a student from Germany, updated Oleg Romashkin&#39;s porting work, and wrote the <a href="http://j.mp/Z9hXN4">Raspberry Pi for Firefox OS guide</a>, where you can download builds and read instructions for building it yourself. I installed his build and was up and running on my Raspberry Pi in minutes. Check out <a href="http://j.mp/13mFMz8">his blog post</a>, and buy him something from his <a href="http://j.mp/12Xy40R">Amazon wishlist</a> :)</li>
+<li>As I&#39;m sure you&#39;ve heard by now, <a href="http://j.mp/16YYuDM">Geeksphone</a> has two devices available with Firefox OS pre-installed now available for purchase. The devices keep selling out FAST, so keep a watch on their <a href="https://twitter.com/geeksphone">Twitter account</a>. Also, according to their forums they&#39;re going to make nightly updates available over-the-air soon, so you can stay on the latest versions of Firefox OS.</li>
+<li>At this year&#39;s Mobile World Congress, <a href="http://j.mp/13UpQYo">Sony released ROMs for the Experia E</a>.</li>
+<li>The XDA-Developers blog reported on a <a href="http://j.mp/12b5lJt">Firefox OS port for the HTC HD2.</a></li>
+<li>Also on the XDA-Developers blog was a <a href="http://j.mp/14UMNu3">port for the HTC Explorer (aka Pico)</a>.</li>
+<li><p>You can find build instructions for running <a href="http://j.mp/159Lh71">Firefox OS on Pandaboard</a> up on the Mozilla Developer Network.
+A couple of other notes:</p>
+</li>
+<li><p>XDA-Developers now has a <a href="http://j.mp/16jzcRk">Firefox OS forum</a>, where there are lots of threads on the porting process, individual devices, and app development.</p>
+</li>
+<li>All XDA-Developers <a href="http://www.xda-developers.com/tag/firefox-os/">blog posts tagged Firefox OS</a>.</li>
+</ul>
+]]></description><link>/2013/01/firefox-os-devices-and-dark-matter/index.html</link><guid isPermaLink="true">/2013/01/firefox-os-devices-and-dark-matter/index.html</guid><category><![CDATA[Boot2Gecko]]></category><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[os]]></category><category><![CDATA[Firefox]]></category><category><![CDATA[OS]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 15 Jan 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox 11 is Smaller and Faster]]></title><description><![CDATA[<p>We quietly shipped Firefox 11 with a bunch of performance fixes that both reduce the amount of memory that Firefox uses, and improve the responsiveness of it&#39;s user interface.</p>
+<p>These types of changes are not easy to talk about. Often they&#39;re very technical, and meaningless to anyone but the developers involved, which is probably why we usually don&#39;t enumerate them in the the <a href="http://www.mozilla.org/en-US/firefox/11.0/releasenotes/">release notes</a> or other public announcements. &quot;Firefox is 74% faster when you open menu X, and twice as fast in some garbage collection scenarios!&quot; Yeah, not an eye-popping headline. We could do a lot better in communicating these improvements in broadly meaningful ways though - nice graphs or some competitive site like <a href="http://arewefastyet.com/">arewefastyet</a> would help a lot. But until then, here&#39;s a short summary of the improvements in Firefox 11. And if you know of other performance fixes that don&#39;t fall into the categories below, please add them in the comments!</p>
+<h3 id="memory-use-aka-memshrink-">Memory Use (aka &quot;memshrink&quot;)</h3>
+<p>The <a href="https://wiki.mozilla.org/Performance/MemShrink">Memshrink project</a> has been going for quite a while now, led by Nicholas Nethercote. He blogs <a href="http://blog.mozilla.com/nnethercote/category/memshrink/">weekly updates on the project&#39;s activity</a>. According to Bugzilla, there were <a href="http://j.mp/A9pVz4">29 memshrink bugs marked fixed</a> during the Firefox 11 development cycle - four of which were P1, or very high priority. Some of the fixes were related to tools and detection methods, but many are actual reductions in memory use. The changes that made it into Firefox 11 include fixes for detected leaks, removing of zombie compartments, lazy-loading data, reducing the size of some caches, reducing memory used while scrolling, and many more.</p>
+<h3 id="ui-responsiveness-aka-snappy-">UI Responsiveness (aka &quot;snappy&quot;)</h3>
+<p>The <a href="https://wiki.mozilla.org/Performance/Snappy">Snappy project</a> started last December, and is run by <a href="https://twitter.com/#!/tarasglek">Taras Glek</a>. Its aim is to improve the responsiveness of the Firefox UI. Taras has been posting <a href="http://blog.mozilla.com/tglek/category/snappy/">weekly updates on Snappy activity</a> on his blog. Bugzilla shows <a href="http://j.mp/ypxFzj">15 snappy bugs marked fixed</a> during the Firefox 11 development cycle. The project had just started, but there are still some significant wins in this release! Firefox 11 includes reductions in queries in the bookmarks system, reduced preference lookups, faster data collection for session restore, and various improvements in the DOM code.</p>
+<h3 id="add-on-compatibility">Add-on Compatibility</h3>
+<p>While it&#39;s not related to performance, I do want to call attention to something that many people don&#39;t seem to know: In Firefox 10 (yes, the previous release) we stopped marking most add-ons incompatible when you upgrade. That means that a LOT more of your add-ons will continue to work when you upgrade Firefox from here on out. The only add-ons that still require compatibility bumps are those that have binary components, since they need to be recompiled against the current version.</p>
+<p><a href="http://www.mozilla.org/en-US/firefox/new/">Download Firefox 11</a>.</p>
+]]></description><link>/2012/03/firefox-11-is-smaller-and-faster/index.html</link><guid isPermaLink="true">/2012/03/firefox-11-is-smaller-and-faster/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[memshrink]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[Performance]]></category><category><![CDATA[snappy]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 14 Mar 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox 11 is Smaller and Faster]]></title><description><![CDATA[<p>We quietly shipped Firefox 11 with a bunch of performance fixes that both reduce the amount of memory that Firefox uses, and improve the responsiveness of it&#39;s user interface.</p>
+<p>These types of changes are not easy to talk about. Often they&#39;re very technical, and meaningless to anyone but the developers involved, which is probably why we usually don&#39;t enumerate them in the the <a href="http://www.mozilla.org/en-US/firefox/11.0/releasenotes/">release notes</a> or other public announcements. &quot;Firefox is 74% faster when you open menu X, and twice as fast in some garbage collection scenarios!&quot; Yeah, not an eye-popping headline. We could do a lot better in communicating these improvements in broadly meaningful ways though - nice graphs or some competitive site like <a href="http://arewefastyet.com/">arewefastyet</a> would help a lot. But until then, here&#39;s a short summary of the improvements in Firefox 11. And if you know of other performance fixes that don&#39;t fall into the categories below, please add them in the comments!</p>
+<h3 id="memory-use-aka-memshrink-">Memory Use (aka &quot;memshrink&quot;)</h3>
+<p>The <a href="https://wiki.mozilla.org/Performance/MemShrink">Memshrink project</a> has been going for quite a while now, led by Nicholas Nethercote. He blogs <a href="http://blog.mozilla.com/nnethercote/category/memshrink/">weekly updates on the project&#39;s activity</a>. According to Bugzilla, there were <a href="http://j.mp/A9pVz4">29 memshrink bugs marked fixed</a> during the Firefox 11 development cycle - four of which were P1, or very high priority. Some of the fixes were related to tools and detection methods, but many are actual reductions in memory use. The changes that made it into Firefox 11 include fixes for detected leaks, removing of zombie compartments, lazy-loading data, reducing the size of some caches, reducing memory used while scrolling, and many more.</p>
+<h3 id="ui-responsiveness-aka-snappy-">UI Responsiveness (aka &quot;snappy&quot;)</h3>
+<p>The <a href="https://wiki.mozilla.org/Performance/Snappy">Snappy project</a> started last December, and is run by <a href="https://twitter.com/#!/tarasglek">Taras Glek</a>. Its aim is to improve the responsiveness of the Firefox UI. Taras has been posting <a href="http://blog.mozilla.com/tglek/category/snappy/">weekly updates on Snappy activity</a> on his blog. Bugzilla shows <a href="http://j.mp/ypxFzj">15 snappy bugs marked fixed</a> during the Firefox 11 development cycle. The project had just started, but there are still some significant wins in this release! Firefox 11 includes reductions in queries in the bookmarks system, reduced preference lookups, faster data collection for session restore, and various improvements in the DOM code.</p>
+<h3 id="add-on-compatibility">Add-on Compatibility</h3>
+<p>While it&#39;s not related to performance, I do want to call attention to something that many people don&#39;t seem to know: In Firefox 10 (yes, the previous release) we stopped marking most add-ons incompatible when you upgrade. That means that a LOT more of your add-ons will continue to work when you upgrade Firefox from here on out. The only add-ons that still require compatibility bumps are those that have binary components, since they need to be recompiled against the current version.</p>
+<p><a href="http://www.mozilla.org/en-US/firefox/new/">Download Firefox 11</a>.</p>
+]]></description><link>/2012/03/firefox-11-is-smaller-and-faster/index.html</link><guid isPermaLink="true">/2012/03/firefox-11-is-smaller-and-faster/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[memshrink]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[Performance]]></category><category><![CDATA[snappy]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 14 Mar 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Browser Services Update (TGIF)]]></title><description><![CDATA[<p>My team is &quot;a riddle, wrapped in a mystery, inside an enigma&quot;. Ok, maybe not <em>that</em> mysterious, but we&#39;re definitely involved in a variety of projects. Here&#39;s a roll-up of a week in browser-land.</p>
+<p><strong>Performance</strong></p>
+<ul>
+<li>Tim landed a patch that <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=683953">adds reporting of leaked windows and documents to our unit test runs</a>. Dao&#39;s work has shown that these often reflect leaks in the platform not just the test, so it&#39;s very valuable to know about them. The next step is to track the leak numbers between runs and report regressions by making the tree color change somehow. Tim also <a href="http://timtaubert.de/2012/02/fighting-docshell-and-domwindow-leaks/">blogged about this</a>.</li>
+<li>Neil has a patch up for adding telemetry that measures <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=710431">how long it takes to open a browser window</a>.</li>
+<li>Mano continued his work on the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=710259">Safari migrator</a>, which includes various cross-migrator improvements. This work is part of a broader rewrite of the migrators to use Places async APIs, for improved responsiveness.</li>
+<li>Marco landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613588">a major rewrite of Livemarks</a>, converting them to load content on-demand and asynchronously, reducing synchronous IO on the main thread.</li>
+<li>Paolo continued his work on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=713642">rewriting favicon API consumers</a> to use the new asynchronous API.</li>
+<li>Drew has completed the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=699859">conversion of the content preferences service to use async mozStorage statements</a>, and is in the process of updating the various JS and C++ consumers to use the new API.</li>
+<li>I talked a bit with Mark Cote about <a href="https://wiki.mozilla.org/Auto-tools/Projects/peptest">Peptest</a>, a new framework for testing browser responsiveness. Peptest is currently available on the tryserver, but results are highly variable, so there&#39;s more work to do before it can be turned on for all check-ins. Once Peptest is ready to use, we&#39;ll evangelize the crap out of it.</li>
+<li>I continued working on breaking apart the session restore service into more manageable pieces (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=726235">XPath generator</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=708488">tab state</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=697903">form data</a>).</li>
+<li>I put up a WIP patch for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=532150">reading the session file asynchronously</a> during startup.</li>
+<li><p>I started working on measuring how much time is taken up by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=715612">creating about:blank browsers when restoring sessions on demand</a>.
+<strong>New Tab Page</strong></p>
+</li>
+<li><p>Tim worked on Stephen Horlander&#39;s <a href="http://people.mozilla.com/~shorlander/files/new-tab-prototype-i03/new-tab-prototype-i03.html">redesign of the new-tab page</a>, and also fixed some bugs.
+<strong>New Download Manager</strong></p>
+</li>
+<li><p>Paolo <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=726444">consolidated existing patches</a> into a single one for final pass and check-in. Marco has been reviewing.</p>
+</li>
+<li><p>Paolo and Marco are getting together in <a href="http://maps.google.com/maps?oe=utf-8&amp;rls=org.mozilla:en-US:unofficial&amp;client=firefox-nightly&amp;q=novara+italy&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x47865a1ed73beaff:0x405e67d473ca090,Novara,+Italy&amp;gl=us&amp;ei=K19RT9rkGKaoiQLF_Py0Bg&amp;sa=X&amp;oi=geocode_result&amp;ct=image&amp;resnum=2&amp;ved=0CEgQ8gEwAQ">Novara</a> on Saturday to sprint on fixing theme bugs and other cleanup required for landing.
+<strong>Add-on SDK Integration</strong></p>
+</li>
+<li><p>Met with Irakli to create plan for landing the core SDK modules in Firefox so that the whole SDK would no longer need to be bundled with every add-on.</p>
+</li>
+<li>Created <a href="https://wiki.mozilla.org/Add-on_SDK_in_Firefox">a feature page</a> for tracking the project.</li>
+<li><p>I talked with Brian Warner about syncing Git repos with HG repos.
+<strong>Web Apps Integration</strong></p>
+</li>
+<li><p>I updated <a href="https://wiki.mozilla.org/Web_Apps_integration">the feature page</a> with latest from UX, Apps and PM.</p>
+</li>
+<li><p>Felipe Gomes is driving the Firefox side of the integration work, with Tim helping out on UI. They&#39;re working together with Fabrice, Myk, Dan and Tim A.
+<strong>Identity Integration</strong></p>
+</li>
+<li><p>David has the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=440046">window.crypto.getRandomValues patch</a> up for final review and superreview.</p>
+</li>
+<li>David put up an initial patch for the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=665057">navigator.id API for Web content</a>.</li>
+<li><p>David gets to play with NSS+DOM+XPCOM to get <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=649154">DOMCrypt&#39;s internal API working</a>. Lucky guy.
+<strong>Share Integration</strong></p>
+</li>
+<li><p>David is working with Shane Caraveo to get the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=727126">new Share add-on reviewed and landed</a>.
+<strong>Evangelism/Engagement</strong></p>
+</li>
+<li><p>Tim and Marco kicked off sponsorship process for <a href="http://2012.jsday.it/">Italy&#39;s jsDay conference</a>. They&#39;ll be putting up a booth there, along with Paolo Amadini, representing Mozilla. Thanks to Stormy and Shez for the support from Developer Engagement.
+Of course, we all worked on various other things as well, from code review to bug triage to random maintenance fixes. Activity logs and whatnot are listed below.</p>
+</li>
+<li><p>David Dahl: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=ddahl@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/ddahl">status updates</a>, <a href="http://monocleglobe.wordpress.com/">blog</a>, <a href="https://twitter.com/#!/deezthugs">Twitter</a></p>
+</li>
+<li>Drew Willcoxon: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=adw@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/drew">status updates</a></li>
+<li>Felipe Gomes: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=felipc@gmail.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/felipe">status updates</a>, <a href="http://felipe.wordpress.com/">blog</a>, <a href="https://twitter.com/#!/felipc">Twitter</a></li>
+<li>Asaf Romano: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=mano@mozilla.com">Bugzilla activity log</a></li>
+<li>Marco Bonardo: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=mak77@bonardo.net">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/mak">status updates</a>, <a href="http://blog.bonardo.net/">blog</a>, <a href="https://twitter.com/#!/mak77">Twitter</a></li>
+<li>Neil Deakin: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=enndeakin@gmail.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/Enn">status updates</a>, <a href="https://enndeakin.wordpress.com/">blog</a></li>
+<li>Paolo Amadini: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=paolo.mozmail@amadzone.org">Bugzilla activity log</a></li>
+<li>Tim Taubert: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=ttaubert@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/ttaubert">status updates</a>, <a href="http://timtaubert.de">blog</a>, <a href="https://twitter.com/#!/ttaubert">Twitter</a></li>
+<li>Dietrich Ayala: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=dietrich@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/dietrich">status updates</a>, <a href="http://autonome.wordpress.com">blog</a>, <a href="https://twitter.com/#!/dietrich">Twitter</a></li>
+</ul>
+]]></description><link>/2012/03/browser-services-update-tgif/index.html</link><guid isPermaLink="true">/2012/03/browser-services-update-tgif/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 03 Mar 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Browser Services Update (TGIF)]]></title><description><![CDATA[<p>My team is &quot;a riddle, wrapped in a mystery, inside an enigma&quot;. Ok, maybe not <em>that</em> mysterious, but we&#39;re definitely involved in a variety of projects. Here&#39;s a roll-up of a week in browser-land.</p>
+<p><strong>Performance</strong></p>
+<ul>
+<li>Tim landed a patch that <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=683953">adds reporting of leaked windows and documents to our unit test runs</a>. Dao&#39;s work has shown that these often reflect leaks in the platform not just the test, so it&#39;s very valuable to know about them. The next step is to track the leak numbers between runs and report regressions by making the tree color change somehow. Tim also <a href="http://timtaubert.de/2012/02/fighting-docshell-and-domwindow-leaks/">blogged about this</a>.</li>
+<li>Neil has a patch up for adding telemetry that measures <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=710431">how long it takes to open a browser window</a>.</li>
+<li>Mano continued his work on the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=710259">Safari migrator</a>, which includes various cross-migrator improvements. This work is part of a broader rewrite of the migrators to use Places async APIs, for improved responsiveness.</li>
+<li>Marco landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613588">a major rewrite of Livemarks</a>, converting them to load content on-demand and asynchronously, reducing synchronous IO on the main thread.</li>
+<li>Paolo continued his work on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=713642">rewriting favicon API consumers</a> to use the new asynchronous API.</li>
+<li>Drew has completed the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=699859">conversion of the content preferences service to use async mozStorage statements</a>, and is in the process of updating the various JS and C++ consumers to use the new API.</li>
+<li>I talked a bit with Mark Cote about <a href="https://wiki.mozilla.org/Auto-tools/Projects/peptest">Peptest</a>, a new framework for testing browser responsiveness. Peptest is currently available on the tryserver, but results are highly variable, so there&#39;s more work to do before it can be turned on for all check-ins. Once Peptest is ready to use, we&#39;ll evangelize the crap out of it.</li>
+<li>I continued working on breaking apart the session restore service into more manageable pieces (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=726235">XPath generator</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=708488">tab state</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=697903">form data</a>).</li>
+<li>I put up a WIP patch for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=532150">reading the session file asynchronously</a> during startup.</li>
+<li><p>I started working on measuring how much time is taken up by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=715612">creating about:blank browsers when restoring sessions on demand</a>.
+<strong>New Tab Page</strong></p>
+</li>
+<li><p>Tim worked on Stephen Horlander&#39;s <a href="http://people.mozilla.com/~shorlander/files/new-tab-prototype-i03/new-tab-prototype-i03.html">redesign of the new-tab page</a>, and also fixed some bugs.
+<strong>New Download Manager</strong></p>
+</li>
+<li><p>Paolo <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=726444">consolidated existing patches</a> into a single one for final pass and check-in. Marco has been reviewing.</p>
+</li>
+<li><p>Paolo and Marco are getting together in <a href="http://maps.google.com/maps?oe=utf-8&amp;rls=org.mozilla:en-US:unofficial&amp;client=firefox-nightly&amp;q=novara+italy&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x47865a1ed73beaff:0x405e67d473ca090,Novara,+Italy&amp;gl=us&amp;ei=K19RT9rkGKaoiQLF_Py0Bg&amp;sa=X&amp;oi=geocode_result&amp;ct=image&amp;resnum=2&amp;ved=0CEgQ8gEwAQ">Novara</a> on Saturday to sprint on fixing theme bugs and other cleanup required for landing.
+<strong>Add-on SDK Integration</strong></p>
+</li>
+<li><p>Met with Irakli to create plan for landing the core SDK modules in Firefox so that the whole SDK would no longer need to be bundled with every add-on.</p>
+</li>
+<li>Created <a href="https://wiki.mozilla.org/Add-on_SDK_in_Firefox">a feature page</a> for tracking the project.</li>
+<li><p>I talked with Brian Warner about syncing Git repos with HG repos.
+<strong>Web Apps Integration</strong></p>
+</li>
+<li><p>I updated <a href="https://wiki.mozilla.org/Web_Apps_integration">the feature page</a> with latest from UX, Apps and PM.</p>
+</li>
+<li><p>Felipe Gomes is driving the Firefox side of the integration work, with Tim helping out on UI. They&#39;re working together with Fabrice, Myk, Dan and Tim A.
+<strong>Identity Integration</strong></p>
+</li>
+<li><p>David has the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=440046">window.crypto.getRandomValues patch</a> up for final review and superreview.</p>
+</li>
+<li>David put up an initial patch for the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=665057">navigator.id API for Web content</a>.</li>
+<li><p>David gets to play with NSS+DOM+XPCOM to get <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=649154">DOMCrypt&#39;s internal API working</a>. Lucky guy.
+<strong>Share Integration</strong></p>
+</li>
+<li><p>David is working with Shane Caraveo to get the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=727126">new Share add-on reviewed and landed</a>.
+<strong>Evangelism/Engagement</strong></p>
+</li>
+<li><p>Tim and Marco kicked off sponsorship process for <a href="http://2012.jsday.it/">Italy&#39;s jsDay conference</a>. They&#39;ll be putting up a booth there, along with Paolo Amadini, representing Mozilla. Thanks to Stormy and Shez for the support from Developer Engagement.
+Of course, we all worked on various other things as well, from code review to bug triage to random maintenance fixes. Activity logs and whatnot are listed below.</p>
+</li>
+<li><p>David Dahl: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=ddahl@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/ddahl">status updates</a>, <a href="http://monocleglobe.wordpress.com/">blog</a>, <a href="https://twitter.com/#!/deezthugs">Twitter</a></p>
+</li>
+<li>Drew Willcoxon: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=adw@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/drew">status updates</a></li>
+<li>Felipe Gomes: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=felipc@gmail.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/felipe">status updates</a>, <a href="http://felipe.wordpress.com/">blog</a>, <a href="https://twitter.com/#!/felipc">Twitter</a></li>
+<li>Asaf Romano: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=mano@mozilla.com">Bugzilla activity log</a></li>
+<li>Marco Bonardo: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=mak77@bonardo.net">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/mak">status updates</a>, <a href="http://blog.bonardo.net/">blog</a>, <a href="https://twitter.com/#!/mak77">Twitter</a></li>
+<li>Neil Deakin: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=enndeakin@gmail.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/Enn">status updates</a>, <a href="https://enndeakin.wordpress.com/">blog</a></li>
+<li>Paolo Amadini: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=paolo.mozmail@amadzone.org">Bugzilla activity log</a></li>
+<li>Tim Taubert: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=ttaubert@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/ttaubert">status updates</a>, <a href="http://timtaubert.de">blog</a>, <a href="https://twitter.com/#!/ttaubert">Twitter</a></li>
+<li>Dietrich Ayala: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=dietrich@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/dietrich">status updates</a>, <a href="http://autonome.wordpress.com">blog</a>, <a href="https://twitter.com/#!/dietrich">Twitter</a></li>
+</ul>
+]]></description><link>/2012/03/browser-services-update-tgif/index.html</link><guid isPermaLink="true">/2012/03/browser-services-update-tgif/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 03 Mar 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Brussels: Warm Hospitality Amidst Inhuman Conditions]]></title><description><![CDATA[<p>We&#39;re at the end of our Performance work-week here in Brussels, and gearing up for a two-day orgy of European open-source culture at FOSDEM. I&#39;ve successfully acquired a cold (and hopefully not worse) due to the temperature being <a href="http://j.mp/xUY8FQ">consistently below freezing</a>.</p>
+<p>However, the people here in Brussels have made up for their weather shortcomings by welcoming us wherever we go. Between the hackerspaces and co-working spaces, and the restaurants that happily take large groups with little or no notice, I&#39;m very impressed!</p>
+<p><strong>HSBXL</strong></p>
+<p><a href="http://www.flickr.com/photos/autonome/6800516745/" title="Performance work-week, Brussels 2012 by autonome, on Flickr"><img src="6800516745_02d5604af2.jpg" alt="Performance work-week, Brussels 2012"></a></p>
+<p>The <a href="https://hackerspace.be/">hackerspace in Brussels</a> is located in Schaerbeek, a neighborhood to the north of the city center. The space used to be a vehicle repair garage for the city, but was given up for use by the geeks. They&#39;ve installed <a href="http://www.flickr.com/photos/autonome/6800517943/in/photostream" title="oscillosock!">serious hardware</a>, and have fully-equipped the place with <a href="http://www.flickr.com/photos/autonome/6800515533/in/photostream">everything needed for survival</a>. Thanks to Rafael and Patrick, for answering all our questions and helping us make <a href="http://en.wikipedia.org/wiki/Mate_%28beverage%29">mate</a> and to find food nearby. Lunch on the second day was described by Patrick as a &quot;little French place&quot;, but turned out to be a hall of worship dedicated to Tintin!</p>
+<p><a href="http://www.flickr.com/photos/autonome/6800526749/" title="Performance work-week, Brussels 2012 by autonome, on Flickr"><img src="6800526749_c9d485f250.jpg" alt="Performance work-week, Brussels 2012"></a></p>
+<p>Faubourg St Antoine is filled with Tintin toys, art and <a href="http://www.flickr.com/photos/autonome/6800526217/in/photostream/">knick-knacks</a>, including some <a href="http://www.flickr.com/photos/autonome/6800525605/in/photostream/">alternate</a> interpretations and even a clarification for <a href="http://www.flickr.com/photos/autonome/6800523647/in/photostream">something I&#39;d always wondered about</a>. Sadly, they&#39;ve been issued a legal notice from the current copyright (or EU equivalent) holders requiring them to remove all the Tintin materials from public display :(</p>
+<p><strong>BetaGroup Coworking</strong></p>
+<p><a href="http://www.flickr.com/photos/autonome/6800565749/" title="Performance work-week, Brussels 2012 by autonome, on Flickr"><img src="6800565749_99522d41d2.jpg" alt="Performance work-week, Brussels 2012"></a></p>
+<p>Once the temperatures dropped far below freezing, we relocated to <a href="http://coworking.betagroup.be/">BetaGroup Coworking Brussels</a> in Etterbeek, to the southeast of the center. <a href="https://twitter.com/#!/ramonsuarez">Ramon Suarez</a>, the manager of the space was very accommodating, taking us on short notice. The wi-fi was blazing fast, the coffee was hot, and the ping-pong was a welcome break from heads-down hackery. The space itself was fantastic, with a great combination of quiet co-working areas, public spaces and private meeting offices. With tons of natural light, <a href="http://www.flickr.com/photos/autonome/6800566217/in/set-72157629096248615">steel bridges</a> and a meeting space on what looked like <a href="http://www.flickr.com/photos/autonome/6800567379/in/set-72157629096248615">a submarine conning tower</a>, it was truly impressive.</p>
+<p>We had a wonderful lunch at a <a href="http://www.flickr.com/photos/autonome/6811646793/in/set-72157629096248615">very tidy restaurant</a> nearby.</p>
+<p>Overall, it&#39;s been a fun and productive week, if a bit chilly. Like, really chilly. Ridiculously so. Why do people even inhabit places that get this cold? Honestly, wtf.</p>
+]]></description><link>/2012/02/brussels-warm-hospitality-amidst-inhuman-conditions/index.html</link><guid isPermaLink="true">/2012/02/brussels-warm-hospitality-amidst-inhuman-conditions/index.html</guid><category><![CDATA[belgium]]></category><category><![CDATA[brussels]]></category><category><![CDATA[coworking]]></category><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[hackerspace]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 03 Feb 2012 00:00:00 GMT</pubDate></item></channel></rss>

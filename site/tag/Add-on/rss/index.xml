@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 12 Jul 2017 05:35:22 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Building Add-ons with Jetpack, Flightdeck and... Vim.]]></title><description><![CDATA[<p>AddonEditor is an add-on for Firefox that allows you to use an external editor when building add-ons with the Add-ons Builder (aka Flightdeck). Yeah, say that 10 times fast.</p>
+<p>While Skywriter (aka Bespin) is nice, it&#39;s just not [insert your favorite editor here]. So I stole the code from the <a href="http://bit.ly/gZQIiP">Ubiquity project for loading an external app as editor</a>, and converted it to a CommonJS module for Jetpack (which I&#39;ve listed on the <a href="http://mzl.la/aDar20">Jetpack Modules page</a>). I built an add-on using Jetpack&#39;s page-mod module to add buttons to the Add-on Builder for loading a file in an external editor:</p>
+<p><a href="addon-editor.png"><img src="http://autonome.files.wordpress.com/2010/12/addon-editor.png" alt="" title="addon-editor"></a></p>
+<p>When you click the button the first time, you&#39;re prompted with a file-open dialog. Select the editor application of your choice, and the file will open in it. From then on, your chosen editor will automatically load files when you click the button. To clear your choice, choose the other button.</p>
+<p><a href="http://bit.ly/eDVYEo">Install AddonEditor</a>. Requires Firefox 4 Beta 7 or newer.</p>
+<p><a href="http://bit.ly/idHrqa">Clone and make your own, based on AddonEditor.</a> I built it using  Jetpack 0.10, which isn&#39;t released yet. However, I don&#39;t think it takes advantage of anything new, so it might be test-able from the Builder. But the Builder is giving errors when I hit the &quot;test&quot; button (which I&#39;ve reported to Zalun), so I can&#39;t tell for sure yet.</p>
+<p>BEWARE:</p>
+<ul>
+<li>I&#39;ve only tested on Linux. Let me know in the comments if it works or doesn&#39;t for you.</li>
+<li>Terminal apps not liked, apparently: /usr/bin/vim hangs Firefox completely. /usr/bin/gvim works fine.</li>
+<li>The UI augmentation to Flightdeck probably made Zalun puke. It should probably just be an option in the context menu or something. Except that you&#39;d never find it. Ideas?</li>
+</ul>
+]]></description><link>/2010/12/building-add-ons-with-jetpack-flightdeck-and-vim/index.html</link><guid isPermaLink="true">/2010/12/building-add-ons-with-jetpack-flightdeck-and-vim/index.html</guid><category><![CDATA[Add-on]]></category><category><![CDATA[Development]]></category><category><![CDATA[Add-ons]]></category><category><![CDATA[extensions]]></category><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[jetpack]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 06 Dec 2010 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox, Plugins and Jetpack Widgets]]></title><description><![CDATA[<p>Flash was chewing CPU in one of my myriad tabs, so I used <a href="https://jetpack.mozillalabs.com/">Jetpack</a> and the new <a href="https://developer.mozilla.org/en/Addons/Add-on_Manager">AddonsManager API</a> to whip up a quick add-on to enable and disable Flash quickly. It&#39;s &lt;30 lines of code and an image. It puts an icon in the Firefox 4 add-on bar that toggles the plug-in, and sends a Growl notification (or whatever system your OS uses) indicating that the plug-in was successfully enabled or disabled. Screenshot:</p>
+<p><img src="flashtoggle.png" alt="" title="flashtoggle"></p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/260486/">Install FlashToggle.</a> Requires Firefox 4 beta 7 or newer.</p>
+<p><a href="https://builder.mozillalabs.com/addon/1004584/latest/">Clone and make your own on the Add-on Builder.</a> This might require a minor change in the code since I built using Jetpack 0.10, which isn&#39;t released yet. Changing &#39;contentURL&#39; to &#39;image&#39; in the widget options should do the trick.</p>
+<p>The entire code listing:</p>
+<pre>function toggleFlash(callback) {
+  const { Cu } = require("chrome");
+  Cu.import("resource://gre/modules/AddonManager.jsm", this);
+  AddonManager.getAddonsByTypes(["plugin"], function(addons) {
+    for (let i = 0; i < addons.length; i++) {
+      if (addons[i].name == "Shockwave Flash") {
+        addons[i].userDisabled = !addons[i].userDisabled;
+        callback(addons[i].userDisabled);
+        break;
+      }
+    }
+  });
+}
+
+let flashLogoURL = require("self").data.url("flash-logo.jpg");
+require("widget").Widget({
+  label: "Toggle Flash",
+  contentURL: flashLogoURL,
+  onClick: function() {
+    toggleFlash(function(disabled) {
+      let message = "Flash is now " + (disabled ? "disabled" : "enabled") + ".";
+      require("notifications").notify({
+        title: message,
+        iconURL: flashLogoURL
+      });
+    });
+  }
+});</pre>]]></description><link>/2010/12/firefox-plugins-and-jetpack-widgets/index.html</link><guid isPermaLink="true">/2010/12/firefox-plugins-and-jetpack-widgets/index.html</guid><category><![CDATA[Add-on]]></category><category><![CDATA[Development]]></category><category><![CDATA[firefox]]></category><category><![CDATA[Flash]]></category><category><![CDATA[jetpack]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 04 Dec 2010 00:00:00 GMT</pubDate></item></channel></rss>

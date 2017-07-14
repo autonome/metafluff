@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 12 Jul 2017 05:35:22 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Remixable Quilts for the Web]]></title><description><![CDATA[<p><a href="https://twitter.com/toolness">Atul Varma</a> set up a <a href="http://quilts.mozillacamp.org/2012/asia/">quilt</a> for MozCamp Asia 2012 which I thought was a fantastic tool for that type of event. It provided an engaging visualization, was collaboratively created, and allowed a quick and easy way to dive further into the details about the participating groups.</p>
+<p><a href="http://quilts.mozillacamp.org/2012/asia/"><img src="screenshot-2014-12-18-15-23-19.png" alt="Screenshot 2014-12-18 15.23.19"></a>I wanted to use it for a couple of projects, but the code was tied pretty closely to that specific content and layout.</p>
+<p>This week I finally got around to moving the code over to Mozilla Webmaker, so it could be easily copied and remixed. I made a couple of changes:</p>
+<ul>
+<li>Update font to Open Sans</li>
+<li>Make it easy and clear how to re-theme the colors</li>
+<li>Allow arbitrary content in squares
+The JS code is still a bit too complex for what&#39;s needed, but it works on Webmaker now!</li>
+</ul>
+<p><a href="https://dietrich.makes.org/thimble/MjAzNzUxNDQ5Ng==/web-quilt"><img src="screenshot-2014-12-18-15-09-42.png" alt="Screenshot 2014-12-18 15.09.42"></a></p>
+<p><a href="https://dietrich.makes.org/thimble/MjAzNzUxNDQ5Ng==/web-quilt">View my demo quilt</a>. Hit the &quot;remix&quot; button to clone it and make your own.</p>
+<p>The source for the core JS and CSS is at <a href="https://github.com/autonome/quilt">https://github.com/autonome/quilt</a>.</p>
+]]></description><link>/2014/12/remixable-quilts-for-the-web/index.html</link><guid isPermaLink="true">/2014/12/remixable-quilts-for-the-web/index.html</guid><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[quilting]]></category><category><![CDATA[webdev]]></category><category><![CDATA[webmaker]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 19 Dec 2014 00:00:00 GMT</pubDate></item></channel></rss>
