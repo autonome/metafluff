@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 12 Jul 2017 05:35:22 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Augmented City - VR]]></title><description><![CDATA[<p>Hello! This guide is written for the <a href="https://www.eventbrite.com/e/vrar-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486">Augmented City AR/VR lab</a> in Singapore on July 15th 2017, but might be helpful for anyone looking to jump into A-Frame. The <a href="http://metafluff.com/2017/07/06/aframe-augmented-city/">first post is introduced A-Frame</a> as a tool for creating 3D content for the web. This post introduces VR on the web. The next and final post in the Augmented City prep series will be about AR on the web.</p>
+<p><blockquote class="instagram-media" data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:28.10185185185185% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/BVJQaVMgKpX/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by rockintosh (@rockintosh)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-06-10T03:52:06+00:00">Jun 9, 2017 at 8:52pm PDT</time></p></div></blockquote></p>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+
+<h2 id="vr">VR</h2>
+<p>With every passing day, virtual reality is becoming less weird and more a fact of life for developers and designers everywhere.</p>
+<p>VR hardware isn&#39;t ubiquitous yet, and is actually still both cumbersome and expensive. Momentum is gathering regardless, both in experimentation and business investment.</p>
+<p>The web is the largest deployment surface with the least friction for content of any kind. Given the still early stage that VR is at, being able to make it and publish it on the web provides the innovation vector that is required for VR to succeed.</p>
+<h2 id="webvr">WebVR</h2>
+<p>WebVR is a standard for exposing VR hardware capabilities to the software context of web applications, and then rendering the page to that hardware. The specification describes an API in JavaScript for enumerating HMDs and controllers, among other things.</p>
+<p>Mozilla, Google and others have been working together over the last couple of years to develop the standard, and are now starting to ship the initial versions. The specification was tagged at version 1.1 but is not yet finalized, so implementations may yet change.</p>
+<ul>
+<li>WebVR spec development is driven by the <a href="https://www.w3.org/community/webvr/">W3C WebVR Community Group</a></li>
+<li><a href="https://w3c.github.io/webvr/">WebVR draft specification on W3C&#39;s Github</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API">WebVR API documentation on MDN</a></li>
+<li>Most conversation happens on the <a href="https://webvr-slack.herokuapp.com/">WebVR Slack</a></li>
+</ul>
+<p><img src="simba.png"></p>
+<h2 id="browser-support-for-webvr">Browser Support for WebVR</h2>
+<ul>
+<li>Firefox: Supported on Windows and Android since version 55 (beta at the time of this post), and in nightly builds on Mac.</li>
+<li>Chrome: Supported, but off by default, need to flip a flag.</li>
+<li>Edge: Supported unprefixed as of build 15002+ on Desktop, Mixed Reality, Mobile and Xbox.</li>
+<li>Safari: Unsupported, but Apple just joined the WebVR community group, so there&#39;s a possibility of support but no explicit statement yet.</li>
+<li>Samsung: Supported on Samsung Internet Browser for GearVR.</li>
+</ul>
+<h2 id="mobile-and-the-webvr-polyfill">Mobile and the WebVR Polyfill</h2>
+<p>Smartphones can be used for WebVR experiences inside &quot;cardboard&quot; or other devices designed to contain a smartphone for HMD-like experiences.</p>
+<p>These most often use the <a href="https://github.com/googlevr/webvr-polyfill">WebVR Polyfill</a>, a JavaScript library created by Google which mimics the WebVR API functionality, rendering the scene for each eye in software. Libraries like Three.js and A-Frame use the polyfill when no hardware is detected.</p>
+<p>If you open an A-Frame scene on your mobile phone and touch the HMD icon, the polyfill will kick in and you&#39;ll see the scene rendered for each eye separately, and you can then insert the phone inside a VR viewing device.</p>
+<p>The polyfill uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">orientation web API</a>, so even responds to your movement, allowing you to look all around within the scene.</p>
+<p><img src="cardboard.jpg"></p>
+<h2 id="hmd-support">HMD Support</h2>
+<p>Currently both retail versions of the HTC Vive and the Oculus Rift work with Firefox and Chrome&#39;s implementations of WebVR. Instructions for all of these combinations are at <a href="https://mozvr.com/#start">Mozvr.com</a>.</p>
+<p>Microsoft Edge only supports their Mixed Reality hardware at this time.</p>
+<p>David Rousset <a href="https://www.davrous.com/2017/07/07/from-zero-to-hero-creating-webvr-experiences-with-babylon-js-on-all-platforms/">wrote a great overview</a> of writing a WebVR application that works in all hardware platforms, with this excellent visualization of browsers and hardware platforms. One thing to add is Firefox Android also supports WebVR from version 55.</p>
+<p><img src="davidroussetmatrix.jpg"></p>
+]]></description><link>/2017/07/12/augmented-city-vr/index.html</link><guid isPermaLink="true">/2017/07/12/augmented-city-vr/index.html</guid><category><![CDATA[vr]]></category><category><![CDATA[aframe]]></category><category><![CDATA[webvr]]></category><category><![CDATA[augmented city]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 11 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[A-Frame Quickstart for Augmented City]]></title><description><![CDATA[<p>Hello! This guide is written for the <a href="https://www.eventbrite.com/e/vrar-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486">Augmented City AR/VR lab</a> in Singapore on July 15th 2017, but might be helpful for anyone looking to jump into A-Frame. This first post will orient you to A-Frame itself, and the couple following will focus on VR and AR. Enjoy!</p>
+<p><blockquote class="instagram-media" data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:28.10185185185185% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/BVJQaVMgKpX/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by rockintosh (@rockintosh)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-06-10T03:52:06+00:00">Jun 9, 2017 at 8:52pm PDT</time></p></div></blockquote></p>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+<h2 id="augmented-city">Augmented City</h2>
+<p>The Augmented City event is an all-day workshop focused on quickly prototyping AR/VR experiences on the web, and with a theme of Singapore itself.</p>
+<p>What does an augmented Singapore look like? What can it do? What can you do in it? Maybe it tells its own story - its history. Maybe it shows you what music is happening nearby, or which hawker stalls you should try. Maybe lets you see <a href="http://nationalmuseum.sg/exhibitions/exhibition-list/singapore-very-old-tree">trees that used to be</a>, or shows visualizations of the <a href="https://en.wikipedia.org/wiki/Port_of_Singapore#/media/File:KITLV_-_150813_-_Lambert_%26_Co.,_G.R._-_Singapore_-_Port_at_Singapore_-_circa_1890.tif">changing waterline</a> over time as the city grew.</p>
+<p>Some more ideas: </p>
+<ul>
+<li><p>I love <a href="https://www.instagram.com/p/BVl2DJgAwgJ/">these visuals from @rockintosh on Instagam</a> - the ArtScience Museum disintegrating and floating away is fantastic. </p>
+</li>
+<li><p>Use public data to create 3D and virtual maps with tools like <a href="https://github.com/UDST/vizicities">Vizicities</a>.</p>
+</li>
+<li><p>Vive put up a post with a bunch of <a href="https://blog.vive.com/us/2017/05/12/experience-history-in-vr/">examples of teaching history through VR</a>, and the BBC made <a href="http://www.bbc.co.uk/taster/projects/romes-invisible-city-vr">this exploration of the Pantheon in Rome</a>. I&#39;ve been playing with a model of Kowloon Walled City in Hong Kong (but it&#39;s not ready yet...). What in Singapore&#39;s history can you recreate virtually?</p>
+</li>
+<li><p>These <a href="https://www.instagram.com/p/BV9TapglsAq/">&quot;following eyes&quot; from NYPSIDM students</a> here in Singapore are fantastic. Imagiine an AR version, placed all around the city!</p>
+</li>
+<li><p>Tell a story about the musical history of Singapore, or showcase contemporary music using AR. I like this use of AR for <a href="https://goldcomputing.show/2017/05/30/vinylart/">scanning record covers to listen and learn more about the music they contain</a>.</p>
+</li>
+<li><p>To be honest, I want an AR app that translates the kopitiam menus into something I can understand so I can order coffee the right way... somehow I always order it wrong!</p>
+</li>
+</ul>
+<p><img src="aframe-example.png"></p>
+<h2 id="a-frame">A-Frame</h2>
+<p>This guide will help you quickly get up to speed on using A-Frame, Mozilla&#39;s library for declarative authoring of 3D content for virtual reality and augmented reality web experiences. The guide contains links to documentation, learning tools, useful components, tips and tools for debugging, and locations for finding help.</p>
+<h2 id="documentation-and-learning">Documentation and Learning</h2>
+<ul>
+<li>The <a href="https://aframe.io">official A-Frame website</a> has documentation and examples.</li>
+<li><a href="https://aframe.io/aframe-school">A-Frame School</a> is a short interactive curriculum for learning A-Frame.</li>
+<li>Check out the <a href="https://hacks.mozilla.org/?s=a-frame">A-Frame posts on the Mozilla Hacks blog</a>.</li>
+<li>If you&#39;re a podcasty person, check out this <a href="http://voicesofvr.com/538-how-mozilla-is-driving-webvr-content-tooling-with-the-a-frame-framework/">interview with A-Frame core developers</a> on the Voices of VR podcast, to learn more about how A-Frame got to where it is, and where it&#39;s going.</li>
+</ul>
+<h2 id="start-coding">Start Coding</h2>
+<p>Glitch.com lets you author and run full web projects, with HTML, CSS, JavaScript and Node.js. Create a free account and you can start hacking on A-Frame right away. If you&#39;re a more experienced developer, check out the <a href="https://aframe.io/docs/0.6.0/introduction/installation.html">A-Frame installation page</a> to add it to your development environment.</p>
+<ul>
+<li>Get started with the <a href="http://glitch.com/~aframe">A-Frame Glitch example</a>. Click the link and choose &quot;Remix your own&quot;. Then try moving the objects around, changing their color, or animating them, to get a feel for what A-Frame can do.</li>
+<li>Try remixing some more advanced examples like the <a href="https://glitch.com/~aframe-shooting-stars">trippy shooting stars</a> or a <a href="https://glitch.com/~aframe-webcam-component">webcam circus mirror</a>.</li>
+<li>Here&#39;s a basic <a href="https://codepen.io/mozvr/pen/BjygdO">A-Frame example on Codepen</a></li>
+</ul>
+<h2 id="features-and-components">Features and Components</h2>
+<p>Some basic things to try:</p>
+<ul>
+<li><a href="https://aframe.io/docs/0.6.0/components/position.html">Positioning of objects in your scene</a></li>
+<li><a href="https://aframe.io/docs/0.6.0/core/animations.html">Animation of objects in your scene</a></li>
+<li><a href="https://aframe.io/docs/0.6.0/components/link.html">Link traversal - navigating between different VR web pages!</a></li>
+</ul>
+<p>A-Frame&#39;s extensibility is an entity component system, which has enabled a huge number of components to be created to add functionality. A few useful modules are listed below. You can <a href="https://aframe.io/docs/0.6.0/introduction/writing-a-component.html">create your own components</a> also.</p>
+<ul>
+<li>Add physics to your scenes and objects with <a href="https://github.com/donmccurdy/aframe-physics-system">Don McCurdy&#39;s aframe-physics-system component</a>. Check out <a href="https://hacks.mozilla.org/2017/05/having-fun-with-physics-and-a-frame/">Belén Albeza&#39;s guide to A-Frame physics</a> on Mozilla&#39;s Hacks blog.</li>
+<li>The <a href="https://github.com/feiss/aframe-environment-component">A-Frame environment component</a> allows you to preconfigure and generate whole worlds.</li>
+<li><a href="https://github.com/haydenjameslee/networked-aframe">Networked A-Frame</a> lets you build multi-user easily. Can you think of a way to augment your city by creating social experiences in VR and AR?</li>
+</ul>
+<p>Other A-Frame Projects To Try</p>
+<ul>
+<li>Create your own city with the A-Frame <a href="https://github.com/kfarr/aframe-city-builder">City Builder</a></li>
+<li>Learn how to build your own <a href="https://css-tricks.com/minecraft-webvr-html-using-frame/">Minecraft in A-Frame</a></li>
+<li>Read through this <a href="https://docs.google.com/spreadsheets/d/1VRDoN3AgjJbMZmelCujCDNOVfRIeNJbGpyYlZB5UWgI/edit#gid=0">list of authoring tools</a></li>
+<li><a href="https://github.com/aframevr/awesome-aframe">Awesome A-Frame</a> has links to all kinds of A-Frame libraries, examples, projects that will inspire and amaze.</li>
+</ul>
+<h2 id="objects-and-models">Objects and Models</h2>
+<p>A-Frame supports loading glTF, OBJ and COLLADA models, and there are loads of ways to create your models in those formats, as well as find models you can use. Read more on the <a href="https://aframe.io/docs/0.5.0/introduction/models.html">3D Models page on the A-Frame site</a>.</p>
+<h2 id="tools-and-debugging">Tools and Debugging</h2>
+<p><img src="aframe-inspector.png"></p>
+<p>The most important tool for working with A-Frame is the Inspector, shown in the screenshot above. You can read all about <a href="https://aframe.io/docs/0.6.0/introduction/visual-inspector-and-dev-tools.html">A-Frame Inspector and more tools here</a>.</p>
+<h2 id="participating-and-getting-help">Participating and Getting Help</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/tagged/aframe">Stack Overflow</a> is the best place to ask a technical question about A-Frame.</li>
+<li>The <a href="https://aframevr-slack.herokuapp.com/">A-Frame Slack</a> is fantastic for realtime feedback, community and conversation.</li>
+<li>Follow on Twitter at <a href="https://twitter.com/aframevr">@aframevr</a>.</li>
+<li>Get inspired by <a href="https://aframe.io/blog/awoa-66/">A Week of A-Frame</a>, weekly blog posts by core team member Kevin Ngo, who writes up all the cool projects, demos and components.</li>
+</ul>
+<p>Read more on the <a href="https://aframe.io/community/">A-Frame Community page</a>.</p>
+<!--
+## VR
+
+
+### Browser Support
+
+
+
+### HMD Support
+
+
+## AR
+
+* ar.js https://github.com/jeromeetienne/AR.js
+* argon.js
+* Chromium WebAR
+
+* https://trackingjs.com
+* angel demo
+* my talk demos
+* other tracking libs?
+* https://artoolkit.github.io/jsartoolkit5/examples/
+
+* look up geo aframe
+* https://github.com/buildar/awe.js/tree/master/examples/geo_ar
+
+* my talks
+
+## Standardization Efforts
+
+* webvr community group
+* ar community group
+* wicg shapes
+
+-->
+]]></description><link>/2017/07/06/aframe-augmented-city/index.html</link><guid isPermaLink="true">/2017/07/06/aframe-augmented-city/index.html</guid><category><![CDATA[vr]]></category><category><![CDATA[ar]]></category><category><![CDATA[aframe]]></category><category><![CDATA[webvr]]></category><category><![CDATA[augmented city]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 06 Jul 2017 00:00:00 GMT</pubDate></item></channel></rss>
