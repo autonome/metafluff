@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Wed, 12 Jul 2017 05:35:24 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Vacationeering]]></title><description><![CDATA[<p>We stayed on Ambergris Caye in Belize for a week (<a href="http://flickr.com/photos/autonome/sets/72157607081080301/" title="Belize pics">pics</a>), 1/2 mile from the 2nd largest coral reef in the world. We then went overland to see the Mayan ruins at Tikal in Guatemala (<a href="http://flickr.com/photos/autonome/sets/72157607078313286/" title="Tikal pics">pics</a>).</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Thu, 20 Jul 2017 12:11:35 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[sometimes attribution just isn't worth it]]></title><description><![CDATA[<p>(11:26:57) me: ugh
+(11:27:02) me: it&#39;ll never end:
+(11:27:05) me: &quot;I&#39;m writing an application for the Coast Guard Auxiliary that uses your NUSOAP code..&quot;
+(11:27:11) me: the coast guard?
+(11:27:13) me: using my code?
+(11:27:18) me: our borders are not safe
+(11:27:47) him: lol
+(11:27:53) him: fix it dude
+(11:28:15) me: those php XXXXXXXs have caused me no end of trouble
+(11:28:29) me: the php5 soap impl uses a class name that&#39;s the same as nusoap
+(11:28:40) me: so i get like 5 emails a week, ever since php5 was released
+(11:28:46) me: all with this same error
+(11:28:52) me: not only that
+(11:29:11) me: the latest version of nusoap (2 years ago or whatever) has it fixed!
+(11:29:22) me: which means all these people are downloading an old version from somewhere
+(11:29:24) me: OR
+(11:29:29) me: are only now upgrading to php5!
+(11:29:35) me: i XXXXing hate open source
+(11:30:18) him: lol
+(11:30:21) him: rant over?
+(11:30:25) me: yes
+(11:30:31) me: i feel much better now</p>
+]]></description><link>/2008/09/sometimes-attribution-just-isnt-worth-it/index.html</link><guid isPermaLink="true">/2008/09/sometimes-attribution-just-isnt-worth-it/index.html</guid><category><![CDATA[oss]]></category><category><![CDATA[PHP]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 12 Sep 2008 00:00:00 GMT</pubDate></item><item><title><![CDATA[Vacationeering]]></title><description><![CDATA[<p>We stayed on Ambergris Caye in Belize for a week (<a href="http://flickr.com/photos/autonome/sets/72157607081080301/" title="Belize pics">pics</a>), 1/2 mile from the 2nd largest coral reef in the world. We then went overland to see the Mayan ruins at Tikal in Guatemala (<a href="http://flickr.com/photos/autonome/sets/72157607078313286/" title="Tikal pics">pics</a>).</p>
 <p>We got stuck in Dallas on the way back, so flew back Monday morning, dropped our stuff off at the house and went straight to Kumoricon, Portland&#39;s anime/manga/cosplay convention (<a href="http://flickr.com/photos/autonome/sets/72157607085145227/" title="Kumoricon pictures">pics</a>)!</p>
 <p>What a crazy week. Ok, back to work.</p>
 ]]></description><link>/2008/09/vacationeering/index.html</link><guid isPermaLink="true">/2008/09/vacationeering/index.html</guid><category><![CDATA[belize]]></category><category><![CDATA[guatemala]]></category><category><![CDATA[maya]]></category><category><![CDATA[tikal]]></category><category><![CDATA[vacation]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 05 Sep 2008 00:00:00 GMT</pubDate></item><item><title><![CDATA[Beast 7/16/08]]></title><description><![CDATA[<p>We finally made it to <a href="http://www.beastpdx.com/" title="Beast">Beast</a>. Overall, a fantastic experience. I would go back in a heartbeat, if only my heart (and wallet) could take that kind of a beating regularly.</p>
@@ -138,11 +160,4 @@ It&#39;s nice to be out in society again. Who knows, maybe I&#39;ll even blog mo
 9:19 argyle: u make me feel special
 9:20 Dietrich: we did it just 4 u</p>
 <p>It got all X-rated after that, I&#39;ll spare you.</p>
-]]></description><link>/2007/11/firefox-3-conversation/index.html</link><guid isPermaLink="true">/2007/11/firefox-3-conversation/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 02 Nov 2007 00:00:00 GMT</pubDate></item><item><title><![CDATA[Feed organization and entropy]]></title><description><![CDATA[<p>I use Google Reader to read feeds. I have a &quot;daily&quot; folder for feeds that I really need to keep up on, and everything else is filed away into about 20 other content-specific folders.</p>
-<p>However, I realized that I only read the &quot;daily&quot; folder, and never look in any of the other folders. Ever. And I&#39;m continually paring down the contents of the &quot;daily&quot; folder, as I don&#39;t have time to keep up with those either.</p>
-<p>In fact, I&#39;d stopped reading about music, food, art, design, inventions, <a href="http://www.gadget-madness.net/">gadgets</a>, <a href="http://www.clubmogames.com">free mobile games</a>, travel.</p>
-<p>In the end, I was basically reading <a href="http://planet.mozilla.org">Planet Mozilla</a> and the <a href="http://wiki.mozilla.org/Special:Recentchanges">Mozilla wiki&#39;s &quot;recent changes&quot;</a>. And while I love Moz, that&#39;s a far too singular lens through which to vicariously experience life.</p>
-<p>So, I&#39;m going for the &quot;river of news&quot; strategy: I&#39;ve moved all feeds into the root folder, and will prune from there. I&#39;ve hidden the folder tree (which I wasn&#39;t using anyway), which leaves more real estate for content. I&#39;ve interspersed my work with my play feeds, which will hopefully bring some variety into my digital walkabouts.</p>
-<p>I have a followup task: to step away from the computer altogether at some point.</p>
-<p>Ack, almost forgot about the &quot;entropy&quot; part of this post! While pruning feeds, I noticed that a bunch hadn&#39;t had any posts in a while. I checked out a few, and found that the feed URL had changed, but the author hadn&#39;t set up redirects, or published any notice at all on the feed. Lame.</p>
-]]></description><link>/2007/10/feed-organization-and-entropy/index.html</link><guid isPermaLink="true">/2007/10/feed-organization-and-entropy/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Tue, 16 Oct 2007 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2007/11/firefox-3-conversation/index.html</link><guid isPermaLink="true">/2007/11/firefox-3-conversation/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 02 Nov 2007 00:00:00 GMT</pubDate></item></channel></rss>
