@@ -100,6 +100,8 @@ We wanted a mix of developers and designers, so on the Eventbrite page, offered 
 
 Overall the event went really well. Most gratifiying was seeing how focused everyone was in the afternoon, and how many people stuck to the theme. People definitely were deep in the flow, using A-Frame to bring their ideas to life, which is a win.
 
+The resources, links and projects from the event are all collected on the [augmented-city/singapore repo](https://github.com/augmented-city/singapore) on Github.
+
 See you at the next one!
 
 ![share-off](shareoff.png)
