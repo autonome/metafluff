@@ -50,7 +50,7 @@ Notes:
 
 ## Start-up Time
 
-Graph of startup time with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56:
+Graph of startup time with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. The Y axis is *minutes*. Yes, Firefox 51 took almost *8 MINUTES* to start up. However, as of Firefox 55 it only takes *15 seconds*. For 1691 tabs. Really. I no longer fear restarts. Lately, I just restart Firefox for fun sometimes.
 
 ![Startup time](startup.png)
 
@@ -58,7 +58,7 @@ It's interesting that Firefox startup time got consistently *worse* over time un
 
 ## Memory Usage
 
-Graph of memory use one minute after startup with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56:
+Graph of memory use one minute after startup with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. While consistently using around two gigs of memory, we've now reduced to *less than half a gig*. Yes, this is without actual web pages loaded, but look at this, haters: I've now got 1.5 gigs of memory to load web pages into that I didn't have before.
 
 ![Memory use](memory.png)
 
