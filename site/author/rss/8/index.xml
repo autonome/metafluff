@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 21 Jul 2017 14:21:06 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Feed organization and entropy]]></title><description><![CDATA[<p>I use Google Reader to read feeds. I have a &quot;daily&quot; folder for feeds that I really need to keep up on, and everything else is filed away into about 20 other content-specific folders.</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 04 Aug 2017 08:07:31 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Firefox 3 Conversation]]></title><description><![CDATA[<p>9:12 argyle: fx3 please
+9:13 argyle: fx2 just crashed on me for the 10th time this week
+9:13 Dietrich: nightlies are always here: <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/">http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/</a>
+9:13 argyle: ur lucky session restore is there
+9:13 Dietrich: i seriously have hundreds of tabs open, no crashes
+9:14 Dietrich: one-click bookmarking, tagging, better mem usage, no crashy
+9:14 Dietrich: use it
+9:14 Dietrich: love it
+9:14 Dietrich: actually the killer feature is this:
+9:14 Dietrich: url bar autocomplete searches title and url and tags now
+9:15 Dietrich: and uses a &quot;frecency&quot; algorithm to bubble up stuff
+9:15 argyle: nice
+9:15 argyle: me like that
+9:15 Dietrich: also shows bookmarked and tagged icons in the dropdown
+9:15 Dietrich: i&#39;m serious: i can&#39;t use fx2
+9:15 Dietrich: because of the url bar changes alone
+9:16 Dietrich: it&#39;s sooo painful to live without
+9:16 Dietrich: that and turning autofill on == dope
+9:17 argyle: I shall play with your little fox
+9:17 argyle: oh feature request... on camino when I download something it has a &quot;SHOW&quot; button that opens finder to that folder and selects that file
+9:17 argyle: u make fix in ff to do
+9:18 Dietrich: done
+9:18 Dietrich: download manager is completely rewritten
+9:19 Dietrich: open dm -&gt; click on the &quot;i&quot; icon next to the download -&gt; it shows the path -&gt; click on the path -&gt; bing, finder opens up to that file
+9:19 Dietrich: next please
+9:19 argyle: yeaaaaaa
+9:19 argyle: u make me feel special
+9:20 Dietrich: we did it just 4 u</p>
+<p>It got all X-rated after that, I&#39;ll spare you.</p>
+]]></description><link>/2007/11/firefox-3-conversation/index.html</link><guid isPermaLink="true">/2007/11/firefox-3-conversation/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 02 Nov 2007 00:00:00 GMT</pubDate></item><item><title><![CDATA[Feed organization and entropy]]></title><description><![CDATA[<p>I use Google Reader to read feeds. I have a &quot;daily&quot; folder for feeds that I really need to keep up on, and everything else is filed away into about 20 other content-specific folders.</p>
 <p>However, I realized that I only read the &quot;daily&quot; folder, and never look in any of the other folders. Ever. And I&#39;m continually paring down the contents of the &quot;daily&quot; folder, as I don&#39;t have time to keep up with those either.</p>
 <p>In fact, I&#39;d stopped reading about music, food, art, design, inventions, <a href="http://www.gadget-madness.net/">gadgets</a>, <a href="http://www.clubmogames.com">free mobile games</a>, travel.</p>
 <p>In the end, I was basically reading <a href="http://planet.mozilla.org">Planet Mozilla</a> and the <a href="http://wiki.mozilla.org/Special:Recentchanges">Mozilla wiki&#39;s &quot;recent changes&quot;</a>. And while I love Moz, that&#39;s a far too singular lens through which to vicariously experience life.</p>
@@ -85,21 +114,21 @@ Tea for Julie</a> was on we got there. Hey guys, get a new band name.</p>
 <p>Before: 132F
 After: 84F</p>
 <p>There are downsides (noticeable fan sound, uses more power), but having a laptop that I can have in my lap is well worth it.</p>
-]]></description><link>/2006/10/entering-a-brave-new-world-of-lap-computing/index.html</link><guid isPermaLink="true">/2006/10/entering-a-brave-new-world-of-lap-computing/index.html</guid><category><![CDATA[Apple]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 11 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mini-review: Northstar Coffeehouse, North Portland]]></title><description><![CDATA[<p>Good atmosphere, but small. Located off Interstate, one block north of Lombard, so it&#39;s pretty far out there, but accessible if you&#39;re stuck up in NOPO. It&#39;s right off the MAX line, and one block from the Fred Meyer.</p>
-<ul>
-<li>Wi-fi: free</li>
-<li>Coffee: Stumptown</li>
-<li>Food: quality baked goods, bagels</li>
-</ul>
-<p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;q=7540+N.+Interstate,+Portland+OR&amp;ie=UTF8&amp;om=1">Map</a></p>
-]]></description><link>/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</link><guid isPermaLink="true">/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mini-review: The Albina Press, North Portland (another coffeehouse)]]></title><description><![CDATA[<p>Great atmosphere, lots of places to sit inside and out. Sweet treats and Beta Band beats. Located a bit north of the main Mississippi area. It&#39;s east of Interstate 5, but the area seems to be referred to as North Portland, not Northeast.</p>
+]]></description><link>/2006/10/entering-a-brave-new-world-of-lap-computing/index.html</link><guid isPermaLink="true">/2006/10/entering-a-brave-new-world-of-lap-computing/index.html</guid><category><![CDATA[Apple]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 11 Oct 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mini-review: The Albina Press, North Portland (another coffeehouse)]]></title><description><![CDATA[<p>Great atmosphere, lots of places to sit inside and out. Sweet treats and Beta Band beats. Located a bit north of the main Mississippi area. It&#39;s east of Interstate 5, but the area seems to be referred to as North Portland, not Northeast.</p>
 <ul>
 <li>Wi-fi: free</li>
 <li>Coffee: Stumptown</li>
 <li>Food: cookies, scones, bagels</li>
 </ul>
 <p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;q=4637+N.+Albina+Ave,+portland+OR&amp;ie=UTF8&amp;om=1">Map</a></p>
-]]></description><link>/2006/08/mini-review-the-albina-press-north-portland-another-coffeehouse/index.html</link><guid isPermaLink="true">/2006/08/mini-review-the-albina-press-north-portland-another-coffeehouse/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Tinderbox Microsummary Update: Tree Closures]]></title><description><![CDATA[<p>I updated the Tinderbox microsummary generator to show whether the tree is open or closed, and to properly display the tree name.</p>
+]]></description><link>/2006/08/mini-review-the-albina-press-north-portland-another-coffeehouse/index.html</link><guid isPermaLink="true">/2006/08/mini-review-the-albina-press-north-portland-another-coffeehouse/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Mini-review: Northstar Coffeehouse, North Portland]]></title><description><![CDATA[<p>Good atmosphere, but small. Located off Interstate, one block north of Lombard, so it&#39;s pretty far out there, but accessible if you&#39;re stuck up in NOPO. It&#39;s right off the MAX line, and one block from the Fred Meyer.</p>
+<ul>
+<li>Wi-fi: free</li>
+<li>Coffee: Stumptown</li>
+<li>Food: quality baked goods, bagels</li>
+</ul>
+<p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;q=7540+N.+Interstate,+Portland+OR&amp;ie=UTF8&amp;om=1">Map</a></p>
+]]></description><link>/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</link><guid isPermaLink="true">/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Tinderbox Microsummary Update: Tree Closures]]></title><description><![CDATA[<p>I updated the Tinderbox microsummary generator to show whether the tree is open or closed, and to properly display the tree name.</p>
 <p>You can install it <a href="http://dietrich.ganx4.com/mozilla/tinderbox-microsummary.xml">here</a>.</p>
 <p>The information shown:</p>
 <ul>
@@ -107,5 +136,4 @@ After: 84F</p>
 <li>Open/closed</li>
 <li>Ok/burning (and then lists the names of the burning tinderboxes)</li>
 </ul>
-]]></description><link>/2006/06/tinderbox-microsummary-update-tree-closures/index.html</link><guid isPermaLink="true">/2006/06/tinderbox-microsummary-update-tree-closures/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 15 Jun 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Hello world!]]></title><description><![CDATA[<p>Welcome to <a href="http://wordpress.com/">WordPress.com</a>. This is your first post. Edit or delete it and start blogging!</p>
-]]></description><link>/2006/06/hello-world/index.html</link><guid isPermaLink="true">/2006/06/hello-world/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 15 Jun 2006 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2006/06/tinderbox-microsummary-update-tree-closures/index.html</link><guid isPermaLink="true">/2006/06/tinderbox-microsummary-update-tree-closures/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 15 Jun 2006 00:00:00 GMT</pubDate></item></channel></rss>
