@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Thu, 20 Jul 2017 12:11:34 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Unbookmarking the Future of Browsing]]></title><description><![CDATA[<p>I am needy:</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[undefined - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 04 Aug 2017 08:07:28 GMT</lastBuildDate><atom:link href="/tag/undefined/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Experiments in New WebExtension APIs]]></title><description><![CDATA[<p><img src="tabs.png" alt="Tabs!"></p>
+<p>Intro</p>
+<ul>
+<li>move to webextensions</li>
+<li>not a post to talk about why. it has to be done, and if you&#39;re still fighting that, you are probably part of the problem.</li>
+</ul>
+<p>today let&#39;s learn how to prototype new WE apis</p>
+<h2 id="webextension-experiments">WebExtension Experiments</h2>
+<ul>
+<li>WE that implements APIs for other WEs</li>
+</ul>
+<p>(screenshot of filesystem)</p>
+<h2 id="api-code">API Code</h2>
+<ul>
+<li>like a bootstrapped add-on that loads a WE API</li>
+<li><p>scope of api code is like a JS module or XPCOM component - no window object, but access to XPCOM stuff</p>
+</li>
+<li><p>context.* - <a href="https://github.com/autonome/webext-experiment-showOnlyTheseTabs/pull/1/files">https://github.com/autonome/webext-experiment-showOnlyTheseTabs/pull/1/files</a></p>
+</li>
+<li><p>namespace as prefix in addon id in install.rdf</p>
+</li>
+</ul>
+<h2 id="schemas">Schemas</h2>
+<ul>
+<li>undocumented</li>
+<li>don&#39;t know how to reference built-in WE apis</li>
+<li>have to restart firefox, thanks rpl</li>
+</ul>
+<h2 id="extensions-testing-extensions">Extensions Testing Extensions</h2>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>not e10s compatible apis yet - but they&#39;re proxied out to the oop extension so you don&#39;t have to worry about it</li>
+</ul>
+]]></description><link>/webext-experiments/index.html</link><guid isPermaLink="true">/webext-experiments/index.html</guid><category><![CDATA[Firefox]]></category><category><![CDATA[Add-ons]]></category><category><![CDATA[WebExtensions]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 27 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Unbookmarking the Future of Browsing]]></title><description><![CDATA[<p>I am needy:</p>
 <ul>
 <li>I want to remember URLs. Bookmarking is too manual and akin to throwing URLs in the <a href="http://j.mp/wh2cXN">sarlacc pit</a>. The user-interface pieces around bookmarking have not changed in a decade. No, the awesomebar is not a good tool for this. I don&#39;t even come close to being able to recall what I want the awesomebar to recall. I need to be ambiently prompted in a way that is visual and has context.</li>
 <li>I need to be able to focus on a given task, project or idea. A single sea of tabs doesn&#39;t help at all. I want blinders. I want an environment. Task immersion.</li>

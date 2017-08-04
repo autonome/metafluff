@@ -1,5 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Thu, 20 Jul 2017 12:11:35 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Augmented City - Singapore]]></title><description><![CDATA[<p>This post is part of the Augmented City series. The <a href="https://metafluff.com/2017/07/06/aframe-augmented-city/">first post is introduced A-Frame</a> as a tool for creating 3D content for the web. The second post introduced <a href="https://metafluff.com/2017/07/12/augmented-city-vr/">VR on the web</a>. These were prep posts for the event attendees. This post is about the design and goals for the <a href="https://www.eventbrite.com/e/vrar-maker-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486">first event</a>, and how it went.</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 04 Aug 2017 08:07:30 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Experiments in New WebExtension APIs]]></title><description><![CDATA[<p><img src="tabs.png" alt="Tabs!"></p>
+<p>Intro</p>
+<ul>
+<li>move to webextensions</li>
+<li>not a post to talk about why. it has to be done, and if you&#39;re still fighting that, you are probably part of the problem.</li>
+</ul>
+<p>today let&#39;s learn how to prototype new WE apis</p>
+<h2 id="webextension-experiments">WebExtension Experiments</h2>
+<ul>
+<li>WE that implements APIs for other WEs</li>
+</ul>
+<p>(screenshot of filesystem)</p>
+<h2 id="api-code">API Code</h2>
+<ul>
+<li>like a bootstrapped add-on that loads a WE API</li>
+<li><p>scope of api code is like a JS module or XPCOM component - no window object, but access to XPCOM stuff</p>
+</li>
+<li><p>context.* - <a href="https://github.com/autonome/webext-experiment-showOnlyTheseTabs/pull/1/files">https://github.com/autonome/webext-experiment-showOnlyTheseTabs/pull/1/files</a></p>
+</li>
+<li><p>namespace as prefix in addon id in install.rdf</p>
+</li>
+</ul>
+<h2 id="schemas">Schemas</h2>
+<ul>
+<li>undocumented</li>
+<li>don&#39;t know how to reference built-in WE apis</li>
+<li>have to restart firefox, thanks rpl</li>
+</ul>
+<h2 id="extensions-testing-extensions">Extensions Testing Extensions</h2>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>not e10s compatible apis yet - but they&#39;re proxied out to the oop extension so you don&#39;t have to worry about it</li>
+</ul>
+]]></description><link>/webext-experiments/index.html</link><guid isPermaLink="true">/webext-experiments/index.html</guid><category><![CDATA[Firefox]]></category><category><![CDATA[Add-ons]]></category><category><![CDATA[WebExtensions]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 27 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[The New Firefox and Ridiculous Numbers of Tabs]]></title><description><![CDATA[<p><img src="tabs.png" alt="Tabs!"></p>
+<p>I&#39;ve got a Firefox profile with 1691 tabs.</p>
+<p>I started trying to write down why, but gave up for now. It was becoming an overly long exploration of product design and the future of the web.</p>
+<p>It&#39;s Friday. Let&#39;s keep things simple.</p>
+<p>As you would expect, Firefox handled this profile quite poorly for a long time. I got used to multi-minute startup time, waiting 15-30 seconds for tabs from external apps to show up, and all manner of non-responsive behavio(u)r.</p>
+<p>And then, quite recently, everything changed.</p>
+<h2 id="quantum-flow">Quantum Flow</h2>
+<p>Right now, more effort is being put into making Firefox fast than I&#39;ve seen since... well, since I&#39;ve been working on Firefox. And I&#39;ve been at Mozilla for more than a decade.</p>
+<p>Part of this effort is a project called Quantum Flow - a bunch of engineers making changes that directly impact Firefox responsiveness. To learn more and follow along with these efforts, read <a href="https://ehsanakhgari.org/tag/quantumflow">Ehsan Akhgari&#39;s weekly posts</a>.</p>
+<p>A lot of the improvement in this particular scenario is from Kevin Jones&#39; work on bringing the overall cost of unloaded tabs as close to zero as possible. While the major work has landed, the work continues in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=906076">Bug 906076</a>. Huge amounts of thanks for the recent wins for us pathological tab hoarders go to Kevin, Dão Gottwald, Mike de Boer, Tim Taubert, David Teller, Mike Conley, and Gijs Kruitbosch.</p>
+<h2 id="test-scenario">Test Scenario</h2>
+<p>I took my 1691 tab browser profile, and did a wall-clock measurement of start-up time and memory use for Firefox versions 20, 30, 40, and 50 through 56.</p>
+<p>These are my personal results. You might not get the same results. If you test 1691 (or even 1692) tabs and find something totally different, I&#39;d love to hear about it.</p>
+<p>Notes:</p>
+<ul>
+<li><p>I shut down most things on my Macbook (yeah the little one that&#39;s more like a glorified iPad).</p>
+</li>
+<li><p>I turned off wifi. This is a measurement of Firefox, not the network, nor web page rendering.</p>
+</li>
+<li><p>I measured by eyeball, using &quot;time cat&quot; on the command line. This might seem weird, but c&#39;mon - I&#39;m measuring <em>minutes</em>. Microsecond precision is not required.</p>
+</li>
+<li><p>I measured startup time five times, dropping highs and lows. Even that wasn&#39;t really necessary - the times were <em>startingly consistent</em>. With almost 1700 tabs and &gt;5 minute startup, the standard deviation was negligible.</p>
+</li>
+<li><p>For measuring startup time, I killed the timer when the &quot;server not found&quot; page finished being rendered in the active tab. After lots of testing, I consistently found this to be the point at which the application as a whole became responsive and usable.</p>
+</li>
+<li><p>For memory, I waited for one minute after the startup measurement point and then grabbed the total value from the bottom of about:memory. I waited one minute, because I observed a consistent spike in memory after startup which went away within the first minute and then stabilized for a long period after. It&#39;s all kinds of initialization that doesn&#39;t need to block the app from starting, but needs to happen once you get to browsing.</p>
+</li>
+<li><p>I tested Firefox versions 20, 30, 40, and 50 through 56. I tried testing Firefox 10 but it permahung while loading the profile.</p>
+</li>
+</ul>
+<h2 id="start-up-time">Start-up Time</h2>
+<p>Graph of startup time with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. The Y axis is <em>minutes</em>. Yes, Firefox 51 took almost <em>8 MINUTES</em> to start up. However, as of Firefox 55 it only takes <em>15 seconds</em>. For 1691 tabs. Really. I no longer fear restarts. Lately, I just restart Firefox for fun sometimes.</p>
+<p><img src="startup.png" alt="Startup time"></p>
+<p>It&#39;s interesting that Firefox startup time got consistently <em>worse</em> over time until Firefox 51. It&#39;d be interesting to do this test with varying numbers of tabs and find out at what point these types of regressions become noticeable.</p>
+<h2 id="memory-usage">Memory Usage</h2>
+<p>Graph of memory use one minute after startup with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. While consistently using around two gigs of memory, we&#39;ve now reduced to <em>less than half a gig</em>. Yes, this is without actual web pages loaded, but look at this, haters: I&#39;ve now got 1.5 gigs of memory to load web pages into that I didn&#39;t have before.</p>
+<p><img src="memory.png" alt="Memory use"></p>
+<p>The efforts that the Firefox and Gecko and Servo teams are putting into making a SUPERFUCKINGFAST browser are having a real impact, and that&#39;s exciting to see.</p>
+]]></description><link>/2017/07/21/i-am-a-tab-hoarder/index.html</link><guid isPermaLink="true">/2017/07/21/i-am-a-tab-hoarder/index.html</guid><category><![CDATA[Firefox]]></category><category><![CDATA[Performance]]></category><category><![CDATA[Tabs]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 21 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Augmented City - Singapore]]></title><description><![CDATA[<p>This post is part of the Augmented City series. The <a href="https://metafluff.com/2017/07/06/aframe-augmented-city/">first post is introduced A-Frame</a> as a tool for creating 3D content for the web. The second post introduced <a href="https://metafluff.com/2017/07/12/augmented-city-vr/">VR on the web</a>. These were prep posts for the event attendees. This post is about the design and goals for the <a href="https://www.eventbrite.com/e/vrar-maker-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486">first event</a>, and how it went.</p>
 <p>We brought a group of developers and designers together for a day to explore how a city can be experienced using VR and AR. The day was split into a lightweight ideation workshop in the morning and team coding after lunch. The technical focus was to use A-Frame, a declarative 3D authoring tool for VR on the web, to rapidly prototype the ideas from the morning.</p>
 <p><blockquote class="instagram-media" data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:28.10185185185185% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/BVJQaVMgKpX/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by rockintosh (@rockintosh)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-06-10T03:52:06+00:00">Jun 9, 2017 at 8:52pm PDT</time></p></div></blockquote></p>
 <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
@@ -71,6 +142,7 @@
 </li>
 </ul>
 <p>Overall the event went really well. Most gratifiying was seeing how focused everyone was in the afternoon, and how many people stuck to the theme. People definitely were deep in the flow, using A-Frame to bring their ideas to life, which is a win.</p>
+<p>The resources, links and projects from the event are all collected on the <a href="https://github.com/augmented-city/singapore">augmented-city/singapore repo</a> on Github.</p>
 <p>See you at the next one!</p>
 <p><img src="shareoff.png" alt="share-off"></p>
 ]]></description><link>/2017/07/20/augmented-city-singapore/index.html</link><guid isPermaLink="true">/2017/07/20/augmented-city-singapore/index.html</guid><category><![CDATA[vr]]></category><category><![CDATA[aframe]]></category><category><![CDATA[webvr]]></category><category><![CDATA[augmented city]]></category><category><![CDATA[singapore]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 20 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Augmented City - VR]]></title><description><![CDATA[<p>Hello! This guide is written for the <a href="https://www.eventbrite.com/e/vrar-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486">Augmented City AR/VR lab</a> in Singapore on July 15th 2017, but might be helpful for anyone looking to jump into A-Frame. The <a href="http://metafluff.com/2017/07/06/aframe-augmented-city/">first post is introduced A-Frame</a> as a tool for creating 3D content for the web. This post introduces VR on the web. The next and final post in the Augmented City prep series will be about AR on the web.</p>
@@ -218,56 +290,7 @@
 * wicg shapes
 
 -->
-]]></description><link>/2017/07/06/aframe-augmented-city/index.html</link><guid isPermaLink="true">/2017/07/06/aframe-augmented-city/index.html</guid><category><![CDATA[vr]]></category><category><![CDATA[ar]]></category><category><![CDATA[aframe]]></category><category><![CDATA[webvr]]></category><category><![CDATA[augmented city]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 06 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[The New Firefox and Really Large Numbers of Tabs]]></title><description><![CDATA[<p>I&#39;ve got a Firefox profile with 1691 tabs.</p>
-<p>I started trying to write down why, but quit. It&#39;s not very useful. I&#39;m an outlier, and that&#39;s fine.</p>
-<p>If you are thinking to yourself &quot;that&#39;s stupid, why would anyone do that!&quot;, you should probably stop reading. Find something nice to read that validates your assumptions about how all people should be, and enjoy your morning coffee.</p>
-<p>All users are different, and each &quot;misuse&quot; of a software program is the reverberating echo of people trying to get things done. This is a story about using software how <em>I</em> think it <em>should</em> work.</p>
-<p>In this case the software is Firefox, and it handled my behavio(u)r quite poorly for a long time. I got used to multi-minute startup time, waiting 15-30 seconds for tabs from external apps to show up, and all kinds of non-responsive behavio(u)r.</p>
-<p>And then everything changed.</p>
-<h2 id="quantum-flow">Quantum Flow</h2>
-<p>Right now, more effort is being put into making Firefox fast than I&#39;ve seen since... well, since I&#39;ve been working on Firefox. And I&#39;ve been at Mozilla for more than a decade.</p>
-<p>Part of this effort is a project called Quantum Flow - a bunch of engineers making changes that directly impact Firefox responsiveness.
-To learn more and follow along, check out the <a href="">collection of bugs</a>, and also read <a href="https://ehsanakhgari.org/tag/quantumflow">Ehsan Akhgari&#39;s weekly newsletter posts</a>.</p>
-<p>A lot of the improvement in this particular scenario is from Kevin Jones&#39; work on bringing the overall cost of unloaded tabs as close to zero as possible.
-While the major work has landed, the work continues in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=906076">Bug 906076</a>.
-Huge amounts of thanks for the recent wins for us pathological tab hoarders go to Kevin, Dão Gottwald, Mike de Boer, Tim Taubert, David Teller, Mike Conley, and Gijs Kruitbosch.</p>
-<h2 id="test-scenario">Test Scenario</h2>
-<p>I took my 1691 tab browser profile, and did a wall-clock measurement of start-up time and memory use for Firefox versions 20, 30, 40, and 50 through 56.</p>
-<p>These are my personal results. You might not get the same results. If you test 1691 (or even 1692) tabs and find something totally different, I&#39;d love to hear about it.</p>
-<p>Notes:</p>
-<ul>
-<li><p>I shut down most things on my Macbook (yeah the little one that&#39;s more like a glorified iPad).</p>
-</li>
-<li><p>I turned off wifi. This is a measurement of <em>Firefox</em>, not the network.</p>
-</li>
-<li><p>I measured by eyeball, using &quot;time cat&quot; on the command line. I&#39;m totally ok with how coarse the numbers are. I&#39;m measuring <em>minutes</em>, so microsecond precision is not required.</p>
-</li>
-<li><p>I measured startup time five times, dropping highs and lows. Even that wasn&#39;t really necessary - the times were <em>startingly consistent</em>. With almost 1700 tabs and &gt;5 minute startup, the standard deviation was negligible.</p>
-</li>
-<li><p>For startup, I measured up until the &quot;server not found&quot; page showed up in the active tab. After lots of testing, I found this to be the point at which the application became responsive and usable.</p>
-</li>
-<li><p>For memory, I waited until one minute after the startup measurement point and then grabbed the total value from the bottom of about:memory. I waited one minute, because I observed a consistent spike in memory after startup which went away within the first minute and then stabilized for a long period after. It&#39;s all kinds of initialization that doesn&#39;t need to block the app from starting, but needs to happen once you get to browsing.</p>
-</li>
-<li><p>I tested Firefox versions 20, 30, 40, and 50 through 56. I tried testing Firefox 10 but it permahung while loading the profile.</p>
-</li>
-</ul>
-<h2 id="start-up-time">Start-up Time</h2>
-<p>Here&#39;s a graph of startup time across Firefox versions:</p>
-<p><img src="startup.png" style="height: 15rem;"></p>
-<p>Interesting to note:</p>
-<ul>
-<li>We consistently got <em>worse</em> over time until Firefox 51. It&#39;d be interesting to do this test with varying numbers of tabs and find out at what point the regressions become noticeable.</li>
-</ul>
-<h2 id="memory-usage">Memory Usage</h2>
-<p><img src="memory.png" style="height: 15rem;"></p>
-<h2 id="why-this-is-important">Why This is Important</h2>
-<p>Browser vendors use telemetry, user research and a number of other ways of determining &quot;acceptable use&quot; of their products. Anything outside of that idea of acceptable use is generally unsupported.</p>
-<p>For example, Mozilla found some years ago that the ceiling of the number of tabs for most users of Firefox was 15. Most people had far fewer tabs than that. While I interpret that as a failure of tabs as a functional metaphor for managing web pages in a single application, it&#39;s generally been used a functionality scope for what the browser should support and be performant for.</p>
-<ul>
-<li>power user long tail</li>
-<li>tab groups, alternate models</li>
-</ul>
-]]></description><link>/2017/06/15/firefoxtimecat/index.html</link><guid isPermaLink="true">/2017/06/15/firefoxtimecat/index.html</guid><category><![CDATA[Firefox]]></category><category><![CDATA[Performance]]></category><category><![CDATA[Time Cats]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 29 Jun 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[FOSSAsia 2017]]></title><description><![CDATA[<p>Seven years after attending my first FOSSAsia in Ho Chi Min City, I was able to join again this year! The difference is amazing - the conference has grown to be one of the largest open source events in Asia, with more than <a href="http://2017.fossasia.org/speakers.html">200 speakers</a> over three days across 13 tracks and now hosted in Singapore.</p>
+]]></description><link>/2017/07/06/aframe-augmented-city/index.html</link><guid isPermaLink="true">/2017/07/06/aframe-augmented-city/index.html</guid><category><![CDATA[vr]]></category><category><![CDATA[ar]]></category><category><![CDATA[aframe]]></category><category><![CDATA[webvr]]></category><category><![CDATA[augmented city]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 06 Jul 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[FOSSAsia 2017]]></title><description><![CDATA[<p>Seven years after attending my first FOSSAsia in Ho Chi Min City, I was able to join again this year! The difference is amazing - the conference has grown to be one of the largest open source events in Asia, with more than <a href="http://2017.fossasia.org/speakers.html">200 speakers</a> over three days across 13 tracks and now hosted in Singapore.</p>
 <script src="//unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/842543000320335873"></script>
 
 <p>The conference is entirely open source and volunteer-run, which is really neat. Kudos to the organizers for putting it on, which is a huge amount of work. The focus on free and open source software and tracks on relevant topics like AI, Bitcoin, and IoT combine to make a great collection of people to put in one place for a weekend.</p>
@@ -617,20 +640,4 @@ That&#39;s it. The IFTTT triggers will start firing, the spreadsheets will start
 <p>I&#39;ll be honest - it takes a little while. It&#39;s annoying to set up, even with IFTTT&#39;s excellently simple user interface. But in the end I own a copy of any new content I post to the services I use. What do I do with it? Nothing at all, right now. But someday maybe those services will shut down, or I&#39;ll get banned, or poorly implemented IT backup strategies will wipe it all out. I&#39;ll have lost nothing except the time I spent setting this up.</p>
 <p>Is it real data portability? Nope. Is it true ownership? No. Hell, &quot;my&quot; content might even be under some crazy license restrictions that I agreed to before putting it up on Pocket or Evernote! But it&#39;s always running, and someday my personal weak-AI agent will be able to do something with it.</p>
 <p>PS: Do you use Gmail? Do you only use the web interface or Android/iOS apps? Then you probably don&#39;t have a backup of your email. I run an IMAP mail client (Thunderbird) periodically to get an updated offline copy of my Gmail in an open format.</p>
-]]></description><link>/2014/05/baby-steps-to-owning-your-data/index.html</link><guid isPermaLink="true">/2014/05/baby-steps-to-owning-your-data/index.html</guid><category><![CDATA[indieweb]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 07 May 2014 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox OS and Academic Programs]]></title><description><![CDATA[<p>Although Mozilla feels almost like a household name at this point, it is a relatively small organization - tiny, actually - compared to the companies that ship similar types of software [1]. We must, however, have the impact of a much larger entity in order to ensure that the <a href="http://www.mozilla.org/en-US/about/manifesto/" title="The Mozilla Manifesto">internet stays an open platform accessible to all</a>.</p>
-<p>Producing consumer software which influences the browser and smartphone OS markets in specific ways is how we make that impact. Shipping that software requires teams of people to design, build and test it, and all the countless other aspects of the release process. We can hire some of these people, but remember: we&#39;re relatively tiny. We cannot compete with multi-billion-dollar mega-companies while operating in traditional ways. <strong>Mozilla has to be far more than the sum of its paid-employee parts in order to accomplish audaciously ambitious things.</strong></p>
-<p>Open source code and open communication allow participation and contribution from people that are not employees. And this is where opportunities lie for both Mozilla and universities.</p>
-<p>For universities, undergraduates can earn credit, get real world experience, and ship software to hundreds of millions of people. Graduate researchers can break ground in areas where their findings can be applied to real world problems, and where they can see the impact of their work in the hands of people around the world. And students of any kind can participate before, during and after any involvement that is formally part of their school program.</p>
-<p>For Mozilla, we receive contributions that help move our products and projects forward, often in areas that aren&#39;t getting enough attention only because we don&#39;t have the resources to do so. We get an influx of new ideas and new directions. We gain awesome contributors and can educate tomorrow&#39;s technology workers about our mission.</p>
-<p>I&#39;ve been working with a few different programs recently to increase student involvement in the Firefox OS:</p>
-<ul>
-<li><strong><a href="http://www.pdx.edu/computer-science/cs-469-software-engineering-capstone-i" title="PSU CS Capstone">Portland State University</a>:  </strong>The PSU CS Capstone program, run by Prof. Warren Harrison, has teams of students tackling projects for open source groups. The teams are responsible for all parts of the software life-cycle during the project. In the spring of 2013, a group of five students implemented an example messaging app using Persona and Firebase, documenting the challenges of Web platform development and the Firefox OS  development/debugging workflow. This year&#39;s group will implement a feature inside Firefox OS itself.</li>
-<li><strong><a href="https://www.facebook.com/notes/facebook-engineering/facebook-open-academy-bringing-open-source-to-cs-curricula/10151806121378920" title="Facebook Open Academy">Facebook Open Academy</a>: </strong>This is a program coordinated by Stanford and Facebook, that puts teams from multiple universities together to build something proposed by an existing open source project. The Firefox OS team includes students from Carnegie-Mellon, Purdue, Harvard, Columbia in the US, and Tampere UT in Finland. They&#39;re adding a new feature to Firefox OS which allows you to share apps directly between devices using NFC and Bluetooth. With 14 members across five universities, this team is collaborating via Github, Google Groups, IRC and weekly meetings for both the front-end and back-end parts, providing experience with remote working, group coordination and cross-team collaboration.</li>
-<li><strong><a href="http://web.eecs.umich.edu/~zmao/" title="UMich Prof. Mao">University of Michigan</a>: </strong>Prof. Z. Morley Mao&#39;s mobile research group has started looking at device and network performance in Firefox OS. They&#39;ve got a stack of phones and SIM cards, and we&#39;re working with them to find ways to improve battery life and network efficiency on our devices. They&#39;ve started <a href="https://wiki.mozilla.org/FirefoxOS/Research" title="Firefox OS Research">a collection of focus areas and related research</a> on the Mozilla wiki.
-If you&#39;re at an academic institution and would like to learn more about how to get your department or your students involved, or if you&#39;re a Mozillian who wants to coordinate a project with your alma mater, <a href="mailto:dietrich@mozilla.com">email me</a>!</li>
-</ul>
-<p>&nbsp;</p>
-<ol>
-<li>Mozilla has ~1000 employees. According to Wikipedia, Google has ~50,000 employees, Apple ~80,000 and Microsoft ~100,000.</li>
-</ol>
-]]></description><link>/2014/04/firefox-os-and-academic-programs/index.html</link><guid isPermaLink="true">/2014/04/firefox-os-and-academic-programs/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[os]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Fri, 18 Apr 2014 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2014/05/baby-steps-to-owning-your-data/index.html</link><guid isPermaLink="true">/2014/05/baby-steps-to-owning-your-data/index.html</guid><category><![CDATA[indieweb]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 07 May 2014 00:00:00 GMT</pubDate></item></channel></rss>
