@@ -1,15 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 04 Aug 2017 08:07:27 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Experiments in New WebExtension APIs]]></title><description><![CDATA[<p><img src="tabs.png" alt="Tabs!"></p>
-<p>Intro</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 15 Dec 2017 23:01:51 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[UTC+5 and Above: My 2017 DevRel Wrap-up]]></title><description><![CDATA[<p><img src="kids.png" alt="kids"></p>
+<p>I&#39;m on the developer relations team at Mozilla. The &quot;devrel&quot; role has many parts, but generally means communicating to developers about web technologies important to Mozilla and <a href="https://www.mozilla.org/en-US/mission/">our mission</a>, and being an advocate for developers in our product development process.</p>
+<p>I spent 2017 on typical developer relations activities - coding, writing, speaking - but entirely in UTC+5 and higher timezones. I&#39;d lived in Asia before, and learned how much <em>presence</em> matters in order to learn about a place, and also I wanted to reduce my carbon footprint by not flying back and forth across mega-oceans.</p>
+<p>From a &quot;devrel at Mozilla&quot; perspective, I had specific reasons for doing this:</p>
 <ul>
-<li>move to webextensions</li>
-<li>not a post to talk about why. it has to be done, and if you&#39;re still fighting that, you are probably part of the problem.</li>
+<li>The <a href="http://www.internetworldstats.com/top20.htm">largest internet populations are in Asia</a>, as well as the largest <em>offline populations</em>. We need to be where the users are, and where growth will happen in the future.</li>
+<li>It&#39;s estimated that <a href="https://www.inc.com/will-yakowicz/shenzhen-city-of-electronics.html">~90% of the world&#39;s electronics are manufactured in Shenzen, China</a>. If we want to make a safer internet, then Shenzhen is a place we <em>must</em> be.</li>
+<li>I wanted to learn about how technology decision making is happening - by developers, or otherwise, in as many different communities in Asia as possible.</li>
 </ul>
-<p>today let&#39;s learn how to prototype new WE apis</p>
-<h2 id="webextension-experiments">WebExtension Experiments</h2>
+<p>I&#39;ll be publishing a series of briefs on what I learned this year about things like mobile payment patterns and the rise of physical computing, the transient nature of mobile web task workflows, where technical decision making happens, the relationship between the web and messaging apps, cultural and community verticalism, timezone bias, app investor ecosystem, ethical echo-chambers, Chinese maker spaces, a survey of noodle soups across Asia, and more.</p>
+<p>But first, here&#39;s my 2017 in review.</p>
+<h2 id="firsts">Firsts</h2>
+<p>It was a year with a few firsts:</p>
+<ul>
+<li>First keynote speaking appearances, three different events, each very different from the other.</li>
+<li><a href="https://news.ycombinator.com/item?id=14823807">First time at #1 on Hacker News</a></li>
+<li>First press briefings, in Taipei and Singapore</li>
+<li><a href="https://www.npmjs.com/~dietrich">First modules published on NPM!</a></li>
+</ul>
+<h2 id="events">Events</h2>
+<p>In 2017, I spoke at or facilitated 22 events in 12 different countries.</p>
+<p>I specifically chose a diverse set of events, in an effort to learn about communities of technology decision-making outside the typical web developer or open source events. I spoke to high school and university students, designers, developers, open source die-hards, startup founders, entrepreneurs, investors, device manufacturers, academics, and people in various levels and roles in governments.</p>
+<p>Some of the speaking happened because I submitted a proposal to conference CFPs, some from events reaching out to Mozilla for a speaker, some because I reached out to the organizer asking to speak, some from just being present and offering to speak, and one because I had a drink with a friend who introduced me to another friend whose dad ran a conference and thought I&#39;d be a good match.</p>
+<ul>
+<li><a href="http://barcampyangon.org/">Barcamp Yangon, Yangon, Myanmar, Jan 28-29</a>, &quot;Virtuality Reality on the Web&quot;</li>
+<li><a href="http://phandeeyar.org/preparing-for-the-app-ocalypse-the-web-and-the-age-of-physical-computing/">Phandeeyar, Yangon, Myanmar, Feb 2</a>, &quot;Preparing for the App-ocalypse: The Web and the Age of Physical Computing&quot;</li>
+<li><a href="https://www.facebook.com/events/1905375803079986/">Code for Nepal, Kathmandu, Nepal, Mar 4</a>, &quot;Preparing for the App-ocalypse&quot;</li>
+<li><a href="https://www.facebook.com/events/1412248025474505/">Digital Nepal, Janakpur, Nepal, Mar 8</a></li>
+<li><a href="https://2017.fossasia.org/schedule.html#s-2866">FOSSAsia, Singapore, Mar 17-19</a>, &quot;Integrated Physical Computing on the Web&quot; (<a href="https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567">video</a>)</li>
+<li><a href="https://www.eventbrite.com/e/thailand-startup-summit-tss-2017-2nd-edition-tickets-29342367812#">Thailand Startup Summit, Bangkok, Thailand, Mar 31</a> (keynote), &quot;Touching the Future: Merging the Physical and Digital for Creative Experiences on the Web&quot;</li>
+<li><a href="http://devday.org/en/">Dev Day Danang, Danang, Vietnam, Apr 16</a>, &quot;Preparing for the App-ocalypse: The Web in the Age of Physical Computing&quot;</li>
+<li><a href="https://www.thingscon.nl/shenzhen/">ThingsCon Shenzhen, Shenzhen, China, May 17</a>, &quot;App-ocalypse Now: The Future of User Onboarding in IoT&quot;</li>
+<li>Tech In Asia Singapore, Singapore, May 17-18</li>
+<li>CommunicAsia, Singapore, May 23-25</li>
+<li><a href="https://webconf.asia/talks">WebConf.asia, Hong Kong, June 3</a>, &quot;Touching the Future: Designing Physical Experiences with the Web&quot;</li>
+<li><a href="https://hkoscon.org/2017/topics/preparing-for-the-app-ocalypse-the-web-in-the-age-of-physical-computing/">HKOSCON, Hong Kong, June 9-10</a> (keynote), &quot;Preparing for the App-ocalypse: The Web in the Age of Physical Computing&quot;</li>
+<li><a href="https://www.facebook.com/events/276049929466918/">Mozilla Developer Conference, Taipei, Taiwan, Sept 22</a>, &quot;Designing Physical Experiences: The Web in the Age of Room-Scale Computing&quot;</li>
+<li><a href="https://mzl.la/devroadshow">MDN Roadshow</a>, Kuala Lumpur, Malaysia, Sept 23, &quot;Designing Physical Experiences: The Web in the Age of Room-Scale Computing&quot;</li>
+<li><a href="https://mzl.la/devroadshow">MDN Roadshow</a>, Penang, Malaysia, Sept 25, &quot;Designing Physical Experiences: The Web in the Age of Room-Scale Computing&quot;</li>
+<li><a href="http://www.icmac.asia/">ICMAC</a>, Denpasar, Indonesia, Nov 16-17 (keynote), &quot;(Em)Powering Smart Cities: Designing for Resiliency in the Leapfrog Age&quot;</li>
+</ul>
+<p>I also spoke at, designed and ran or facilitated various trainings, workshops and briefings:</p>
+<ul>
+<li>Speaker training for the Mozilla Taipei university program, Jan 17</li>
+<li>Facilitator for Common Voice design sprint, Mozilla Taipei, Apr 28-29</li>
+<li>Spring Firefox press briefing, Taipei, May 19</li>
+<li>Spring Firefox press briefing, Singapore, May 26</li>
+<li>Augmented City VR/AR Workshop, VRARA &amp; Intel, Singapore, Jul 15</li>
+<li>Speaker training for Mozilla dev conf, Mozilla Taipei, Sept 20</li>
+</ul>
+<h2 id="intent-to-ship">Intent To Ship</h2>
+<p>Early in 2017 I scratched an itch I&#39;d been having around the &quot;Intent to...&quot; messages on Mozilla&#39;s dev.platform mailing list, and Blink&#39;s blink-dev mailing list. These &quot;intent&quot; messages are sent when either of these engines is changing their implementation of the web platform. These messages are extremely useful for communication between the browser vendors - which was validated by how quickly the tweets from this account got picked up by key members of Gecko and Blink development teams, being retweeted and favorited regularly.</p>
+<p>Now, nine months after starting the account, it has only ~1600 followers, but they are largely influencers in web/browser devrel, or web platform implementors. And the tweets from the account had 375k impressions in the last month, according to Twitter&#39;s analytics.</p>
+<ul>
+<li><a href="http://twitter.com/intenttoship">@intenttoship on Twitter</a></li>
+<li><a href="https://github.com/autonome/intenttoship-bot">Bot source code on Github</a></li>
+<li>The bot runs on Glitch.com, with a cron.org keepy-uppy job</li>
+</ul>
+<p>Feed-to-tweet is a module I wrote for easily creating Twitter bots driven by feeds </p>
+<ul>
+<li><a href="https://github.com/autonome/feed-to-tweet">Feed-to-tweet source code on Github</a></li>
+<li><a href="https://www.npmjs.com/package/feed-to-tweet">Feed-to-tweet on NPM</a></li>
+</ul>
+<p>Infinite-rss is a module I wrote for generating test feeds through URL configurations</p>
+<ul>
+<li><a href="https://github.com/autonome/infinite-rss">Infinite-rss source code on Github</a></li>
+<li><a href="https://infinite-rss.glitch.me/?feedTitle=Teletubby%20Nightmares&amp;itemTitleBase=You%27ll%20never%20wake%20up.">Infinite-rss live endpoint on Glitch.com</a></li>
+</ul>
+<h2 id="performance">Performance</h2>
+<p>Around the <a href="https://blog.mozilla.org/blog/2017/11/14/introducing-firefox-quantum/">Quantum launch</a> I started some work around performance testing, digging into some low-level performance characteristics of Firefox while running the <a href="https://mozilla.github.io/arewefastyet-speedometer/2.0/">Speedometer 2.0 benchmark</a>. It resulted in some handy cross-browser automation tooling - I implemented part of Chrome&#39;s Puppeteer API in Node.js.</p>
+<p>Once it was easy to run Speedometer with multiple browsers and different versions, I added some measurements of things like CPU usage and disk IO. The work isn&#39;t done yet, but the most interesting learning yet is that it&#39;s beginning to look like the <em>quantity of writes</em>, irrespective of the amount of data, is the determining factor in performance on Mac for this particular test. More to come in 2018 on this.</p>
+<ul>
+<li><a href="https://github.com/autonome/quantum-testing">Automation scripts for cross-browser Speedometer testing on Mac</a></li>
+<li><a href="https://github.com/autonome/puppeteer-fx">Puppeteer for Firefox on Github</a></li>
+<li><a href="https://www.npmjs.com/package/puppeteer-fx">Puppeteer for Firefox on NPM</a></li>
+</ul>
+<h2 id="speech-recognition">Speech Recognition</h2>
+<p>I worked with <a href="https://twitter.com/andrenatalbr">Andre Natal</a> to take the work done in the <a href="https://testpilot.firefox.com/experiments/voice-fill">Voice Fill Test Pilot experiment for Firefox</a>, and make it accessible to developers both for web and Node.js use.</p>
+<p>Voice Fill is an extension, which uses a cloud-based speech recognition service run by Mozilla. It&#39;s a <em>private</em> cloud service - not connected to any type of account, and no audio is saved on our servers.</p>
+<p>This means that developers who want to add speech recognition to their web pages, apps and devices can do so without having to buy into a cloud provider ecosystem.</p>
+<p>I started by modularizing the extension code into a single library for web pages.</p>
+<ul>
+<li>Source is at <a href="https://github.com/mozilla/speaktome-web">speaktome-web on Github</a></li>
+<li>Module is at <a href="https://www.npmjs.com/package/speaktome-api">speaktome-api on NPM</a></li>
+</ul>
+<p>I also wrote a module for using the service from Node.js in your own devices - a RaspberryPi with a USB microphone, for example. This was a fun jaunt through the various libraries that deal with mics and recording and codecs and I only cried a little bit. But it works pretty well now, so time well spent.</p>
+<ul>
+<li>Source is at <a href="https://github.com/mozilla/speaktome-node">speaktome-node on Github</a></li>
+<li>Module is at <a href="https://www.npmjs.com/package/speaktome-node">speaktome-node on NPM</a></li>
+</ul>
+<h2 id="webextensions">WebExtensions</h2>
+<p>I&#39;ve been writing browser extensions for Firefox since 2005, and in 2017 Mozilla made the biggest change in how extensions are written since they were initially added to the browser: The WebExtensions API. It&#39;s a change that sets the stage for Firefox to much faster and safer while still being customizable. I spent some time migrating some of the extensions I&#39;d written that I just couldn&#39;t live without, and also doing some experimentation with making new browser APIs and a few more experiments.</p>
+<ul>
+<li><em>Tab hiding</em>: The tab groups extension needs an API for hiding and showing tabs, so I wrote an <a href="https://github.com/autonome/webext-experiment-showOnlyTheseTabs">experimental version of that API</a>.</li>
+<li><em>Dormancy</em>: Once the tab.discard API was implemented, I ported Dormancy, an extension that unloads the web content in tabs after five minutes of not being used. <a href="https://github.com/autonome/Dormancy">Source code on Github</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/dormancy/">AMO listing</a></li>
+<li><em>Peek</em>: An experiment in quick access to web content without breaking the user workflow. <a href="https://github.com/autonome/Peek">Source code on Github</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/peek/">AMO listing</a></li>
+<li><em>Tab Statistics</em>: Extensions for showing different statistics about how you use tabs. It is implemented as a single extension, but since WebExtensions only allows a single menu item per extension, I listed four different versions on AMO, each showing a different piece of information. <a href="https://github.com/autonome/tabstatistics">Source code on Github</a><ul>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tab-count-button/">Tab Count on AMO</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tabs-opened-button/">Tabs Opened on AMO</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tabs-closed-button/">Tabs Closed</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tabs-switched-button/">Tab Switches</a></li>
+</ul>
+</li>
+<li><em>Force Google Locale</em>: Detect your locale, and add it to Google URLs. <a href="https://github.com/autonome/forcegooglelocale">Source code on Github</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/force-google-locale/">AMO listing</a></li>
+<li><em>Vim Keybindings</em>: HJKL navigation on web pages. <a href="https://github.com/autonome/vimkeybindings">Source code on Github</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/vimkeybindings/">AMO listing</a></li>
+<li><em>Always Right</em>: New tabs in the same place all the time forever. <a href="https://addons.mozilla.org/en-US/firefox/addon/always-right/">AMO listing</a>, <a href="https://github.com/autonome/Always-Right">Source code on Github</a></li>
+</ul>
+<h2 id="miscellanous-projects">Miscellanous Projects</h2>
+<ul>
+<li><em>Web and Messaging</em>: Research exploring how the web and messaging apps can play together. <a href="https://github.com/autonome/web-and-messaging">Research on Github</a></li>
+<li><em>TreeViewSortable</em>: An extension for the Atom Editor for sorting the file tree in different ways. <a href="https://github.com/autonome/tree-view-sortable">Source code on Github</a></li>
+<li><em>Twitter Inline Oembed</em>: Embed Tweets in a single line of code in your blog posts. <a href="https://github.com/autonome/twitter-inline-oembed">Source code on Github</a>, <a href="https://www.npmjs.com/package/twitter-inline-oembed">On NPM</a></li>
+</ul>
+<h2 id="writing">Writing</h2>
+<p>While I had a few posts that I really liked and were successful, I really thought I&#39;d write more this year, and am disappointed by how little I managed to publish. I have a huge number of partially completed posts in my drafts folder. I need to create a habit of flexing the writing muscle regularly.</p>
+<p>The big traffic post was the post about the absurd number of tabs. I really didn&#39;t expect such a response - #1 on HackerNews, coverage loads of mainstream tech news outliets like CNET, </p>
+<ul>
+<li>Jan 11 - <a href="https://medium.com/@dietrich/infectious-ideas-scaling-the-physical-web-c04bd1261fa2">Infectious Ideas: Scaling the Physical Web</a> (Medium post)</li>
+<li>Jan 31 - <a href="https://medium.com/@dietrich/barcamp-yangon-2017-technology-community-and-the-largest-unconference-in-the-world-5966687fd84d">Barcamp Yangon 2017: Technology, Community and the Largest Unconference in the World</a> (Medium Post)</li>
+<li>Mar 28 - <a href="https://metafluff.com/2017/03/28/fossasia2017/">FOSSAsia 2017</a> (blog post)</li>
+<li>Jun 12 - <a href="https://medium.com/the-state-of-responsible-internet-of-things-iot/dietrichayala-115fda22a95a">Trust, Lies and Fitness Wearables</a>, for ThingsCon&#39;s State of Responsible IoT report</li>
+<li>Jul 06 - <a href="https://metafluff.com/2017/07/06/aframe-augmented-city/">A-Frame Quickstart for Augmented City</a> (blog post)</li>
+<li>Jul 12 - <a href="https://metafluff.com/2017/07/12/augmented-city-vr/">Augmented City - VR</a> (blog post)</li>
+<li>Jul 20 - <a href="https://metafluff.com/2017/07/20/augmented-city-singapore/">Augmented City - Singapore</a> (blog post)</li>
+<li>Jul 21 - <a href="https://metafluff.com/2017/07/21/i-am-a-tab-hoarder/">The New Firefox and Ridiculous Numbers of Tabs</a> (blog post)</li>
+<li>Aug 08 - <a href="https://superyesmore.com/the-secret-of-flow-state-productivity-for-busy-people-a659c99de96aaa3c5e5780ebf3db24e7">The Secret of Flow State - Productivity for Busy People</a>, for SuperYesMore&#39;s Human in the Machine series</li>
+<li>Sep 21 - <a href="https://hacks.mozilla.org/2017/09/always-right-a-webextension-migration-story/">Always Right – An Extension Migration Story</a>, for Mozilla Hacks</li>
+</ul>
+]]></description><link>/2017/12/13/2017-summary/index.html</link><guid isPermaLink="true">/2017/12/13/2017-summary/index.html</guid><category><![CDATA[Firefox]]></category><category><![CDATA[Mozilla]]></category><category><![CDATA[Devrel]]></category><category><![CDATA[Asia]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 13 Dec 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Prototyping New WebExtension APIs]]></title><description><![CDATA[<p>The era of WebExtensions is upon us! Firefox 57 will be the first release for which WebExtension will be the only extension type in the browser.  While the team has been adding new APIs for months, there&#39;s still a big functional gap between the old model and WebExtensions.</p>
+<p>In order to make the discussions more fruitful, and the path to new APIs more tangible, the team came up with WebExtension Experiments. This is a new type of WebExtension that itself is a WebExtension API. It&#39;s a WebExtension that adds APIs for other WebExtensions.</p>
+<p>SO META.</p>
+<p>WebExtension Experiments let a proposed API be tested by other WebExtensions, making it easier for developers to figure out the right API semantics, and to get a feel for how the implementation might work.</p>
+<p>Creating a prototype API with WebExtension Experiments is no guarantee the API will be added to Firefox, but it creates a space to experiment, and definitely makes it easier to have a conversation about whether it could be part of Firefox.</p>
+<h2 id="how-they-work">How They Work</h2>
 <ul>
 <li>WE that implements APIs for other WEs</li>
+<li>uninstalled at restart</li>
+<li>You can load your experiment just like a regular WebExtension, in about:debugging</li>
 </ul>
+<h2 id="making-an-experiment">Making An Experiment</h2>
 <p>(screenshot of filesystem)</p>
 <h2 id="api-code">API Code</h2>
 <ul>
@@ -618,26 +747,4 @@ EXCURSIONS</p>
 <p>Wordpress removes JavaScript in links, so create a new bookmark and copy the following code into the URL field:</p>
 <p><code>javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}qsa(%22input[type=RADIO][name^=senderaction]%22).forEach(function(e){e.checked=!0}),qsa(%22input[type=CHECKBOX][name^=senderfilter]%22).forEach(function(e){e.checked=!0}),qsa(%22input[type=CHECKBOX][name^=senderbanp]%22).forEach(function(e){e.checked=!0});</code></p>
 <p>Remember to make VERY sure that none of the messages are valid before executing this bookmarklet... not only because valid messages will be discarded and their senders will be banned, but also because the UI for removing addresses from the block-list in Mailman is even worse than the one for moderation.</p>
-]]></description><link>/2014/10/bookmarklet-for-bulk-spam-processing-with-mailman/index.html</link><guid isPermaLink="true">/2014/10/bookmarklet-for-bulk-spam-processing-with-mailman/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 20 Oct 2014 00:00:00 GMT</pubDate></item><item><title><![CDATA[Baby Steps to Owning Your Data]]></title><description><![CDATA[<p>Tweets. Likes. Check-ins. Steps. Photos. Links. We emit a constant stream of content into the sites we use everyday. Is it ours? Well, it feels like it. And according to the terms of service, it kind of belongs to us. Sometimes. Maybe. I don&#39;t know, honestly. I don&#39;t read those, and likely you don&#39;t either. If you fully parse every TOS you encounter, you can stop reading right now, go straight to the nearest IHOP and have some pancakes.</p>
-<p>Groups like <a href="http://indiewebcamp.com/" title="IndieWeb">IndieWeb</a> are tackling data ownership issues - experimenting with ways of creating and managing content in a way that bakes in data ownership and removes the need for massive corporate services to achieve Web scale interactions. It&#39;s fun and interesting and useful... <a href="http://indiewebcamp.com/events/" title="Homebrew Website Club">we meet every two weeks, come check it out</a>! But an IndieWeb world is a long way off. Especially for non-geeks.</p>
-<p>All the companies providing you services today have little interest or incentive to make ownership clear or to make your data portable - the fact that you can&#39;t easily move your data around is partially what keeps Google, Facebook, Whatsapp and Pinterest running.</p>
-<p>Sure, lots of these services have APIs, through which you could access your data (or at least some of it). But regular users can&#39;t really move data around between competing services through APIs. Some of these companies have data export options, where you can download your data in a zip file, but it&#39;s not like you&#39;re doing that every day. What if today you get banned from Gmail because some process hit a false-positive while enforcing some usage policy? And when was the last time you downloaded all your stuff? Did you ever?</p>
-<p>I&#39;ve always wanted to move to a model where I only participate in services through my own website <strong>first</strong>, and then send a <strong>copy</strong> of my activity to Twitter, Foursquare, Bit.ly through their APIs (including in each request an extra HTTP header containing the URL to the UELA that my content is covered by!). But that will take a while to build, and won&#39;t work for devices like my Jawbone UP24 which syncs over a proprietary protocol to native apps only, finally letting me access a subset of my data through their API once it&#39;s already on their servers first.</p>
-<p>So, back to the point of this post: What can you do <em>now</em>?</p>
-<p>I&#39;ve started by attempting to own a copy of as much of my internet output as possible.</p>
-<p>Here&#39;s how I do it:</p>
-<ol>
-<li>Create a Google account, and install the <a href="https://tools.google.com/dlpage/drive/?hl=en" title="Google Drive App">Google Drive app</a>. This will keep a local copy of all of your Google Docs on your computer.</li>
-<li>Create an <a href="https://ifttt.com" title="IFTTT">IFTTT</a> account. IFTTT is a fantastic service that allows a large number of apps, websites, services, devices and all kinds of stuff to interact with each other.</li>
-<li>Set up recipes for <strong>everything</strong> you do online that&#39;s supported by IFTTT which all add to a Google Docs spreadsheet. I have recipes for Tumblr, Twitter, Bit.ly, Soundcloud and a ton more. I was very surprised by how many services have some bits of my daily personal activity.
-That&#39;s it. The IFTTT triggers will start firing, the spreadsheets will start filling, and the files will be copied to your local hard drive. You&#39;ll now have both an online copy and a local backup of all the stuff you do online.</li>
-</ol>
-<p>Here&#39;s what some of my IFTTT recipes look like:</p>
-<p><a href="http://autonome.files.wordpress.com/2014/05/screenshot-2014-05-06-21-17-391.png"><img src="screenshot-2014-05-06-21-17-391.png" alt="Image"></a></p>
-<p>IFTTT will save it all in Google docs folder hierarchy for each service:</p>
-<p><a href="http://autonome.files.wordpress.com/2014/05/screenshot-2014-05-06-21-21-58.png"><img src="screenshot-2014-05-06-21-21-58.png" alt="Image"></a></p>
-<p>&nbsp;</p>
-<p>I&#39;ll be honest - it takes a little while. It&#39;s annoying to set up, even with IFTTT&#39;s excellently simple user interface. But in the end I own a copy of any new content I post to the services I use. What do I do with it? Nothing at all, right now. But someday maybe those services will shut down, or I&#39;ll get banned, or poorly implemented IT backup strategies will wipe it all out. I&#39;ll have lost nothing except the time I spent setting this up.</p>
-<p>Is it real data portability? Nope. Is it true ownership? No. Hell, &quot;my&quot; content might even be under some crazy license restrictions that I agreed to before putting it up on Pocket or Evernote! But it&#39;s always running, and someday my personal weak-AI agent will be able to do something with it.</p>
-<p>PS: Do you use Gmail? Do you only use the web interface or Android/iOS apps? Then you probably don&#39;t have a backup of your email. I run an IMAP mail client (Thunderbird) periodically to get an updated offline copy of my Gmail in an open format.</p>
-]]></description><link>/2014/05/baby-steps-to-owning-your-data/index.html</link><guid isPermaLink="true">/2014/05/baby-steps-to-owning-your-data/index.html</guid><category><![CDATA[indieweb]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 07 May 2014 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2014/10/bookmarklet-for-bulk-spam-processing-with-mailman/index.html</link><guid isPermaLink="true">/2014/10/bookmarklet-for-bulk-spam-processing-with-mailman/index.html</guid><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 20 Oct 2014 00:00:00 GMT</pubDate></item></channel></rss>
