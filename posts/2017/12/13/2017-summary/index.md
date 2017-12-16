@@ -113,7 +113,7 @@ I also wrote a module for using the service from Node.js in your own devices - a
 
 ## WebExtensions
 
-I've been writing browser extensions for Firefox since 2005, and in 2017 Mozilla made the biggest change in how extensions are written since they were initially added to the browser: The WebExtensions API. It's a change that sets the stage for Firefox to much faster and safer while still being customizable. I spent some time migrating some of the extensions I'd written that I just couldn't live without, and also doing some experimentation with making new browser APIs and a few more experiments.
+I've been writing browser extensions for Firefox since 2005, and in 2017 Mozilla made the biggest change in how extensions are written since they were initially added to the browser: The WebExtensions API. It's a change that sets the stage for Firefox to be much faster and safer while still being customizable. I spent some time migrating some of the extensions I'd written that I just couldn't live without, and also doing some experimentation with making new browser APIs and a few more experiments.
 
 * *Tab hiding*: The tab groups extension needs an API for hiding and showing tabs, so I wrote an [experimental version of that API](https://github.com/autonome/webext-experiment-showOnlyTheseTabs).
 * *Dormancy*: Once the tab.discard API was implemented, I ported Dormancy, an extension that unloads the web content in tabs after five minutes of not being used. [Source code on Github](https://github.com/autonome/Dormancy), [AMO listing](https://addons.mozilla.org/en-US/firefox/addon/dormancy/)
@@ -137,7 +137,7 @@ I've been writing browser extensions for Firefox since 2005, and in 2017 Mozilla
 
 While I had a few posts that I really liked and were successful, I really thought I'd write more this year, and am disappointed by how little I managed to publish. I have a huge number of partially completed posts in my drafts folder. I need to create a habit of flexing the writing muscle regularly.
 
-The big traffic post was the post about the absurd number of tabs. I really didn't expect such a response - #1 on HackerNews, coverage loads of mainstream tech news outliets like CNET, 
+The big traffic post was about my absurd number of tabs. I did some basic performance testing across a bunch of versions of Firefox, which showed dramatic improvements in startup time even with more than 1000 tabs. I really didn't expect such a response - [#1 on HackerNews](https://news.ycombinator.com/item?id=14823807) (537 comments!), coverage by loads of mainstream tech news outlets like [ZDNET](http://www.zdnet.com/article/firefox-can-open-over-1500-tabs-in-15-seconds/), and [pretty massive comment thread on /r/programming](https://www.reddit.com/r/programming/comments/6otuw7/the_new_firefox_and_ridiculous_numbers_of_tabs/).
 
 * Jan 11 - [Infectious Ideas: Scaling the Physical Web](https://medium.com/@dietrich/infectious-ideas-scaling-the-physical-web-c04bd1261fa2) (Medium post)
 * Jan 31 - [Barcamp Yangon 2017: Technology, Community and the Largest Unconference in the World](https://medium.com/@dietrich/barcamp-yangon-2017-technology-community-and-the-largest-unconference-in-the-world-5966687fd84d) (Medium Post)
