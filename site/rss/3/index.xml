@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Sat, 16 Dec 2017 11:00:47 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Dormancy: Freeing up memory from unused tabs]]></title><description><![CDATA[<p>Dormancy &#39;retires&#39; tabs that have gone unused for a while, freeing up that memory. It then restores the tabs to life when accessed.</p>
-<p>While Firefox 9 adds restore-on-demand for users that restore their session by default, many users will never benefit from it. This add-on targets users who don&#39;t restore session, but do have long-running instances of Firefox and many tabs. This might land as a core feature in Firefox 9 (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=675539">https://bugzilla.mozilla.org/show_bug.cgi?id=675539</a>).</p>
-<p>NOTE: This is highly experimental, has only been tested on the Nightly builds, and probably will destroy your session. You&#39;ve been warned.</p>
-<p>Tabs are considered inactive when they haven&#39;t been selected in longer than 5 minutes. To change that, set this pref to a value in milliseconds:</p>
-<ul>
-<li>extensions.dormancy.TabDormancyAgeMs</li>
-</ul>
-<p>Tabs are checked for inactivity every 5 minutes. To change this, set this pref to a value in milliseconds:</p>
-<ul>
-<li>extensions.dormancy.TabCheckIntervalMs</li>
-</ul>
-<p>Known bugs:</p>
-<ul>
-<li>Awesomebar entry for dormant tabs shows data URI</li>
-<li>Sometimes dormant tabs have no title and no favicon
-EXPERIMENTAL. MAY EAT YOUR SESSION OR DO OTHER BAD THINGS.</li>
-</ul>
-<p><a href="http://j.mp/oW3xQN">INSTALL</a></p>
-<p><a href="http://j.mp/n82njh">Source code</a></p>
-]]></description><link>/2011/09/dormancy-freeing-up-memory-from-unused-tabs/index.html</link><guid isPermaLink="true">/2011/09/dormancy-freeing-up-memory-from-unused-tabs/index.html</guid><category><![CDATA[Add-ons]]></category><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[jetpack]]></category><category><![CDATA[Memory]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[Performance]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 03 Sep 2011 00:00:00 GMT</pubDate></item><item><title><![CDATA[Wallflower: Un-Socializing Your Web]]></title><description><![CDATA[<p>I was looking at about:memory and noticed entries for Facebook and Google+ URLs, even though I didn&#39;t have either open. I figured they were probably from the social buttonry that decorates the web these days. No big deal... except they were taking up a bunch of memory! The Facebook button was using over 20mb and the Google+ button was taking over 40mb!</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 03 Apr 2018 23:32:53 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Wallflower: Un-Socializing Your Web]]></title><description><![CDATA[<p>I was looking at about:memory and noticed entries for Facebook and Google+ URLs, even though I didn&#39;t have either open. I figured they were probably from the social buttonry that decorates the web these days. No big deal... except they were taking up a bunch of memory! The Facebook button was using over 20mb and the Google+ button was taking over 40mb!</p>
 <p>I have never clicked either of these buttons.</p>
 <p>So I wrote Wallflower, a simple Firefox add-on (restartless of course) that removes these buttons from any page your browse to, saving your precious memory, CPU and battery life for the content you actually want.</p>
 <p><a href="http://j.mp/nLG8wX">Install Wallflower</a>.</p>
@@ -391,4 +372,36 @@ Try it out, let me know if you have any problems. The <a href="https://github.co
 <li>Terminal apps not liked, apparently: /usr/bin/vim hangs Firefox completely. /usr/bin/gvim works fine.</li>
 <li>The UI augmentation to Flightdeck probably made Zalun puke. It should probably just be an option in the context menu or something. Except that you&#39;d never find it. Ideas?</li>
 </ul>
-]]></description><link>/2010/12/building-add-ons-with-jetpack-flightdeck-and-vim/index.html</link><guid isPermaLink="true">/2010/12/building-add-ons-with-jetpack-flightdeck-and-vim/index.html</guid><category><![CDATA[Add-on]]></category><category><![CDATA[Development]]></category><category><![CDATA[Add-ons]]></category><category><![CDATA[extensions]]></category><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[jetpack]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 06 Dec 2010 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2010/12/building-add-ons-with-jetpack-flightdeck-and-vim/index.html</link><guid isPermaLink="true">/2010/12/building-add-ons-with-jetpack-flightdeck-and-vim/index.html</guid><category><![CDATA[Add-on]]></category><category><![CDATA[Development]]></category><category><![CDATA[Add-ons]]></category><category><![CDATA[extensions]]></category><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[jetpack]]></category><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Mon, 06 Dec 2010 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox, Plugins and Jetpack Widgets]]></title><description><![CDATA[<p>Flash was chewing CPU in one of my myriad tabs, so I used <a href="https://jetpack.mozillalabs.com/">Jetpack</a> and the new <a href="https://developer.mozilla.org/en/Addons/Add-on_Manager">AddonsManager API</a> to whip up a quick add-on to enable and disable Flash quickly. It&#39;s &lt;30 lines of code and an image. It puts an icon in the Firefox 4 add-on bar that toggles the plug-in, and sends a Growl notification (or whatever system your OS uses) indicating that the plug-in was successfully enabled or disabled. Screenshot:</p>
+<p><img src="flashtoggle.png" alt="" title="flashtoggle"></p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/260486/">Install FlashToggle.</a> Requires Firefox 4 beta 7 or newer.</p>
+<p><a href="https://builder.mozillalabs.com/addon/1004584/latest/">Clone and make your own on the Add-on Builder.</a> This might require a minor change in the code since I built using Jetpack 0.10, which isn&#39;t released yet. Changing &#39;contentURL&#39; to &#39;image&#39; in the widget options should do the trick.</p>
+<p>The entire code listing:</p>
+<pre>function toggleFlash(callback) {
+  const { Cu } = require("chrome");
+  Cu.import("resource://gre/modules/AddonManager.jsm", this);
+  AddonManager.getAddonsByTypes(["plugin"], function(addons) {
+    for (let i = 0; i < addons.length; i++) {
+      if (addons[i].name == "Shockwave Flash") {
+        addons[i].userDisabled = !addons[i].userDisabled;
+        callback(addons[i].userDisabled);
+        break;
+      }
+    }
+  });
+}
+
+let flashLogoURL = require("self").data.url("flash-logo.jpg");
+require("widget").Widget({
+  label: "Toggle Flash",
+  contentURL: flashLogoURL,
+  onClick: function() {
+    toggleFlash(function(disabled) {
+      let message = "Flash is now " + (disabled ? "disabled" : "enabled") + ".";
+      require("notifications").notify({
+        title: message,
+        iconURL: flashLogoURL
+      });
+    });
+  }
+});</pre>]]></description><link>/2010/12/firefox-plugins-and-jetpack-widgets/index.html</link><guid isPermaLink="true">/2010/12/firefox-plugins-and-jetpack-widgets/index.html</guid><category><![CDATA[Add-on]]></category><category><![CDATA[Development]]></category><category><![CDATA[firefox]]></category><category><![CDATA[Flash]]></category><category><![CDATA[jetpack]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 04 Dec 2010 00:00:00 GMT</pubDate></item></channel></rss>

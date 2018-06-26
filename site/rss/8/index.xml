@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Sat, 16 Dec 2017 11:00:47 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Mozilla Time Machine]]></title><description><![CDATA[<p>I hooked up <a href="http://bonsai.mozilla.org/cvsquery.cgi?treeid=default&amp;module=all&amp;branch=HEAD&amp;branchtype=match&amp;dir=&amp;file=&amp;filetype=match&amp;who=&amp;whotype=match&amp;sortby=Date&amp;hours=&amp;date=explicit&amp;mindate=1196474882&amp;maxdate=1197079682&amp;cvsroot=%2Fcvsroot&amp;xml=true">Bonsai&#39;s XML API</a> to <a href="http://simile.mit.edu/timeline/">Simile&#39;s Timeline</a>, for a nice interactive timeline of check-ins to the Mozilla trunk. It&#39;s still kinda rough, but you can view the <a href="http://nakedtickler.com/timeline/timeline.html">timeline here</a>.</p>
-<p>TODO:</p>
-<ul>
-<li>It takes about 5 seconds to load up the data, probably should cache the generated event XML.</li>
-<li>Hook up the tinderbox JSON feed, overlaying performance numbers.</li>
-<li>Integrate the wormhole feed, to project what will be checked-in in the future.</li>
-</ul>
-]]></description><link>/2007/12/mozilla-time-machine/index.html</link><guid isPermaLink="true">/2007/12/mozilla-time-machine/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 08 Dec 2007 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox 3 Conversation]]></title><description><![CDATA[<p>9:12 argyle: fx3 please
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Tue, 03 Apr 2018 23:32:53 GMT</lastBuildDate><atom:link href="/rss/index.xml" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Firefox 3 Conversation]]></title><description><![CDATA[<p>9:12 argyle: fx3 please
 9:13 argyle: fx2 just crashed on me for the 10th time this week
 9:13 Dietrich: nightlies are always here: <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/">http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/</a>
 9:13 argyle: ur lucky session restore is there
@@ -135,4 +128,12 @@ After: 84F</p>
 <li>Food: quality baked goods, bagels</li>
 </ul>
 <p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;q=7540+N.+Interstate,+Portland+OR&amp;ie=UTF8&amp;om=1">Map</a></p>
-]]></description><link>/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</link><guid isPermaLink="true">/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</link><guid isPermaLink="true">/2006/08/mini-review-northstar-coffeehouse-north-portland/index.html</guid><category><![CDATA[coffee]]></category><category><![CDATA[oregon]]></category><category><![CDATA[portland]]></category><category><![CDATA[reviews]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 09 Aug 2006 00:00:00 GMT</pubDate></item><item><title><![CDATA[Tinderbox Microsummary Update: Tree Closures]]></title><description><![CDATA[<p>I updated the Tinderbox microsummary generator to show whether the tree is open or closed, and to properly display the tree name.</p>
+<p>You can install it <a href="http://dietrich.ganx4.com/mozilla/tinderbox-microsummary.xml">here</a>.</p>
+<p>The information shown:</p>
+<ul>
+<li>Tree Name</li>
+<li>Open/closed</li>
+<li>Ok/burning (and then lists the names of the burning tinderboxes)</li>
+</ul>
+]]></description><link>/2006/06/tinderbox-microsummary-update-tree-closures/index.html</link><guid isPermaLink="true">/2006/06/tinderbox-microsummary-update-tree-closures/index.html</guid><category><![CDATA[mozilla]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Thu, 15 Jun 2006 00:00:00 GMT</pubDate></item></channel></rss>

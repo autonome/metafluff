@@ -37,55 +37,82 @@
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <style type="text/css">
+		@import url('https://rsms.me/inter/inter-ui.css');
+
     * {
       padding: 0;
       margin: 0;
+      box-sizing: border-box;
     }
+
     html, body {
       min-height: 100vh;
+			font-family: 'Inter UI', sans-serif;
     }
-    div.container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      height: 100%;
+
+    .navgrid ul {
+      display: grid;
+      grid-template-columns: 1fr repeat(6, minmax(10%, 1fr));
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background: #fff;
     }
-    .hero {
-      width: 70vw;
-      margin-top: 10vh;
+
+    li {
+      padding: 1rem;
     }
-    .title {
-      fill: url(#pattern);
-      font: bold italic 7em Georgia;
-    }
-    .subtitle {
-      font: bold italic 1.5em/1.5 Georgia;
-      margin: 1.5em;
-      text-align: center;
-    }
-    .icons {
-      text-align: center;
-    }
-    .icons a {
+
+    .navgrid a {
       text-decoration: none;
     }
+
     .icon {
-      width: 1em;
-      height: 1em;
-      margin: 0.3em;
-      position: relative;
-      line-height: 1.1em;
-      text-align: center;
       color: black;
       font-family: 'FontAwesome';
-      font-size: 2em;
     }
+
   </style>
 </head>
 <body>
 
-<div class="container">
+<div class="navgrid">
+  <ul>
+    <li>dietrich ayala</li>
+    <li>
+      <a href="mailto:autonome@gmail.com" target="_blank">
+        <i class="fa fa-envelope icon" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/dietrich" target="_blank">
+        <i class="fa fa-twitter icon" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/autonome" target="_blank">
+        <i class="fa fa-github icon" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/autonome" target="_blank">
+        <i class="fa fa-instagram icon" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/dietrich" target="_blank">
+        <i class="fa fa-linkedin icon" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="skype:autonome?chat" target="_blank">
+        <i class="fa fa-skype icon" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+	<!--
   <svg class="hero" viewBox="0 -100 460 120">
     <defs>
       <pattern id="pattern" x="0" y="0" width="1" height="1">
@@ -96,29 +123,9 @@
   </svg>
 
   <div class="subtitle">
-    Internet Freedom, the Web and Mozilla.
+    Internet freedom, the web and Mozilla.
   </div>
-
-  <div class="icons">
-    <a href="mailto:autonome@gmail.com" target="_blank">
-      <i class="fa fa-envelope icon" aria-hidden="true"></i>
-    </a>
-    <a href="https://twitter.com/dietrich" target="_blank">
-      <i class="fa fa-twitter icon" aria-hidden="true"></i>
-    </a>
-    <a href="https://github.com/autonome" target="_blank">
-      <i class="fa fa-github icon" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.instagram.com/autonome" target="_blank">
-      <i class="fa fa-instagram icon" aria-hidden="true"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/dietrich" target="_blank">
-      <i class="fa fa-linkedin icon" aria-hidden="true"></i>
-    </a>
-    <a href="skype:autonome?chat" target="_blank">
-      <i class="fa fa-skype icon" aria-hidden="true"></i>
-    </a>
-  </div>
+	-->
 
   <div class="content">
 
@@ -136,12 +143,6 @@
     </div>
 
   </div>
-
-  <!--
-  <div class="footer">
-    &copy; 2017, Dietrich Ayala
-  </div>
-  -->
 
 <!--
   <div id="hcard-Dietrich-Ayala" class="vcard content">
