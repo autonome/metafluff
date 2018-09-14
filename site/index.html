@@ -67,6 +67,32 @@
       text-decoration: none;
     }
 
+    div.container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+    }
+    .hero {
+      width: 70vw;
+      margin-top: 10vh;
+    }
+    .title {
+      fill: url(#pattern);
+      font: bold italic 7em Georgia;
+    }
+    .subtitle {
+      font: bold italic 1.5em/1.5 Georgia;
+      margin: 1.5em;
+      text-align: center;
+    }
+    .icons {
+      text-align: center;
+    }
+    .icons a {
+      text-decoration: none;
+    }
     .icon {
       color: black;
       font-family: 'FontAwesome';
@@ -76,6 +102,42 @@
 </head>
 <body>
 
+<div class="container">
+  <svg class="hero" viewBox="0 -100 460 120">
+    <defs>
+      <pattern id="pattern" x="0" y="0" width="1" height="1">
+        <image xlink:href="octo.jpg" x="0" y="0" width="520" height="350"/>
+      </pattern>
+    </defs>
+    <text class="title">dietrich</text>
+  </svg>
+
+  <div class="subtitle">
+    Internet Freedom, the Web and Mozilla.
+  </div>
+
+  <div class="icons">
+    <a href="mailto:autonome@gmail.com" target="_blank">
+      <i class="fa fa-envelope icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://twitter.com/dietrich" target="_blank">
+      <i class="fa fa-twitter icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://github.com/autonome" target="_blank">
+      <i class="fa fa-github icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.instagram.com/autonome" target="_blank">
+      <i class="fa fa-instagram icon" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/dietrich" target="_blank">
+      <i class="fa fa-linkedin icon" aria-hidden="true"></i>
+    </a>
+    <a href="skype:autonome?chat" target="_blank">
+      <i class="fa fa-skype icon" aria-hidden="true"></i>
+    </a>
+</div>
+
+<!--
 <div class="navgrid">
   <ul>
     <li>dietrich ayala</li>
@@ -111,21 +173,7 @@
     </li>
   </ul>
 </div>
-
-	<!--
-  <svg class="hero" viewBox="0 -100 460 120">
-    <defs>
-      <pattern id="pattern" x="0" y="0" width="1" height="1">
-        <image xlink:href="octo.jpg" x="0" y="0" width="520" height="350"/>
-      </pattern>
-    </defs>
-    <text class="title">dietrich</text>
-  </svg>
-
-  <div class="subtitle">
-    Internet freedom, the web and Mozilla.
-  </div>
-	-->
+-->
 
   <div class="content">
 
@@ -181,6 +229,22 @@
 
 </div>
 
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://metafluff.innocraft.cloud/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+<!-- End Matomo Code -->
 <script type="text/javascript">
   var _gauges = _gauges || [];
   (function() {
