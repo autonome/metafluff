@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 04 Aug 2017 08:07:30 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Firefox Startup Performance Weekly Summary]]></title><description><![CDATA[<p>Recent activity:</p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dietrich Ayala - Dietrich Ayala]]></title><description><![CDATA[Internet freedom, the web and Mozilla.]]></description><link>/</link><generator>Ghost</generator><lastBuildDate>Fri, 14 Sep 2018 01:17:58 GMT</lastBuildDate><atom:link href="/author//rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Firefox Startup Performance Weekly Summary]]></title><description><![CDATA[<p>This week brought a big win on Mac, and a slew of changes that are about to land.</p>
+<p>Recent activity:</p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=517045">Bug 517045</a> is fixed and brings another win on Mac. Found by Joel Reymont and fixed by John Daggett, it improves cold startup by ~20% and warm startup by ~4%. It gets better: Jonathan Kew filed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug 519445</a> with a WIP patch for yet further reductions in Mac startup time spent in font system initialization.</li>
+<li>Taras Glek&#39;s <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=507288">work on combining the     different preference files</a> into a single one is ready to land.</li>
+<li>We now have unit-tested optimized builds, thanks to Release Engineering&#39;s work on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=486783">bug 486783</a>. This means we can now turn on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=419893">PGO for Places, mozStorage and SQLite</a>, which I&#39;ll land presently.</li>
+<li>B<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=504858">ug    504858</a> pushes back the population of the bookmarks toolbar until after   the  browser window comes up. The patch has review, is ready to land.</li>
+<li>Alfred Kayser&#39;s patch on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510844">bug    510844</a> which should increase throughput of JAR file reading, is   ready to land.</li>
+<li>Ben Hsieh got review on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510991">bug 510991</a>, which removes some stats() from the startup path.</li>
+<li>I&#39;m no longer able to reproduce the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=517741">cold startup regression from 3.5 to 3.6</a>. I turned of SuperFetch, which resulted in more stable numbers, but there was no visible regression, even in builds going back a couple of months. Juan is going to test on Windows XP.</li>
+<li>Ben Hsieh has a patch up for review on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=511761">bug   511761</a>, which removes needless stat()s of component files, and improves and clarifies current cache invalidation behavior.</li>
+<li>Service caching work in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug   516085</a>, made no progress. Next week I&#39;ll try pushing this  to the Places branch to get a better idea of the total performance  impact of the change.</li>
+<li><p>Zack is working on major CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug    513149</a>.
+Projects in a holding pattern:</p>
+</li>
+<li><p>Cold Startup Testing: Drew and Alice made a bunch of progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510587">bug    510587</a>,  to create a new Ts that measures cold startup. Alice is    working on mobile Talos though, so this is sidelined for a bit. The only    issue left is reliable Windows measurement, but we&#39;re not going to    block on it, can live with Mac and Linux to start off.</p>
+</li>
+<li>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS     modules into a JAR file</a>, since those files are fastloaded.    However, since we want things like post-extension-install restarts to be    fast, and those cause fastload cache invalidation, we might want to  do   things like this anyways. I filed a bug for the same treatment for    components. These are lower priority, since they&#39;re not the normal    startup case. Follow along with all JAR-ification via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the    tracker  bug</a>.</li>
+<li>Startup Timeline: No updates, still not landed. Add [ft] in the   whiteboard of your bug w/ the function names you want timed and David   will generate it and update the bug.</li>
+<li>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug   506128</a>.  David needs to file a bug with the final log of   named-yet-uncalled  functions.</li>
+<li>Dirty Profile Testing: No progress. Need to list scenarios, file   bugs  for each, generate Talos config patches and profile data, and then   move  it into Rel-Eng territory. Also, need to get a separate  Tinderbox  tree,  since it&#39;s going to cause a bazillion new columns.</li>
+<li><a href="http://wagerlabs.com/">Joel   Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug   513076</a> that there are serious drawbacks to getting our libraries in   the dyld  shared cache on Mac, so has deprioritized that work.</li>
+</ul>
+]]></description><link>/2009/10/firefox-startup-performance-weekly-summary-4/index.html</link><guid isPermaLink="true">/2009/10/firefox-startup-performance-weekly-summary-4/index.html</guid><category><![CDATA[firefox]]></category><category><![CDATA[firefox]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[mozilla]]></category><category><![CDATA[Performance]]></category><category><![CDATA[startup]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sat, 03 Oct 2009 00:00:00 GMT</pubDate></item><item><title><![CDATA[Firefox Startup Performance Weekly Summary]]></title><description><![CDATA[<p>Recent activity:</p>
 <ul>
 <li>An improvement in startup time on Mac Leopard of around ~16% (aka: Very Large) was found by Joel Reymont and fixed by Masayuki Nakano in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=517549">bug 517549</a>. Mac users rejoice!</li>
 <li>The Windows cold startup regression from 3.5 to 3.6 being tracked in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=517741">bug  517741</a>. Help finding the window for this would be awesome.</li>
@@ -227,25 +250,4 @@ The most kick-ass mind-blowing iPhone, Crackberry or it&#39;s-not-a-Google-phone
 <ul>
 <li>That&#39;s not entirely correct. You could still use <a href="http://ifartmobile.com/">this</a>.</li>
 </ul>
-]]></description><link>/2009/03/the-magic-is-in-the-tubes/index.html</link><guid isPermaLink="true">/2009/03/the-magic-is-in-the-tubes/index.html</guid><category><![CDATA[android]]></category><category><![CDATA[Apple]]></category><category><![CDATA[iphone]]></category><category><![CDATA[mobile]]></category><category><![CDATA[techcrunch]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 25 Mar 2009 00:00:00 GMT</pubDate></item><item><title><![CDATA[Seven Things About Me(me)]]></title><description><![CDATA[<p>Alas, I was tagged by <a href="http://www.beltzner.ca/mike/archives/2009/01/meme-too.html" title="Cap">Beltzner</a>, so must break my new year&#39;s resolution to not blog in 2009*. Thanks Mike. Seven things you may know about me, or not:</p>
-<ol>
-<li>I have three nipples. Of these, zero produce milk.</li>
-<li>I was a barista and a chef for many years before owning a computer.</li>
-<li>I can juggle. Balls. Clubs. Machetes. Torches. (Listed in descending order of skill-level and recency.)</li>
-<li>Some years ago, on the night before we moved from Seattle to Florida, someone stole our fully-packed truck and U-Haul, leaving us with nothing but the pajamas we were wearing, and a goldfish. It was a lesson in <a href="http://en.wikipedia.org/wiki/Impermanence">impermanence</a>.</li>
-<li>I used to play the accordion, and was briefly in a band called Apolkalypse.</li>
-<li>One summer, I hitchhiked through 30 states with a friend. You&#39;ve not truly seen America until it throws garbage at you from it&#39;s car.</li>
-<li><p>I flew out of a rapidly moving Volkswagen bus when I was 8 years old, and landed on my head. I know what you&#39;re thinking, and yes, you&#39;re probably right.
-Seven from me, seven to you:</p>
-</li>
-<li><p><a href="http://shawnwilsher.com/">Sdwilsh</a>. It&#39;s all business on your blog, but <a href="http://quotes.burntelectrons.org/search?query=tag%3Asdwilsh&amp;start=10">your quotes</a> are on fire.</p>
-</li>
-<li><a href="http://blog.sandmill.org/">Thunder</a>, the Venezuelan ramen-lover. (Definitely a character in my novel. If I was writing one.)</li>
-<li><a href="http://twitter.com/joshayala">Josh</a>. I thought <a href="http://www.badempire.com/">your blog was dead</a>, but then I found the <a href="http://josh.badempire.com/">tumble</a>.</li>
-<li><a href="http://twitter.com/jvh">Jeff</a>, you don&#39;t blog, afaik. You should tweet seven things and seven people!</li>
-<li><a href="http://bowiesdive.blogspot.com/">Bowie</a>. Kid, you&#39;re almost one full year old. Introduce yourself.</li>
-<li><a href="http://www.litfuel.net/plush/">James Earl Plush</a>. Eagles? Beagles? Twins? Coincidence? I think not!</li>
-<li><a href="http://www.bobanddavid.com/david.html">David Cross</a>. (Aim high, right?)</li>
-<li>I&#39;ve been <a href="http://dietrich.tumblr.com/">tumbling</a> and <a href="http://twitter.com/dietrich">tweeting</a> regularly, so I kinda already broke my resolution.</li>
-</ol>
-]]></description><link>/2009/01/seven-things-about-meme/index.html</link><guid isPermaLink="true">/2009/01/seven-things-about-meme/index.html</guid><category><![CDATA[me]]></category><category><![CDATA[meme]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Sun, 11 Jan 2009 00:00:00 GMT</pubDate></item></channel></rss>
+]]></description><link>/2009/03/the-magic-is-in-the-tubes/index.html</link><guid isPermaLink="true">/2009/03/the-magic-is-in-the-tubes/index.html</guid><category><![CDATA[android]]></category><category><![CDATA[Apple]]></category><category><![CDATA[iphone]]></category><category><![CDATA[mobile]]></category><category><![CDATA[techcrunch]]></category><dc:creator><![CDATA[Dietrich Ayala]]></dc:creator><pubDate>Wed, 25 Mar 2009 00:00:00 GMT</pubDate></item></channel></rss>
