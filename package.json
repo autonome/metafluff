@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "https": "http-server ./site --ssl --cert /Users/dietrich/.localhost-ssl/cert.pem --key /Users/dietrich/.localhost-ssl/key.pem",
     "render": "~/misc/ghost-render/bin/ghost-render --input ./posts/ --settings ./ghost-render.json --theme ./theme --output ./site",
     "makeprod": "mv site/index.html site/old-index.html && cp additive/*.* site/",
     "newpost": "mkdir -p posts/$(date +\"%Y/%m/%d\")/$NAME",
