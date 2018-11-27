@@ -49,7 +49,7 @@
             <p><strong>We implemented session restore in Firefox 2, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328154">thirteen years ago</a>.</strong> This was back when we used CVS, automated tests weren&#39;t yet required, and everything we did was uphill both ways... in snow.</p>
 <p>Tab unloading was a feature I <em>really</em> wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it?</p>
 <p>Being a <a href="https://metafluff.com/2017/07/21/i-am-a-tab-hoarder/">tab hoarder myself</a>, I wrote an extension that implements this feature for my own benefit, and also to learn a bit about what worked and didn&#39;t. I had to live without it for a bit after the great WebExtension migration, until the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1128502">right API was finally shipped</a> that supported the features I needed.</p>
-<p>You can install this extension here: <a href="https://addons.mozilla.org/en-US/developers/addon/dormancy/edit">https://addons.mozilla.org/en-US/developers/addon/dormancy/edit</a></p>
+<p>You can install this extension here: <a href="https://addons.mozilla.org/en-US/firefox/addon/dormancy/">https://addons.mozilla.org/en-US/firefox/addon/dormancy/</a></p>
 <p><img src="dormancy.png" alt="Dormancy Options"></p>
 <p>I&#39;d like to share a few things I learned while making and running this extension.</p>
 <p><strong>TL;DR: My optimal heuristics for tab unloading are &quot;unload tabs 15 minutes after last focused&quot; + &quot;never unload tabs in active window&quot;.</strong></p>
