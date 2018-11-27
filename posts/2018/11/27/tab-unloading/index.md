@@ -12,7 +12,7 @@ Tab unloading was a feature I *really* wanted, but it was lower priority, and di
 
 Being a [tab hoarder myself](https://metafluff.com/2017/07/21/i-am-a-tab-hoarder/), I wrote an extension that implements this feature for my own benefit, and also to learn a bit about what worked and didn't. I had to live without it for a bit after the great WebExtension migration, until the [right API was finally shipped](https://bugzilla.mozilla.org/show_bug.cgi?id=1128502) that supported the features I needed.
 
-You can install this extension here: https://addons.mozilla.org/en-US/developers/addon/dormancy/edit
+You can install this extension here: https://addons.mozilla.org/en-US/firefox/addon/dormancy/
 
 ![Dormancy Options](dormancy.png)
 
