@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Temporal Coupling, MOM and SEDA
+title: "Temporal Coupling, MOM and SEDA"
 published_at: 2002-12-10
 date: 2002-12-10
 tags: Services web

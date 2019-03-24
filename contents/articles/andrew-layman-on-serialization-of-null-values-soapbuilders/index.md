@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Andrew Layman on Serialization of Null Values (SOAPBuilders)
+title: "Andrew Layman on Serialization of Null Values (SOAPBuilders)"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

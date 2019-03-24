@@ -27,6 +27,9 @@ module.exports = (env, callback) ->
           @layoutpath =
             full: path.join(path.dirname(@filepath.full), layout[1])
             relative: layout[1]
+          if !@layoutpath.relative.endsWith('.hbs')
+            @layoutpath.full += '.hbs'
+            @layoutpath.relative += '.hbs'
           HandlebarsTemplate.fromFile @layoutpath, (error, layout, filepath) =>
             if error then callback error
             else

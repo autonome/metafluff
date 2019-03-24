@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to lose weight to improve your climbing
+title: "How to lose weight to improve your climbing"
 published_at: 2004-02-10
 date: 2004-02-10
 tags: climbing

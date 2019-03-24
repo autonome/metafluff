@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Performance Update
+title: "Firefox Performance Update"
 published_at: 2010-04-17
 date: 2010-04-17
 tags: firefox firefox mozilla mozilla Performance startup

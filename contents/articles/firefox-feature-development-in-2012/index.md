@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Feature Development in 2012
+title: "Firefox Feature Development in 2012"
 published_at: 2011-12-23
 date: 2011-12-23
 tags: firefox mozilla

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Seven Things About Me(me)
+title: "Seven Things About Me(me)"
 published_at: 2009-01-11
 date: 2009-01-11
 tags: me meme

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mini-review: Northstar Coffeehouse, North Portland
+title: "Mini-review: Northstar Coffeehouse, North Portland"
 published_at: 2006-08-09
 date: 2006-08-09
 tags: coffee oregon portland reviews

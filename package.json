@@ -1,8 +1,31 @@
 {
+  "name": "metafluff",
+  "version": "1.0.0",
+  "description": "my website yo",
+  "author": "Dietrich Ayala <autonome@gmail.com> (https://metafluff.com)",
+  "homepage": "https://github.com/autonome/metafluff#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autonome/metafluff.git"
+  },
+  "bugs": {
+    "url": "https://github.com/autonome/metafluff/issues"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "wintersmith preview -p 8083 -v",
+    "build": "wintersmith build -v",
+    "https": "http-server ./site --ssl --cert /Users/dietrich/.localhost-ssl/cert.pem --key /Users/dietrich/.localhost-ssl/key.pem",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "moment": "^2.22.2",
     "typogr": "0.6.x",
     "underscore": "^1.9.1"
   },
-  "private": true
+  "devDependencies": {
+    "node-static": "^0.7.9",
+    "handlebars": "^4.1.1"
+  }
 }

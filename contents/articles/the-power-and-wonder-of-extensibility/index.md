@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The  Power and Wonder of Extensibility
+title: "The  Power and Wonder of Extensibility"
 published_at: 2005-06-13
 date: 2005-06-13
 tags: Yahoo360

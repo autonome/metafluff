@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SpamAssassin and POP3Proxy Changed My Life
+title: "SpamAssassin and POP3Proxy Changed My Life"
 published_at: 2002-10-25
 date: 2002-10-25
 tags: Love

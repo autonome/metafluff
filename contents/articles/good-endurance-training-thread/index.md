@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Good Endurance Training Thread
+title: "Good Endurance Training Thread"
 published_at: 2004-01-16
 date: 2004-01-16
 tags: climbing

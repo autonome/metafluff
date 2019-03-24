@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Chirp! Twitter Notifications in Firefox
+title: "Chirp! Twitter Notifications in Firefox"
 published_at: 2007-03-21
 date: 2007-03-21
 tags: firefox mozilla

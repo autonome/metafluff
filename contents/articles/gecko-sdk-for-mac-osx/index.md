@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Gecko SDK for Mac OSX
+title: "Gecko SDK for Mac OSX"
 published_at: 2006-02-27
 date: 2006-02-27
 tags: mozilla

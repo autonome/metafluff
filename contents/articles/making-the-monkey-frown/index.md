@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Making the Monkey Frown
+title: "Making the Monkey Frown"
 published_at: 2005-07-20
 date: 2005-07-20
 tags: mozilla Yahoo360

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 911 is a Joke (from my mobile anyway)
+title: "911 is a Joke (from my mobile anyway)"
 published_at: 2006-04-22
 date: 2006-04-22
 ---

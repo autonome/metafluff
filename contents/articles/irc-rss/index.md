@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IRC >> RSS
+title: "IRC >> RSS"
 published_at: 2002-08-23
 date: 2002-08-23
 tags: IRC RSS

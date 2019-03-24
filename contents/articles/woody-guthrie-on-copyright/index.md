@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Woody Guthrie on Copyright
+title: "Woody Guthrie on Copyright"
 published_at: 2002-06-19
 date: 2002-06-19
 tags: quotes

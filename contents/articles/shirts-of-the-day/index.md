@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shirts of the Day
+title: "Shirts of the Day"
 published_at: 2004-03-26
 date: 2004-03-26
 tags: clothing

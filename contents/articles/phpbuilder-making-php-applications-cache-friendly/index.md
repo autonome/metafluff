@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PHPBuilder: Making PHP Applications Cache-Friendly
+title: "PHPBuilder: Making PHP Applications Cache-Friendly"
 published_at: 2002-03-17
 date: 2002-03-17
 tags: PHP

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fixing a papercut in Firefox's WebIDE
+title: "Fixing a papercut in Firefox's WebIDE"
 published_at: 2016-02-23
 date: 2016-02-23
 ---

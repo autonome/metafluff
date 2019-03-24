@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Design: Interview with Oddpost Co-creator
+title: "Design: Interview with Oddpost Co-creator"
 published_at: 2003-10-15
 date: 2003-10-15
 tags: Design UI

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Developer Works Article: Apache SOAP Type Mapping
+title: "Developer Works Article: Apache SOAP Type Mapping"
 published_at: 2002-04-04
 date: 2002-04-04
 tags: SOAP

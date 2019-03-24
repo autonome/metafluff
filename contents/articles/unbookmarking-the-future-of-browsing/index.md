@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unbookmarking the Future of Browsing
+title: "Unbookmarking the Future of Browsing"
 published_at: 2012-01-27
 date: 2012-01-27
 tags: Add-ons browsing firefox firefox jetpack mozilla mozilla panorama

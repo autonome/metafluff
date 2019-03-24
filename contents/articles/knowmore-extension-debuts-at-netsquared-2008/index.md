@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Knowmore Extension debuts at NetSquared 2008!
+title: "Knowmore Extension debuts at NetSquared 2008!"
 published_at: 2008-05-28
 date: 2008-05-28
 tags: activism activism api ethical consumerism firefox firefox extensions knowmore mozilla mozilla

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mysteries Under Moscow (via Bruce Sterling)
+title: "Mysteries Under Moscow (via Bruce Sterling)"
 published_at: 2002-06-09
 date: 2002-06-09
 tags: Misc World

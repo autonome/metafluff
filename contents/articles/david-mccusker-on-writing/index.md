@@ -1,6 +1,6 @@
 ---
 layout: post
-title: David McCusker, on writing.
+title: "David McCusker, on writing."
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Chris Sharma's Secret Training Tips
+title: "Chris Sharma's Secret Training Tips"
 published_at: 2004-02-19
 date: 2004-02-19
 tags: climbing

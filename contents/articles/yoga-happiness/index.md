@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Yoga == Happiness?
+title: "Yoga == Happiness?"
 published_at: 2004-06-24
 date: 2004-06-24
 tags: Yoga

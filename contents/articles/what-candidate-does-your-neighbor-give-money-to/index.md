@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What Candidate Does Your Neighbor Give Money To?
+title: "What Candidate Does Your Neighbor Give Money To?"
 published_at: 2004-05-25
 date: 2004-05-25
 tags: political

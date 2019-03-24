@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Associative Databases on Wiremine
+title: "Associative Databases on Wiremine"
 published_at: 2002-03-23
 date: 2002-03-23
 tags: database

@@ -1,26 +1,23 @@
 {
   "locals": {
-    "url": "http://localhost:8080",
-    "name": "The Wintersmith's blog",
-    "owner": "Someone",
-    "description": "Ramblings of an immor(t)al demigod"
+    "url": "http://localhost:8083",
+    "name": "Dietrich Ayala",
+    "owner": "Dietrich Ayala",
+    "description": "blog description"
   },
   "plugins": [
-    "./plugins/paginator.coffee"
+    "./plugins/wintersmith-handlebars.coffee"
   ],
   "require": {
     "moment": "moment",
     "_": "underscore",
     "typogr": "typogr"
   },
-  "pug": {
-    "pretty": true
+  "handlebars": {
+      "partialDir": "partials"
   },
   "markdown": {
     "smartLists": true,
     "smartypants": true
-  },
-  "paginator": {
-    "perPage": 3
   }
 }

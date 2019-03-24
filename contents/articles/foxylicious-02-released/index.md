@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Foxylicious 0.2 Released!
+title: "Foxylicious 0.2 Released!"
 published_at: 2004-11-16
 date: 2004-11-16
 tags: foxylicious mozilla

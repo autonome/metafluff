@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Session Restore PSA
+title: "Session Restore PSA"
 published_at: 2008-01-10
 date: 2008-01-10
 tags: firefox mozilla

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Good Vexillology Site
+title: "Good Vexillology Site"
 published_at: 2004-02-10
 date: 2004-02-10
 tags: International

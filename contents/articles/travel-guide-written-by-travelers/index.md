@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Travel Guide... Written by Travelers
+title: "Travel Guide... Written by Travelers"
 published_at: 2004-02-12
 date: 2004-02-12
 tags: Travel

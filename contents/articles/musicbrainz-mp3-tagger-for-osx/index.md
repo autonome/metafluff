@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MusicBrainz MP3 Tagger for OSX
+title: "MusicBrainz MP3 Tagger for OSX"
 published_at: 2004-03-24
 date: 2004-03-24
 ---

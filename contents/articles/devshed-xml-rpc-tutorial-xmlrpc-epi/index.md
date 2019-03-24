@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Devshed XML-RPC Tutorial (XMLRPC-EPI)
+title: "Devshed XML-RPC Tutorial (XMLRPC-EPI)"
 published_at: 2002-04-07
 date: 2002-04-07
 tags: XML-RPC

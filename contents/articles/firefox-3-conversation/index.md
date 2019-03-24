@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox 3 Conversation
+title: "Firefox 3 Conversation"
 published_at: 2007-11-02
 date: 2007-11-02
 tags: mozilla

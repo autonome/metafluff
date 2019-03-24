@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RDF API for PHP
+title: "RDF API for PHP"
 published_at: 2003-01-17
 date: 2003-01-17
 tags: RDF

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: nfqf - The Netflix Queue Filter
+title: "nfqf - The Netflix Queue Filter"
 published_at: 2005-09-12
 date: 2005-09-12
 tags: firefox greasemonkey Yahoo360

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Big Rugs for Cheap
+title: "Big Rugs for Cheap"
 published_at: 2004-02-19
 date: 2004-02-19
 tags: retail

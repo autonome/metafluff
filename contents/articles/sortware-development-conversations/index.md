@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sortware Development Conversations
+title: "Sortware Development Conversations"
 published_at: 2002-12-12
 date: 2002-12-12
 tags: appdesign

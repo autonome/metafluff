@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dan Gillmor Draws a Line in the Sand
+title: "Dan Gillmor Draws a Line in the Sand"
 published_at: 2002-03-26
 date: 2002-03-26
 tags: quotes

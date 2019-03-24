@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox 11 is Smaller and Faster
+title: "Firefox 11 is Smaller and Faster"
 published_at: 2012-03-14
 date: 2012-03-14
 tags: firefox firefox memshrink mozilla mozilla Performance snappy

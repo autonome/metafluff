@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ADT: Abstract Data Types for PHP
+title: "ADT: Abstract Data Types for PHP"
 published_at: 2003-01-27
 date: 2003-01-27
 tags: PHP

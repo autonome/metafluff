@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox, Plugins and Jetpack Widgets
+title: "Firefox, Plugins and Jetpack Widgets"
 published_at: 2010-12-04
 date: 2010-12-04
 tags: Add-on Development firefox Flash jetpack

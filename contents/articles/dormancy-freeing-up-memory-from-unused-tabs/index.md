@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dormancy: Freeing up memory from unused tabs
+title: "Dormancy: Freeing up memory from unused tabs"
 published_at: 2011-09-03
 date: 2011-09-03
 tags: Add-ons firefox firefox jetpack Memory mozilla mozilla Performance

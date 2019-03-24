@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tinderbox Status Microsummary
+title: "Tinderbox Status Microsummary"
 published_at: 2006-05-19
 date: 2006-05-19
 tags: mozilla

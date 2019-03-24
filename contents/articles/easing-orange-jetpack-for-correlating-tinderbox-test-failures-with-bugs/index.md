@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Easing Orange: Jetpack for Correlating Tinderbox Test Failures with Bugs
+title: "Easing Orange: Jetpack for Correlating Tinderbox Test Failures with Bugs"
 published_at: 2009-11-19
 date: 2009-11-19
 tags: firefox firefox jetpack mozilla mozilla tinderbox

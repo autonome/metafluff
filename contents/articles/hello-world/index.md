@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hello world!
+title: "Hello world!"
 published_at: 2006-06-15
 date: 2006-06-15
 ---

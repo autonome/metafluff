@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The 11th Commandment: Thou Shalt Not Redistribute Wealth to the Poor
+title: "The 11th Commandment: Thou Shalt Not Redistribute Wealth to the Poor"
 published_at: 2005-08-24
 date: 2005-08-24
 tags: Yahoo360

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript Style Guide For Mozilla Projects
+title: "Javascript Style Guide For Mozilla Projects"
 published_at: 2006-03-25
 date: 2006-03-25
 tags: mozilla

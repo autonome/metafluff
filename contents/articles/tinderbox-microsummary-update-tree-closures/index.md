@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tinderbox Microsummary Update: Tree Closures
+title: "Tinderbox Microsummary Update: Tree Closures"
 published_at: 2006-06-15
 date: 2006-06-15
 tags: mozilla

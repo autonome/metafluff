@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Word HTML Cleaner for PHP
+title: "Word HTML Cleaner for PHP"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: PHP

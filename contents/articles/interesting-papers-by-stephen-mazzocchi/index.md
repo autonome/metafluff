@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Interesting Papers by Stephen Mazzocchi
+title: "Interesting Papers by Stephen Mazzocchi"
 published_at: 2002-11-21
 date: 2002-11-21
 tags: cms people xml

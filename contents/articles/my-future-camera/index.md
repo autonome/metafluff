@@ -1,6 +1,6 @@
 ---
 layout: post
-title: My Future Camera
+title: "My Future Camera"
 published_at: 2004-03-28
 date: 2004-03-28
 tags: Wishlist

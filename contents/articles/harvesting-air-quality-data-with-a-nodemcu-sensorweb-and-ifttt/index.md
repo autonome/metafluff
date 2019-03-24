@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT
+title: "Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT"
 published_at: 2016-07-14
 date: 2016-07-14
 tags: arduino ifttt iot iot mozilla mozilla

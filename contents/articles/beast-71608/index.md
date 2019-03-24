@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beast 7/16/08
+title: "Beast 7/16/08"
 published_at: 2008-07-17
 date: 2008-07-17
 tags: Food Food oregon oregon portland portland restaurants reviews

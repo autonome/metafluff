@@ -1,6 +1,6 @@
 ---
 layout: post
-title: sometimes attribution just isn't worth it
+title: "sometimes attribution just isn't worth it"
 published_at: 2008-09-12
 date: 2008-09-12
 tags: oss PHP

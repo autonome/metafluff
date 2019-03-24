@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Korean Friendship Bell in San Pedro
+title: "Korean Friendship Bell in San Pedro"
 published_at: 2003-08-23
 date: 2003-08-23
 tags: moblog

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nicholas Lehuen on Schema Validation (xml-dev)
+title: "Nicholas Lehuen on Schema Validation (xml-dev)"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes xml XML Schemas

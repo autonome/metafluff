@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Open Letter to the World
+title: "Open Letter to the World"
 published_at: 2011-03-02
 date: 2011-03-02
 tags: anonymous

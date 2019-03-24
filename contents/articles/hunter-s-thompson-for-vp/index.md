@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hunter S. Thompson for VP!
+title: "Hunter S. Thompson for VP!"
 published_at: 2004-06-23
 date: 2004-06-23
 ---

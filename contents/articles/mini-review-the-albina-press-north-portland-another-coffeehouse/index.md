@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mini-review: The Albina Press, North Portland (another coffeehouse)
+title: "Mini-review: The Albina Press, North Portland (another coffeehouse)"
 published_at: 2006-08-09
 date: 2006-08-09
 tags: coffee oregon portland reviews

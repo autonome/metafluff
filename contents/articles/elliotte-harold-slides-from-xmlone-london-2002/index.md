@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elliotte Harold slides from XMLOne, London 2002
+title: "Elliotte Harold slides from XMLOne, London 2002"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: xml XML Schemas

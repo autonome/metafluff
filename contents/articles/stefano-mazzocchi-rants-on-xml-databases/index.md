@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stefano Mazzocchi Rants on XML Databases
+title: "Stefano Mazzocchi Rants on XML Databases"
 published_at: 2002-04-05
 date: 2002-04-05
 tags: Databases xml

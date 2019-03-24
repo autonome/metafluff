@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Better Tag Browsing
+title: "Better Tag Browsing"
 published_at: 2008-07-10
 date: 2008-07-10
 tags: extensions firefox firefox firefox extensions folksonomy mozilla mozilla tagging tags

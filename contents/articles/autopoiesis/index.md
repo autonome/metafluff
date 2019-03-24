@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Autopoiesis
+title: "Autopoiesis"
 published_at: 2002-07-02
 date: 2002-07-02
 tags: Misc

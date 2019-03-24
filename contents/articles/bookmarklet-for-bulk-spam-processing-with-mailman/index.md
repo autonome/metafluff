@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bookmarklet for Bulk Spam Processing with Mailman
+title: "Bookmarklet for Bulk Spam Processing with Mailman"
 published_at: 2014-10-20
 date: 2014-10-20
 ---

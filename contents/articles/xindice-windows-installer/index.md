@@ -1,6 +1,6 @@
 ---
 layout: post
-title: XIndice: Windows Installer
+title: "XIndice: Windows Installer"
 published_at: 2002-06-18
 date: 2002-06-18
 tags: Databases xml

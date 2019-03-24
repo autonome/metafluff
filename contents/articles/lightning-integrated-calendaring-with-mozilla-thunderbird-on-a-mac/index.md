@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lightning: Integrated Calendaring with Mozilla Thunderbird... on a Mac
+title: "Lightning: Integrated Calendaring with Mozilla Thunderbird... on a Mac"
 published_at: 2005-08-22
 date: 2005-08-22
 tags: mozilla Yahoo360

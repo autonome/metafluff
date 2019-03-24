@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ouch
+title: "Ouch"
 published_at: 2006-01-09
 date: 2006-01-09
 tags: Yahoo360

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Our Gym's Bouldering Comp Results
+title: "Our Gym's Bouldering Comp Results"
 published_at: 2004-02-12
 date: 2004-02-12
 tags: climbing

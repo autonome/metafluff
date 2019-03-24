@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox 3.6 Performance: Startup and Snappiness Improvements
+title: "Firefox 3.6 Performance: Startup and Snappiness Improvements"
 published_at: 2010-01-22
 date: 2010-01-22
 tags: firefox firefox Firefox3.6 Mac mozilla Performance startup

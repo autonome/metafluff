@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Streaming Your iSight Camera to the Web with the Video Tag
+title: "Streaming Your iSight Camera to the Web with the Video Tag"
 published_at: 2009-06-01
 date: 2009-06-01
 tags: firefox firefox icecast isight Mac mozilla mozilla ogg openvideo theora vlc

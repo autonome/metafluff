@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What a way to go
+title: "What a way to go"
 published_at: 2006-06-02
 date: 2006-06-02
 ---

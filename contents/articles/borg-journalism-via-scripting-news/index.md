@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Borg Journalism (via Scripting News)
+title: "Borg Journalism (via Scripting News)"
 published_at: 2002-04-03
 date: 2002-04-03
 tags: Metablog

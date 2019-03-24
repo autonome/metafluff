@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DDR for Cardio!
+title: "DDR for Cardio!"
 published_at: 2004-01-31
 date: 2004-01-31
 tags: Gaming Health

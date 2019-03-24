@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Barcamp Chiang Mai (or: Communicating Mozilla)
+title: "Barcamp Chiang Mai (or: Communicating Mozilla)"
 published_at: 2011-05-30
 date: 2011-05-30
 tags: #barcampcm4 barcamp chiang mai firefox firefox mozilla mozilla

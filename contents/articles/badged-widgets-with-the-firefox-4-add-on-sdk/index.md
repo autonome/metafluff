@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Badged Widgets with the Firefox 4 Add-on SDK
+title: "Badged Widgets with the Firefox 4 Add-on SDK"
 published_at: 2011-03-28
 date: 2011-03-28
 tags: firefox firefox jetpack mozilla mozilla

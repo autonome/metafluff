@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quicksilver
+title: "Quicksilver"
 published_at: 2004-03-26
 date: 2004-03-26
 tags: OSX

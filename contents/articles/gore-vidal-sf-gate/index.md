@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Gore Vidal (SF Gate)
+title: "Gore Vidal (SF Gate)"
 published_at: 2002-04-24
 date: 2002-04-24
 tags: quotes

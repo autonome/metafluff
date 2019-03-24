@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Performance: The "don't touch the damn disk" edition.
+title: "Firefox Performance: The \"don't touch the damn disk\" edition."
 published_at: 2009-08-18
 date: 2009-08-18
 tags: firefox firefox mozilla mozilla Performance startup

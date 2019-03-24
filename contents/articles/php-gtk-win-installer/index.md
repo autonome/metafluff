@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PHP-GTK Win Installer
+title: "PHP-GTK Win Installer"
 published_at: 2002-06-19
 date: 2002-06-19
 tags: PHP

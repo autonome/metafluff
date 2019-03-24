@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox, Android and ARMing the World with the Open Web.
+title: "Firefox, Android and ARMing the World with the Open Web."
 published_at: 2011-08-18
 date: 2011-08-18
 tags: android firefox firefox mozilla mozilla

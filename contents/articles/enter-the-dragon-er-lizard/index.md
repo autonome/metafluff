@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Enter The Dragon (er, Lizard)
+title: "Enter The Dragon (er, Lizard)"
 published_at: 2006-02-16
 date: 2006-02-16
 tags: mozilla

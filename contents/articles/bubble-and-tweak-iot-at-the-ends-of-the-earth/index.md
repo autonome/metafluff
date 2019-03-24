@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bubble and Tweak - IoT at the Ends of the Earth
+title: "Bubble and Tweak - IoT at the Ends of the Earth"
 published_at: 2016-07-13
 date: 2016-07-13
 tags: anstruther iot iot mozilla mozilla scotland

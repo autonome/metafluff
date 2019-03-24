@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Gallery of Vietnam Photos
+title: "Gallery of Vietnam Photos"
 published_at: 2004-05-27
 date: 2004-05-27
 tags: Travel

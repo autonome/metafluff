@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NuSOAP Article at Zend.com!
+title: "NuSOAP Article at Zend.com!"
 published_at: 2002-10-02
 date: 2002-10-02
 tags: nusoap SOAP

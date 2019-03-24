@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Perl, MVC and Etoys.com
+title: "Perl, MVC and Etoys.com"
 published_at: 2002-04-09
 date: 2002-04-09
 tags: appdesign

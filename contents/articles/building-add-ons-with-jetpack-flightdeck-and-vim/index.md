@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building Add-ons with Jetpack, Flightdeck and... Vim.
+title: "Building Add-ons with Jetpack, Flightdeck and... Vim."
 published_at: 2010-12-06
 date: 2010-12-06
 tags: Add-on Development Add-ons extensions firefox firefox jetpack mozilla

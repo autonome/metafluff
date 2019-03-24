@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Yoga: Antidote for a Developer's Achilles Heel?
+title: "Yoga: Antidote for a Developer's Achilles Heel?"
 published_at: 2002-12-16
 date: 2002-12-16
 tags: Health

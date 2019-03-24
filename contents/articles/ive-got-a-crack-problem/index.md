@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I've Got a Crack Problem
+title: "I've Got a Crack Problem"
 published_at: 2006-04-14
 date: 2006-04-14
 tags: Apple

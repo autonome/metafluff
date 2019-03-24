@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DIME on MSDN (via Sam Gentile)
+title: "DIME on MSDN (via Sam Gentile)"
 published_at: 2002-04-02
 date: 2002-04-02
 tags: DIME

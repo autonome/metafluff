@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NuSOAP 0.6.1 Debian Packages Available
+title: "NuSOAP 0.6.1 Debian Packages Available"
 published_at: 2002-04-29
 date: 2002-04-29
 tags: nusoap

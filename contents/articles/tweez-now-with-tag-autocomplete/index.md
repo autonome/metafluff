@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tweez: now with tag auto[complete]
+title: "Tweez: now with tag auto[complete]"
 published_at: 2008-02-05
 date: 2008-02-05
 tags: firefox mozilla

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why I Do Not Like Perl, in a Nutshell (via Camworld)
+title: "Why I Do Not Like Perl, in a Nutshell (via Camworld)"
 published_at: 2002-07-11
 date: 2002-07-11
 tags: quotes

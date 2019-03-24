@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RDF Eye Opener
+title: "RDF Eye Opener"
 published_at: 2002-11-14
 date: 2002-11-14
 tags: quotes RDF

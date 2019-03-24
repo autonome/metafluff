@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SUV Safety (or lack thereof)
+title: "SUV Safety (or lack thereof)"
 published_at: 2004-02-20
 date: 2004-02-20
 tags: Automotive

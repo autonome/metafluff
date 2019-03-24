@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Another PHP/SOAP Article Using NuSOAP
+title: "Another PHP/SOAP Article Using NuSOAP"
 published_at: 2002-11-13
 date: 2002-11-13
 tags: nusoap

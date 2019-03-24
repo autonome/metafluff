@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rescuing XSLT from Niche Status
+title: "Rescuing XSLT from Niche Status"
 published_at: 2002-10-31
 date: 2002-10-31
 tags: XSLT

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Startup Performance Weekly Roundup
+title: "Firefox Startup Performance Weekly Roundup"
 published_at: 2009-08-30
 date: 2009-08-30
 tags: firefox firefox fx-team mozilla mozilla Performance startup

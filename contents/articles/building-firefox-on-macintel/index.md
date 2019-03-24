@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building Firefox on MacIntel
+title: "Building Firefox on MacIntel"
 published_at: 2006-03-08
 date: 2006-03-08
 tags: mozilla

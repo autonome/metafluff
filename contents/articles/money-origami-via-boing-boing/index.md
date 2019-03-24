@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Money Origami (via Boing Boing)
+title: "Money Origami (via Boing Boing)"
 published_at: 2002-03-19
 date: 2002-03-19
 tags: Origami

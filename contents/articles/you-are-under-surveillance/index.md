@@ -1,6 +1,6 @@
 ---
 layout: post
-title: You are under surveillance.
+title: "You are under surveillance."
 published_at: 2006-10-14
 date: 2006-10-14
 tags: assholes oregon political portland

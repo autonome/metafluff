@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Mozilla Open Data Project
+title: "The Mozilla Open Data Project"
 published_at: 2011-10-13
 date: 2011-10-13
 tags: firefox firefox mozilla mozilla

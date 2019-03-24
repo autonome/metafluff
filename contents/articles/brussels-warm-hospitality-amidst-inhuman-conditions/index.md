@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Brussels: Warm Hospitality Amidst Inhuman Conditions
+title: "Brussels: Warm Hospitality Amidst Inhuman Conditions"
 published_at: 2012-02-03
 date: 2012-02-03
 tags: belgium brussels coworking firefox firefox hackerspace mozilla mozilla

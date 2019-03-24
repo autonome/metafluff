@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Microsoft Hailstorm Schemas
+title: "Microsoft Hailstorm Schemas"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: XML Schemas

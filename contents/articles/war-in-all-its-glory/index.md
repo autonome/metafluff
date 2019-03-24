@@ -1,6 +1,6 @@
 ---
 layout: post
-title: War in All it's Glory
+title: "War in All it's Glory"
 published_at: 2004-01-16
 date: 2004-01-16
 tags: war

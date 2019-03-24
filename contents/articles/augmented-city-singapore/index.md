@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Augmented City - Singapore
+title: "Augmented City - Singapore"
 published_at: 2017-07-20
 date: 2017-07-20
 tags: vr, aframe, webvr, augmented city, singapore

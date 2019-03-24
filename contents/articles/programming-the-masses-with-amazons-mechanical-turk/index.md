@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programming the Masses with Amazon's Mechanical Turk
+title: "Programming the Masses with Amazon's Mechanical Turk"
 published_at: 2006-06-11
 date: 2006-06-11
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SIXDML Specification
+title: "SIXDML Specification"
 published_at: 2002-03-17
 date: 2002-03-17
 tags: xml xml-query

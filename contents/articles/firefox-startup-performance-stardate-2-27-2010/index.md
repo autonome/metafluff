@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Startup Performance - Stardate 2.27.2010
+title: "Firefox Startup Performance - Stardate 2.27.2010"
 published_at: 2010-02-28
 date: 2010-02-28
 tags: firefox firefox mozilla mozilla Performance startup

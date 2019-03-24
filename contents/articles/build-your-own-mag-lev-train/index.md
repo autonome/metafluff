@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Build Your Own Mag-lev Train!
+title: "Build Your Own Mag-lev Train!"
 published_at: 2004-01-16
 date: 2004-01-16
 tags: Lego Science

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Grey Album
+title: "The Grey Album"
 published_at: 2004-02-14
 date: 2004-02-14
 tags: music

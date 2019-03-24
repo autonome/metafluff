@@ -1,6 +1,6 @@
 ---
 layout: post
-title: cmd: Quick Command Execution for Firefox 4
+title: "cmd: Quick Command Execution for Firefox 4"
 published_at: 2011-03-18
 date: 2011-03-18
 tags: Add-ons firefox firefox jetpack mozilla mozilla

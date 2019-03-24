@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Videos of Dan
+title: "Videos of Dan"
 published_at: 2004-02-06
 date: 2004-02-06
 tags: climbing

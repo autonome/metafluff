@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trumplandia: Portland's Independent Businesses and Gordon Sondland
+title: "Trumplandia: Portland's Independent Businesses and Gordon Sondland"
 published_at: 2018-09-13
 date: 2018-09-13
 tags: Portland, Trump

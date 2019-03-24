@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Magic is in the Tubes
+title: "The Magic is in the Tubes"
 published_at: 2009-03-25
 date: 2009-03-25
 tags: android Apple iphone mobile techcrunch

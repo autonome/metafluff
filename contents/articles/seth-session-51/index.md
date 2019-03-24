@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Seth (Session 51)
+title: "Seth (Session 51)"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

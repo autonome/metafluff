@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Punk Rock Lullabys (via Boing Boing)
+title: "Punk Rock Lullabys (via Boing Boing)"
 published_at: 2002-06-20
 date: 2002-06-20
 tags: music

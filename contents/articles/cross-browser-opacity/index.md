@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cross-browser Opacity
+title: "Cross-browser Opacity"
 published_at: 2004-11-25
 date: 2004-11-25
 tags: css dhtml webdev

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox OS and Academic Programs
+title: "Firefox OS and Academic Programs"
 published_at: 2014-04-18
 date: 2014-04-18
 tags: firefox os mozilla

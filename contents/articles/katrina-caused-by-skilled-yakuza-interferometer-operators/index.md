@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Katrina Caused by Skilled Yakuza Interferometer Operators
+title: "Katrina Caused by Skilled Yakuza Interferometer Operators"
 published_at: 2005-09-09
 date: 2005-09-09
 tags: Yahoo360
