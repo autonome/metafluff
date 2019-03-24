@@ -17,6 +17,7 @@ module.exports = (env, callback) ->
   for key, value of defaults
     options[key] ?= defaults[key]
 
+
   # Support for Handlebars templates
   class HandlebarsTemplate extends env.TemplatePlugin
     constructor: (@tpl, @raw, @filepath) ->
