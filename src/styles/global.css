@@ -1,3 +1,11 @@
+
+main {
+  max-width: 38rem;
+  padding: 2rem;
+  margin: auto;
+}
+
+
 /* center embedded tweets */
 .twitter-tweet {
   margin: 0 auto;

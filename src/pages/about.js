@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 export default () => {
   const data = useStaticQuery(graphql`
-    query IndexQuery {
+    query AboutQuery {
       site {
         siteMetadata {
           title
@@ -31,8 +31,10 @@ export default () => {
 
   return (
     <Layout>
-      <SEO title="Home" keywords={[`dietrich ayala`, `metafluff`, `mozilla`, `ipfs`, `protocol labs`]} />
-      <h1>Welcome to {data.site.siteMetadata.title}</h1> 
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <h1>Hi people</h1>
+      <p>Welcome to {data.site.siteMetadata.title}</p> 
+      <p>Now go build something great.</p>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>
@@ -44,3 +46,14 @@ export default () => {
     </Layout>
   )
 }
+
+/*
+				{data.allMarkdownRemark.edges.map(({node}) => (
+          <p>KEY {node.frontmatter.title}</p>
+        ))}
+				{data.allMarkdownRemark.edges.map(post => (
+					<li key={post.node.title}>
+            <Link to="/page-2/">{post.node.title}</Link>
+          </li>
+        ))}
+*/
