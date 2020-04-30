@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building Taxonomies (MS Press, via IA)
+title: "Building Taxonomies (MS Press, via IA)"
 published_at: 2002-03-19
 date: 2002-03-19
 tags: cms info-arch

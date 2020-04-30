@@ -1,6 +1,6 @@
 ---
 layout: post
-title: UW Team Releases Bad-ass XML Toolkit
+title: "UW Team Releases Bad-ass XML Toolkit"
 published_at: 2002-08-28
 date: 2002-08-28
 tags: xml

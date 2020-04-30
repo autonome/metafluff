@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Data Structures & Algorithms Course
+title: "Data Structures & Algorithms Course"
 published_at: 2002-03-26
 date: 2002-03-26
 tags: Foundations Programming

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: In the Beginning...
+title: "In the Beginning..."
 published_at: 2002-03-14
 date: 2002-03-14
 tags: Meta

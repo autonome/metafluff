@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is Demeter?
+title: "What is Demeter?"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: appdesign

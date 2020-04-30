@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Counterpane's Password Manager (via The .NET Guy)
+title: "Counterpane's Password Manager (via The .NET Guy)"
 published_at: 2002-06-18
 date: 2002-06-18
 tags: Security

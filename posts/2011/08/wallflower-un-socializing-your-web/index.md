@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wallflower: Un-Socializing Your Web
+title: "Wallflower: Un-Socializing Your Web"
 published_at: 2011-08-24
 date: 2011-08-24
 tags: firefox firefox jetpack mozilla mozilla

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Facted Classification and Information Architecture (at IA)
+title: "Facted Classification and Information Architecture (at IA)"
 published_at: 2002-03-27
 date: 2002-03-27
 ---

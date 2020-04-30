@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Extensibly Awesome: A Jetpack API for the Firefox Location Bar
+title: "Extensibly Awesome: A Jetpack API for the Firefox Location Bar"
 published_at: 2011-06-09
 date: 2011-06-09
 tags: firefox firefox jetpack mozilla mozilla

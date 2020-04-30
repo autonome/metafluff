@@ -1,6 +1,6 @@
 ---
 layout: post
-title: More Sticks Than You Can Shake Your Boot At
+title: "More Sticks Than You Can Shake Your Boot At"
 published_at: 2004-03-31
 date: 2004-03-31
 tags: music

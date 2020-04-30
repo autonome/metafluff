@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Live Screencasting on a Mac with Mogulus and CamTwist
+title: "Live Screencasting on a Mac with Mogulus and CamTwist"
 published_at: 2008-06-21
 date: 2008-06-21
 tags: Mac Mac OSX OSX screencasting

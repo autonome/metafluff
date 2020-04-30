@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Front-end Performance in Firefox 3.5 and Beyond
+title: "Front-end Performance in Firefox 3.5 and Beyond"
 published_at: 2009-05-06
 date: 2009-05-06
 tags: Awesomebar Bookmarks firefox firefox mozilla mozilla Performance Places

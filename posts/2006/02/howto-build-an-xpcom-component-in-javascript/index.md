@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Howto: Build an XPCOM Component in Javascript
+title: "Howto: Build an XPCOM Component in Javascript"
 published_at: 2006-02-25
 date: 2006-02-25
 tags: mozilla

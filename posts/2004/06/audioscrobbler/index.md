@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Audioscrobbler
+title: "Audioscrobbler"
 published_at: 2004-06-23
 date: 2004-06-23
 tags: music

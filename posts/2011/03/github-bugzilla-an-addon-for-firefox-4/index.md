@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Github + Bugzilla (an Addon for Firefox 4)
+title: "Github + Bugzilla (an Addon for Firefox 4)"
 published_at: 2011-03-19
 date: 2011-03-19
 tags: Add-ons firefox firefox Githug jetpack mozilla mozilla

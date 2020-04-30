@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Peek: Apps, App Tabs, and Context.
+title: "Peek: Apps, App Tabs, and Context."
 published_at: 2011-08-20
 date: 2011-08-20
 tags: firefox firefox jetpack mozilla mozilla

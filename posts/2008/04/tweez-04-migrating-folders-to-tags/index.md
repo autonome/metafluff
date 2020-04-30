@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tweez 0.4: Migrating folders to tags
+title: "Tweez 0.4: Migrating folders to tags"
 published_at: 2008-04-21
 date: 2008-04-21
 tags: firefox mozilla

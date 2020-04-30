@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Semantic Web How-to
+title: "Semantic Web How-to"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: RDF Semantic Web xml

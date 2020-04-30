@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The awesomebar for command-line filesystem traversal... for Windows
+title: "The awesomebar for command-line filesystem traversal... for Windows"
 published_at: 2009-10-07
 date: 2009-10-07
 tags: mozilla

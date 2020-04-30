@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sub Pop Syndication
+title: "Sub Pop Syndication"
 published_at: 2004-04-10
 date: 2004-04-10
 tags: music

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installing the Lexmark P4350 on Mac OS X Leopard
+title: "Installing the Lexmark P4350 on Mac OS X Leopard"
 published_at: 2008-06-02
 date: 2008-06-02
 tags: Apple Leopard Lexmark Mac Mac OS X OSX P4350 printers

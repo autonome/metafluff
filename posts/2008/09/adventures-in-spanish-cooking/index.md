@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Adventures in Spanish Cooking
+title: "Adventures in Spanish Cooking"
 published_at: 2008-09-17
 date: 2008-09-17
 tags: cooking Food Food spain tapas

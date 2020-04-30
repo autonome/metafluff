@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Calendaring Revisited
+title: "Calendaring Revisited"
 published_at: 2005-04-20
 date: 2005-04-20
 tags: Yahoo360

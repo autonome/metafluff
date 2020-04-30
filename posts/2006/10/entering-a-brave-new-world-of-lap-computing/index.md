@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cool it, baby.
+title: "Cool it, baby."
 published_at: 2006-10-11
 date: 2006-10-11
 tags: Apple

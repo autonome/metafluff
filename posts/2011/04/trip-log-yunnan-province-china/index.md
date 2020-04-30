@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trip Log: Yunnan Province, China
+title: "Trip Log: Yunnan Province, China"
 published_at: 2011-04-24
 date: 2011-04-24
 tags: China travel Yunnan

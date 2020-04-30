@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Another Apple Article Using NuSOAP!
+title: "Another Apple Article Using NuSOAP!"
 published_at: 2002-10-23
 date: 2002-10-23
 tags: nusoap

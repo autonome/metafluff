@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SAML HOWTO - Single Sign On using SAML
+title: "SAML HOWTO - Single Sign On using SAML"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: Authentication xml

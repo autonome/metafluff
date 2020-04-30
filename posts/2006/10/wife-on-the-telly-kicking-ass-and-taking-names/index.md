@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wife on the Telly, Kicking Ass and Taking Names
+title: "Wife on the Telly, Kicking Ass and Taking Names"
 published_at: 2006-10-12
 date: 2006-10-12
 tags: oregon political politics portland Videos war

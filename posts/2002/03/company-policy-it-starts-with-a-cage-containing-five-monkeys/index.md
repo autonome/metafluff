@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Company Policy: It starts with a cage containing five monkeys...
+title: "Company Policy: It starts with a cage containing five monkeys..."
 published_at: 2002-03-29
 date: 2002-03-29
 tags: Jokes

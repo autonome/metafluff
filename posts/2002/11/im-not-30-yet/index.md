@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I'm Not 30 Yet!
+title: "I'm Not 30 Yet!"
 published_at: 2002-11-13
 date: 2002-11-13
 tags: quotes

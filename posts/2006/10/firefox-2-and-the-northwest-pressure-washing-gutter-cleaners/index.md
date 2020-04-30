@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox 2 and the Northwest Pressure-washing Gutter-cleaners
+title: "Firefox 2 and the Northwest Pressure-washing Gutter-cleaners"
 published_at: 2006-10-25
 date: 2006-10-25
 tags: firefox mozilla

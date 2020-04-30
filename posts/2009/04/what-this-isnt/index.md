@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What this isn't.
+title: "What this isn't."
 published_at: 2009-04-10
 date: 2009-04-10
 ---

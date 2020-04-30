@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Are Your Couplings Loose or Tight?
+title: "Are Your Couplings Loose or Tight?"
 published_at: 2002-11-20
 date: 2002-11-20
 tags: Services web

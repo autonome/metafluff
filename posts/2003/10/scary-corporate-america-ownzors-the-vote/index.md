@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scary: Corporate America Ownzors the Vote
+title: "Scary: Corporate America Ownzors the Vote"
 published_at: 2003-10-16
 date: 2003-10-16
 tags: political

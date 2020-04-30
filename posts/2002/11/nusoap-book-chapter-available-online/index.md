@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NuSOAP Book Chapter Available Online
+title: "NuSOAP Book Chapter Available Online"
 published_at: 2002-11-20
 date: 2002-11-20
 tags: nusoap

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mozfest 2016: Privacy, Vanity, Beacons, Painting, Dilemmas and Tents.
+title: "Mozfest 2016: Privacy, Vanity, Beacons, Painting, Dilemmas and Tents."
 published_at: 2016-11-05
 date: 2016-11-05
 ---

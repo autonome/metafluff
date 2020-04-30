@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nicholas Lehuen on Project Scope and Design
+title: "Nicholas Lehuen on Project Scope and Design"
 published_at: 2002-03-28
 date: 2002-03-28
 tags: quotes

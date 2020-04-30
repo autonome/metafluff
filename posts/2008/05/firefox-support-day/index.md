@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Support Day
+title: "Firefox Support Day"
 published_at: 2008-05-24
 date: 2008-05-24
 tags: firefox firefox mozilla

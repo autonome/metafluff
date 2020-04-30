@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tim bray, Taxi article on xml.com
+title: "Tim bray, Taxi article on xml.com"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

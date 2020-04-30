@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Word of the Day: Sesquipedalian
+title: "Word of the Day: Sesquipedalian"
 published_at: 2004-06-25
 date: 2004-06-25
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cross-Browser XML DOM Wrapper for Javascript
+title: "Cross-Browser XML DOM Wrapper for Javascript"
 published_at: 2002-06-19
 date: 2002-06-19
 tags: Javascript

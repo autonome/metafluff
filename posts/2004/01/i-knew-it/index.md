@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I Knew It!
+title: "I Knew It!"
 published_at: 2004-01-28
 date: 2004-01-28
 tags: Juggling Science

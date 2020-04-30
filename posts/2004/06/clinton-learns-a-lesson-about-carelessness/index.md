@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clinton Learns a Lesson About Carelessness
+title: "Clinton Learns a Lesson About Carelessness"
 published_at: 2004-06-24
 date: 2004-06-24
 tags: comedy political

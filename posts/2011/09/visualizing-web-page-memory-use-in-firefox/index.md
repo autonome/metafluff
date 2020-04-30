@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Visualizing web page memory use in Firefox
+title: "Visualizing web page memory use in Firefox"
 published_at: 2011-09-10
 date: 2011-09-10
 tags: firefox firefox jetpack mozilla mozilla Performance

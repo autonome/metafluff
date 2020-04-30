@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Transforming OPML into XUL
+title: "Transforming OPML into XUL"
 published_at: 2006-03-08
 date: 2006-03-08
 tags: mozilla opml Outliners XSLT

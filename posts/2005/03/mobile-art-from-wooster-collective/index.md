@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mobile Art from Wooster Collective
+title: "Mobile Art from Wooster Collective"
 published_at: 2005-03-17
 date: 2005-03-17
 tags: art mobile

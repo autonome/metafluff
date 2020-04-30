@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Daily Japanese Lesson!
+title: "Daily Japanese Lesson!"
 published_at: 2003-10-15
 date: 2003-10-15
 tags: Japan

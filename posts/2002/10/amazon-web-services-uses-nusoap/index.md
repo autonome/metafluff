@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Amazon Web Services Uses NuSOAP!
+title: "Amazon Web Services Uses NuSOAP!"
 published_at: 2002-10-16
 date: 2002-10-16
 tags: nusoap

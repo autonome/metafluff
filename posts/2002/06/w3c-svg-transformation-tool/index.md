@@ -1,6 +1,6 @@
 ---
 layout: post
-title: W3C SVG Transformation Tool
+title: "W3C SVG Transformation Tool"
 published_at: 2002-06-18
 date: 2002-06-18
 tags: SVG

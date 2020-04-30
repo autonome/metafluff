@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Don Box - Sums up schema use in MS framework on XML-DEV
+title: "Don Box - Sums up schema use in MS framework on XML-DEV"
 published_at: 2002-04-24
 date: 2002-04-24
 tags: quotes XML Schemas

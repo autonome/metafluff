@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Meg Hourihan (megnut.com) on the Oreilly P2P conference speakers
+title: "Meg Hourihan (megnut.com) on the Oreilly P2P conference speakers"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

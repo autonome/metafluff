@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NuSOAP Bugfix Update
+title: "NuSOAP Bugfix Update"
 published_at: 2002-11-09
 date: 2002-11-09
 tags: nusoap

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Still-life with El Camino and Two Toilet...
+title: "Still-life with El Camino and Two Toilet..."
 published_at: 2003-08-14
 date: 2003-08-14
 tags: moblog photo

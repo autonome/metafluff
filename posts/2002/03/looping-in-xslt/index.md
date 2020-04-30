@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Looping in XSLT
+title: "Looping in XSLT"
 published_at: 2002-03-24
 date: 2002-03-24
 tags: xml XSLT

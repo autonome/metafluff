@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Remixable Quilts for the Web
+title: "Remixable Quilts for the Web"
 published_at: 2014-12-19
 date: 2014-12-19
 tags: mozilla mozilla quilting webdev webmaker

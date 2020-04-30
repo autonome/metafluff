@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Semantic "Databases" Explained.
+title: "Semantic "Databases" Explained."
 published_at: 2002-11-12
 date: 2002-11-12
 tags: Semantic web

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Interesting Analogy...
+title: "Interesting Analogy..."
 published_at: 2002-12-16
 date: 2002-12-16
 tags: quotes

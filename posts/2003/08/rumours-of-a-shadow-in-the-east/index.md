@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rumours of a Shadow in the East...
+title: "Rumours of a Shadow in the East..."
 published_at: 2003-08-13
 date: 2003-08-13
 tags: moblog photos

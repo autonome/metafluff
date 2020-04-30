@@ -1,6 +1,6 @@
 ---
 layout: post
-title: EPA Says Toxic Sludge is Good for Fish (via NWD)
+title: "EPA Says Toxic Sludge is Good for Fish (via NWD)"
 published_at: 2002-06-21
 date: 2002-06-21
 tags: assholes politics

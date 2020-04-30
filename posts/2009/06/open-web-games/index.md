@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Open Web Games
+title: "Open Web Games"
 published_at: 2009-06-02
 date: 2009-06-02
 tags: canvas firefox games Gaming html5 mozilla mozilla

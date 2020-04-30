@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Foxylicious 0.7
+title: "Foxylicious 0.7"
 published_at: 2006-10-27
 date: 2006-10-27
 tags: firefox foxylicious

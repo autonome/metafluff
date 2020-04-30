@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building Firefox in the Post-Browser Age
+title: "Building Firefox in the Post-Browser Age"
 published_at: 2011-10-26
 date: 2011-10-26
 tags: firefox firefox jetpack mozilla mozilla

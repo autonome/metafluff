@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Startup Performance Weekly Summary
+title: "Firefox Startup Performance Weekly Summary"
 published_at: 2009-10-12
 date: 2009-10-12
 tags: firefox firefox mozilla mozilla Performance

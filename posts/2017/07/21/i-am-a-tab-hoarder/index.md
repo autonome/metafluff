@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The New Firefox and Ridiculous Numbers of Tabs
+title: "The New Firefox and Ridiculous Numbers of Tabs"
 published_at: 2017-07-21
 date: 2017-07-21
 tags: Firefox, Performance, Tabs

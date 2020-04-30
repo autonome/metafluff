@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tracking Firefox UI Response Time
+title: "Tracking Firefox UI Response Time"
 published_at: 2011-02-22
 date: 2011-02-22
 tags: firefox firefox jetpack mozilla mozilla Performance

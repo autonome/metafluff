@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Latest Mars Picture
+title: "Latest Mars Picture"
 published_at: 2004-01-20
 date: 2004-01-20
 tags: Space

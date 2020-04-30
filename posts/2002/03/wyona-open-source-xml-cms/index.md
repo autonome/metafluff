@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wyona: Open Source XML CMS
+title: "Wyona: Open Source XML CMS"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: cms xml

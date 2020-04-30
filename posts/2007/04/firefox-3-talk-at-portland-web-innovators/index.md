@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox 3 Talk at Portland Web Innovators
+title: "Firefox 3 Talk at Portland Web Innovators"
 published_at: 2007-04-06
 date: 2007-04-06
 tags: firefox mozilla oregon portland

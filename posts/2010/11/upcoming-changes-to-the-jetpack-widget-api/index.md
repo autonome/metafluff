@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Upcoming changes to the Jetpack Widget API
+title: "Upcoming changes to the Jetpack Widget API"
 published_at: 2010-11-23
 date: 2010-11-23
 tags: firefox firefox JavaScript jetpack mozilla mozilla

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trust, Identity and the GUIDMail
+title: "Trust, Identity and the GUIDMail"
 published_at: 2005-07-01
 date: 2005-07-01
 tags: mozilla Yahoo360

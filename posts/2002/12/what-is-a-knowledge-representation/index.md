@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is a Knowledge Representation?
+title: "What is a Knowledge Representation?"
 published_at: 2002-12-07
 date: 2002-12-07
 tags: AI RDF Semantic Web

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Performance Work-week & FOSDEM
+title: "Firefox Performance Work-week & FOSDEM"
 published_at: 2012-01-30
 date: 2012-01-30
 tags: belgium brussels firefox firefox hackerspace hackerspaces mozilla mozilla Performance

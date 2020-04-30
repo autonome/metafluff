@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Simplified WSDL
+title: "Simplified WSDL"
 published_at: 2002-06-21
 date: 2002-06-21
 tags: WSDL

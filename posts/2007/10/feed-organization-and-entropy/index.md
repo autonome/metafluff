@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Feed organization and entropy
+title: "Feed organization and entropy"
 published_at: 2007-10-16
 date: 2007-10-16
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox, Extensions and Performance
+title: "Firefox, Extensions and Performance"
 published_at: 2010-03-11
 date: 2010-03-11
 tags: extensions firefox firefox mozilla Performance

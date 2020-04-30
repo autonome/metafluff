@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Browser Services Update (TGIF)
+title: "Browser Services Update (TGIF)"
 published_at: 2012-03-03
 date: 2012-03-03
 tags: firefox firefox mozilla mozilla

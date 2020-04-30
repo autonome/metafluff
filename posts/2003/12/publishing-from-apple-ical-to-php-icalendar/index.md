@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Publishing from Apple iCal to PHP iCalendar
+title: "Publishing from Apple iCal to PHP iCalendar"
 published_at: 2003-12-12
 date: 2003-12-12
 tags: OS X PHP

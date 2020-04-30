@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vacationeering
+title: "Vacationeering"
 published_at: 2008-09-05
 date: 2008-09-05
 tags: belize guatemala maya tikal vacation

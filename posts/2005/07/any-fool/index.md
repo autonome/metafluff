@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Any Fool
+title: "Any Fool"
 published_at: 2005-07-15
 date: 2005-07-15
 tags: quotes

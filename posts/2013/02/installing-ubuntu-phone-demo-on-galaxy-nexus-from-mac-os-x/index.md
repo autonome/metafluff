@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Installing Ubuntu Phone Demo on Galaxy Nexus from Mac OS X
+title: "Installing Ubuntu Phone Demo on Galaxy Nexus from Mac OS X"
 published_at: 2013-02-22
 date: 2013-02-22
 ---

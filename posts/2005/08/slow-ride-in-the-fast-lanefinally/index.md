@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Slow Ride in the Fast Lane...Finally
+title: "Slow Ride in the Fast Lane...Finally"
 published_at: 2005-08-12
 date: 2005-08-12
 tags: Yahoo360

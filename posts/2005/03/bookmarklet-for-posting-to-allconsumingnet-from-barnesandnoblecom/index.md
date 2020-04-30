@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bookmarklet for Posting to Allconsuming.net from BarnesAndNoble.com
+title: "Bookmarklet for Posting to Allconsuming.net from BarnesAndNoble.com"
 published_at: 2005-03-22
 date: 2005-03-22
 tags: books pim politics

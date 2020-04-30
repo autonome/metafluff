@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Thermals @ Crystal Ballroom
+title: "Thermals @ Crystal Ballroom"
 published_at: 2007-02-21
 date: 2007-02-21
 tags: music portland

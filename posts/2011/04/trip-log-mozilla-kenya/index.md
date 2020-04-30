@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trip Log: Mozilla Kenya
+title: "Trip Log: Mozilla Kenya"
 published_at: 2011-04-29
 date: 2011-04-29
 tags: africa firefox firefox kenya mozilla mozilla nairobi travel

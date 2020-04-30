@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mozilla Time Machine
+title: "Mozilla Time Machine"
 published_at: 2007-12-08
 date: 2007-12-08
 tags: mozilla

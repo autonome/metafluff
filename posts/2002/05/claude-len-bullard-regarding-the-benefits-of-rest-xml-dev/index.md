@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Claude (Len) Bullard Regarding the Benefits of REST (XML-DEV)
+title: "Claude (Len) Bullard Regarding the Benefits of REST (XML-DEV)"
 published_at: 2002-05-02
 date: 2002-05-02
 tags: quotes

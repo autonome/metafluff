@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Overheard in New York...
+title: "Overheard in New York..."
 published_at: 2005-05-07
 date: 2005-05-07
 tags: Yahoo360

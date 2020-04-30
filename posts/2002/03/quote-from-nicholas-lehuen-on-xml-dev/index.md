@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quote from Nicholas Lehuen on xml-dev
+title: "Quote from Nicholas Lehuen on xml-dev"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

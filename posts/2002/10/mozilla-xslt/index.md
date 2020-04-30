@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mozilla + XSLT
+title: "Mozilla + XSLT"
 published_at: 2002-10-24
 date: 2002-10-24
 tags: mozilla XSLT

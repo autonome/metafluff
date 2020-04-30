@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sooo del.icio.us
+title: "Sooo del.icio.us"
 published_at: 2004-12-08
 date: 2004-12-08
 tags: foxylicious mozilla

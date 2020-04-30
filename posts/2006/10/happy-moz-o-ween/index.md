@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Happy Moz-o-ween!
+title: "Happy Moz-o-ween!"
 published_at: 2006-10-31
 date: 2006-10-31
 tags: halloween mozilla

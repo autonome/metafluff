@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Most Disgusting, and Funniest Climbing Story Ever
+title: "The Most Disgusting, and Funniest Climbing Story Ever"
 published_at: 2004-03-11
 date: 2004-03-11
 tags: climbing

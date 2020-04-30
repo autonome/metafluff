@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Petzl Climbing Clips
+title: "Petzl Climbing Clips"
 published_at: 2004-06-03
 date: 2004-06-03
 tags: climbing

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Resume review.
+title: "Resume review."
 published_at: 2011-12-21
 date: 2011-12-21
 tags: firefox mozilla

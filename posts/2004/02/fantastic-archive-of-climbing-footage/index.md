@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fantastic Archive of Climbing Footage
+title: "Fantastic Archive of Climbing Footage"
 published_at: 2004-02-19
 date: 2004-02-19
 tags: climbing

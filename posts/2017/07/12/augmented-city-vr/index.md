@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Augmented City - VR
+title: "Augmented City - VR"
 published_at: 2017-07-11
 date: 2017-07-11
 tags: vr, aframe, webvr, augmented city

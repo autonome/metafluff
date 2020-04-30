@@ -1,6 +1,6 @@
 ---
 layout: post
-title: tweez: extension for kui tagging in firefox 3
+title: "tweez: extension for kui tagging in firefox 3"
 published_at: 2008-01-18
 date: 2008-01-18
 tags: firefox mozilla

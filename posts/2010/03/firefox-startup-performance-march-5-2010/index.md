@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Startup Performance - March 5, 2010
+title: "Firefox Startup Performance - March 5, 2010"
 published_at: 2010-03-06
 date: 2010-03-06
 tags: firefox firefox mozilla mozilla Performance startup

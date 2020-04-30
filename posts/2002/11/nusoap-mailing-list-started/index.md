@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NuSOAP Mailing List Started
+title: "NuSOAP Mailing List Started"
 published_at: 2002-11-05
 date: 2002-11-05
 tags: nusoap

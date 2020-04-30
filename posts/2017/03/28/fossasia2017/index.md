@@ -1,6 +1,6 @@
 ---
 layout: post
-title: FOSSAsia 2017
+title: "FOSSAsia 2017"
 published_at: 2017-03-28
 date: 2017-03-28
 tags: Events, Asia, 2017

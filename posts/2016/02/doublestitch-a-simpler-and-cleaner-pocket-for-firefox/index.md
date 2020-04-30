@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Doublestitch - A Simpler and Cleaner Pocket for Firefox
+title: "Doublestitch - A Simpler and Cleaner Pocket for Firefox"
 published_at: 2016-02-20
 date: 2016-02-20
 ---

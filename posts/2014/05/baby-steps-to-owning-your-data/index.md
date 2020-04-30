@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Baby Steps to Owning Your Data
+title: "Baby Steps to Owning Your Data"
 published_at: 2014-05-07
 date: 2014-05-07
 tags: indieweb

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Brendan the Soothsayer
+title: "Brendan the Soothsayer"
 published_at: 2004-04-08
 date: 2004-04-08
 tags: mozilla

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bugzilla Patch Interdiff Greasemonkey Script
+title: "Bugzilla Patch Interdiff Greasemonkey Script"
 published_at: 2007-03-24
 date: 2007-03-24
 tags: greasemonkey mozilla

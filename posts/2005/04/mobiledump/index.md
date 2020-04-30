@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mobiledump
+title: "Mobiledump"
 published_at: 2005-04-09
 date: 2005-04-09
 tags: dev mobile

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A-Frame Quickstart for Augmented City
+title: "A-Frame Quickstart for Augmented City"
 published_at: 2017-07-06
 date: 2017-07-06
 tags: vr, ar, aframe, webvr, augmented city

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WSDL Proxying in Mozilla
+title: "WSDL Proxying in Mozilla"
 published_at: 2003-06-11
 date: 2003-06-11
 tags: mozilla SOAP WSDL

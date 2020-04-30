@@ -1,6 +1,6 @@
 ---
 layout: post
-title: With Warm Wet Wonder...
+title: "With Warm Wet Wonder..."
 published_at: 2002-06-18
 date: 2002-06-18
 tags: music

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bert Wilson, from Bert's World of Little Known Facts
+title: "Bert Wilson, from Bert's World of Little Known Facts"
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

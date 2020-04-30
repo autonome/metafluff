@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some Notes on Living in Chiang Mai, Thailand
+title: "Some Notes on Living in Chiang Mai, Thailand"
 published_at: 2012-01-05
 date: 2012-01-05
 tags: chiang mai thailand travel

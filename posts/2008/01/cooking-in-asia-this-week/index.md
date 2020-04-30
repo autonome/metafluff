@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cooking in Asia this week
+title: "Cooking in Asia this week"
 published_at: 2008-01-12
 date: 2008-01-12
 tags: Food

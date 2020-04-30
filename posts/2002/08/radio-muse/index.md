@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Radio Muse
+title: "Radio Muse"
 published_at: 2002-08-23
 date: 2002-08-23
 tags: music Radio SOAP

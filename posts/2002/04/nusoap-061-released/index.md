@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NuSOAP 0.6.1 Released
+title: "NuSOAP 0.6.1 Released"
 published_at: 2002-04-23
 date: 2002-04-23
 tags: nusoap

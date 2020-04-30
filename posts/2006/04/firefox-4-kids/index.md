@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox 4 Kids
+title: "Firefox 4 Kids"
 published_at: 2006-04-08
 date: 2006-04-08
 tags: mozilla

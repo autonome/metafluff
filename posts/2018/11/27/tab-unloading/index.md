@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Experiments in Tab Unloading
+title: "Experiments in Tab Unloading"
 published_at: 2018-11-27
 date: 2018-11-27
 tags: Firefox, Tabs, UX, Extensions, WebExtensions

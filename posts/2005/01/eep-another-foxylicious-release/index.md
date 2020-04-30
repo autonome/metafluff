@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Eep, Another Foxylicious Release!
+title: "Eep, Another Foxylicious Release!"
 published_at: 2005-01-14
 date: 2005-01-14
 tags: firefox foxylicious mozilla

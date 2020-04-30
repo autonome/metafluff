@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JWZ: Tabs VS Spaces
+title: "JWZ: Tabs VS Spaces"
 published_at: 2002-04-16
 date: 2002-04-16
 tags: Programming

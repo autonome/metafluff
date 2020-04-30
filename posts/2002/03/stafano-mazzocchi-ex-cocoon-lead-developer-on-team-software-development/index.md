@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stafano Mazzocchi, ex Cocoon lead developer, on team software development.
+title: "Stafano Mazzocchi, ex Cocoon lead developer, on team software development."
 published_at: 2002-03-18
 date: 2002-03-18
 tags: quotes

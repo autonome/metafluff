@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox Startup Performance
+title: "Firefox Startup Performance"
 published_at: 2009-08-08
 date: 2009-08-08
 tags: firefox firefox fx-team mozilla mozilla Performance

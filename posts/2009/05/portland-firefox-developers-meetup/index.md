@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Portland Firefox Developers Meetup
+title: "Portland Firefox Developers Meetup"
 published_at: 2009-05-08
 date: 2009-05-08
 tags: firefox firefox meetup mozilla oregon portland portland

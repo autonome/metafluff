@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mozlandia - A Portland mini-guide for Mozillians
+title: "Mozlandia - A Portland mini-guide for Mozillians"
 published_at: 2014-11-27
 date: 2014-11-27
 tags: mozilla mozlandia pdx portland

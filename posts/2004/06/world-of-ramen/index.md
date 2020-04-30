@@ -1,6 +1,6 @@
 ---
 layout: post
-title: World of Ramen
+title: "World of Ramen"
 published_at: 2004-06-23
 date: 2004-06-23
 tags: Food

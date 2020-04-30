@@ -1,6 +1,6 @@
 ---
 layout: post
-title: For the Amateur Astronomer...
+title: "For the Amateur Astronomer..."
 published_at: 2002-11-23
 date: 2002-11-23
 tags: Astronomy

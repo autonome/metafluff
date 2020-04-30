@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jetpacking: The 0.3 SDK and a peek at what's coming next.
+title: "Jetpacking: The 0.3 SDK and a peek at what's coming next."
 published_at: 2010-05-01
 date: 2010-05-01
 tags: firefox firefox jetpack mozilla mozilla

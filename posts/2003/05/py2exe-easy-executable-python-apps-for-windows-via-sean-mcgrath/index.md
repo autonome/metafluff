@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Py2exe: Easy Executable Python Apps for Windows (via Sean McGrath)
+title: "Py2exe: Easy Executable Python Apps for Windows (via Sean McGrath)"
 published_at: 2003-05-23
 date: 2003-05-23
 tags: Python

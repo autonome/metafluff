@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firefox OS: Devices and Dark Matter
+title: "Firefox OS: Devices and Dark Matter"
 published_at: 2013-01-15
 date: 2013-01-15
 tags: Boot2Gecko firefox firefox os Firefox OS mozilla mozilla

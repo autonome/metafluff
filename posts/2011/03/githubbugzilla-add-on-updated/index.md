@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Github+Bugzilla Add-on Updated
+title: "Github+Bugzilla Add-on Updated"
 published_at: 2011-03-29
 date: 2011-03-29
 tags: Add-ons Bugzilla firefox firefox Github jetpack mozilla mozilla
