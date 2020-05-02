@@ -1,0 +1,15 @@
+{
+  "title": "Dietrich Ayala",
+  "url": "https://metafluff.com/",
+  "description": "Personal website of Dietrich Ayala",
+  "feed": {
+    "subtitle": "Personal website of Dietrich Ayala",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://metafluff.com/"
+  },
+  "author": {
+    "name": "Dietrich Ayala",
+    "email": "autonome@gmail.com"
+  }
+}

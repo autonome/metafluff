@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Firefox 3.6 Performance: Startup and Snappiness Improvements"
+published_at: 2010-01-22
+date: 2010-01-22
+tags: ["firefox","firefox","Firefox3.6","Mac","mozilla","Performance","startup"]
+---
+
+[Firefox 3.6 was released today](http://bit.ly/blogfx36)! For me, the most important changes in this release are the performance and stability improvements. On Mac especially, there are some big improvements in startup time, yielding up to 30% faster startup generally. And on both Mac and Windows, we fixed some pathologically bad startup scenarios.
+
+The list of bugs fixed that specifically affect startup time is [here](http://bit.ly/5t9fA9), however a few should be called out individually:
+
+*   [Ted Mielczarek](http://ted.mielczarek.org/) and [Drew Willcoxon](http://blog.mozilla.com/adw/) [combined all .xpt files into a single one](https://bugzilla.mozilla.org/show_bug.cgi?id=463605), reducing the number of files read from the disk at startup.
+*   [Rob Strong](http://blog.mozilla.com/rstrong/) [removed the need for services to load at startup for timer registration](https://bugzilla.mozilla.org/show_bug.cgi?id=471219), reducing the number of files read from disk at startup, as well as reducing the amount of JavaScript executed. There are still services that need to be ported to this new scheme, so expect more improvements here.
+*   [Vlad Vukicevic](http://blog.vlad1.com/) found that on Mac it could [take up to a whole second to initialize Growl](https://bugzilla.mozilla.org/show_bug.cgi?id=506470), if present. His fix initializes Growl on demand.
+*   [Joel Reymont](http://wagerlabs.com/) found that up to 10% of startup time on Mac was in the initialization of fonts. [John Daggett](http://blog.mozilla.com/nattokirai/) and Jonathan Kew [did some great work to reduce the problem in Firefox 3.6](https://bugzilla.mozilla.org/show_bug.cgi?id=517045). They subsequently [modified font loading on Mac to occur on-demand](https://bugzilla.mozilla.org/show_bug.cgi?id=519445), so the next release will be even faster.
+*   Joel also found that up to [12% of startup on Mac was spent in some APIs that were only needed for debugging](https://bugzilla.mozilla.org/show_bug.cgi?id=517549). The problem was quickly fixed by Masayuki Nakano.
+*   [Taras Glek](http://blog.mozilla.com/tglek/) and Alfred Kayser spent a bunch of time [improving the performance of how JARs are loaded and read from](https://bugzilla.mozilla.org/show_bug.cgi?id=504864). The infrastructure improvements made are paying off as we move more groups of small files into these archives, reducing the number of individual file operations that occur at startup time.
+*   On Windows, it was found that [a large portion of startup time was spent in the security libraries](https://bugzilla.mozilla.org/show_bug.cgi?id=501605), building up entropy by trawling through IE's cache folder and the Windows temp directory. Some Windows users reported upwards of 25k files in their temp directories, so you can imagine the delays that this behavior was causing for some users. The behavior is now fixed.
+The full list of bugs fixed in Firefox 3.6 with the "perf" keyword is [here](http://bit.ly/7Y6gqE). These range from improvements to web page loading times, general UI responsiveness, and improvements to specific UI actions such as searching History and Bookmarks:
+
+*   One of the biggest improvements is that [Shawn Wilsher](http://shawnwilsher.com/) ported all of the Awesomebar code to JavaScript and [moved the queries that build up the results to a background thread](https://bugzilla.mozilla.org/show_bug.cgi?id=455555). This resulted in a massive improvement in UI responsiveness when typing in the location bar.
+*   Another infrastructural improvement that will affect general responsiveness is [Marco Bonardo](http://blog.bonardo.net/)'s work to [clean up the bookmarks and history database periodically](https://bugzilla.mozilla.org/show_bug.cgi?id=512854).
+*   Per-tab-network-prioritization is the long way of saying that Firefox will prioritize the network traffic of pages you are currently interacting with. [Paul O'Shannessy explains the feature here](http://zpao.com/articles/22-per_tab_network_prioritization), and was able to [finish it up in time to make 3.6](https://bugzilla.mozilla.org/show_bug.cgi?id=514490).
+*   Finally, there are a TON of performance improvements to the JavaScript engine, which benefit just about every area of the browser, from startup time to page loading to extensions. [Dave Mandelin](http://blog.mozilla.com/dmandelin/) put up [a detailed post on Hacks.Mozilla.org](http://hacks.mozilla.org/2010/01/javascript-speedups-in-firefox-3-6/) last week that explains it all.
+And all of this is just a taste of what's to come: Over 60% of the bugs fixed as part of our focus on startup performance have landed on trunk, but didn't make it in time for the 3.6 release. You can follow along on the [wiki page for the startup project](https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements), and here on my blog, where I post status updates every Friday.

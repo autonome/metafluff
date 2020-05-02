@@ -1,0 +1,68 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+
+<style type="text/css">
+  div.navgrid {
+    display: grid;
+    grid-template-columns: 1fr repeat(6, minmax(10%, 1fr));
+    margin: 0;
+    padding: 0;
+  }
+
+  div.navgrid > div {
+    padding: 0.5rem;
+  }
+
+  div.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+</style>
+
+<div class="container">
+
+<div id="hcard-Dietrich-Ayala" class="vcard content navgrid">
+
+  <div>
+    <img src="http://www.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9.png" alt="photo of" class="photo"/>
+  </div>
+
+  <div><a class="url fn" href="http://metafluff.com">Dietrich Ayala</a></div>
+  <div><a href="https://twitter.com/dietrich" target="_blank" rel="me">Twitter</a></div>
+  <div><a class="email" href="mailto:autonome@gmail.com">Email</a></div>
+  <div><a href="https://github.com/autonome" target="_blank" rel="me">Github</a></div>
+  <div><a href="https://www.linkedin.com/in/dietrich" target="_blank" rel="me">LinkedIn</a></div>
+  <div><a href="https://www.instagram.com/evilstagram" target="_blank" rel="me">Fuck Instagram</a></div>
+  <div class="adr">Location: <span class="locality">Portland</span>, <span class="region">Oregon</span> <span class="country-name">USA</span></div>
+  
+{% set postslist = collections.posts | head(-3) %}
+{% set postslistCounter = collections.posts | length %}
+{% for post in postslist | reverse %}
+  <div>
+    <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+    <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    {% for tag in post.data.tags %}
+      {%- if collections.tagList.indexOf(tag) != -1 -%}
+      {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+      <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
+      {%- endif -%}
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<div><a href="{{ '/posts/' | url }}">posts archive</a></div>
+
+</div>
+
+</div>
+
+</body>
+</html>
