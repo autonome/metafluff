@@ -2,15 +2,15 @@
   "blog": {
     "url": "/",
     "title": "Dietrich Ayala",
-    "description": "Internet freedom, the web and Mozilla.",
+    "description": "Working towards true user agency through a distributed web.",
     "cover": "/octo.jpg"
   },
   "authors": {
     "default": {
       "name": "Dietrich Ayala",
-      "bio": "Dietrich Ayala is a developer advocate working for internet freedom at Mozilla, the non-profit makers of the Firefox web browser.",
+      "bio": "Dietrich Ayala is an influencer, thought leader, futurist and other words too.",
       "website": "https://metafluff.com",
-      "image": "https://en.gravatar.com/userimage/267418/71bda5b5ec91b98ad14f93bcf37098d3.png",
+      "image": "https://en.gravatar.com/userimage/267418/cef501f07e8d0fbddb9b1dd39f7311b5.png",
       "cover": "",
       "slug": ""
     }
