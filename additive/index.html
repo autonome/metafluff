@@ -38,7 +38,11 @@
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <style type="text/css">
-		@import url('https://rsms.me/inter/inter-ui.css');
+    @import url('https://rsms.me/inter/inter.css');
+    html { font-family: 'Inter', sans-serif; }
+    @supports (font-variation-settings: normal) {
+      html { font-family: 'Inter var', sans-serif; }
+    }
 
     * {
       padding: 0;
@@ -48,24 +52,6 @@
 
     html, body {
       min-height: 100vh;
-			font-family: 'Inter UI', sans-serif;
-    }
-
-    .navgrid ul {
-      display: grid;
-      grid-template-columns: 1fr repeat(6, minmax(10%, 1fr));
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      background: #fff;
-    }
-
-    li {
-      padding: 1rem;
-    }
-
-    .navgrid a {
-      text-decoration: none;
     }
 
     div.container {
@@ -73,31 +59,38 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      height: 100%;
     }
+
     .hero-holder {
-      border: 1px solid black;
-    }
-    .hero {
-      width: 70vw;
+      max-width: 70vw;
+      max-height: 20vh;
       margin-top: 10vh;
       border: 1px solid red;
     }
+
     .title {
       fill: url(#pattern);
-      font: bold italic 7em Georgia;
+      font: bold italic 3em Georgia;
     }
+
     .subtitle {
-      font: bold italic 1.5em/1.5 Georgia;
+      font: bold italic 1.5em/1.5;
       margin: 1.5em;
       text-align: center;
     }
+
+    .subsubtitle {
+      text-align: center;
+    }
+
     .icons {
       text-align: center;
     }
+
     .icons a {
       text-decoration: none;
     }
+
     .icon {
       color: black;
       font-family: 'FontAwesome';
@@ -110,20 +103,23 @@
 <body>
 
 <div class="container">
+
   <div class="hero-holder">
-    <svg class="hero" viewBox="0 -100 460 120">
-    <defs>
-      <pattern id="pattern" x="0" y="0" width="1" height="1">
-        <image xlink:href="octo.jpg" x="0" y="0" width="520" height="350"/>
-      </pattern>
-    </defs>
-    <text class="title">tubes</text>
-  </svg>
+    <svg class="hero" viewBox="0 -100 243 120">
+      <defs>
+        <pattern id="pattern" x="0" y="0" width="1" height="1">
+          <image xlink:href="octo.jpg" x="0" y="0" width="520" height="350"/>
+        </pattern>
+      </defs>
+      <text class="title">metafluff</text>
+    </svg>
   </div>
 
   <div class="subtitle">
-    Dietrich Ayala<br>
-    Working for internet freedom, true user agency, and a distributed web.
+    Dietrich Ayala
+    <div class="subsubtitle">
+      Working for internet freedom, true user agency, and a distributed web.
+    </div>
   </div>
 
   <div class="icons">
@@ -148,61 +144,6 @@
     <a href="skype:autonome?chat" target="_blank" title="skype">
       <i class="fa fa-skype icon" aria-hidden="true"></i>
     </a>
-</div>
-
-<!--
-<div class="navgrid">
-  <ul>
-    <li>dietrich ayala</li>
-    <li>
-      <a href="mailto:autonome@gmail.com" target="_blank">
-        <i class="fa fa-envelope icon" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="https://twitter.com/dietrich" target="_blank" rel="me">
-        <i class="fa fa-twitter icon" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/autonome" target="_blank" rel="me">
-        <i class="fa fa-github icon" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/autonome" target="_blank" rel="me">
-        <i class="fa fa-instagram icon" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/dietrich" target="_blank" rel="me">
-        <i class="fa fa-linkedin icon" aria-hidden="true"></i>
-      </a>
-    </li>
-    <li>
-      <a href="skype:autonome?chat" target="_blank">
-        <i class="fa fa-skype icon" aria-hidden="true"></i>
-      </a>
-    </li>
-  </ul>
-</div>
--->
-
-  <div class="content">
-
-    <div class="posts">
-    </div>
-
-    <div class="talks">
-      <!--
-        https://www.linux.com/news/repurposing-old-smartphones-home-automation
-        https://www.youtube.com/watch?list=PLGeM09tlguZRbcUfg4rmRZ1TjpcQQFfyr&v=4RWSXlai6PE
-      -->
-    </div>
-
-    <div class="projects">
-    </div>
-
   </div>
 
 </div>
