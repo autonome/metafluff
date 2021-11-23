@@ -22,6 +22,7 @@ layout: layouts/base.njk
   <div><a href="https://www.linkedin.com/in/dietrich" target="_blank" rel="me">LinkedIn</a></div>
   <div><a href="https://www.instagram.com/evilstagram" target="_blank" rel="me">Fuck Instagram</a></div>
   <div class="adr">Location: <span class="locality">Portland</span>, <span class="region">Oregon</span> <span class="country-name">USA</span></div>
+  <div><a href="{{ '/posts/' | url }}">posts archive</a></div>
   
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
@@ -38,7 +39,6 @@ layout: layouts/base.njk
   </div>
 {% endfor %}
 
-<div><a href="{{ '/posts/' | url }}">posts archive</a></div>
 
 </div>
 

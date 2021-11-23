@@ -16,7 +16,6 @@ div.content {
 }
 
 div.content > div {
-  background-color: pink;
   margin: 0.5rem;
   padding: 0.5rem;
   height: 10rem;
