@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - &quot;Installing Ubuntu Phone Demo on Galaxy Nexus from Mac OS X&quot;- Dietrich Ayala</title>
+    <meta name="description" content="Props to Mirko85 for this post which spelled it out for Windows. STANDARD DEVICE WARNINGS: You&amp;#39;ll violate your warranty probably, and you might brick your phone. You have been warned. Install adb and fastboot for Mac Download these files from Ubuntu&amp;#39;s server quantal-preinstalled-boot-armel+maguro.img quantal-preinstalled-recovery-armel+maguro.img quantal-preinstalled-system-armel+maguro.img quantal-preinstalled-armel+maguro.img quantal-preinstalled-phablet-armhf.img Plug the device in via USB Open Terminal and navigate to the directory you downloaded the files to If you haven&amp;#39;t unlocked the device, execute &amp;quot;fastboot oem unlock&amp;quot; and follow onscreen instructions Power down the device" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icons -->
+    <link rel="shortcut icon" href="/favicon.ico?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=m2R9YbnajO">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=m2R9YbnajO">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=m2R9YbnajO" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest?v=m2R9YbnajO">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Dietrich Ayala - &quot;Installing Ubuntu Phone Demo on Galaxy Nexus from Mac OS X&quot;- Dietrich Ayala">
+    <meta itemprop="description" content="Props to Mirko85 for this post which spelled it out for Windows. STANDARD DEVICE WARNINGS: You&amp;#39;ll violate your warranty probably, and you might brick your phone. You have been warned. Install adb and fastboot for Mac Download these files from Ubuntu&amp;#39;s server quantal-preinstalled-boot-armel+maguro.img quantal-preinstalled-recovery-armel+maguro.img quantal-preinstalled-system-armel+maguro.img quantal-preinstalled-armel+maguro.img quantal-preinstalled-phablet-armhf.img Plug the device in via USB Open Terminal and navigate to the directory you downloaded the files to If you haven&amp;#39;t unlocked the device, execute &amp;quot;fastboot oem unlock&amp;quot; and follow onscreen instructions Power down the device">
+    <meta itemprop="image" content="https://metafluff.com/me.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Dietrich Ayala - &quot;Installing Ubuntu Phone Demo on Galaxy Nexus from Mac OS X&quot;- Dietrich Ayala">
+    <meta name="twitter:description" content="Props to Mirko85 for this post which spelled it out for Windows. STANDARD DEVICE WARNINGS: You&amp;#39;ll violate your warranty probably, and you might brick your phone. You have been warned. Install adb and fastboot for Mac Download these files from Ubuntu&amp;#39;s server quantal-preinstalled-boot-armel+maguro.img quantal-preinstalled-recovery-armel+maguro.img quantal-preinstalled-system-armel+maguro.img quantal-preinstalled-armel+maguro.img quantal-preinstalled-phablet-armhf.img Plug the device in via USB Open Terminal and navigate to the directory you downloaded the files to If you haven&amp;#39;t unlocked the device, execute &amp;quot;fastboot oem unlock&amp;quot; and follow onscreen instructions Power down the device">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="https://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="Props to Mirko85 for this post which spelled it out for Windows. STANDARD DEVICE WARNINGS: You&amp;#39;ll violate your warranty probably, and you might brick your phone. You have been warned. Install adb and fastboot for Mac Download these files from Ubuntu&amp;#39;s server quantal-preinstalled-boot-armel+maguro.img quantal-preinstalled-recovery-armel+maguro.img quantal-preinstalled-system-armel+maguro.img quantal-preinstalled-armel+maguro.img quantal-preinstalled-phablet-armhf.img Plug the device in via USB Open Terminal and navigate to the directory you downloaded the files to If you haven&amp;#39;t unlocked the device, execute &amp;quot;fastboot oem unlock&amp;quot; and follow onscreen instructions Power down the device">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Dietrich Ayala - &quot;Installing Ubuntu Phone Demo on Galaxy Nexus from Mac OS X&quot;- Dietrich Ayala">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://metafluff.com">
+    <meta property="og:image" content="https://metafluff.com/octo.jpg">
+    <meta property="og:description" content="Props to Mirko85 for this post which spelled it out for Windows. STANDARD DEVICE WARNINGS: You&amp;#39;ll violate your warranty probably, and you might brick your phone. You have been warned. Install adb and fastboot for Mac Download these files from Ubuntu&amp;#39;s server quantal-preinstalled-boot-armel+maguro.img quantal-preinstalled-recovery-armel+maguro.img quantal-preinstalled-system-armel+maguro.img quantal-preinstalled-armel+maguro.img quantal-preinstalled-phablet-armhf.img Plug the device in via USB Open Terminal and navigate to the directory you downloaded the files to If you haven&amp;#39;t unlocked the device, execute &amp;quot;fastboot oem unlock&amp;quot; and follow onscreen instructions Power down the device">
+    <meta property="og:site_name" content="Dietrich Ayala">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2013/02/installing-ubuntu-phone-demo-on-galaxy-nexus-from-mac-os-x/" />
+</head>
+<body class="author-template author- post-template nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">&quot;Installing Ubuntu Phone Demo on Galaxy Nexus from Mac OS X&quot;</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2013-02-21">21 February 2013</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Props to Mirko85 for <a href="http://j.mp/15yUsPE">this post</a> which spelled it out for Windows.</p>
+<p>STANDARD DEVICE WARNINGS: You&#39;ll violate your warranty probably, and you might brick your phone. You have been warned.</p>
+<ul>
+<li><a href="http://code.google.com/p/adb-fastboot-install/">Install adb and fastboot for Mac</a></li>
+<li><p>Download these files from <a href="http://cdimage.ubuntu.com/ubuntu-touch-preview/quantal/mwc-demo/">Ubuntu&#39;s server</a></p>
+<ul>
+<li>quantal-preinstalled-boot-armel+maguro.img</li>
+<li>quantal-preinstalled-recovery-armel+maguro.img</li>
+<li>quantal-preinstalled-system-armel+maguro.img</li>
+<li>quantal-preinstalled-armel+maguro.img</li>
+<li>quantal-preinstalled-phablet-armhf.img</li>
+</ul>
+</li>
+<li><p>Plug the device in via USB</p>
+</li>
+<li>Open Terminal and navigate to the directory you downloaded the files to</li>
+<li>If you haven&#39;t unlocked the device, execute &quot;fastboot oem unlock&quot; and follow onscreen instructions</li>
+<li>Power down the device</li>
+<li>Enter fastboot mode by pressing volume up, volume down and power buttons at the same time until you feel it vibrate</li>
+<li><p>Once in fastboot mode, execute the following commands from Terminal</p>
+<ul>
+<li>fastboot flash recovery recovery-quantal-preinstalled-armel+maguro.img</li>
+<li>fastboot flash system quantal-preinstalled-system-armel+maguro.img</li>
+<li>fastboot flash boot quantal-preinstalled-boot-armel+maguro.img</li>
+</ul>
+</li>
+<li><p>Using the volume keys, select recovery mode and press power</p>
+</li>
+<li>In Terminal, execute &quot;adb sideload quantal-preinstalled-armel+maguro.zip&quot;</li>
+<li>Wait for the command to complete (if you see &quot;fixing fs_size in crypto footer&quot;, ignore it, it&#39;s done)</li>
+<li>Use volume keys to navigate to &quot;advanced&quot;, press power, select &quot;reboot recovery&quot; and press power again</li>
+<li>Once back in recovery mode, execute from Terminal: &quot;adb sideload quantal-preinstalled-phablet-armhf.zip&quot;</li>
+<li>Once the command has completed, use the volume keys to select &quot;restart device&quot; and press power button</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/cef501f07e8d0fbddb9b1dd39f7311b5.png)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is an influencer, thought leader, futurist and other words too.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Beijing</span>
+                    <span class="author-link icon-link"><a href="https://metafluff.com">https://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2013</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+	<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '598429df7218b52c910d4d28');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+  <!-- Fathom - beautiful, simple website analytics -->
+  <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+  <!-- / Fathom -->
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - &quot;Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT&quot;- Dietrich Ayala</title>
+    <meta name="description" content="Project SensorWeb is an experiment from the Connected Devices group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&amp;#39;ve had some serious air quality discoveries in Portland recently - our air is possibly the worst in the USA, and bad enough that mega-activists like Erin Brockovich are getting involved. A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&amp;#39;rearduino,ifttt,iot,iot,mozilla,mozilla" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icons -->
+    <link rel="shortcut icon" href="/favicon.ico?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=m2R9YbnajO">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=m2R9YbnajO">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=m2R9YbnajO" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest?v=m2R9YbnajO">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Dietrich Ayala - &quot;Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT&quot;- Dietrich Ayala">
+    <meta itemprop="description" content="Project SensorWeb is an experiment from the Connected Devices group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&amp;#39;ve had some serious air quality discoveries in Portland recently - our air is possibly the worst in the USA, and bad enough that mega-activists like Erin Brockovich are getting involved. A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&amp;#39;rearduino,ifttt,iot,iot,mozilla,mozilla">
+    <meta itemprop="image" content="https://metafluff.com/me.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Dietrich Ayala - &quot;Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT&quot;- Dietrich Ayala">
+    <meta name="twitter:description" content="Project SensorWeb is an experiment from the Connected Devices group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&amp;#39;ve had some serious air quality discoveries in Portland recently - our air is possibly the worst in the USA, and bad enough that mega-activists like Erin Brockovich are getting involved. A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&amp;#39;rearduino,ifttt,iot,iot,mozilla,mozilla">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="https://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="Project SensorWeb is an experiment from the Connected Devices group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&amp;#39;ve had some serious air quality discoveries in Portland recently - our air is possibly the worst in the USA, and bad enough that mega-activists like Erin Brockovich are getting involved. A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&amp;#39;rearduino,ifttt,iot,iot,mozilla,mozilla">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Dietrich Ayala - &quot;Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT&quot;- Dietrich Ayala">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://metafluff.com">
+    <meta property="og:image" content="https://metafluff.com/octo.jpg">
+    <meta property="og:description" content="Project SensorWeb is an experiment from the Connected Devices group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&amp;#39;ve had some serious air quality discoveries in Portland recently - our air is possibly the worst in the USA, and bad enough that mega-activists like Erin Brockovich are getting involved. A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&amp;#39;rearduino,ifttt,iot,iot,mozilla,mozilla">
+    <meta property="og:site_name" content="Dietrich Ayala">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2016/07/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/" />
+</head>
+<body class="author-template author- post-template tag-arduino tag-ifttt tag-iot tag-iot tag-mozilla tag-mozilla nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-arduino tag-ifttt tag-iot tag-iot tag-mozilla tag-mozilla">
+
+        <header class="post-header">
+            <h1 class="post-title">&quot;Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT&quot;</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-07-13">13 July 2016</time>  on <a href="/tag/arduino/">arduino</a>, <a href="/tag/ifttt/">ifttt</a>, <a href="/tag/iot/">iot</a>, <a href="/tag/iot/">iot</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p><a href="http://sensorweb.io/">Project SensorWeb</a> is an experiment from the <a href="https://wiki.mozilla.org/Connected_Devices/Projects">Connected Devices</a> group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&#39;ve had some <a href="http://topics.oregonlive.com/tag/toxic%20air/">serious air quality discoveries in Portland</a> recently - our air is possibly <a href="http://koin.com/2016/03/02/study-portland-air-among-worst-in-nation/">the worst in the USA</a>, and bad enough that <a href="http://koin.com/2016/02/26/erin-brockovich-joins-portland-air-quality-fight/">mega-activists like Erin Brockovich are getting involved</a>.</p>
+<p><img src="screen-shot-2016-07-13-at-5-21-01-pm.png" alt="Screen Shot 2016-07-13 at 5.21.01 PM"></p>
+<p>A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&#39;re still setting up the project so I haven&#39;t gotten the configuration info from them yet...</p>
+<p>But you don&#39;t need the SensorWeb server to get your sensor up and running and pushing data to your own server! I want a copy of the data for myself anyway, to be able to do my own visualizations and notifications. I can then forward the data on to SensorWeb.</p>
+<p>So I started by flashing the current version of the SensorWeb code to the device, which is a Nodemcu 0.9 board with an ESP8266 wifi chip on board, and a PM2.5 sensor attached to it.</p>
+<p><img src="2016-07-13-17-05-59.jpg" alt="2016-07-13 17.05.59"></p>
+<p>I used <a href="https://rishav006.wordpress.com/2016/06/22/pm2-5-a-sensorweb-project-by-mozilla/">Kumar Rishav&#39;s excellent step-by-step post</a> to get through the process.</p>
+<p>Some things I learned along the way:</p>
+<ul>
+<li>On Mac OS X you need a <a href="https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx">serial port driver</a> in order for the Arduino IDE to detect the board.</li>
+<li>After much gnashing of teeth, I discovered that you can&#39;t have the PM2.5 sensor plugged into the board when you flash it.
+After getting the regular version flashed correctly, I tested with Kumar&#39;s API key and device id, and confirmed it was reporting the data correctly to the SensorWeb server.</li>
+</ul>
+<p>Now for the changes.</p>
+<ul>
+<li>I set up <a href="https://ifttt.com/maker">the Maker channel on IFTTT</a>, which allows me post data to an HTTP endpoint to get it into IFTTT&#39;s system.</li>
+<li>I then created a new <a href="https://ifttt.com/recipes/440904-save-pm2-5-data-to-a-spreadsheet">IFTTT recipe that accepts the data from the device and pushes it into a Google spreadsheet</a>.</li>
+<li>I forked the SensorWeb code and <a href="https://github.com/autonome/arduino-station/blob/master/station/nodemcu/nodemcu.ino">modified it to post to the Maker channel instead of the SensorWeb server</a>.
+I flashed the device and viola, it is publishing data to my spreadsheet.</li>
+</ul>
+<p>&nbsp;</p>
+<p><img src="screen-shot-2016-07-13-at-4-48-28-pm.png" alt="Screen Shot 2016-07-13 at 4.48.28 PM"></p>
+<p>And now once SensorWeb is ready to take new devices, I can set up a new IFTTT recipe to forward the posts to them, allowing me to own my own data and also publish to the project!</p>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/cef501f07e8d0fbddb9b1dd39f7311b5.png)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is an influencer, thought leader, futurist and other words too.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Beijing</span>
+                    <span class="author-link icon-link"><a href="https://metafluff.com">https://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+	<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '598429df7218b52c910d4d28');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+  <!-- Fathom - beautiful, simple website analytics -->
+  <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+  <!-- / Fathom -->
+
+</body>
+</html>

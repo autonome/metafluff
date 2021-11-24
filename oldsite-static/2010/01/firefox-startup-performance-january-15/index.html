@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - &quot;Firefox Startup Performance - January 15&quot;- Dietrich Ayala</title>
+    <meta name="description" content="Happy 2010 everyone! Top Startup Bugs Estimated win Bug # Summary Owner Status Notes &amp;gt;10% 512584 Super fast paths for Components.classes and Components.interfaces Taras Glek in progress Taras is traveling, says he&amp;#39;ll close it out when he returns. &amp;gt;10% 525013 Investigate a more static build configuration of Firefox Joel Reymont in progress Lots of progress! Joel has a patch for Mac and Linux working on the tryserver, and numbers to confirm a partial static build gets ~8% improvement on Mac, with no compat problems. Zach added a bunch of number crunching to validate Joel&amp;#39;firefox,firefox,mozilla,mozilla,Performance,startup" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icons -->
+    <link rel="shortcut icon" href="/favicon.ico?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=m2R9YbnajO">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=m2R9YbnajO">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=m2R9YbnajO" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest?v=m2R9YbnajO">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Dietrich Ayala - &quot;Firefox Startup Performance - January 15&quot;- Dietrich Ayala">
+    <meta itemprop="description" content="Happy 2010 everyone! Top Startup Bugs Estimated win Bug # Summary Owner Status Notes &amp;gt;10% 512584 Super fast paths for Components.classes and Components.interfaces Taras Glek in progress Taras is traveling, says he&amp;#39;ll close it out when he returns. &amp;gt;10% 525013 Investigate a more static build configuration of Firefox Joel Reymont in progress Lots of progress! Joel has a patch for Mac and Linux working on the tryserver, and numbers to confirm a partial static build gets ~8% improvement on Mac, with no compat problems. Zach added a bunch of number crunching to validate Joel&amp;#39;firefox,firefox,mozilla,mozilla,Performance,startup">
+    <meta itemprop="image" content="https://metafluff.com/me.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Dietrich Ayala - &quot;Firefox Startup Performance - January 15&quot;- Dietrich Ayala">
+    <meta name="twitter:description" content="Happy 2010 everyone! Top Startup Bugs Estimated win Bug # Summary Owner Status Notes &amp;gt;10% 512584 Super fast paths for Components.classes and Components.interfaces Taras Glek in progress Taras is traveling, says he&amp;#39;ll close it out when he returns. &amp;gt;10% 525013 Investigate a more static build configuration of Firefox Joel Reymont in progress Lots of progress! Joel has a patch for Mac and Linux working on the tryserver, and numbers to confirm a partial static build gets ~8% improvement on Mac, with no compat problems. Zach added a bunch of number crunching to validate Joel&amp;#39;firefox,firefox,mozilla,mozilla,Performance,startup">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="https://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="Happy 2010 everyone! Top Startup Bugs Estimated win Bug # Summary Owner Status Notes &amp;gt;10% 512584 Super fast paths for Components.classes and Components.interfaces Taras Glek in progress Taras is traveling, says he&amp;#39;ll close it out when he returns. &amp;gt;10% 525013 Investigate a more static build configuration of Firefox Joel Reymont in progress Lots of progress! Joel has a patch for Mac and Linux working on the tryserver, and numbers to confirm a partial static build gets ~8% improvement on Mac, with no compat problems. Zach added a bunch of number crunching to validate Joel&amp;#39;firefox,firefox,mozilla,mozilla,Performance,startup">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Dietrich Ayala - &quot;Firefox Startup Performance - January 15&quot;- Dietrich Ayala">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://metafluff.com">
+    <meta property="og:image" content="https://metafluff.com/octo.jpg">
+    <meta property="og:description" content="Happy 2010 everyone! Top Startup Bugs Estimated win Bug # Summary Owner Status Notes &amp;gt;10% 512584 Super fast paths for Components.classes and Components.interfaces Taras Glek in progress Taras is traveling, says he&amp;#39;ll close it out when he returns. &amp;gt;10% 525013 Investigate a more static build configuration of Firefox Joel Reymont in progress Lots of progress! Joel has a patch for Mac and Linux working on the tryserver, and numbers to confirm a partial static build gets ~8% improvement on Mac, with no compat problems. Zach added a bunch of number crunching to validate Joel&amp;#39;firefox,firefox,mozilla,mozilla,Performance,startup">
+    <meta property="og:site_name" content="Dietrich Ayala">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2010/01/firefox-startup-performance-january-15/" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup">
+
+        <header class="post-header">
+            <h1 class="post-title">&quot;Firefox Startup Performance - January 15&quot;</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2010-01-15">15 January 2010</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/firefox/">firefox</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/performance/">Performance</a>, <a href="/tag/startup/">startup</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Happy 2010 everyone!</p>
+<p>Top Startup Bugs
+<!-- table#ts { border: 1px solid silver; } --></p>
+<p><table id="ts" border="1" cellspacing="0" cellpadding="2"></p>
+<p><tbody></p>
+<p><tr></p>
+<p><td class="s0">Estimated win</td></p>
+<p><td class="s1">Bug #</td></p>
+<p><td class="s1">Summary</td></p>
+<p><td class="s1">Owner</td></p>
+<p><td class="s1">Status</td></p>
+<p><td class="s1">Notes</td>
+</tr></p>
+<p><tr></p>
+<p><td class="s2">&gt;10%</td></p>
+<p><td class="s3"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512584">512584</a></td></p>
+<p><td class="s4">Super fast paths for Components.classes and Components.interfaces</td></p>
+<p><td class="s4">Taras Glek</td></p>
+<p><td class="s4">in progress</td></p>
+<p><td>Taras is traveling, says he&#39;ll close it out when he returns.</td>
+</tr></p>
+<p><tr></p>
+<p><td class="s2">&gt;10%</td></p>
+<p><td class="s3"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=525013">525013</a></td></p>
+<p><td class="s4">Investigate a more static build configuration of Firefox</td></p>
+<p><td class="s4">Joel Reymont</td></p>
+<p><td class="s4">in progress</td></p>
+<p><td class="s4">Lots of progress! Joel has a patch for Mac and Linux working on the tryserver, and numbers to confirm a partial static build gets ~8% improvement on Mac, with no compat problems. Zach added a bunch of number crunching to validate Joel&#39;s numbers. On the Windows front, Taras has a patch in progress now.</td>
+</tr></p>
+<p><tr></p>
+<p><td class="s2">up to 25%</td></p>
+<p><td class="s3"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=514083">514083</a></td></p>
+<p><td class="s4">Per-file HFS+ compression on Mac OSX 10.6</td></p>
+<p><td class="s4">Joel Reymont</td></p>
+<p><td class="s4">in progress</td></p>
+<p><td class="s4">Conclusion is that we need to make this happen via the installer, as well as the updater, since modifying files results in decompression. Need to find an owner for this still.</td>
+</tr></p>
+<p><tr></p>
+<p><td class="s2">TBD</td></p>
+<p><td class="s3"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">520309</a></td></p>
+<p><td class="s4">Startup cache: replacement for fastload cache</td></p>
+<p><td class="s4">Ben Hsieh</td></p>
+<p><td class="s4">in progress</td></p>
+<p><td class="s4">Ben is looking into a perf regression that arose after some major changes.</td>
+</tr></p>
+<p><tr></p>
+<p><td class="s2">TBD</td></p>
+<p><td class="s3"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=503483">503483</a></td></p>
+<p><td class="s4">Turn on --enable-faststart for Firefox by default</td></p>
+<p><td class="s4">Dietrich</td></p>
+<p><td class="s4">needs testing</td></p>
+<p><td class="s4">No update, need to test still. Maybe just push on Windows here.</td>
+</tr></p>
+<p><tr></p>
+<p><td class="s2">TBD</td></p>
+<p><td class="s3"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">513149</a></td></p>
+<p><td class="s4">Speed up CSS parsing by using a machine generated lexer</td></p>
+<p><td class="s4">Zack Weinberg</td></p>
+<p><td class="s4">Zack&#39;s blocked on other work</td></p>
+<p><td class="s4">No update.Taras says about 6% of startup spent parsing CSS.</td>
+</tr>
+</tbody>
+</table>
+Other activity this week:</p>
+<ul>
+<li>I updated Mark&#39;s patch in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=507012">bug 507012</a> to trunk and ran it on Windows. Here is the <a href="http://spreadsheets.google.com/pub?key=t98ryMyoZx3Su0Pw7wz0anQ&amp;output=html">ranked log</a> and the <a href="http://people.mozilla.org/~dietrich/startup-js-win.txt">stack view</a>. From perusing this data, I filed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=539997">bug 539997</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=539991">bug 539991</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=539869">bug 539869</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=539870">bug 539870</a>.</li>
+<li>I&#39;ve been working on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506471">bug 506471</a>, to move FUEL out of the startup path, and also making a bunch of minor improvements and cleanup in that code.</li>
+<li><p>While I was gone, Rob Strong <a href="http://blog.mozilla.com/rstrong/2009/12/23/firefox-javascript-component-startup-costs/">put up a great post</a> about what JS components are in the startup path and how much time they take up.
+Projects in a holding pattern:</p>
+</li>
+<li><p>More investigation into Hunspell changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=468779">bug  468799</a>, possibly incorporating some changes Chrome made.</p>
+</li>
+<li>Ryan Flint has a WIP patch to minify JS on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524858">bug  524858</a> that significantly reduces the size of shipped JavaScript  files.</li>
+<li>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS          modules into a JAR file</a>, since those files are fastloaded.         However, since we want things like post-extension-install  restarts  to   be     fast, and those cause fastload cache invalidation,  we might   want  to   do   things like this anyways. I filed a bug for  the same   treatment  for     components. These are lower priority,  since they&#39;re   not the  normal     startup case. Follow along with all  JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the         tracker  bug</a>.</li>
+<li>Startup Timeline: No updates, still not landed. Add [ft] in the        whiteboard of your bug w/ the function names you want timed and David        will generate it and update the bug.</li>
+<li>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug        506128</a>.  David needs to file a bug with the final log of        named-yet-uncalled  functions.</li>
+<li>Dirty Profile Testing: No progress. We have <a href="https://wiki.mozilla.org/Firefox/Sprints/Startup_Time_Improvements#Test_Coverage">a list of test scenarios</a>, still need to file        bugs  for each, generate Talos config patches and profile data, and    then     move  it into Rel-Eng territory. Also, need to get a separate       Tinderbox  tree,  since it&#39;s going to cause a bazillion new  columns.</li>
+<li><a href="http://wagerlabs.com/">Joel        Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug        513076</a> that there are serious drawbacks to getting our libraries  in       the dyld  shared cache on Mac, so has deprioritized that work.
+As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the       project wiki</a>, and we&#39;re available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/cef501f07e8d0fbddb9b1dd39f7311b5.png)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is an influencer, thought leader, futurist and other words too.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Beijing</span>
+                    <span class="author-link icon-link"><a href="https://metafluff.com">https://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2010</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+	<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '598429df7218b52c910d4d28');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+  <!-- Fathom - beautiful, simple website analytics -->
+  <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+  <!-- / Fathom -->
+
+</body>
+</html>

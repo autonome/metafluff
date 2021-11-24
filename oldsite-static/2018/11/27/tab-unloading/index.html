@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - &quot;Experiments in Tab Unloading&quot;- Dietrich Ayala</title>
+    <meta name="description" content="We implemented session restore in Firefox 2, thirteen years ago. This was back when we used CVS, automated tests weren&amp;#39;t yet required, and everything we did was uphill both ways... in snow. Tab unloading was a feature I really wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it? Being a tab hoarder myself, I wrote an extension that implements this feature for myFirefox,Tabs,UX,Extensions,WebExtensions" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icons -->
+    <link rel="shortcut icon" href="/favicon.ico?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=m2R9YbnajO">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=m2R9YbnajO">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=m2R9YbnajO" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest?v=m2R9YbnajO">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Dietrich Ayala - &quot;Experiments in Tab Unloading&quot;- Dietrich Ayala">
+    <meta itemprop="description" content="We implemented session restore in Firefox 2, thirteen years ago. This was back when we used CVS, automated tests weren&amp;#39;t yet required, and everything we did was uphill both ways... in snow. Tab unloading was a feature I really wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it? Being a tab hoarder myself, I wrote an extension that implements this feature for myFirefox,Tabs,UX,Extensions,WebExtensions">
+    <meta itemprop="image" content="https://metafluff.com/me.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Dietrich Ayala - &quot;Experiments in Tab Unloading&quot;- Dietrich Ayala">
+    <meta name="twitter:description" content="We implemented session restore in Firefox 2, thirteen years ago. This was back when we used CVS, automated tests weren&amp;#39;t yet required, and everything we did was uphill both ways... in snow. Tab unloading was a feature I really wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it? Being a tab hoarder myself, I wrote an extension that implements this feature for myFirefox,Tabs,UX,Extensions,WebExtensions">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="https://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="We implemented session restore in Firefox 2, thirteen years ago. This was back when we used CVS, automated tests weren&amp;#39;t yet required, and everything we did was uphill both ways... in snow. Tab unloading was a feature I really wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it? Being a tab hoarder myself, I wrote an extension that implements this feature for myFirefox,Tabs,UX,Extensions,WebExtensions">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Dietrich Ayala - &quot;Experiments in Tab Unloading&quot;- Dietrich Ayala">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://metafluff.com">
+    <meta property="og:image" content="https://metafluff.com/octo.jpg">
+    <meta property="og:description" content="We implemented session restore in Firefox 2, thirteen years ago. This was back when we used CVS, automated tests weren&amp;#39;t yet required, and everything we did was uphill both ways... in snow. Tab unloading was a feature I really wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it? Being a tab hoarder myself, I wrote an extension that implements this feature for myFirefox,Tabs,UX,Extensions,WebExtensions">
+    <meta property="og:site_name" content="Dietrich Ayala">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2018/11/27/tab-unloading/" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-tabs tag-ux tag-extensions tag-webextensions nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-tabs tag-ux tag-extensions tag-webextensions">
+
+        <header class="post-header">
+            <h1 class="post-title">&quot;Experiments in Tab Unloading&quot;</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2018-11-26">26 November 2018</time>  on <a href="/tag/firefox/">Firefox</a>, <a href="/tag/tabs/">Tabs</a>, <a href="/tag/ux/">UX</a>, <a href="/tag/extensions/">Extensions</a>, <a href="/tag/webextensions/">WebExtensions</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p><strong>We implemented session restore in Firefox 2, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328154">thirteen years ago</a>.</strong> This was back when we used CVS, automated tests weren&#39;t yet required, and everything we did was uphill both ways... in snow.</p>
+<p>Tab unloading was a feature I <em>really</em> wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it?</p>
+<p>Being a <a href="https://metafluff.com/2017/07/21/i-am-a-tab-hoarder/">tab hoarder myself</a>, I wrote an extension that implements this feature for my own benefit, and also to learn a bit about what worked and didn&#39;t. I had to live without it for a bit after the great WebExtension migration, until the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1128502">right API was finally shipped</a> that supported the features I needed.</p>
+<p>You can install this extension here: <a href="https://addons.mozilla.org/en-US/firefox/addon/dormancy/">https://addons.mozilla.org/en-US/firefox/addon/dormancy/</a></p>
+<p><img src="dormancy.png" alt="Dormancy Options"></p>
+<p>I&#39;d like to share a few things I learned while making and running this extension.</p>
+<p><strong>TL;DR: My optimal heuristics for tab unloading are &quot;unload tabs 15 minutes after last focused&quot; + &quot;never unload tabs in active window&quot;.</strong></p>
+<p>Here are my findings and recommendations for building a tab unloading feature. They&#39;re not exhaustive, just the set of things I learned in my experiments.</p>
+<ul>
+<li><p>Most important: Do not trust any ideas or assumptions you have about this. You must personally live with different heuristics for a few days or a week. Experience the pain of your assumptions. There&#39;s one assumption that is 100% correct: When this feature is tuned incorrectly, it is SUPER ANNOYING.</p>
+</li>
+<li><p>Personal and team testing is not enough. Do some research with real users. Write a test extension, and a blog post where people can test and provide feedback. Get as diverse set of testers as possible, and trust their feedback.</p>
+</li>
+<li><p>This is a feature for power users. The telemetry for tab-counts shows this to be true. The unloading heuristics should take that into account. The users who will ever see this feature in action are tiny subset of overall browser users, so it should be tuned specifically to their behavior. That behavior should be explored in the research (more on this below).</p>
+</li>
+<li><p>Time-since-tab-was-focused is the most important heuristic for me. While running Dormancy, I learned that 5 minutes of inactivity on a tab is wayyyy too low.  I&#39;ve settled on 15 minutes - it basically never surprises me, and I rarely experience a tab reload.</p>
+</li>
+<li><p>Ignore-active-window is the second most important heuristic, but only matters for multi-window users obviously. IIRC our telemetry says there aren&#39;t many multi-window users... well, maybe not enough for defaults around this. But for people with multiple long-lived windows, keeping active window alive is <em>fantastic</em>.</p>
+</li>
+</ul>
+<p>About tab usage behavior - I&#39;ve only scratched the surface of this. I wrote a few extensions that reflect my behavior dashboard-style in the toolbar so I can get a sense for levels of activity for different actions:</p>
+<ul>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tab-count-button/">Show number of open tabs across all windows</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tabs-opened-button/">Show number of tabs opened today</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tabs-closed-button/">Show number of tabs closed today</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/tabs-switched-button/">Show number of tab switches today</a></li>
+</ul>
+<p>These are shipped as separate extensions because you cannot adjust the width of toolbar icons, and I want all counts visible. They&#39;re all one extension, and the <a href="https://github.com/autonome/tabstatistics">source code is on Github</a>.</p>
+<p><img src="tabstats.png" alt="Tab Statistics"></p>
+<p>I&#39;ve only done some basic counting, but research into more complex interactions and behavior should be done. For example, how people traverse tabs will determine whether the feature really works for them. If they use keyboard shortcuts to move across large sets of tabs, it will not be effective in single window mode using only a timeout, because the last-focused-time will constantly be reset.</p>
+<p>If you&#39;d like to learn more, there&#39;s <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=675539">a bug filed for this feature</a>, with many years of discussion.</p>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/cef501f07e8d0fbddb9b1dd39f7311b5.png)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is an influencer, thought leader, futurist and other words too.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Beijing</span>
+                    <span class="author-link icon-link"><a href="https://metafluff.com">https://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2018</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+	<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '598429df7218b52c910d4d28');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+  <!-- Fathom - beautiful, simple website analytics -->
+  <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+  <!-- / Fathom -->
+
+</body>
+</html>

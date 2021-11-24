@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - &quot;Firefox Performance Report, Startup and Otherwise - March 19, 2010&quot;- Dietrich Ayala</title>
+    <meta name="description" content="A couple of notices: First, I&amp;#39;m going to start including various performance-related items in these  posts that aren&amp;#39;t purely about startup time. There&amp;#39;s a whole bunch of activity happening that isn&amp;#39;t really rolled up anywhere, so it might as well be here. Second, I&amp;#39;ll be out on vacation in Florida next week, so there will not be a status update. Last week I forgot to add that Marco Bonardo landed bug 542943, which removed a hash of all bookmarks that stayed resident for the lifetime of the application. This resultedfirefox,firefox,mozilla,mozilla,Performance,startup" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icons -->
+    <link rel="shortcut icon" href="/favicon.ico?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=m2R9YbnajO">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=m2R9YbnajO">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=m2R9YbnajO" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest?v=m2R9YbnajO">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Dietrich Ayala - &quot;Firefox Performance Report, Startup and Otherwise - March 19, 2010&quot;- Dietrich Ayala">
+    <meta itemprop="description" content="A couple of notices: First, I&amp;#39;m going to start including various performance-related items in these  posts that aren&amp;#39;t purely about startup time. There&amp;#39;s a whole bunch of activity happening that isn&amp;#39;t really rolled up anywhere, so it might as well be here. Second, I&amp;#39;ll be out on vacation in Florida next week, so there will not be a status update. Last week I forgot to add that Marco Bonardo landed bug 542943, which removed a hash of all bookmarks that stayed resident for the lifetime of the application. This resultedfirefox,firefox,mozilla,mozilla,Performance,startup">
+    <meta itemprop="image" content="https://metafluff.com/me.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Dietrich Ayala - &quot;Firefox Performance Report, Startup and Otherwise - March 19, 2010&quot;- Dietrich Ayala">
+    <meta name="twitter:description" content="A couple of notices: First, I&amp;#39;m going to start including various performance-related items in these  posts that aren&amp;#39;t purely about startup time. There&amp;#39;s a whole bunch of activity happening that isn&amp;#39;t really rolled up anywhere, so it might as well be here. Second, I&amp;#39;ll be out on vacation in Florida next week, so there will not be a status update. Last week I forgot to add that Marco Bonardo landed bug 542943, which removed a hash of all bookmarks that stayed resident for the lifetime of the application. This resultedfirefox,firefox,mozilla,mozilla,Performance,startup">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="https://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="A couple of notices: First, I&amp;#39;m going to start including various performance-related items in these  posts that aren&amp;#39;t purely about startup time. There&amp;#39;s a whole bunch of activity happening that isn&amp;#39;t really rolled up anywhere, so it might as well be here. Second, I&amp;#39;ll be out on vacation in Florida next week, so there will not be a status update. Last week I forgot to add that Marco Bonardo landed bug 542943, which removed a hash of all bookmarks that stayed resident for the lifetime of the application. This resultedfirefox,firefox,mozilla,mozilla,Performance,startup">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Dietrich Ayala - &quot;Firefox Performance Report, Startup and Otherwise - March 19, 2010&quot;- Dietrich Ayala">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://metafluff.com">
+    <meta property="og:image" content="https://metafluff.com/octo.jpg">
+    <meta property="og:description" content="A couple of notices: First, I&amp;#39;m going to start including various performance-related items in these  posts that aren&amp;#39;t purely about startup time. There&amp;#39;s a whole bunch of activity happening that isn&amp;#39;t really rolled up anywhere, so it might as well be here. Second, I&amp;#39;ll be out on vacation in Florida next week, so there will not be a status update. Last week I forgot to add that Marco Bonardo landed bug 542943, which removed a hash of all bookmarks that stayed resident for the lifetime of the application. This resultedfirefox,firefox,mozilla,mozilla,Performance,startup">
+    <meta property="og:site_name" content="Dietrich Ayala">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2010/03/firefox-performance-update-startup-and-otherwise-march-19-2010/" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-firefox tag-mozilla tag-mozilla tag-performance tag-startup">
+
+        <header class="post-header">
+            <h1 class="post-title">&quot;Firefox Performance Report, Startup and Otherwise - March 19, 2010&quot;</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2010-03-19">19 March 2010</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/firefox/">firefox</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/performance/">Performance</a>, <a href="/tag/startup/">startup</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>A couple of notices: First, I&#39;m going to start including various performance-related items in these  posts that aren&#39;t purely about startup time. There&#39;s a whole bunch of activity happening that isn&#39;t really rolled up anywhere, so it might as well be here. Second, I&#39;ll be out on vacation in Florida next week, so there will not be a status update.</p>
+<ul>
+<li>Last week I forgot to add that Marco Bonardo landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=542943">bug 542943</a>, which removed a hash of all bookmarks that stayed resident for the lifetime of the application. This resulted in a 97% improvement in shutdown time for our test of a very large bookmarks+history collection.</li>
+<li>Ted&#39;s taken over the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=525013">static build project</a>, and has new patches up.</li>
+<li>Taras is working on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=531406">Linux code locality</a> via a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=549749">Valgrind plugin he&#39;s writing</a>, with help from those folks.</li>
+<li>At the platform work week Taras talked to Ehsan, who it turns out had a bunch of ideas for improving startup there. I&#39;ve filed bugs from Ehsan&#39;s notes for better <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=553721">Windows code locality</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=553723">binding DLL function addresses to the executable</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=553725">DLL rebasing</a>, and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=553727">DLL lazy-loading</a>.</li>
+<li>The <a href="https://wiki.mozilla.org/Performance/Addons/BestPractices">add-on performance &quot;best practices&quot; document</a> is getting bigger and better. If you have ideas for improving add-on performance, please add them to the doc!</li>
+<li>All of our add-on performance efforts are being tracked centrally on <a href="https://wiki.mozilla.org/Performance/Addons">this page</a>. If you want to get involved, hop on one of those bugs. If you want to stay updated, &quot;watch&quot; that page and you&#39;ll get emails whenever it&#39;s updated.</li>
+<li>I&#39;ve updated the main <a href="https://wiki.mozilla.org/Performance">Performance wiki page</a>. The top sections are now up to date. Next I&#39;ll be updating the testing and reference sections, and breaking out the task-specific content and moving it to an updated table of performance activities, like we currently have for startup, addons, etc. When the page is more manageable, I&#39;ll remove the TOC that&#39;s pushing everything below the fold.</li>
+<li>As usual, the table of active startup performance activity is <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">here</a>.</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/cef501f07e8d0fbddb9b1dd39f7311b5.png)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is an influencer, thought leader, futurist and other words too.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Beijing</span>
+                    <span class="author-link icon-link"><a href="https://metafluff.com">https://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2010</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+	<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '598429df7218b52c910d4d28');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+  <!-- Fathom - beautiful, simple website analytics -->
+  <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+  <!-- / Fathom -->
+
+</body>
+</html>

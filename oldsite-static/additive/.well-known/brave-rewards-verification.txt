@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: metafluff.com
+Token: 5a79fc0d67d40a2c7e8908562889b6a45b28a9db62affd0693f8dd4f1bfc6b88

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dietrich Ayala - &quot;Streaming Your iSight Camera to the Web with the Video Tag&quot;- Dietrich Ayala</title>
+    <meta name="description" content="I wanted to do a demonstration of live streaming using the  tag for my talk at the upcoming Open Source Bridge conference; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro&amp;#39;s built-in iSight camera. I pinged Asa to get details about how he streams Air Mozilla, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, thefirefox,firefox,icecast,isight,Mac,mozilla,mozilla,ogg,openvideo,theora,vlc" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icons -->
+    <link rel="shortcut icon" href="/favicon.ico?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=m2R9YbnajO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=m2R9YbnajO">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=m2R9YbnajO">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=m2R9YbnajO" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest?v=m2R9YbnajO">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Dietrich Ayala - &quot;Streaming Your iSight Camera to the Web with the Video Tag&quot;- Dietrich Ayala">
+    <meta itemprop="description" content="I wanted to do a demonstration of live streaming using the  tag for my talk at the upcoming Open Source Bridge conference; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro&amp;#39;s built-in iSight camera. I pinged Asa to get details about how he streams Air Mozilla, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, thefirefox,firefox,icecast,isight,Mac,mozilla,mozilla,ogg,openvideo,theora,vlc">
+    <meta itemprop="image" content="https://metafluff.com/me.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Dietrich Ayala - &quot;Streaming Your iSight Camera to the Web with the Video Tag&quot;- Dietrich Ayala">
+    <meta name="twitter:description" content="I wanted to do a demonstration of live streaming using the  tag for my talk at the upcoming Open Source Bridge conference; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro&amp;#39;s built-in iSight camera. I pinged Asa to get details about how he streams Air Mozilla, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, thefirefox,firefox,icecast,isight,Mac,mozilla,mozilla,ogg,openvideo,theora,vlc">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="https://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="I wanted to do a demonstration of live streaming using the  tag for my talk at the upcoming Open Source Bridge conference; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro&amp;#39;s built-in iSight camera. I pinged Asa to get details about how he streams Air Mozilla, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, thefirefox,firefox,icecast,isight,Mac,mozilla,mozilla,ogg,openvideo,theora,vlc">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Dietrich Ayala - &quot;Streaming Your iSight Camera to the Web with the Video Tag&quot;- Dietrich Ayala">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://metafluff.com">
+    <meta property="og:image" content="https://metafluff.com/octo.jpg">
+    <meta property="og:description" content="I wanted to do a demonstration of live streaming using the  tag for my talk at the upcoming Open Source Bridge conference; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro&amp;#39;s built-in iSight camera. I pinged Asa to get details about how he streams Air Mozilla, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, thefirefox,firefox,icecast,isight,Mac,mozilla,mozilla,ogg,openvideo,theora,vlc">
+    <meta property="og:site_name" content="Dietrich Ayala">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+
+    <meta name="generator" content="Ghost ?" />
+<link rel="alternate" type="application/rss+xml" title="Dietrich Ayala" href="/rss/index.xml">
+<link rel="canonical" href="/2009/06/streaming-your-isight-camera-to-the-web-with-the-video-tag/" />
+</head>
+<body class="author-template author- post-template tag-firefox tag-firefox tag-icecast tag-isight tag-mac tag-mozilla tag-mozilla tag-ogg tag-openvideo tag-theora tag-vlc nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post tag-firefox tag-firefox tag-icecast tag-isight tag-mac tag-mozilla tag-mozilla tag-ogg tag-openvideo tag-theora tag-vlc">
+
+        <header class="post-header">
+            <h1 class="post-title">&quot;Streaming Your iSight Camera to the Web with the Video Tag&quot;</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2009-05-31">31 May 2009</time>  on <a href="/tag/firefox/">firefox</a>, <a href="/tag/firefox/">firefox</a>, <a href="/tag/icecast/">icecast</a>, <a href="/tag/isight/">isight</a>, <a href="/tag/mac/">Mac</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/mozilla/">mozilla</a>, <a href="/tag/ogg/">ogg</a>, <a href="/tag/openvideo/">openvideo</a>, <a href="/tag/theora/">theora</a>, <a href="/tag/vlc/">vlc</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>I wanted to do a demonstration of live streaming using the <a href="https://developer.mozilla.org/en/html/element/video"><video/> tag</a> for <a href="http://opensourcebridge.org/sessions/251">my talk at the upcoming Open Source Bridge conference</a>; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro&#39;s built-in iSight camera.</p>
+<p>I pinged <a href="http://weblogs.mozillazine.org/asa/">Asa</a> to get details about how he streams <a href="http://air.mozilla.com/">Air Mozilla</a>, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, the capture module barfed when trying to talk to the camera. VLC ships with a capture module for the iSight, but hasn&#39;t been updated to work with the internal iSight. Bah. VLC also supported transcoding to Ogg Theora, as well as streaming to Icecast servers, so it really seemed like it&#39;d provide just about everything, if it only supported the camera.</p>
+<p>I looked up the error I got from VLC, posted on the VLC forums, no answers. So I emailed the author of VLC&#39;s Quicktime module, <a href="http://www.ohloh.net/accounts/pdherbemont">Pierre d&#39;Herbemont</a>, at the email he left in the source file. After a couple of emails, and less than 24 hours later, <a href="http://git.videolan.org/?p=vlc.git;a=commitdiff;h=d032b62bfaada60a4f3e0b3b2a5a71f65bf8eea9">he&#39;d checked in a fix</a>. Open source FTW. Thanks Pierre.</p>
+<p>The steps to get it working are enumerated below. At some point, the VLC fix will ship, but until then you&#39;ll need to use nightly builds.</p>
+<p>Install and configure the Icecast2 server:</p>
+<ol>
+<li>Install <a href="http://www.macports.org/">MacPorts</a></li>
+<li>In the Terminal: sudo port install icecast2. This installs everything into various dirs in /opt/local.</li>
+<li>Edit /opt/local/etc/icecast.xml, set user/group it runs as (for logfiles, i set mine to _www, same as Apache), and change the default passwords in the authentication section.</li>
+<li>Set permissions on /opt/local/var/log/icecast to be writable by the user you configured Icecast to run as.</li>
+<li>In the Terminal, start the server: sudo icecast -c /opt/local/etc/icecast.xml -b</li>
+<li>Test your install by checking the server&#39;s status at <a href="http://localhost:8000/status.xsl">http://localhost:8000/status.xsl</a></li>
+<li><p>Watch the log in the Terminal: tail -f opt/local/var/log/icecast/error.log (Useful for confirming VLC access, as well as catching authentication problems)
+Start the stream:</p>
+</li>
+<li><p>Download and install the most recent <a href="http://nightlies.videolan.org/build/macosx-intel/?C=M%3BO=D">VLC nightly build</a></p>
+</li>
+<li>Open the terminal, and execute the command below</li>
+<li>Open <a href="http://localhost:8000/stream/isight">http://localhost:8000/stream/isight</a> with Firefox 3.5b4 (or newer)
+VLC Command (all one line):</li>
+</ol>
+<p>/Applications/VLC.app/Contents/MacOS/VLC qtcapture:// --sout=&quot;#transcode{vcodec=theora,vb=256,venc=theora,acodec=vorbis,ab=64,aenc=vorbis}: standard{access=shout,mux=ogg,dst=source:yourpassword@localhost:8000/stream/isight}&quot;</p>
+<p><img src="picture-211.png" alt="screenshot" title="screenshot"></p>
+<p>It&#39;s still not quite ready for practical use:</p>
+<ul>
+<li>There&#39;s still some size distortion, maybe I have the aspect ratio wrong or something</li>
+<li>Still working on sound</li>
+<li>Lag is pretty bad</li>
+</ul>
+
+        </section>
+
+        <footer class="post-footer">
+
+        <!---->
+
+            <figure class="author-image">
+                <a class="img" href="/author//" style="background-image: url(https://en.gravatar.com/userimage/267418/cef501f07e8d0fbddb9b1dd39f7311b5.png)"><span class="hidden">Dietrich Ayala's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="/author//">Dietrich Ayala</a></h4>
+
+                    <p>Dietrich Ayala is an influencer, thought leader, futurist and other words too.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Beijing</span>
+                    <span class="author-link icon-link"><a href="https://metafluff.com">https://metafluff.com</a></span>
+                </div>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="/">Dietrich Ayala</a> &copy; 2009</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+	<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '598429df7218b52c910d4d28');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+  <!-- Fathom - beautiful, simple website analytics -->
+  <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+  <!-- / Fathom -->
+
+</body>
+</html>
