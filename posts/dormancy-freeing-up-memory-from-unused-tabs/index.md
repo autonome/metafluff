@@ -3,7 +3,7 @@ layout: post
 title: "Dormancy: Freeing up memory from unused tabs"
 published_at: 2011-09-03
 date: 2011-09-03
-tags: ["Add-ons","firefox","firefox","jetpack","Memory","mozilla","mozilla","Performance"]
+tags: ["Add-ons","jetpack","Memory","Performance"]
 ---
 
 Dormancy 'retires' tabs that have gone unused for a while, freeing up that memory. It then restores the tabs to life when accessed.

@@ -1,10 +1,25 @@
 ---
 layout: layouts/post.njk
-title: About Me
+title: c'est moi
 templateClass: tmpl-post
 eleventyNavigation:
-  key: About Me
+  key: Me
   order: 3
 ---
 
-I am a person that writes stuff.
+dietrich ayala
+born california 1973
+he/him
+raised skateboarding
+ex barista and chef
+made babby at 22
+married to [shauna](https://twitter.com/shaunamc)
+started computering in mid 20s
+sub pop records
+nusphere
+mediacode
+foundstone
+yahoo
+mozilla
+protocol labs
+tbd

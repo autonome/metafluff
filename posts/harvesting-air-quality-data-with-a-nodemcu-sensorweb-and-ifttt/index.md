@@ -3,7 +3,7 @@ layout: post
 title: "Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT"
 published_at: 2016-07-14
 date: 2016-07-14
-tags: ["arduino","ifttt","iot","iot","mozilla","mozilla"]
+tags: ["arduino","ifttt","iot"]
 ---
 
 [Project SensorWeb](http://sensorweb.io/) is an experiment from the [Connected Devices](https://wiki.mozilla.org/Connected_Devices/Projects) group at Mozilla in open publishing of environmental data. I am excited about this experiment because we've had some [serious air quality discoveries in Portland](http://topics.oregonlive.com/tag/toxic%20air/) recently - our air is possibly [the worst in the USA](http://koin.com/2016/03/02/study-portland-air-among-worst-in-nation/), and bad enough that [mega-activists like Erin Brockovich are getting involved](http://koin.com/2016/02/26/erin-brockovich-joins-portland-air-quality-fight/).

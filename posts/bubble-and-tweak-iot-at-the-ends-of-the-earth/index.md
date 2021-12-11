@@ -3,7 +3,7 @@ layout: post
 title: "Bubble and Tweak - IoT at the Ends of the Earth"
 published_at: 2016-07-13
 date: 2016-07-13
-tags: ["anstruther","iot","iot","mozilla","mozilla","scotland"]
+tags: ["anstruther","iot","scotland"]
 ---
 
 ![Screen Shot 2016-07-12 at 3.19.07 PM](screen-shot-2016-07-12-at-3-19-07-pm.png)

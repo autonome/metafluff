@@ -3,7 +3,7 @@ layout: post
 title: "Experiments in Tab Unloading"
 published_at: 2018-11-27
 date: 2018-11-27
-tags: Firefox, Tabs, UX, Extensions, WebExtensions
+tags: ["Firefox", "Tabs", "UX", "Extensions", "WebExtensions"]
 ---
 
 **We implemented session restore in Firefox 2, [thirteen years ago](https://bugzilla.mozilla.org/show_bug.cgi?id=328154).** This was back when we used CVS, automated tests weren't yet required, and everything we did was uphill both ways... in snow.
