@@ -16,7 +16,7 @@
 html,
 body {
   padding: 0;
-  margin: 0;
+  margin: 2rem;
   font-family: -apple-system, system-ui, sans-serif;
   color: var(--darkgray);
   background-color: var(--white);
@@ -46,7 +46,7 @@ main :first-child {
   margin-top: 0;
 }
 header {
-  border-bottom: 1px dashed var(--lightgray);
+  /*border-bottom: 1px dashed var(--lightgray);*/
 }
 header:after {
   content: "";
@@ -164,7 +164,7 @@ code {
 .postlist-item:before {
   display: inline-block;
   pointer-events: none;
-  content: "" counter(start-from, decimal-leading-zero) ". ";
+  /*content: "" counter(start-from, decimal-leading-zero) ". ";*/
   line-height: 100%;
   text-align: right;
 }
@@ -187,8 +187,11 @@ code {
   font-weight: bold;
 }
 .tmpl-home .postlist-link {
-  font-size: 1.1875em; /* 19px /16 */
+  /* 19px /16 */
+  /*
+  font-size: 1.1875em;
   font-weight: 700;
+  */
 }
 
 
@@ -198,7 +201,7 @@ code {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 0.75em; /* 12px /16 */
+  font-size: 0.55em; /* 12px /16 */
   padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
   margin-left: 0.6666666666667em; /* 8px /12 */
   margin-top: 0.5em; /* 6px /12 */
@@ -246,4 +249,60 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
+}
+
+.columns {
+  display: flex;
+}
+.column {
+  min-width: 10rem;
+  padding: 1rem; 
+}
+
+.melist {
+  list-style: none;
+  padding: 0;
+}
+.melist>li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  counter-increment: start-from -1;
+  line-height: 1.8;
+}
+.melist>li:before {
+  display: inline-block;
+  pointer-events: none;
+  /*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+  line-height: 100%;
+  text-align: right;
+}
+.melist>li:before {
+  font-size: 0.8125em; /* 13px /16 */
+  color: var(--darkgray);
+}
+.melist>li>a {
+  padding-left: .25em;
+  padding-right: .25em;
+  text-underline-position: from-font;
+  text-underline-offset: 0;
+  text-decoration-thickness: 1px;
+}
+.melist>li>a {
+}
+.melist>li>a {
+  /* 19px /16 */
+  /*
+  font-size: 1.1875em;
+  font-weight: 700;
+  */
+}
+
+.post-container {
+  display: flex;
+  justify-content: center;
+}
+.post-content {
+  max-width: 40rem;
+  min-width: 0;
 }

@@ -98,6 +98,9 @@ module.exports = function(eleventyConfig) {
     ghostMode: false
   });
 
+  // Copy the `oldsite-static` folders to the output
+  //eleventyConfig.addPassthroughCopy("oldsite-static");
+
   return {
     // Control which files Eleventy will process
     // e.g.: *.md, *.njk, *.html, *.liquid

@@ -12,7 +12,9 @@
   </head>
   <body>
     <header>
+      <!--
       <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+      -->
 
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
       <ul class="nav">
@@ -21,6 +23,18 @@
           <a href="{{ entry.url | url }}">{{ entry.title }}</a>
         </li>
       {%- endfor %}
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://twitter.com/dietrich" target="_blank" title="twitter" rel="me">twitter</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
       </ul>
     </header>
 
@@ -32,5 +46,11 @@
     <footer></footer>
 
     <!-- Current page: {{ page.url | url }} -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
   </body>
 </html>

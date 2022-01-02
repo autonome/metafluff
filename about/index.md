@@ -1,18 +1,17 @@
 ---
 layout: layouts/post.njk
-title: c'est moi
+title: it me
 templateClass: tmpl-post
 eleventyNavigation:
-  key: Me
+  key: about
   order: 3
 ---
 
 dietrich ayala
-born california 1973
+born berkeley california 1973
 he/him
 raised skateboarding
 ex barista and chef
-made babby at 22
 married to [shauna](https://twitter.com/shaunamc)
 started computering in mid 20s
 sub pop records
@@ -23,3 +22,15 @@ yahoo
 mozilla
 protocol labs
 tbd
+
+places
+berkeley, ca
+scott's valley, ca
+vashon island, wa
+seattle, wa
+orlando, fl
+long beach, ca
+portland, or
+chiang mai
+melbourne, fl
+car
