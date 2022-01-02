@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>dietrich</title>
+	<subtitle>blog de dietrich ayala</subtitle>
+	
+	<link href="https://metafluff.com/feed/feed.xml" rel="self"/>
+	<link href="https://metafluff.com/"/>
+	<updated>2018-11-27T00:00:00Z</updated>
+	<id>https://metafluff.com/</id>
+	<author>
+		<name>dietrich ayala</name>
+		<email>me@burrito.space</email>
+	</author>
+	
+	<entry>
+		<title>Experiments in Tab Unloading</title>
+		<link href="https://metafluff.com/posts/tab-unloading/"/>
+		<updated>2018-11-27T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/tab-unloading/</id>
+		<content type="html">&lt;p&gt;&lt;strong&gt;We implemented session restore in Firefox 2, &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=328154&quot;&gt;thirteen years ago&lt;/a&gt;.&lt;/strong&gt; This was back when we used CVS, automated tests weren&#39;t yet required, and everything we did was uphill both ways... in snow.&lt;/p&gt;
+&lt;p&gt;Tab unloading was a feature I &lt;em&gt;really&lt;/em&gt; wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it?&lt;/p&gt;
+&lt;p&gt;Being a &lt;a href=&quot;https://metafluff.com/2017/07/21/i-am-a-tab-hoarder/&quot;&gt;tab hoarder myself&lt;/a&gt;, I wrote an extension that implements this feature for my own benefit, and also to learn a bit about what worked and didn&#39;t. I had to live without it for a bit after the great WebExtension migration, until the &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=1128502&quot;&gt;right API was finally shipped&lt;/a&gt; that supported the features I needed.&lt;/p&gt;
+&lt;p&gt;You can install this extension here: &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/dormancy/&quot;&gt;https://addons.mozilla.org/en-US/firefox/addon/dormancy/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/tab-unloading/dormancy.png&quot; alt=&quot;Dormancy Options&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I&#39;d like to share a few things I learned while making and running this extension.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR: My optimal heuristics for tab unloading are &amp;quot;unload tabs 15 minutes after last focused&amp;quot; + &amp;quot;never unload tabs in active window&amp;quot;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here are my findings and recommendations for building a tab unloading feature. They&#39;re not exhaustive, just the set of things I learned in my experiments.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Most important: Do not trust any ideas or assumptions you have about this. You must personally live with different heuristics for a few days or a week. Experience the pain of your assumptions. There&#39;s one assumption that is 100% correct: When this feature is tuned incorrectly, it is SUPER ANNOYING.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Personal and team testing is not enough. Do some research with real users. Write a test extension, and a blog post where people can test and provide feedback. Get as diverse set of testers as possible, and trust their feedback.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;This is a feature for power users. The telemetry for tab-counts shows this to be true. The unloading heuristics should take that into account. The users who will ever see this feature in action are tiny subset of overall browser users, so it should be tuned specifically to their behavior. That behavior should be explored in the research (more on this below).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Time-since-tab-was-focused is the most important heuristic for me. While running Dormancy, I learned that 5 minutes of inactivity on a tab is wayyyy too low.  I&#39;ve settled on 15 minutes - it basically never surprises me, and I rarely experience a tab reload.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ignore-active-window is the second most important heuristic, but only matters for multi-window users obviously. IIRC our telemetry says there aren&#39;t many multi-window users... well, maybe not enough for defaults around this. But for people with multiple long-lived windows, keeping active window alive is &lt;em&gt;fantastic&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;About tab usage behavior - I&#39;ve only scratched the surface of this. I wrote a few extensions that reflect my behavior dashboard-style in the toolbar so I can get a sense for levels of activity for different actions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tab-count-button/&quot;&gt;Show number of open tabs across all windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tabs-opened-button/&quot;&gt;Show number of tabs opened today&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tabs-closed-button/&quot;&gt;Show number of tabs closed today&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tabs-switched-button/&quot;&gt;Show number of tab switches today&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These are shipped as separate extensions because you cannot adjust the width of toolbar icons, and I want all counts visible. They&#39;re all one extension, and the &lt;a href=&quot;https://github.com/autonome/tabstatistics&quot;&gt;source code is on Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/tab-unloading/tabstats.png&quot; alt=&quot;Tab Statistics&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I&#39;ve only done some basic counting, but research into more complex interactions and behavior should be done. For example, how people traverse tabs will determine whether the feature really works for them. If they use keyboard shortcuts to move across large sets of tabs, it will not be effective in single window mode using only a timeout, because the last-focused-time will constantly be reset.&lt;/p&gt;
+&lt;p&gt;If you&#39;d like to learn more, there&#39;s &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=675539&quot;&gt;a bug filed for this feature&lt;/a&gt;, with many years of discussion.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Trumplandia: Portlands Independent Businesses and Gordon Sondland</title>
+		<link href="https://metafluff.com/posts/trumplandia/"/>
+		<updated>2018-09-13T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/trumplandia/</id>
+		<content type="html">&lt;p&gt;Hey Portland, this one is going to burn a little.&lt;/p&gt;
+&lt;p&gt;While the global perception of Portland is of a liberal weirdo wonderland, some of our city&#39;s beloved bars and world-renowned products and brands are part of the Trump support network in the Pacific Northwest.&lt;/p&gt;
+&lt;img src=&quot;https://metafluff.com/posts/trumplandia/gordon.png&quot; style=&quot;max-width: 600px;&quot; /&gt;
+&lt;p&gt;Meet Gordon Sondland, who &lt;a href=&quot;https://www.wweek.com/news/2017/04/21/report-portland-hotel-owner-covertly-steered-cash-to-trump/&quot;&gt;donated $1,000,000 for Donald Trump inauguration parties&lt;/a&gt;, and has received the ambassadorship to the EU. Read more about him on &lt;a href=&quot;https://en.wikipedia.org/wiki/Gordon_Sondland&quot;&gt;Wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;He&#39;s the founder and CEO of &lt;a href=&quot;https://provenancehotels.com/who-we-are&quot;&gt;Provenance Hotels&lt;/a&gt;, a company that owns a group of hotels in the Pacific Northwest, and a few other places around the country..&lt;/p&gt;
+&lt;p&gt;I started to make a list of these hotels, so I could recommend to people to stay elsewhere. While reading the Provenance website, I found this page:&lt;/p&gt;
+&lt;img src=&quot;https://metafluff.com/posts/trumplandia/coconspirators.png&quot; style=&quot;max-width: 600px;&quot; /&gt;
+&lt;p&gt;Whoa. These are some of the most successful names in Portland independent businesses. These are the people who make the things I love, and the spaces and menus I enjoy on a Friday night. What the fuck.&lt;/p&gt;
+&lt;p&gt;The Provenance website lists these &lt;a href=&quot;https://provenancehotels.com/co-conspirators&quot;&gt;&amp;quot;co-conspirators&amp;quot;&lt;/a&gt; (their words, not mine... but apt!) in Portland.&lt;/p&gt;
+&lt;p&gt;I know these businesses aren&#39;t evil. But I believe that the world around us is constructed by the decisions we make. So I cannot support these businesses while they partner with Provenance Hotel group and Gordon Sondland.&lt;/p&gt;
+&lt;p&gt;Please support these businesses by letting them know your concern about the part they play in enriching the people that keep Trump in power, and support a civil society  by spending your money elsewhere until they&#39;ve stopped doing business with Provenance.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jacobsen Salt&lt;/li&gt;
+&lt;li&gt;Salt &amp;amp; Straw&lt;/li&gt;
+&lt;li&gt;Lightning Bar Collective (Bye and Bye, Sweet Hereafter, Jackknife, Century)&lt;/li&gt;
+&lt;li&gt;Quin Candy&lt;/li&gt;
+&lt;li&gt;Austin Howe&lt;/li&gt;
+&lt;li&gt;Imperial, Vitaly Paley&lt;/li&gt;
+&lt;li&gt;Feast Portland&lt;/li&gt;
+&lt;li&gt;Steven Smith Teas&lt;/li&gt;
+&lt;li&gt;503 Media and Events, David Rae&lt;/li&gt;
+&lt;li&gt;Gemo Wong, Nike&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope these business will cut ties with Provenance, so I can support them again someday.&lt;/p&gt;
+&lt;h2 id=&quot;hotels-owned-by-provenance&quot; tabindex=&quot;-1&quot;&gt;Hotels Owned By Provenance &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/trumplandia/#hotels-owned-by-provenance&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://provenancehotels.com/portfolio&quot;&gt;Portfolio of Provenance Hotels Group&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Portland, OR
+&lt;ul&gt;
+&lt;li&gt;Hotel deLuxe&lt;/li&gt;
+&lt;li&gt;Hotel Lucia&lt;/li&gt;
+&lt;li&gt;Sentinel&lt;/li&gt;
+&lt;li&gt;Dossier&lt;/li&gt;
+&lt;li&gt;Heathman Hotel&lt;/li&gt;
+&lt;li&gt;Westin Portland&lt;/li&gt;
+&lt;li&gt;The Benson&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Seattle, OR
+&lt;ul&gt;
+&lt;li&gt;Hotel Max&lt;/li&gt;
+&lt;li&gt;Hotel Theodore&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tacoma, WA
+&lt;ul&gt;
+&lt;li&gt;Hotel Murano&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Nashville, TN
+&lt;ul&gt;
+&lt;li&gt;Hotel Preston&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;New Orleans, LA
+&lt;ul&gt;
+&lt;li&gt;Old No. 77 Hotel and Chandlery&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Stillwater, MN
+&lt;ul&gt;
+&lt;li&gt;Lora&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;contribute-feedback&quot; tabindex=&quot;-1&quot;&gt;Contribute? Feedback? &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/trumplandia/#contribute-feedback&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Contact Dietrich Ayala (&lt;a href=&quot;https://twitter.com/dietrich&quot;&gt;@dietrich on Twitter&lt;/a&gt; or &lt;a href=&quot;https://mastodon.social/@dietrich&quot;&gt;https://mastodon.social/@dietrich&lt;/a&gt; )&lt;/p&gt;
+&lt;p&gt;If you&#39;re a Portland business owner listed above, and have stopped doing business with Provenance, thank you! Please reach out and I&#39;ll add a note about it.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>UTC+5 and Above: My 2017 DevRel Wrap-up</title>
+		<link href="https://metafluff.com/posts/2017-summary/"/>
+		<updated>2017-11-13T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/2017-summary/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/2017-summary/kids.png&quot; alt=&quot;kids&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I&#39;m on the developer relations team at Mozilla. The &amp;quot;devrel&amp;quot; role has many parts, but generally means communicating to developers about web technologies important to Mozilla and &lt;a href=&quot;https://www.mozilla.org/en-US/mission/&quot;&gt;our mission&lt;/a&gt;, and being an advocate for developers in our product development process.&lt;/p&gt;
+&lt;p&gt;I spent 2017 on typical developer relations activities - coding, writing, speaking - but entirely in UTC+5 and higher timezones. I&#39;d lived in Asia before, and learned how much &lt;em&gt;presence&lt;/em&gt; matters in order to learn about a place, and also I wanted to reduce my carbon footprint by not flying back and forth across mega-oceans.&lt;/p&gt;
+&lt;p&gt;From a &amp;quot;devrel at Mozilla&amp;quot; perspective, I had specific reasons for doing this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;http://www.internetworldstats.com/top20.htm&quot;&gt;largest internet populations are in Asia&lt;/a&gt;, as well as the largest &lt;em&gt;offline populations&lt;/em&gt;. We need to be where the users are, and where growth will happen in the future.&lt;/li&gt;
+&lt;li&gt;It&#39;s estimated that &lt;a href=&quot;https://www.inc.com/will-yakowicz/shenzhen-city-of-electronics.html&quot;&gt;~90% of the world&#39;s electronics are manufactured in Shenzen, China&lt;/a&gt;. If we want to make a safer internet, then Shenzhen is a place we &lt;em&gt;must&lt;/em&gt; be.&lt;/li&gt;
+&lt;li&gt;I wanted to learn about how technology decision making is happening - by developers, or otherwise, in as many different communities in Asia as possible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&#39;ll be publishing a series of briefs on what I learned this year about things like mobile payment patterns and the rise of physical computing, the transient nature of mobile web task workflows, where technical decision making happens, the relationship between the web and messaging apps, cultural and community verticalism, timezone bias, app investor ecosystem, ethical echo-chambers, Chinese maker spaces, a survey of noodle soups across Asia, and more.&lt;/p&gt;
+&lt;p&gt;But first, here&#39;s my 2017 in review.&lt;/p&gt;
+&lt;h2 id=&quot;firsts&quot; tabindex=&quot;-1&quot;&gt;Firsts &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#firsts&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;It was a year with a few firsts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First keynote speaking appearances, three different events, each very different from the other.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://news.ycombinator.com/item?id=14823807&quot;&gt;First time at #1 on Hacker News&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;First press briefings, in Taipei and Singapore&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/~dietrich&quot;&gt;First modules published on NPM!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;events&quot; tabindex=&quot;-1&quot;&gt;Events &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#events&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In 2017, I spoke at or facilitated 22 events in 12 different countries.&lt;/p&gt;
+&lt;p&gt;I specifically chose a diverse set of events, in an effort to learn about communities of technology decision-making outside the typical web developer or open source events. I spoke to high school and university students, designers, developers, open source die-hards, startup founders, entrepreneurs, investors, device manufacturers, academics, and people in various levels and roles in governments.&lt;/p&gt;
+&lt;p&gt;Some of the speaking happened because I submitted a proposal to conference CFPs, some from events reaching out to Mozilla for a speaker, some because I reached out to the organizer asking to speak, some from just being present and offering to speak, and one because I had a drink with a friend who introduced me to another friend whose dad ran a conference and thought I&#39;d be a good match.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://barcampyangon.org/&quot;&gt;Barcamp Yangon, Yangon, Myanmar, Jan 28-29&lt;/a&gt;, &amp;quot;Virtuality Reality on the Web&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://phandeeyar.org/preparing-for-the-app-ocalypse-the-web-and-the-age-of-physical-computing/&quot;&gt;Phandeeyar, Yangon, Myanmar, Feb 2&lt;/a&gt;, &amp;quot;Preparing for the App-ocalypse: The Web and the Age of Physical Computing&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/events/1905375803079986/&quot;&gt;Code for Nepal, Kathmandu, Nepal, Mar 4&lt;/a&gt;, &amp;quot;Preparing for the App-ocalypse&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/events/1412248025474505/&quot;&gt;Digital Nepal, Janakpur, Nepal, Mar 8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://2017.fossasia.org/schedule.html#s-2866&quot;&gt;FOSSAsia, Singapore, Mar 17-19&lt;/a&gt;, &amp;quot;Integrated Physical Computing on the Web&amp;quot; (&lt;a href=&quot;https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567&quot;&gt;video&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.eventbrite.com/e/thailand-startup-summit-tss-2017-2nd-edition-tickets-29342367812#&quot;&gt;Thailand Startup Summit, Bangkok, Thailand, Mar 31&lt;/a&gt; (keynote), &amp;quot;Touching the Future: Merging the Physical and Digital for Creative Experiences on the Web&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://devday.org/en/&quot;&gt;Dev Day Danang, Danang, Vietnam, Apr 16&lt;/a&gt;, &amp;quot;Preparing for the App-ocalypse: The Web in the Age of Physical Computing&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.thingscon.nl/shenzhen/&quot;&gt;ThingsCon Shenzhen, Shenzhen, China, May 17&lt;/a&gt;, &amp;quot;App-ocalypse Now: The Future of User Onboarding in IoT&amp;quot;&lt;/li&gt;
+&lt;li&gt;Tech In Asia Singapore, Singapore, May 17-18&lt;/li&gt;
+&lt;li&gt;CommunicAsia, Singapore, May 23-25&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://webconf.asia/talks&quot;&gt;WebConf.asia, Hong Kong, June 3&lt;/a&gt;, &amp;quot;Touching the Future: Designing Physical Experiences with the Web&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://hkoscon.org/2017/topics/preparing-for-the-app-ocalypse-the-web-in-the-age-of-physical-computing/&quot;&gt;HKOSCON, Hong Kong, June 9-10&lt;/a&gt; (keynote), &amp;quot;Preparing for the App-ocalypse: The Web in the Age of Physical Computing&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/events/276049929466918/&quot;&gt;Mozilla Developer Conference, Taipei, Taiwan, Sept 22&lt;/a&gt;, &amp;quot;Designing Physical Experiences: The Web in the Age of Room-Scale Computing&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://mzl.la/devroadshow&quot;&gt;MDN Roadshow&lt;/a&gt;, Kuala Lumpur, Malaysia, Sept 23, &amp;quot;Designing Physical Experiences: The Web in the Age of Room-Scale Computing&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://mzl.la/devroadshow&quot;&gt;MDN Roadshow&lt;/a&gt;, Penang, Malaysia, Sept 25, &amp;quot;Designing Physical Experiences: The Web in the Age of Room-Scale Computing&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.icmac.asia/&quot;&gt;ICMAC&lt;/a&gt;, Denpasar, Indonesia, Nov 16-17 (keynote), &amp;quot;(Em)Powering Smart Cities: Designing for Resiliency in the Leapfrog Age&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I also spoke at, designed and ran or facilitated various trainings, workshops and briefings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Speaker training for the Mozilla Taipei university program, Jan 17&lt;/li&gt;
+&lt;li&gt;Facilitator for Common Voice design sprint, Mozilla Taipei, Apr 28-29&lt;/li&gt;
+&lt;li&gt;Spring Firefox press briefing, Taipei, May 19&lt;/li&gt;
+&lt;li&gt;Spring Firefox press briefing, Singapore, May 26&lt;/li&gt;
+&lt;li&gt;Augmented City VR/AR Workshop, VRARA &amp;amp; Intel, Singapore, Jul 15&lt;/li&gt;
+&lt;li&gt;Speaker training for Mozilla dev conf, Mozilla Taipei, Sept 20&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;intent-to-ship&quot; tabindex=&quot;-1&quot;&gt;Intent To Ship &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#intent-to-ship&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Early in 2017 I scratched an itch I&#39;d been having around the &amp;quot;Intent to...&amp;quot; messages on Mozilla&#39;s dev.platform mailing list, and Blink&#39;s blink-dev mailing list. These &amp;quot;intent&amp;quot; messages are sent when either of these engines is changing their implementation of the web platform. These messages are extremely useful for communication between the browser vendors - which was validated by how quickly the tweets from this account got picked up by key members of Gecko and Blink development teams, being retweeted and favorited regularly.&lt;/p&gt;
+&lt;p&gt;Now, nine months after starting the account, it has only ~1600 followers, but they are largely influencers in web/browser devrel, or web platform implementors. And the tweets from the account had 375k impressions in the last month, according to Twitter&#39;s analytics.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://twitter.com/intenttoship&quot;&gt;@intenttoship on Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/autonome/intenttoship-bot&quot;&gt;Bot source code on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The bot runs on &lt;a href=&quot;http://glitch.com/&quot;&gt;Glitch.com&lt;/a&gt;, with a &lt;a href=&quot;http://cron.org/&quot;&gt;cron.org&lt;/a&gt; keepy-uppy job&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Feed-to-tweet is a module I wrote for easily creating Twitter bots driven by feeds&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/autonome/feed-to-tweet&quot;&gt;Feed-to-tweet source code on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/feed-to-tweet&quot;&gt;Feed-to-tweet on NPM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Infinite-rss is a module I wrote for generating test feeds through URL configurations&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/autonome/infinite-rss&quot;&gt;Infinite-rss source code on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://infinite-rss.glitch.me/?feedTitle=Teletubby%20Nightmares&amp;amp;itemTitleBase=You%27ll%20never%20wake%20up.&quot;&gt;Infinite-rss live endpoint on Glitch.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;performance&quot; tabindex=&quot;-1&quot;&gt;Performance &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#performance&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Around the &lt;a href=&quot;https://blog.mozilla.org/blog/2017/11/14/introducing-firefox-quantum/&quot;&gt;Quantum launch&lt;/a&gt; I started some work around performance testing, digging into some low-level performance characteristics of Firefox while running the &lt;a href=&quot;https://mozilla.github.io/arewefastyet-speedometer/2.0/&quot;&gt;Speedometer 2.0 benchmark&lt;/a&gt;. It resulted in some handy cross-browser automation tooling - I implemented part of Chrome&#39;s Puppeteer API in Node.js.&lt;/p&gt;
+&lt;p&gt;Once it was easy to run Speedometer with multiple browsers and different versions, I added some measurements of things like CPU usage and disk IO. The work isn&#39;t done yet, but the most interesting learning yet is that it&#39;s beginning to look like the &lt;em&gt;quantity of writes&lt;/em&gt;, irrespective of the amount of data, is the determining factor in performance on Mac for this particular test. More to come in 2018 on this.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/autonome/quantum-testing&quot;&gt;Automation scripts for cross-browser Speedometer testing on Mac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/autonome/puppeteer-fx&quot;&gt;Puppeteer for Firefox on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/puppeteer-fx&quot;&gt;Puppeteer for Firefox on NPM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;speech-recognition&quot; tabindex=&quot;-1&quot;&gt;Speech Recognition &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#speech-recognition&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I worked with &lt;a href=&quot;https://twitter.com/andrenatalbr&quot;&gt;Andre Natal&lt;/a&gt; to take the work done in the &lt;a href=&quot;https://testpilot.firefox.com/experiments/voice-fill&quot;&gt;Voice Fill Test Pilot experiment for Firefox&lt;/a&gt;, and make it accessible to developers both for web and Node.js use.&lt;/p&gt;
+&lt;p&gt;Voice Fill is an extension, which uses a cloud-based speech recognition service run by Mozilla. It&#39;s a &lt;em&gt;private&lt;/em&gt; cloud service - not connected to any type of account, and no audio is saved on our servers.&lt;/p&gt;
+&lt;p&gt;This means that developers who want to add speech recognition to their web pages, apps and devices can do so without having to buy into a cloud provider ecosystem.&lt;/p&gt;
+&lt;p&gt;I started by modularizing the extension code into a single library for web pages.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Source is at &lt;a href=&quot;https://github.com/mozilla/speaktome-web&quot;&gt;speaktome-web on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Module is at &lt;a href=&quot;https://www.npmjs.com/package/speaktome-api&quot;&gt;speaktome-api on NPM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I also wrote a module for using the service from Node.js in your own devices - a RaspberryPi with a USB microphone, for example. This was a fun jaunt through the various libraries that deal with mics and recording and codecs and I only cried a little bit. But it works pretty well now, so time well spent.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Source is at &lt;a href=&quot;https://github.com/mozilla/speaktome-node&quot;&gt;speaktome-node on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Module is at &lt;a href=&quot;https://www.npmjs.com/package/speaktome-node&quot;&gt;speaktome-node on NPM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;webextensions&quot; tabindex=&quot;-1&quot;&gt;WebExtensions &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#webextensions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I&#39;ve been writing browser extensions for Firefox since 2005, and in 2017 Mozilla made the biggest change in how extensions are written since they were initially added to the browser: The WebExtensions API. It&#39;s a change that sets the stage for Firefox to be much faster and safer while still being customizable. I spent some time migrating some of the extensions I&#39;d written that I just couldn&#39;t live without, and also doing some experimentation with making new browser APIs and a few more experiments.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Tab hiding&lt;/em&gt;: The tab groups extension needs an API for hiding and showing tabs, so I wrote an &lt;a href=&quot;https://github.com/autonome/webext-experiment-showOnlyTheseTabs&quot;&gt;experimental version of that API&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Dormancy&lt;/em&gt;: Once the tab.discard API was implemented, I ported Dormancy, an extension that unloads the web content in tabs after five minutes of not being used. &lt;a href=&quot;https://github.com/autonome/Dormancy&quot;&gt;Source code on Github&lt;/a&gt;, &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/dormancy/&quot;&gt;AMO listing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Peek&lt;/em&gt;: An experiment in quick access to web content without breaking the user workflow. &lt;a href=&quot;https://github.com/autonome/Peek&quot;&gt;Source code on Github&lt;/a&gt;, &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/peek/&quot;&gt;AMO listing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Tab Statistics&lt;/em&gt;: Extensions for showing different statistics about how you use tabs. It is implemented as a single extension, but since WebExtensions only allows a single menu item per extension, I listed four different versions on AMO, each showing a different piece of information. &lt;a href=&quot;https://github.com/autonome/tabstatistics&quot;&gt;Source code on Github&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tab-count-button/&quot;&gt;Tab Count on AMO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tabs-opened-button/&quot;&gt;Tabs Opened on AMO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tabs-closed-button/&quot;&gt;Tabs Closed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/tabs-switched-button/&quot;&gt;Tab Switches&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Force Google Locale&lt;/em&gt;: Detect your locale, and add it to Google URLs. &lt;a href=&quot;https://github.com/autonome/forcegooglelocale&quot;&gt;Source code on Github&lt;/a&gt;, &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/force-google-locale/&quot;&gt;AMO listing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Vim Keybindings&lt;/em&gt;: HJKL navigation on web pages. &lt;a href=&quot;https://github.com/autonome/vimkeybindings&quot;&gt;Source code on Github&lt;/a&gt;, &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/vimkeybindings/&quot;&gt;AMO listing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Always Right&lt;/em&gt;: New tabs in the same place all the time forever. &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/always-right/&quot;&gt;AMO listing&lt;/a&gt;, &lt;a href=&quot;https://github.com/autonome/Always-Right&quot;&gt;Source code on Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;miscellanous-projects&quot; tabindex=&quot;-1&quot;&gt;Miscellanous Projects &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#miscellanous-projects&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Web and Messaging&lt;/em&gt;: Research exploring how the web and messaging apps can play together. &lt;a href=&quot;https://github.com/autonome/web-and-messaging&quot;&gt;Research on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;TreeViewSortable&lt;/em&gt;: An extension for the Atom Editor for sorting the file tree in different ways. &lt;a href=&quot;https://github.com/autonome/tree-view-sortable&quot;&gt;Source code on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Twitter Inline Oembed&lt;/em&gt;: Embed Tweets in a single line of code in your blog posts. &lt;a href=&quot;https://github.com/autonome/twitter-inline-oembed&quot;&gt;Source code on Github&lt;/a&gt;, &lt;a href=&quot;https://www.npmjs.com/package/twitter-inline-oembed&quot;&gt;On NPM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;writing&quot; tabindex=&quot;-1&quot;&gt;Writing &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/2017-summary/#writing&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;While I had a few posts that I really liked and were successful, I really thought I&#39;d write more this year, and am disappointed by how little I managed to publish. I have a huge number of partially completed posts in my drafts folder. I need to create a habit of flexing the writing muscle regularly.&lt;/p&gt;
+&lt;p&gt;The big traffic post was about my absurd number of tabs. I did some basic performance testing across a bunch of versions of Firefox, which showed dramatic improvements in startup time even with more than 1000 tabs. I really didn&#39;t expect such a response - &lt;a href=&quot;https://news.ycombinator.com/item?id=14823807&quot;&gt;#1 on HackerNews&lt;/a&gt; (537 comments!), coverage by loads of mainstream tech news outlets like &lt;a href=&quot;http://www.zdnet.com/article/firefox-can-open-over-1500-tabs-in-15-seconds/&quot;&gt;ZDNET&lt;/a&gt;, and &lt;a href=&quot;https://www.reddit.com/r/programming/comments/6otuw7/the_new_firefox_and_ridiculous_numbers_of_tabs/&quot;&gt;pretty massive comment thread on /r/programming&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jan 11 - &lt;a href=&quot;https://medium.com/@dietrich/infectious-ideas-scaling-the-physical-web-c04bd1261fa2&quot;&gt;Infectious Ideas: Scaling the Physical Web&lt;/a&gt; (Medium post)&lt;/li&gt;
+&lt;li&gt;Jan 31 - &lt;a href=&quot;https://medium.com/@dietrich/barcamp-yangon-2017-technology-community-and-the-largest-unconference-in-the-world-5966687fd84d&quot;&gt;Barcamp Yangon 2017: Technology, Community and the Largest Unconference in the World&lt;/a&gt; (Medium Post)&lt;/li&gt;
+&lt;li&gt;Mar 28 - &lt;a href=&quot;https://metafluff.com/2017/03/28/fossasia2017/&quot;&gt;FOSSAsia 2017&lt;/a&gt; (blog post)&lt;/li&gt;
+&lt;li&gt;Jun 12 - &lt;a href=&quot;https://medium.com/the-state-of-responsible-internet-of-things-iot/dietrichayala-115fda22a95a&quot;&gt;Trust, Lies and Fitness Wearables&lt;/a&gt;, for ThingsCon&#39;s State of Responsible IoT report&lt;/li&gt;
+&lt;li&gt;Jul 06 - &lt;a href=&quot;https://metafluff.com/2017/07/06/aframe-augmented-city/&quot;&gt;A-Frame Quickstart for Augmented City&lt;/a&gt; (blog post)&lt;/li&gt;
+&lt;li&gt;Jul 12 - &lt;a href=&quot;https://metafluff.com/2017/07/12/augmented-city-vr/&quot;&gt;Augmented City - VR&lt;/a&gt; (blog post)&lt;/li&gt;
+&lt;li&gt;Jul 20 - &lt;a href=&quot;https://metafluff.com/2017/07/20/augmented-city-singapore/&quot;&gt;Augmented City - Singapore&lt;/a&gt; (blog post)&lt;/li&gt;
+&lt;li&gt;Jul 21 - &lt;a href=&quot;https://metafluff.com/2017/07/21/i-am-a-tab-hoarder/&quot;&gt;The New Firefox and Ridiculous Numbers of Tabs&lt;/a&gt; (blog post)&lt;/li&gt;
+&lt;li&gt;Aug 08 - &lt;a href=&quot;https://superyesmore.com/the-secret-of-flow-state-productivity-for-busy-people-a659c99de96aaa3c5e5780ebf3db24e7&quot;&gt;The Secret of Flow State - Productivity for Busy People&lt;/a&gt;, for SuperYesMore&#39;s Human in the Machine series&lt;/li&gt;
+&lt;li&gt;Sep 21 - &lt;a href=&quot;https://hacks.mozilla.org/2017/09/always-right-a-webextension-migration-story/&quot;&gt;Always Right – An Extension Migration Story&lt;/a&gt;, for Mozilla Hacks&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>The New Firefox and Ridiculous Numbers of Tabs</title>
+		<link href="https://metafluff.com/posts/i-am-a-tab-hoarder/"/>
+		<updated>2017-07-21T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/i-am-a-tab-hoarder/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/i-am-a-tab-hoarder/tabs.png&quot; alt=&quot;Tabs!&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I&#39;ve got a Firefox profile with 1691 tabs.&lt;/p&gt;
+&lt;p&gt;I started trying to write down why, but gave up for now. It was becoming an overly long exploration of product design and the future of the web.&lt;/p&gt;
+&lt;p&gt;It&#39;s Friday. Let&#39;s keep things simple.&lt;/p&gt;
+&lt;p&gt;As you would expect, Firefox handled this profile quite poorly for a long time. I got used to multi-minute startup time, waiting 15-30 seconds for tabs from external apps to show up, and all manner of non-responsive behavio(u)r.&lt;/p&gt;
+&lt;p&gt;And then, quite recently, everything changed.&lt;/p&gt;
+&lt;h2 id=&quot;quantum-flow&quot; tabindex=&quot;-1&quot;&gt;Quantum Flow &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/i-am-a-tab-hoarder/#quantum-flow&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Right now, more effort is being put into making Firefox fast than I&#39;ve seen since... well, since I&#39;ve been working on Firefox. And I&#39;ve been at Mozilla for more than a decade.&lt;/p&gt;
+&lt;p&gt;Part of this effort is a project called Quantum Flow - a bunch of engineers making changes that directly impact Firefox responsiveness. To learn more and follow along with these efforts, read &lt;a href=&quot;https://ehsanakhgari.org/tag/quantumflow&quot;&gt;Ehsan Akhgari&#39;s weekly posts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A lot of the improvement in this particular scenario is from Kevin Jones&#39; work on bringing the overall cost of unloaded tabs as close to zero as possible. While the major work has landed, the work continues in &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=906076&quot;&gt;Bug 906076&lt;/a&gt;. Huge amounts of thanks for the recent wins for us pathological tab hoarders go to Kevin, Dão Gottwald, Mike de Boer, Tim Taubert, David Teller, Mike Conley, and Gijs Kruitbosch.&lt;/p&gt;
+&lt;h2 id=&quot;test-scenario&quot; tabindex=&quot;-1&quot;&gt;Test Scenario &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/i-am-a-tab-hoarder/#test-scenario&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I took my 1691 tab browser profile, and did a wall-clock measurement of start-up time and memory use for Firefox versions 20, 30, 40, and 50 through 56.&lt;/p&gt;
+&lt;p&gt;These are my personal results. You might not get the same results. If you test 1691 (or even 1692) tabs and find something totally different, I&#39;d love to hear about it.&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I shut down most things on my Macbook (yeah the little one that&#39;s more like a glorified iPad).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I turned off wifi. This is a measurement of Firefox, not the network, nor web page rendering.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I measured by eyeball, using &amp;quot;time cat&amp;quot; on the command line. This might seem weird, but c&#39;mon - I&#39;m measuring &lt;em&gt;minutes&lt;/em&gt;. Microsecond precision is not required.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I measured startup time five times, dropping highs and lows. Even that wasn&#39;t really necessary - the times were &lt;em&gt;startingly consistent&lt;/em&gt;. With almost 1700 tabs and &amp;gt;5 minute startup, the standard deviation was negligible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For measuring startup time, I killed the timer when the &amp;quot;server not found&amp;quot; page finished being rendered in the active tab. After lots of testing, I consistently found this to be the point at which the application as a whole became responsive and usable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For memory, I waited for one minute after the startup measurement point and then grabbed the total value from the bottom of about:memory. I waited one minute, because I observed a consistent spike in memory after startup which went away within the first minute and then stabilized for a long period after. It&#39;s all kinds of initialization that doesn&#39;t need to block the app from starting, but needs to happen once you get to browsing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I tested Firefox versions 20, 30, 40, and 50 through 56. I tried testing Firefox 10 but it permahung while loading the profile.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;start-up-time&quot; tabindex=&quot;-1&quot;&gt;Start-up Time &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/i-am-a-tab-hoarder/#start-up-time&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Graph of startup time with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. The Y axis is &lt;em&gt;minutes&lt;/em&gt;. Yes, Firefox 51 took almost &lt;em&gt;8 MINUTES&lt;/em&gt; to start up. However, as of Firefox 55 it only takes &lt;em&gt;15 seconds&lt;/em&gt;. For 1691 tabs. Really. I no longer fear restarts. Lately, I just restart Firefox for fun sometimes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/i-am-a-tab-hoarder/startup.png&quot; alt=&quot;Startup time&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;It&#39;s interesting that Firefox startup time got consistently &lt;em&gt;worse&lt;/em&gt; over time until Firefox 51. It&#39;d be interesting to do this test with varying numbers of tabs and find out at what point these types of regressions become noticeable.&lt;/p&gt;
+&lt;h2 id=&quot;memory-usage&quot; tabindex=&quot;-1&quot;&gt;Memory Usage &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/i-am-a-tab-hoarder/#memory-usage&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Graph of memory use one minute after startup with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. While consistently using around two gigs of memory, we&#39;ve now reduced to &lt;em&gt;less than half a gig&lt;/em&gt;. Yes, this is without actual web pages loaded, but look at this, haters: I&#39;ve now got 1.5 gigs of memory to load web pages into that I didn&#39;t have before.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/i-am-a-tab-hoarder/memory.png&quot; alt=&quot;Memory use&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The efforts that the Firefox and Gecko and Servo teams are putting into making a SUPERFUCKINGFAST browser are having a real impact, and that&#39;s exciting to see.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Augmented City - Singapore</title>
+		<link href="https://metafluff.com/posts/augmented-city-singapore/"/>
+		<updated>2017-07-20T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/augmented-city-singapore/</id>
+		<content type="html">&lt;p&gt;This post is part of the Augmented City series. The &lt;a href=&quot;https://metafluff.com/2017/07/06/aframe-augmented-city/&quot;&gt;first post is introduced A-Frame&lt;/a&gt; as a tool for creating 3D content for the web. The second post introduced &lt;a href=&quot;https://metafluff.com/2017/07/12/augmented-city-vr/&quot;&gt;VR on the web&lt;/a&gt;. These were prep posts for the event attendees. This post is about the design and goals for the &lt;a href=&quot;https://www.eventbrite.com/e/vrar-maker-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486&quot;&gt;first event&lt;/a&gt;, and how it went.&lt;/p&gt;
+&lt;p&gt;We brought a group of developers and designers together for a day to explore how a city can be experienced using VR and AR. The day was split into a lightweight ideation workshop in the morning and team coding after lunch. The technical focus was to use A-Frame, a declarative 3D authoring tool for VR on the web, to rapidly prototype the ideas from the morning.&lt;/p&gt;
+&lt;blockquote class=&quot;instagram-media&quot; data-instgrm-version=&quot;7&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:8px;&quot;&gt; &lt;div style=&quot; background:#F8F8F8; line-height:0; margin-top:40px; padding:28.10185185185185% 0; text-align:center; width:100%;&quot;&gt; &lt;div style=&quot; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;&lt;a href=&quot;https://www.instagram.com/p/BVJQaVMgKpX/&quot; style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&quot; target=&quot;_blank&quot;&gt;A post shared by rockintosh (@rockintosh)&lt;/a&gt; on &lt;time style=&quot; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&quot; datetime=&quot;2017-06-10T03:52:06+00:00&quot;&gt;Jun 9, 2017 at 8:52pm PDT&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; defer=&quot;&quot; src=&quot;https://platform.instagram.com/en_US/embeds.js&quot;&gt;&lt;/script&gt;
+&lt;h2 id=&quot;event-concept:-the-un-hackathon&quot; tabindex=&quot;-1&quot;&gt;Event Concept: The Un-Hackathon &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-singapore/#event-concept:-the-un-hackathon&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Augmented City is an experimental event series created collaboratively by the &lt;a href=&quot;https://m.facebook.com/XR-Alliance-1703741423255746/&quot;&gt;XR Alliance&lt;/a&gt; and &lt;a href=&quot;https://www.mozilla.org/&quot;&gt;Mozilla&lt;/a&gt;. The kickoff of this first installment was supported by &lt;a href=&quot;https://www.intel.sg/content/www/xa/en/homepage.html&quot;&gt;Intel&lt;/a&gt;, and was in Singapore on July 15, 2017.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/vanradd&quot;&gt;Vanessa Radd&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/chrisgomez&quot;&gt;Chris Gomez&lt;/a&gt; and I met at &lt;a href=&quot;https://metafluff.com/2017/03/28/fossasia2017/&quot;&gt;FOSSAsia in March&lt;/a&gt;, and they reached out about doing an event together where professionals can learn and create VR and AR experiences together as a group.&lt;/p&gt;
+&lt;p&gt;We wanted an event that...&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Had a specific theme, instead of an overly broad prompt of &amp;quot;make stuff!&amp;quot;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Was oriented towards experienced professionals, not beginners (there are loads of those events already)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Welcomed both developers and designers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Had a focus on actually &lt;em&gt;making something&lt;/em&gt;, not a series of talks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Was &lt;em&gt;not&lt;/em&gt; competitive - no &amp;quot;winners&amp;quot; and &amp;quot;losers&amp;quot;, no prizes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Treated the participants humanely: One day, no overnights, start at a reasonable hour, and serve healthy food (no pizza!)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The theme that Chris came up with was &amp;quot;augmented city&amp;quot;, which is flexible and broad enough that we could do a series of events, possibly in different cities, experimenting with the format to refine it over time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/augmented-city-singapore/ideation.png&quot; alt=&quot;ideation&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;event-design:-the-un-hackathon&quot; tabindex=&quot;-1&quot;&gt;Event Design: The Un-Hackathon &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-singapore/#event-design:-the-un-hackathon&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In May I&#39;d helped out at the &lt;a href=&quot;https://moztw.kktix.cc/events/voice-jam&quot;&gt;Mozilla VoiceJam&lt;/a&gt;, a two-day design sprint with &lt;a href=&quot;https://twitter.com/mikehenrty&quot;&gt;Michael Henretty&lt;/a&gt; and &lt;a href=&quot;https://shinglyu.github.io/&quot;&gt;Shing Lyu&lt;/a&gt;, which invited local designers, researchers and developers to get together to come up with ways to get people to donate their voices for &lt;a href=&quot;https://voice.mozilla.org/&quot;&gt;Project CommonVoice&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At that event we used some of the human-centered design practices in &lt;a href=&quot;https://toolkit.mozilla.org/&quot;&gt;Mozilla&#39;s Open Innovation Toolkit&lt;/a&gt; to help the group come up with ideas and refine them over two days.&lt;/p&gt;
+&lt;p&gt;At this event, I wanted to take it a step further and see if we can take a group from innovation prompt to &lt;em&gt;working code&lt;/em&gt; in &lt;em&gt;one day&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I wanted the participants to spend time thinking divergently on the overall topic, in order to reset their imaginations - sort of a palate cleanser for the day. I also wanted them thinking divergently within their selected project area, to reduce attachment to previously conceived project ideas (their own, or seeded by our prep materials).&lt;/p&gt;
+&lt;p&gt;The prompt for the day was:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;How can we augment or virtualize our experience of Singapore in ways that are interesting, engaging and fun?&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The main parts of the final program:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prep participants in advance on A-Frame.&lt;/li&gt;
+&lt;li&gt;Create teams on arrival.&lt;/li&gt;
+&lt;li&gt;Ideation round on innovation prompt.&lt;/li&gt;
+&lt;li&gt;Ideation round on project ideas.&lt;/li&gt;
+&lt;li&gt;Team coding.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We wanted a mix of developers and designers, so on the Eventbrite page, offered tickets for each. This means we knew in advance that the ratio was almost 50/50.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/augmented-city-singapore/teamcam.png&quot; alt=&quot;team cam&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;how-the-day-went&quot; tabindex=&quot;-1&quot;&gt;How The Day Went &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-singapore/#how-the-day-went&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Prep:&lt;/em&gt; We published a few blog posts to prep the participants for A-Frame and how to do VR on the web, including those in the pre-event emails. However, in a show of hands at the actual event, we found almost nobody read any of the material. Lesson learned!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Teams:&lt;/em&gt; As we knew the participants were split down the middle, I put post-its marked with numbers in two stacks by the doors, one stack for developers and another for designers, that matched with corresponding numbers on the tables. This way, teams were selected at random, divided evenly by role, and and no time was wasted during the event on team-making. A sound strategy in theory. In reality, the people who showed up were almost exclusively developers.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Topic Ideation:&lt;/em&gt; This was a sped-up version of the &lt;a href=&quot;https://toolkit.mozilla.org/method/idea-generation/&quot;&gt;Idea Generation&lt;/a&gt; process of diverging then converging ideas from the group, done in teams with post-its at their tables. The teams seemed to have a blast, and the exercise seemed useful in helping design the landscape of ideas for the rest of the day.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Project Ideation:&lt;/em&gt; We used the same Idea Generation process as before, but seeded it the top two categories from the first ideation round. The goal here was to narrow down all the project ideas generated based on the categories in the first round, into one project idea. It definitely was successful in generating project ideas from categories, but the narrowing didn&#39;t really work - teams had multiple ideas and really needed more time to coalesce on one.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Coding:&lt;/em&gt; Almost two-thirds of the time of the event was allocated to actually making the selected idea. This was good, as the first two hours was spent getting people up to speed on A-Frame. As people got more comfortable with the tool and dev workflow, the pace and excitement quickened, with people showing the things they got working. Some teams worked together on one idea, some teams worked on their individual ideas, but communicating and sharing as they went.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Closing:&lt;/em&gt; At 5:30pm, people were still focused and coding, with the occasional whoop when something worked. We did a quick share around the room, had a conversation about how people felt about the event itself, and closed it down.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/augmented-city-singapore/arjs.png&quot; alt=&quot;ar.js&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;notes-for-next-time&quot; tabindex=&quot;-1&quot;&gt;Notes for Next Time &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-singapore/#notes-for-next-time&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Move any prep material into the event itself. Next time I&#39;d add a one-hour A-Frame bootstrap workshop into the program, maybe even before the ideation section...&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make teams only once everyone is in the door. Was a nice experiment, but too much can go wrong, forcing time to be used to readjust teams later anyway.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Before team-making, do a whole-group activity, even it&#39;s speed intros.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redesign the ideation parts to be one session with multiple activities that results clearly in &lt;em&gt;one and only one&lt;/em&gt; project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Glitch &lt;em&gt;worked&lt;/em&gt;. People were able to get examples up and running in no time at all, and started remixing them to meet their own project needs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Common issues that came up when working with A-Frame: How to load transparent PNGs, how to position a specific part of a 360 degree photo as the default view, and how to train AR markers, how to use the and reference assets, and what exactly to modify when you&#39;ve got an asset, a link and the actual entity itself.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Things that came easy in A-Frame were almost entirely due to the flow of being able to remix the examples on &lt;a href=&quot;http://aframe.io/&quot;&gt;aframe.io&lt;/a&gt; on Glitch. Once I showed people that flow, things really got moving. However, it also meant that the projects all contained the same layouts, default entities, text, etc. Need to find a way to use that flow but encourage visual differentiation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I need to make a better set of A-Frame starter Glitch examples for AR scenarios based on my demos. Right now they&#39;re too hard to remix.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overall the event went really well. Most gratifiying was seeing how focused everyone was in the afternoon, and how many people stuck to the theme. People definitely were deep in the flow, using A-Frame to bring their ideas to life, which is a win.&lt;/p&gt;
+&lt;p&gt;The resources, links and projects from the event are all collected on the &lt;a href=&quot;https://github.com/augmented-city/singapore&quot;&gt;augmented-city/singapore repo&lt;/a&gt; on Github.&lt;/p&gt;
+&lt;p&gt;See you at the next one!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/augmented-city-singapore/shareoff.png&quot; alt=&quot;share-off&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Augmented City - VR</title>
+		<link href="https://metafluff.com/posts/augmented-city-vr/"/>
+		<updated>2017-07-11T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/augmented-city-vr/</id>
+		<content type="html">&lt;p&gt;Hello! This guide is written for the &lt;a href=&quot;https://www.eventbrite.com/e/vrar-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486&quot;&gt;Augmented City AR/VR lab&lt;/a&gt; in Singapore on July 15th 2017, but might be helpful for anyone looking to jump into A-Frame. The &lt;a href=&quot;http://metafluff.com/2017/07/06/aframe-augmented-city/&quot;&gt;first post is introduced A-Frame&lt;/a&gt; as a tool for creating 3D content for the web. This post introduces VR on the web. The next and final post in the Augmented City prep series will be about AR on the web.&lt;/p&gt;
+&lt;blockquote class=&quot;instagram-media&quot; data-instgrm-version=&quot;7&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:8px;&quot;&gt; &lt;div style=&quot; background:#F8F8F8; line-height:0; margin-top:40px; padding:28.10185185185185% 0; text-align:center; width:100%;&quot;&gt; &lt;div style=&quot; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;&lt;a href=&quot;https://www.instagram.com/p/BVJQaVMgKpX/&quot; style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&quot; target=&quot;_blank&quot;&gt;A post shared by rockintosh (@rockintosh)&lt;/a&gt; on &lt;time style=&quot; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&quot; datetime=&quot;2017-06-10T03:52:06+00:00&quot;&gt;Jun 9, 2017 at 8:52pm PDT&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; defer=&quot;&quot; src=&quot;https://platform.instagram.com/en_US/embeds.js&quot;&gt;&lt;/script&gt;
+&lt;h2 id=&quot;vr&quot; tabindex=&quot;-1&quot;&gt;VR &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-vr/#vr&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;With every passing day, virtual reality is becoming less weird and more a fact of life for developers and designers everywhere.&lt;/p&gt;
+&lt;p&gt;VR hardware isn&#39;t ubiquitous yet, and is actually still both cumbersome and expensive. Momentum is gathering regardless, both in experimentation and business investment.&lt;/p&gt;
+&lt;p&gt;The web is the largest deployment surface with the least friction for content of any kind. Given the still early stage that VR is at, being able to make it and publish it on the web provides the innovation vector that is required for VR to succeed.&lt;/p&gt;
+&lt;h2 id=&quot;webvr&quot; tabindex=&quot;-1&quot;&gt;WebVR &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-vr/#webvr&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;WebVR is a standard for exposing VR hardware capabilities to the software context of web applications, and then rendering the page to that hardware. The specification describes an API in JavaScript for enumerating HMDs and controllers, among other things.&lt;/p&gt;
+&lt;p&gt;Mozilla, Google and others have been working together over the last couple of years to develop the standard, and are now starting to ship the initial versions. The specification was tagged at version 1.1 but is not yet finalized, so implementations may yet change.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;WebVR spec development is driven by the &lt;a href=&quot;https://www.w3.org/community/webvr/&quot;&gt;W3C WebVR Community Group&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://w3c.github.io/webvr/&quot;&gt;WebVR draft specification on W3C&#39;s Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebVR_API&quot;&gt;WebVR API documentation on MDN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Most conversation happens on the &lt;a href=&quot;https://webvr-slack.herokuapp.com/&quot;&gt;WebVR Slack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&quot;https://metafluff.com/posts/augmented-city-vr/simba.png&quot; /&gt;
+&lt;h2 id=&quot;browser-support-for-webvr&quot; tabindex=&quot;-1&quot;&gt;Browser Support for WebVR &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-vr/#browser-support-for-webvr&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Firefox: Supported on Windows and Android since version 55 (beta at the time of this post), and in nightly builds on Mac.&lt;/li&gt;
+&lt;li&gt;Chrome: Supported, but off by default, need to flip a flag.&lt;/li&gt;
+&lt;li&gt;Edge: Supported unprefixed as of build 15002+ on Desktop, Mixed Reality, Mobile and Xbox.&lt;/li&gt;
+&lt;li&gt;Safari: Unsupported, but Apple just joined the WebVR community group, so there&#39;s a possibility of support but no explicit statement yet.&lt;/li&gt;
+&lt;li&gt;Samsung: Supported on Samsung Internet Browser for GearVR.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;mobile-and-the-webvr-polyfill&quot; tabindex=&quot;-1&quot;&gt;Mobile and the WebVR Polyfill &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-vr/#mobile-and-the-webvr-polyfill&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Smartphones can be used for WebVR experiences inside &amp;quot;cardboard&amp;quot; or other devices designed to contain a smartphone for HMD-like experiences.&lt;/p&gt;
+&lt;p&gt;These most often use the &lt;a href=&quot;https://github.com/googlevr/webvr-polyfill&quot;&gt;WebVR Polyfill&lt;/a&gt;, a JavaScript library created by Google which mimics the WebVR API functionality, rendering the scene for each eye in software. Libraries like Three.js and A-Frame use the polyfill when no hardware is detected.&lt;/p&gt;
+&lt;p&gt;If you open an A-Frame scene on your mobile phone and touch the HMD icon, the polyfill will kick in and you&#39;ll see the scene rendered for each eye separately, and you can then insert the phone inside a VR viewing device.&lt;/p&gt;
+&lt;p&gt;The polyfill uses the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation&quot;&gt;orientation web API&lt;/a&gt;, so even responds to your movement, allowing you to look all around within the scene.&lt;/p&gt;
+&lt;img src=&quot;https://metafluff.com/posts/augmented-city-vr/cardboard.jpg&quot; /&gt;
+&lt;h2 id=&quot;hmd-support&quot; tabindex=&quot;-1&quot;&gt;HMD Support &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/augmented-city-vr/#hmd-support&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Currently both retail versions of the HTC Vive and the Oculus Rift work with Firefox and Chrome&#39;s implementations of WebVR. Instructions for all of these combinations are at &lt;a href=&quot;https://mozvr.com/#start&quot;&gt;Mozvr.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Microsoft Edge only supports their Mixed Reality hardware at this time.&lt;/p&gt;
+&lt;p&gt;David Rousset &lt;a href=&quot;https://www.davrous.com/2017/07/07/from-zero-to-hero-creating-webvr-experiences-with-babylon-js-on-all-platforms/&quot;&gt;wrote a great overview&lt;/a&gt; of writing a WebVR application that works in all hardware platforms, with this excellent visualization of browsers and hardware platforms. One thing to add is Firefox Android also supports WebVR from version 55.&lt;/p&gt;
+&lt;img src=&quot;https://metafluff.com/posts/augmented-city-vr/davidroussetmatrix.jpg&quot; /&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>A-Frame Quickstart for Augmented City</title>
+		<link href="https://metafluff.com/posts/aframe-augmented-city/"/>
+		<updated>2017-07-06T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/aframe-augmented-city/</id>
+		<content type="html">&lt;p&gt;Hello! This guide is written for the &lt;a href=&quot;https://www.eventbrite.com/e/vrar-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486&quot;&gt;Augmented City AR/VR lab&lt;/a&gt; in Singapore on July 15th 2017, but might be helpful for anyone looking to jump into A-Frame. This first post will orient you to A-Frame itself, and the couple following will focus on VR and AR. Enjoy!&lt;/p&gt;
+&lt;blockquote class=&quot;instagram-media&quot; data-instgrm-version=&quot;7&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:8px;&quot;&gt; &lt;div style=&quot; background:#F8F8F8; line-height:0; margin-top:40px; padding:28.10185185185185% 0; text-align:center; width:100%;&quot;&gt; &lt;div style=&quot; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;&lt;a href=&quot;https://www.instagram.com/p/BVJQaVMgKpX/&quot; style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&quot; target=&quot;_blank&quot;&gt;A post shared by rockintosh (@rockintosh)&lt;/a&gt; on &lt;time style=&quot; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&quot; datetime=&quot;2017-06-10T03:52:06+00:00&quot;&gt;Jun 9, 2017 at 8:52pm PDT&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; defer=&quot;&quot; src=&quot;https://platform.instagram.com/en_US/embeds.js&quot;&gt;&lt;/script&gt;
+&lt;h2 id=&quot;augmented-city&quot; tabindex=&quot;-1&quot;&gt;Augmented City &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#augmented-city&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The Augmented City event is an all-day workshop focused on quickly prototyping AR/VR experiences on the web, and with a theme of Singapore itself.&lt;/p&gt;
+&lt;p&gt;What does an augmented Singapore look like? What can it do? What can you do in it? Maybe it tells its own story - its history. Maybe it shows you what music is happening nearby, or which hawker stalls you should try. Maybe lets you see &lt;a href=&quot;http://nationalmuseum.sg/exhibitions/exhibition-list/singapore-very-old-tree&quot;&gt;trees that used to be&lt;/a&gt;, or shows visualizations of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Port_of_Singapore#/media/File:KITLV_-_150813_-_Lambert_%26_Co.,_G.R._-_Singapore_-_Port_at_Singapore_-_circa_1890.tif&quot;&gt;changing waterline&lt;/a&gt; over time as the city grew.&lt;/p&gt;
+&lt;p&gt;Some more ideas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I love &lt;a href=&quot;https://www.instagram.com/p/BVl2DJgAwgJ/&quot;&gt;these visuals from @rockintosh on Instagam&lt;/a&gt; - the ArtScience Museum disintegrating and floating away is fantastic.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use public data to create 3D and virtual maps with tools like &lt;a href=&quot;https://github.com/UDST/vizicities&quot;&gt;Vizicities&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vive put up a post with a bunch of &lt;a href=&quot;https://blog.vive.com/us/2017/05/12/experience-history-in-vr/&quot;&gt;examples of teaching history through VR&lt;/a&gt;, and the BBC made &lt;a href=&quot;http://www.bbc.co.uk/taster/projects/romes-invisible-city-vr&quot;&gt;this exploration of the Pantheon in Rome&lt;/a&gt;. I&#39;ve been playing with a model of Kowloon Walled City in Hong Kong (but it&#39;s not ready yet...). What in Singapore&#39;s history can you recreate virtually?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;These &lt;a href=&quot;https://www.instagram.com/p/BV9TapglsAq/&quot;&gt;&amp;quot;following eyes&amp;quot; from NYPSIDM students&lt;/a&gt; here in Singapore are fantastic. Imagiine an AR version, placed all around the city!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tell a story about the musical history of Singapore, or showcase contemporary music using AR. I like this use of AR for &lt;a href=&quot;https://goldcomputing.show/2017/05/30/vinylart/&quot;&gt;scanning record covers to listen and learn more about the music they contain&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To be honest, I want an AR app that translates the kopitiam menus into something I can understand so I can order coffee the right way... somehow I always order it wrong!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&quot;https://metafluff.com/posts/aframe-augmented-city/aframe-example.png&quot; /&gt;
+&lt;h2 id=&quot;a-frame&quot; tabindex=&quot;-1&quot;&gt;A-Frame &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#a-frame&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This guide will help you quickly get up to speed on using A-Frame, Mozilla&#39;s library for declarative authoring of 3D content for virtual reality and augmented reality web experiences. The guide contains links to documentation, learning tools, useful components, tips and tools for debugging, and locations for finding help.&lt;/p&gt;
+&lt;h2 id=&quot;documentation-and-learning&quot; tabindex=&quot;-1&quot;&gt;Documentation and Learning &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#documentation-and-learning&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;a href=&quot;https://aframe.io/&quot;&gt;official A-Frame website&lt;/a&gt; has documentation and examples.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://aframe.io/aframe-school&quot;&gt;A-Frame School&lt;/a&gt; is a short interactive curriculum for learning A-Frame.&lt;/li&gt;
+&lt;li&gt;Check out the &lt;a href=&quot;https://hacks.mozilla.org/?s=a-frame&quot;&gt;A-Frame posts on the Mozilla Hacks blog&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you&#39;re a podcasty person, check out this &lt;a href=&quot;http://voicesofvr.com/538-how-mozilla-is-driving-webvr-content-tooling-with-the-a-frame-framework/&quot;&gt;interview with A-Frame core developers&lt;/a&gt; on the Voices of VR podcast, to learn more about how A-Frame got to where it is, and where it&#39;s going.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;start-coding&quot; tabindex=&quot;-1&quot;&gt;Start Coding &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#start-coding&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://glitch.com/&quot;&gt;Glitch.com&lt;/a&gt; lets you author and run full web projects, with HTML, CSS, JavaScript and Node.js. Create a free account and you can start hacking on A-Frame right away. If you&#39;re a more experienced developer, check out the &lt;a href=&quot;https://aframe.io/docs/0.6.0/introduction/installation.html&quot;&gt;A-Frame installation page&lt;/a&gt; to add it to your development environment.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get started with the &lt;a href=&quot;http://glitch.com/~aframe&quot;&gt;A-Frame Glitch example&lt;/a&gt;. Click the link and choose &amp;quot;Remix your own&amp;quot;. Then try moving the objects around, changing their color, or animating them, to get a feel for what A-Frame can do.&lt;/li&gt;
+&lt;li&gt;Try remixing some more advanced examples like the &lt;a href=&quot;https://glitch.com/~aframe-shooting-stars&quot;&gt;trippy shooting stars&lt;/a&gt; or a &lt;a href=&quot;https://glitch.com/~aframe-webcam-component&quot;&gt;webcam circus mirror&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Here&#39;s a basic &lt;a href=&quot;https://codepen.io/mozvr/pen/BjygdO&quot;&gt;A-Frame example on Codepen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;features-and-components&quot; tabindex=&quot;-1&quot;&gt;Features and Components &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#features-and-components&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Some basic things to try:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://aframe.io/docs/0.6.0/components/position.html&quot;&gt;Positioning of objects in your scene&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://aframe.io/docs/0.6.0/core/animations.html&quot;&gt;Animation of objects in your scene&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://aframe.io/docs/0.6.0/components/link.html&quot;&gt;Link traversal - navigating between different VR web pages!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A-Frame&#39;s extensibility is an entity component system, which has enabled a huge number of components to be created to add functionality. A few useful modules are listed below. You can &lt;a href=&quot;https://aframe.io/docs/0.6.0/introduction/writing-a-component.html&quot;&gt;create your own components&lt;/a&gt; also.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add physics to your scenes and objects with &lt;a href=&quot;https://github.com/donmccurdy/aframe-physics-system&quot;&gt;Don McCurdy&#39;s aframe-physics-system component&lt;/a&gt;. Check out &lt;a href=&quot;https://hacks.mozilla.org/2017/05/having-fun-with-physics-and-a-frame/&quot;&gt;Belén Albeza&#39;s guide to A-Frame physics&lt;/a&gt; on Mozilla&#39;s Hacks blog.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&quot;https://github.com/feiss/aframe-environment-component&quot;&gt;A-Frame environment component&lt;/a&gt; allows you to preconfigure and generate whole worlds.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/haydenjameslee/networked-aframe&quot;&gt;Networked A-Frame&lt;/a&gt; lets you build multi-user easily. Can you think of a way to augment your city by creating social experiences in VR and AR?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Other A-Frame Projects To Try&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create your own city with the A-Frame &lt;a href=&quot;https://github.com/kfarr/aframe-city-builder&quot;&gt;City Builder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Learn how to build your own &lt;a href=&quot;https://css-tricks.com/minecraft-webvr-html-using-frame/&quot;&gt;Minecraft in A-Frame&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Read through this &lt;a href=&quot;https://docs.google.com/spreadsheets/d/1VRDoN3AgjJbMZmelCujCDNOVfRIeNJbGpyYlZB5UWgI/edit#gid=0&quot;&gt;list of authoring tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aframevr/awesome-aframe&quot;&gt;Awesome A-Frame&lt;/a&gt; has links to all kinds of A-Frame libraries, examples, projects that will inspire and amaze.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;objects-and-models&quot; tabindex=&quot;-1&quot;&gt;Objects and Models &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#objects-and-models&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A-Frame supports loading glTF, OBJ and COLLADA models, and there are loads of ways to create your models in those formats, as well as find models you can use. Read more on the &lt;a href=&quot;https://aframe.io/docs/0.5.0/introduction/models.html&quot;&gt;3D Models page on the A-Frame site&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;tools-and-debugging&quot; tabindex=&quot;-1&quot;&gt;Tools and Debugging &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#tools-and-debugging&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;img src=&quot;https://metafluff.com/posts/aframe-augmented-city/aframe-inspector.png&quot; /&gt;
+&lt;p&gt;The most important tool for working with A-Frame is the Inspector, shown in the screenshot above. You can read all about &lt;a href=&quot;https://aframe.io/docs/0.6.0/introduction/visual-inspector-and-dev-tools.html&quot;&gt;A-Frame Inspector and more tools here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;participating-and-getting-help&quot; tabindex=&quot;-1&quot;&gt;Participating and Getting Help &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/aframe-augmented-city/#participating-and-getting-help&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/tagged/aframe&quot;&gt;Stack Overflow&lt;/a&gt; is the best place to ask a technical question about A-Frame.&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&quot;https://aframevr-slack.herokuapp.com/&quot;&gt;A-Frame Slack&lt;/a&gt; is fantastic for realtime feedback, community and conversation.&lt;/li&gt;
+&lt;li&gt;Follow on Twitter at &lt;a href=&quot;https://twitter.com/aframevr&quot;&gt;@aframevr&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Get inspired by &lt;a href=&quot;https://aframe.io/blog/awoa-66/&quot;&gt;A Week of A-Frame&lt;/a&gt;, weekly blog posts by core team member Kevin Ngo, who writes up all the cool projects, demos and components.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Read more on the &lt;a href=&quot;https://aframe.io/community/&quot;&gt;A-Frame Community page&lt;/a&gt;.&lt;/p&gt;
+&lt;!--
+## VR
+
+
+### Browser Support
+
+
+
+### HMD Support
+
+
+## AR
+
+* ar.js https://github.com/jeromeetienne/AR.js
+* argon.js
+* Chromium WebAR
+
+* https://trackingjs.com
+* angel demo
+* my talk demos
+* other tracking libs?
+* https://artoolkit.github.io/jsartoolkit5/examples/
+
+* look up geo aframe
+* https://github.com/buildar/awe.js/tree/master/examples/geo_ar
+
+* my talks
+
+## Standardization Efforts
+
+* webvr community group
+* ar community group
+* wicg shapes
+
+--&gt;</content>
+	</entry>
+	
+	<entry>
+		<title>FOSSAsia 2017</title>
+		<link href="https://metafluff.com/posts/fossasia2017/"/>
+		<updated>2017-03-28T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/fossasia2017/</id>
+		<content type="html">&lt;p&gt;Seven years after attending my first FOSSAsia in Ho Chi Min City, I was able to join again this year! The difference is amazing - the conference has grown to be one of the largest open source events in Asia, with more than &lt;a href=&quot;http://2017.fossasia.org/speakers.html&quot;&gt;200 speakers&lt;/a&gt; over three days across 13 tracks and now hosted in Singapore.&lt;/p&gt;
+&lt;script src=&quot;https://unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/842543000320335873&quot;&gt;&lt;/script&gt;
+&lt;p&gt;The conference is entirely open source and volunteer-run, which is really neat. Kudos to the organizers for putting it on, which is a huge amount of work. The focus on free and open source software and tracks on relevant topics like AI, Bitcoin, and IoT combine to make a great collection of people to put in one place for a weekend.&lt;/p&gt;
+&lt;script src=&quot;https://unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/842638503473233921&quot;&gt;&lt;/script&gt;
+&lt;p&gt;Mozilla didn&#39;t directly sponsor this year, but instead sent some of our Tech Speakers who had talks accepted and myself. We were seven people from six countries, speaking about VR, WebAssembly, Web-RTC, security, IoT, AR and more. Big thanks to Bob Reyes, Diky Arga Anggara, Noritada Shimizu, Santosh Viswanatham, Shah Mijanur Rahman and Trishul Goel for speaking at the conference and putting in a bunch of hours at our table every day.&lt;/p&gt;
+&lt;script src=&quot;https://unpkg.com/twitter-inline-oembed@0.0.1/oembed.js?tweet=https://twitter.com/dietrich/status/843647232393924609&quot;&gt;&lt;/script&gt;
+&lt;p&gt;The number of speakers was enough of a presence to earn us a table in the exhibition hall, so we took advantage of the opportunity and demo&#39;d A-Frame VR and AR on mobile devices for all three days.&lt;/p&gt;
+&lt;p&gt;The response was &lt;em&gt;fantastic&lt;/em&gt; - lots of people having their first VR experience of any kind, and everyone was mindblown that the demos were built using web technologies, running in a browser, and on a mobile phone.&lt;/p&gt;
+&lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/photos/comprock/32663678044/in/faves-49503183968@N01/&quot; title=&quot;FOSSASIA 2017&quot;&gt;&lt;img src=&quot;https://c1.staticflickr.com/4/3788/32663678044_8a8e2d7b12_z.jpg&quot; width=&quot;640&quot; height=&quot;427&quot; alt=&quot;FOSSASIA 2017&quot; /&gt;&lt;/a&gt;&lt;script async=&quot;&quot; src=&quot;https://embedr.flickr.com/assets/client-code.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;After three days of rapping with everyone who came by the booth, here are a few impressions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Most people, developers included, haven&#39;t strongly engaged in VR yet. If you assume everyone is doing it, you&#39;re probably in the VR industry and you&#39;re wrong. I&#39;ve been demoing VR at conferences for the last couple of years and I always ask if people have tried it before and the answer is usually &amp;quot;no&amp;quot;. VR may be in the limelight in tech news, but the on-the-ground experience says it&#39;s still very early days.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A-Frame has excellent name recognition. This conversation a lot: &amp;quot;This was made with a JavaScript library called A-Frame.&amp;quot; &amp;quot;Oh, A-Frame!&amp;quot; &amp;quot;You&#39;ve used it?&amp;quot; &amp;quot;No, but I&#39;ve heard of it and it looks awesome!&amp;quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Almost nobody was talking about bots.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Almost everybody was talking about AI and machine learning.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;People are &lt;em&gt;still&lt;/em&gt; asking us about Firefox OS.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;conference&quot; tabindex=&quot;-1&quot;&gt;Conference &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/fossasia2017/#conference&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;What I liked:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Great crowd. It really feels like a practitioners conference where people are learning reciprocally.&lt;/li&gt;
+&lt;li&gt;Talk topics are really good. Very little fluff on the schedule. Great mix of interesting and practical topics. Good job by organizers here.&lt;/li&gt;
+&lt;li&gt;Excellent conference website and apps. They&#39;re writing their own FOSS event management stack, and it seems pretty great so far.&lt;/li&gt;
+&lt;li&gt;Communication from organizers prior to the event was really good. Combination of emails for important things, and Google Group and Slack for general communication really worked well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What I&#39;d like to see next year:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Speakers should not have to pay for tickets.&lt;/li&gt;
+&lt;li&gt;Need a venue that&#39;s centrally located, easier to navigate and that lets attendees focus on the conference.&lt;/li&gt;
+&lt;li&gt;Singapore already has lots of events, and is famously expensive for hotel and venue space. To make a truly pan-Asian conference, should move around to different cities.&lt;/li&gt;
+&lt;li&gt;The schedule was changed at the last minute without warning to speakers, causing some to miss their talks. Need to lock the schedule down, and communicate changes very clearly.&lt;/li&gt;
+&lt;li&gt;Day two and three each have &lt;em&gt;15&lt;/em&gt; tracks! I&#39;d prefer to see a smaller and more focused set of tracks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;social-photos-whatnot&quot; tabindex=&quot;-1&quot;&gt;Social, Photos, Whatnot &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/fossasia2017/#social-photos-whatnot&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.flickr.com/photos/comprock/32663731524/in/pool-fossasia-2017-singapore/&quot;&gt;FOSSAsia pool on Flickr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.flickr.com/photos/comprock/albums/72157678094595694&quot;&gt;FOSSAsia official photog&#39;s photos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://twitter.com/search?f=tweets&amp;amp;vertical=default&amp;amp;q=%23FOSSASIA&amp;amp;src=tyah&quot;&gt;#fossasia on Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.instagram.com/explore/tags/fossasia/&quot;&gt;#fossasia on Instagram&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://twitter.com/search?f=tweets&amp;amp;vertical=default&amp;amp;q=%23fossasia%20from%3Adietrich&amp;amp;src=typd&quot;&gt;My FOSSAsia 2017 tweets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;our-talks&quot; tabindex=&quot;-1&quot;&gt;Our Talks &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/fossasia2017/#our-talks&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Huge thanks to &lt;a href=&quot;https://engineers.sg/&quot;&gt;Engineers.sg&lt;/a&gt;, who recorded almost all of talks. The complete set of FOSSAsia 2017 recorded talks is &lt;a href=&quot;https://engineers.sg/conference/fossasia-2017&quot;&gt;here on their website&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engineers.sg/video/opensec-and-why-webappsec-matters-fossasia-2017--1547&quot;&gt;OpenSec and Why WebAppSec Matters - Shah Mijanur Rahman (SYLHET, Bangladesh)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/8KK-lQQfYXs?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engineers.sg/video/tea-linux-os-designed-for-programmer-developer-fossasia-2017--1591&quot;&gt;Tea Linux OS, Designed for Programmer / Developer - Diky Arga Anggara (Semarang, Indonesia)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/tRa5lLWWY94?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engineers.sg/video/creating-your-own-pokemon-world-in-web-based-virtual-reality-workshop-1hr-fossasia-2017--1553&quot;&gt;Creating your own Pokemon-world in Web based Virtual Reality - Santosh Viswanatham (Hyderabad, India)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/e4HbnJ_-u0o?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engineers.sg/video/webrtc-future-of-video-chats-fossasia-2017--1548&quot;&gt;WebRTC - future of Video Chats - Trishul Goel (Delhi, India)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/7hEVzSUv7sg?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engineers.sg/video/webassembly-now-web-is-a-new-compiler-target-architecture-fossasia-2017--1555&quot;&gt;WebAssembly: now web is a new compiler target architecture - Noritada Shimizu (Tokyo, Japan)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/VAcyLP9RdfQ?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engineers.sg/video/integrated-physical-computing-on-the-web-fossasia-2017--1567&quot;&gt;Integrated Physical Computing on the Web - Dietrich Ayala (Portland, OR, USA)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/_TWGDklUlD4?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;h2 id=&quot;thanks-fossasia!&quot; tabindex=&quot;-1&quot;&gt;THANKS FOSSASIA! &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/fossasia2017/#thanks-fossasia!&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://c1.staticflickr.com/4/3729/33465175206_fe8587590e_z.jpg&quot; alt=&quot;FOSSAsia 2017 Group Photo&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Mozfest 2016: Privacy, Vanity, Beacons, Painting, Dilemmas and Tents.</title>
+		<link href="https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/"/>
+		<updated>2016-11-05T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/</id>
+		<content type="html">&lt;p&gt;I had the pleasure of being involved in a bunch of different activities at Mozfest this year. What is Mozfest? &lt;a href=&quot;https://mozillafestival.org/&quot;&gt;From the website:&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MozFest is an annual celebration of the open Internet movement. It&#39;s where passionate technologists, educators, and makers come together to explore the future of the open Web.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sounds pretty cool... but what does an &amp;quot;annual celebration&amp;quot; of web exploration actually look like? Well, here&#39;s something a bit more of a visual:&lt;/p&gt;
+&lt;p&gt;Imagine an nine-floor open-plan art school in London, completely taken over for a weekend by over 400 artists, designers, activists, teachers, hackers and makers, putting on hundreds of workshops, talks and building and showing interactive art, games and various other exhibits of thrilling wonder.&lt;/p&gt;
+&lt;p&gt;It&#39;s truly spectacular and an overwhelming thing to experience.&lt;/p&gt;
+&lt;p&gt;My biggest wish for Mozfest is for it to leave London - to transform into a regional distributed series of festivals that bring these wonders to the world outside of London (I hear it exists!). Hopefully that will happen someday.&lt;/p&gt;
+&lt;p&gt;But for now, read on to learn about some of the spaces, projects and exhibits I participated in this year.&lt;/p&gt;
+&lt;h2 id=&quot;dilemmas-in-connected-spaces&quot; tabindex=&quot;-1&quot;&gt;&lt;strong&gt;Dilemmas in Connected Spaces&lt;/strong&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/#dilemmas-in-connected-spaces&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/dwygzeg.png&quot; alt=&quot;dwygzeg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Mozfest is composed of a number of &amp;quot;spaces&amp;quot;, most of which are housed on specific floors: Journalism, Science, Arts, Youth, etc. This year I was one of the curators and coordinators of the Dilemmas in Connected Spaces... space.&lt;/p&gt;
+&lt;p&gt;There are a zillion websites, tutorials, workshops and classes that provide how-to knowledge of IoT, so we decided to not use our space to duplicate those efforts.&lt;/p&gt;
+&lt;p&gt;Instead, we designed our space to explore the challenges that arise from the ubiquity of connected physical computing devices in our lives. and then built it with 500 cardboard boxes!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/cf3sf0r.png&quot; alt=&quot;cf3sf0r&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;We divided the space into different zones: The Open IoT Studio, Home, Garden and the Nomad Tent Camp. I decided to explore the dilemma of over-stimulation in our digital lives by running the Nomad Tent Camp, a chill zone where almost nothing was scheduled - a place for weary Mozfest travelers to rest their weary feat, chill out and talk with other explorers. I set up a couple of large spray shelters as tents, and filled the area with comfy chairs. Sure enough, all weekend long we had people coming through and doing naught be relaxing and chatting with strangers they met at this quiet oasis amongst the chaos.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(Somehow I have no pictures of my own zone! Please use this placeholder to imagine it.)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you&#39;d like to learn about the rest of the Dilemmas in Connected Spaces activities, you can follow &lt;a href=&quot;https://twitter.com/ileddigital&quot;&gt;Jon Rogers&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/thornet&quot;&gt;Michelle Thorne&lt;/a&gt;&#39;s &lt;a href=&quot;https://twitter.com/openiotstudio&quot;&gt;Open IoT Studio&lt;/a&gt;, read about &lt;a href=&quot;https://twitter.com/cubicgarden&quot;&gt;Ian Forrester&lt;/a&gt;&#39;s &lt;a href=&quot;http://cubicgarden.com/2016/10/23/this-time-next-week-ill-be-at-mozfest-2016/&quot;&gt;Home space&lt;/a&gt; and hear what &lt;a href=&quot;https://twitter.com/msaunby&quot;&gt;Michael Saunby&lt;/a&gt; did in the Garden on this &lt;a href=&quot;https://www.mixcloud.com/Resonance/making-conversations-1-november-2016/&quot;&gt;radio interview&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;mozfestation....-get-infected...-with-ideas!&quot; tabindex=&quot;-1&quot;&gt;&lt;strong&gt;Mozfestation.... GET INFECTED... WITH IDEAS!&lt;/strong&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/#mozfestation....-get-infected...-with-ideas!&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/kc_coffeekid&quot;&gt;Katie Caldwell&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/ezoehunt&quot;&gt;Liz Hunt&lt;/a&gt; and I worked on a project that came out of their work in the Connected Devices group on &lt;a href=&quot;https://github.com/mozilla-magnet/magnet&quot;&gt;Project Magnet&lt;/a&gt; and some of my Bluetooth experiments called Mozfestation. We wanted a way to encourage people to explore more of the festival than they would&#39;ve otherwise - and to get exposed to as many ideas as possible during the weekend. And I had a 100 beacons...&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/egfpmlb.png&quot; alt=&quot;egfpmlb&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;So we made iOS and Android apps for discovering, accessing and saving beacons (a hacked version of Magnet&#39;s React Native app, made web pages for 100 curated things at Mozfest, made a leaderboard for showing top-visited beacons and the users who&#39;d seen the most beacons, and then put posters and flyers all over the festival to let people know about it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/hkhbgrk.png&quot; alt=&quot;hkhbgrk&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;In the end, it was a ton of work and a ton of fun. We learned a ton about large-scale beacon deployments, minimum-viable-gamification, mobile app uptake tactics and loads more. It was a huge experiment and it was FASCINATING. There&#39;s a lot involved in the design, implementation, festival execution, and the analysis of the data collected, so I&#39;ll go over all of that in a separate post.&lt;/p&gt;
+&lt;h2 id=&quot;**a-painter:-3d-painting-in-virtual-reality!&quot; tabindex=&quot;-1&quot;&gt;**A-Painter: 3D Painting in Virtual Reality! &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/#**a-painter:-3d-painting-in-virtual-reality!&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;**&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/apainter_painting.gif&quot; alt=&quot;apainter_painting&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;One addition to the space was &lt;a href=&quot;https://blog.mozvr.com/a-painter/&quot;&gt;Mozilla&#39;s A-Painter&lt;/a&gt;, a purely web-based virtual reality 3D painting experience. It&#39;s a web app written using &lt;a href=&quot;http://aframe.io/&quot;&gt;A-Frame&lt;/a&gt;, the web toolkit for building 3D and VR experiences in the browser. A-Frame is both incredibly powerful and incredibly easy to use, and it was showing up all over the festival, almost anywhere that someone was doing a session or exhibit about VR.&lt;/p&gt;
+&lt;p&gt;We set up the A-Painter space next to the nomad tent camp, which is on the 6th floor of the school, where the fashion classes are taught. The whole space is littered with mannequins that have paper-prototypes of clothing concepts on them. We clustered a bunch of these around the space and even used two of them to hold the HTC Vive&#39;s positional sensors.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/JoelGethinLewis/status/792388060164067329&quot;&gt;https://twitter.com/JoelGethinLewis/status/792388060164067329&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;vanity-trumps-privacy-trumps-vanity&quot; tabindex=&quot;-1&quot;&gt;&lt;strong&gt;Vanity Trumps Privacy Trumps Vanity&lt;/strong&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/#vanity-trumps-privacy-trumps-vanity&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Since the demise of Firefox OS, I&#39;ve been collecting all of the old Flame developer devices that I can get my hands on. These are smartphones, no... &lt;em&gt;computers&lt;/em&gt;, packed with sensors, and with screens built-in, and with the ability to run applications built using the web stack but with access to WAY more functionality than traditional web pages. I&#39;ve been using them as IoT devices, art pieces, privacy tools and more. I&#39;ve been playing around with using them as camera arrays, and have a few side-projects (as yet unfinished) doing things like turning them into piecemeal mega-screens, chandeliers, etc.&lt;/p&gt;
+&lt;p&gt;So when Kevin Fann started talking about his idea for an exhibit at Mozfest that explored the tension between vanity and privacy, all I could think about was how the selfie is a fantastic expression of that tension, and I&#39;ve got all these smartphones... no, &lt;em&gt;cameras&lt;/em&gt; lying around.&lt;/p&gt;
+&lt;p&gt;Kevin, Jordan Gushwa and I designed a walk-through experience with loads of phones on selfie-mode and even a secret hidden camera that records live video and displays out &lt;em&gt;outside&lt;/em&gt; the exhibit... so you don&#39;t know you&#39;re being recorded until &lt;em&gt;after&lt;/em&gt; you exit.&lt;/p&gt;
+&lt;p&gt;Kevin created eye-catching frames and placements for all the phones, and selected a few relevant video clips to have repeating on some of the phones. I wrote some code that streamed the live video from the hidden phone over Web-RTC to a Raspberry Pi hooked up to a screen outside the exhibit.&lt;/p&gt;
+&lt;p&gt;Kevin packed everything up into suitcase, which could not have looked more bomb-like:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/2foz1de.png&quot; alt=&quot;2foz1de&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Here&#39;s a video tour of the wall in all its glory:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/dietrich/status/792302372861177856&quot;&gt;https://twitter.com/dietrich/status/792302372861177856&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The end-result was epic: People were &lt;em&gt;mesmerized&lt;/em&gt; by so many phones showing them the live camera view of themselves.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/kt2nlyt.png&quot; alt=&quot;kt2nlyt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Mozfest 2016. It&#39;s over. I&#39;m exhausted. It was a parade of wonders. I hope someday it will come your way.&lt;/p&gt;
+&lt;p&gt;Cheers.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/mozfest-2016-privacy-vanity-beacons-painting-dilemmas-and-tents/obnvpnv.png&quot; alt=&quot;obnvpnv&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT</title>
+		<link href="https://metafluff.com/posts/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/"/>
+		<updated>2016-07-14T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/</id>
+		<content type="html">&lt;p&gt;&lt;a href=&quot;http://sensorweb.io/&quot;&gt;Project SensorWeb&lt;/a&gt; is an experiment from the &lt;a href=&quot;https://wiki.mozilla.org/Connected_Devices/Projects&quot;&gt;Connected Devices&lt;/a&gt; group at Mozilla in open publishing of environmental data. I am excited about this experiment because we&#39;ve had some &lt;a href=&quot;http://topics.oregonlive.com/tag/toxic%20air/&quot;&gt;serious air quality discoveries in Portland&lt;/a&gt; recently - our air is possibly &lt;a href=&quot;http://koin.com/2016/03/02/study-portland-air-among-worst-in-nation/&quot;&gt;the worst in the USA&lt;/a&gt;, and bad enough that &lt;a href=&quot;http://koin.com/2016/02/26/erin-brockovich-joins-portland-air-quality-fight/&quot;&gt;mega-activists like Erin Brockovich are getting involved&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/screen-shot-2016-07-13-at-5-21-01-pm.png&quot; alt=&quot;Screen Shot 2016-07-13 at 5.21.01 PM&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They&#39;re still setting up the project so I haven&#39;t gotten the configuration info from them yet...&lt;/p&gt;
+&lt;p&gt;But you don&#39;t need the SensorWeb server to get your sensor up and running and pushing data to your own server! I want a copy of the data for myself anyway, to be able to do my own visualizations and notifications. I can then forward the data on to SensorWeb.&lt;/p&gt;
+&lt;p&gt;So I started by flashing the current version of the SensorWeb code to the device, which is a Nodemcu 0.9 board with an ESP8266 wifi chip on board, and a PM2.5 sensor attached to it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/2016-07-13-17-05-59.jpg&quot; alt=&quot;2016-07-13 17.05.59&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I used &lt;a href=&quot;https://rishav006.wordpress.com/2016/06/22/pm2-5-a-sensorweb-project-by-mozilla/&quot;&gt;Kumar Rishav&#39;s excellent step-by-step post&lt;/a&gt; to get through the process.&lt;/p&gt;
+&lt;p&gt;Some things I learned along the way:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Mac OS X you need a &lt;a href=&quot;https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx&quot;&gt;serial port driver&lt;/a&gt; in order for the Arduino IDE to detect the board.&lt;/li&gt;
+&lt;li&gt;After much gnashing of teeth, I discovered that you can&#39;t have the PM2.5 sensor plugged into the board when you flash it.&lt;br /&gt;
+After getting the regular version flashed correctly, I tested with Kumar&#39;s API key and device id, and confirmed it was reporting the data correctly to the SensorWeb server.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now for the changes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I set up &lt;a href=&quot;https://ifttt.com/maker&quot;&gt;the Maker channel on IFTTT&lt;/a&gt;, which allows me post data to an HTTP endpoint to get it into IFTTT&#39;s system.&lt;/li&gt;
+&lt;li&gt;I then created a new &lt;a href=&quot;https://ifttt.com/recipes/440904-save-pm2-5-data-to-a-spreadsheet&quot;&gt;IFTTT recipe that accepts the data from the device and pushes it into a Google spreadsheet&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I forked the SensorWeb code and &lt;a href=&quot;https://github.com/autonome/arduino-station/blob/master/station/nodemcu/nodemcu.ino&quot;&gt;modified it to post to the Maker channel instead of the SensorWeb server&lt;/a&gt;.&lt;br /&gt;
+I flashed the device and viola, it is publishing data to my spreadsheet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/screen-shot-2016-07-13-at-4-48-28-pm.png&quot; alt=&quot;Screen Shot 2016-07-13 at 4.48.28 PM&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;And now once SensorWeb is ready to take new devices, I can set up a new IFTTT recipe to forward the posts to them, allowing me to own my own data and also publish to the project!&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Bubble and Tweak - IoT at the Ends of the Earth</title>
+		<link href="https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/"/>
+		<updated>2016-07-13T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/</id>
+		<content type="html">&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-3-19-07-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 3.19.07 PM&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Last month I spent a week working on IoT projects with a group of 40 researchers, designers and coders... in Anstruther, a small fishing village in Scotland. Not a high-tech hub, but that was the point. We immersed ourselves in a small community with limited connectivity and interesting weather (and &lt;a href=&quot;https://www.tripadvisor.com/Restaurant_Review-g551743-d1898308-Reviews-The_Wee_Chippy-Anstruther_Fife_Scotland.html&quot;&gt;fantastic F&amp;amp;C&lt;/a&gt;) in order to explore how they use technology and how ubiquitous physical computing might be woven into their lives.&lt;/p&gt;
+&lt;p&gt;The ideamonsters behind this event were &lt;a href=&quot;https://twitter.com/thornet&quot;&gt;Michelle Thorne&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/ileddigital&quot;&gt;Jon Rogers&lt;/a&gt;, who are putting on a series of these exploratory events around the world this year as part of the Mozilla Foundation&#39;s &lt;a href=&quot;https://wiki.mozilla.org/Open_IoT&quot;&gt;Open IoT Studio&lt;/a&gt;. The two previous editions of this event were a train caravan in India and a fablab sprint in Berlin (which I also attended, and will write up as well. I SWEAR.).&lt;/p&gt;
+&lt;p&gt;Michelle and Jon will be writing a proper summary of the week as a whole, so I&#39;m going to focus on the project my group built: Bubble.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-3-18-39-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 3.18.39 PM&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;context&quot; tabindex=&quot;-1&quot;&gt;&lt;strong&gt;Context&lt;/strong&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/#context&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;From research conducted with local fishing folk, farmers from a bit inland, and a group of teenagers from the local school, we figured out a few things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mobile connectivity is sparse and unreliable&lt;/strong&gt; throughout the whole region. In this particular town, only about half the town had any service.&lt;/li&gt;
+&lt;li&gt;The important &lt;strong&gt;information, places and things aren&#39;t immediately obvious&lt;/strong&gt; unless you know a local.&lt;/li&gt;
+&lt;li&gt;Just like I was, growing up in a small town: &lt;strong&gt;The kids are just looking for something to do.&lt;/strong&gt;&lt;br /&gt;
+Initially we focused on the teens... fun things like virtual secret messaging at the red telephone boxes. Imagine you connect to the wifi at the phone box, and the captive portal is a web UI for leaving and receiving secret messages. Perhaps they&#39;re only read once before dying, like a hyperlocal Snapchat. Perhaps the system is user-less, mediated only by secret combinations of emojis as keys. The street corner becomes the hangout, physically and digitally.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We meandered to public messaging from there, thinking about how there&#39;s so much to learn and share about the physical space. What&#39;s the story behind the messages to fairies that are being left in that phone box? I can see the island off the coast from here - what&#39;s it called and what&#39;s out there? Who the hell is Urquardt and what&#39;s a &amp;quot;wynd&amp;quot;? Maybe we make a public message board as well - disconnected from the internet but connected to anything within view.&lt;/p&gt;
+&lt;p&gt;We kept going back to the physical space. We talked about a virtual graffiti wall, and then started exploring AR and ways of marking up the surroundings - the people, the history, the local pro-tip on which fish and chips shop is the best. But all of this available only to people in close physical proximity.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-3-40-49-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 3.40.49 PM&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;implementation&quot; tabindex=&quot;-1&quot;&gt;&lt;strong&gt;Implementation&lt;/strong&gt; &lt;a class=&quot;direct-link&quot; href=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/#implementation&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Given the context and the constraints, as well as watching direction some of the other groups were going in, we started designing a general approach to bringing digital interactivity to disconnected spaces.&lt;/p&gt;
+&lt;p&gt;The first cut is &lt;strong&gt;Bubble&lt;/strong&gt;: A &lt;strong&gt;wi-fi access point&lt;/strong&gt; with a &lt;strong&gt;captive portal&lt;/strong&gt; that opens a web page that displays an &lt;strong&gt;augmented reality&lt;/strong&gt; view of your &lt;strong&gt;immediate surroundings&lt;/strong&gt;, with messages overlaid on what you&#39;re seeing:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-2-36-26-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 2.36.26 PM&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;A few implementation notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We used a Raspberry Pi 3, running as a wi-fi access point.&lt;/li&gt;
+&lt;li&gt;It ran a node.js script that served up the captive portal web UI.&lt;/li&gt;
+&lt;li&gt;The web UI used getUserMedia to access the device camera awe.js for the AR bits and A-Frame for a VR backup view on iOS.&lt;/li&gt;
+&lt;li&gt;We designed a logo and descriptive text and then lasercut some plaques to put up where hotspots are.&lt;br /&gt;
+&lt;strong&gt;Designs, board, battery and boxes:&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-3-58-10-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 3.58.10 PM&quot; /&gt;&lt;br /&gt;
+&lt;strong&gt;Connected to the front-end:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-3-57-57-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 3.57.57 PM&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In the final box:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-3-58-33-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 3.58.33 PM&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Challenges:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Captive portals are hobbled web pages. You can&#39;t do things like use getUserMedia to get access to the camera.&lt;/li&gt;
+&lt;li&gt;iOS doesn&#39;t have &lt;em&gt;any&lt;/em&gt; way to let web pages access the camera.&lt;/li&gt;
+&lt;li&gt;Power can be hard. We talked about solar and other ways of powering these.&lt;/li&gt;
+&lt;li&gt;Gotta hope they don&#39;t get nicked.&lt;br /&gt;
+Bubble was an experimental prototype. There are no plans to work further on it at this time. If you&#39;re interested, everything is on Github &lt;a href=&quot;https://github.com/autonome/bubble&quot;&gt;here&lt;/a&gt;. You can read more about the design &lt;a href=&quot;https://www.dropbox.com/s/yj11w3g3scwu93q/Bubble_DesignSprint_Scotland.pdf?dl=0&quot;&gt;here (PDF)&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thanks to fellow team members &lt;a href=&quot;https://twitter.com/juliagratsova&quot;&gt;Julia Gratsova&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/kc_coffeekid&quot;&gt;Katie Caldwell&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/thecreatureslab&quot;&gt;Vladan Joler&lt;/a&gt;. (Sadly, no Julia in the phonebox!)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/screen-shot-2016-07-12-at-3-19-51-pm.png&quot; alt=&quot;Screen Shot 2016-07-12 at 3.19.51 PM&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Doublestitch - A Simpler and Cleaner Pocket for Firefox</title>
+		<link href="https://metafluff.com/posts/doublestitch-a-simpler-and-cleaner-pocket-for-firefox/"/>
+		<updated>2016-02-20T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/doublestitch-a-simpler-and-cleaner-pocket-for-firefox/</id>
+		<content type="html">&lt;p&gt;I love &lt;strong&gt;Pocket&lt;/strong&gt; and I love &lt;strong&gt;Firefox&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;But two things were driving me batty about the Pocket feature built into Firefox:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The design of the popup experience when you save a page to Pocket is... unfortunate. It stays up far too long, &lt;strong&gt;and&lt;/strong&gt; it doesn&#39;t go away when you switch tabs. Yeah, it stays open for a given URL even when you&#39;re on a tab with a completely different URL! But regardless of whether you think that&#39;s as crazy as I do, I never want to add tags so just don&#39;t need it at all.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://metafluff.com/posts/doublestitch-a-simpler-and-cleaner-pocket-for-firefox/screen-shot-2016-02-19-at-11-17-56-am.png&quot; alt=&quot;Screen Shot 2016-02-19 at 11.17.56 AM&quot; /&gt;&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;The Pocket toolbar button doesn&#39;t indicate whether you&#39;ve already saved the page or not. You have to click the button to figure it out. Now this might not be a problem for everyone. But the way I use my browser can best be described as &amp;quot;tabsplosion&amp;quot;. I don&#39;t know when or where these tabs come from, or how they get there, or whether I saved it already or not. So this tiny piece of ambient visual signal would be useful for me.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So I took a couple of hours over the last few evenings and scratched the itch. I made a Firefox add-on which does the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Adds a new Pocket button to the toolbar. (You can remove the old one by right-clicking it and choosing &amp;quot;Remove from Toolbar&amp;quot;). Mine is red. I want to make one that has nice gold double-stitching on it...&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The new button shows a check mark badge when the page is already saved.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can click the button to either add or remove the page from Pocket.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No popup.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That&#39;s it. Simple, clear and out of your way.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://addons.mozilla.org/addon/doublestitch/&quot;&gt;INSTALL HERE (WARNING: Experimental side-project software. You&#39;ve been warned.)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source code: &lt;a href=&quot;https://github.com/autonome/doublestitch&quot;&gt;https://github.com/autonome/doublestitch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you try it out, let me know if you find any bugs or have any ideas for improvements!&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Baby Steps to Owning Your Data</title>
+		<link href="https://metafluff.com/posts/baby-steps-to-owning-your-data/"/>
+		<updated>2014-05-07T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/baby-steps-to-owning-your-data/</id>
+		<content type="html">&lt;p&gt;Tweets. Likes. Check-ins. Steps. Photos. Links. We emit a constant stream of content into the sites we use everyday. Is it ours? Well, it feels like it. And according to the terms of service, it kind of belongs to us. Sometimes. Maybe. I don&#39;t know, honestly. I don&#39;t read those, and likely you don&#39;t either. If you fully parse every TOS you encounter, you can stop reading right now, go straight to the nearest IHOP and have some pancakes.&lt;/p&gt;
+&lt;p&gt;Groups like &lt;a href=&quot;http://indiewebcamp.com/&quot; title=&quot;IndieWeb&quot;&gt;IndieWeb&lt;/a&gt; are tackling data ownership issues - experimenting with ways of creating and managing content in a way that bakes in data ownership and removes the need for massive corporate services to achieve Web scale interactions. It&#39;s fun and interesting and useful... &lt;a href=&quot;http://indiewebcamp.com/events/&quot; title=&quot;Homebrew Website Club&quot;&gt;we meet every two weeks, come check it out&lt;/a&gt;! But an IndieWeb world is a long way off. Especially for non-geeks.&lt;/p&gt;
+&lt;p&gt;All the companies providing you services today have little interest or incentive to make ownership clear or to make your data portable - the fact that you can&#39;t easily move your data around is partially what keeps Google, Facebook, Whatsapp and Pinterest running.&lt;/p&gt;
+&lt;p&gt;Sure, lots of these services have APIs, through which you could access your data (or at least some of it). But regular users can&#39;t really move data around between competing services through APIs. Some of these companies have data export options, where you can download your data in a zip file, but it&#39;s not like you&#39;re doing that every day. What if today you get banned from Gmail because some process hit a false-positive while enforcing some usage policy? And when was the last time you downloaded all your stuff? Did you ever?&lt;/p&gt;
+&lt;p&gt;I&#39;ve always wanted to move to a model where I only participate in services through my own website &lt;strong&gt;first&lt;/strong&gt;, and then send a &lt;strong&gt;copy&lt;/strong&gt; of my activity to Twitter, Foursquare, &lt;a href=&quot;http://bit.ly/&quot;&gt;Bit.ly&lt;/a&gt; through their APIs (including in each request an extra HTTP header containing the URL to the UELA that my content is covered by!). But that will take a while to build, and won&#39;t work for devices like my Jawbone UP24 which syncs over a proprietary protocol to native apps only, finally letting me access a subset of my data through their API once it&#39;s already on their servers first.&lt;/p&gt;
+&lt;p&gt;So, back to the point of this post: What can you do &lt;em&gt;now&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;I&#39;ve started by attempting to own a copy of as much of my internet output as possible.&lt;/p&gt;
+&lt;p&gt;Here&#39;s how I do it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a Google account, and install the &lt;a href=&quot;https://tools.google.com/dlpage/drive/?hl=en&quot; title=&quot;Google Drive App&quot;&gt;Google Drive app&lt;/a&gt;. This will keep a local copy of all of your Google Docs on your computer.&lt;/li&gt;
+&lt;li&gt;Create an &lt;a href=&quot;https://ifttt.com/&quot; title=&quot;IFTTT&quot;&gt;IFTTT&lt;/a&gt; account. IFTTT is a fantastic service that allows a large number of apps, websites, services, devices and all kinds of stuff to interact with each other.&lt;/li&gt;
+&lt;li&gt;Set up recipes for &lt;strong&gt;everything&lt;/strong&gt; you do online that&#39;s supported by IFTTT which all add to a Google Docs spreadsheet. I have recipes for Tumblr, Twitter, &lt;a href=&quot;http://bit.ly/&quot;&gt;Bit.ly&lt;/a&gt;, Soundcloud and a ton more. I was very surprised by how many services have some bits of my daily personal activity.&lt;br /&gt;
+That&#39;s it. The IFTTT triggers will start firing, the spreadsheets will start filling, and the files will be copied to your local hard drive. You&#39;ll now have both an online copy and a local backup of all the stuff you do online.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here&#39;s what some of my IFTTT recipes look like:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://autonome.files.wordpress.com/2014/05/screenshot-2014-05-06-21-17-391.png&quot;&gt;&lt;img src=&quot;https://metafluff.com/posts/baby-steps-to-owning-your-data/screenshot-2014-05-06-21-17-391.png&quot; alt=&quot;Image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IFTTT will save it all in Google docs folder hierarchy for each service:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://autonome.files.wordpress.com/2014/05/screenshot-2014-05-06-21-21-58.png&quot;&gt;&lt;img src=&quot;https://metafluff.com/posts/baby-steps-to-owning-your-data/screenshot-2014-05-06-21-21-58.png&quot; alt=&quot;Image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;I&#39;ll be honest - it takes a little while. It&#39;s annoying to set up, even with IFTTT&#39;s excellently simple user interface. But in the end I own a copy of any new content I post to the services I use. What do I do with it? Nothing at all, right now. But someday maybe those services will shut down, or I&#39;ll get banned, or poorly implemented IT backup strategies will wipe it all out. I&#39;ll have lost nothing except the time I spent setting this up.&lt;/p&gt;
+&lt;p&gt;Is it real data portability? Nope. Is it true ownership? No. Hell, &amp;quot;my&amp;quot; content might even be under some crazy license restrictions that I agreed to before putting it up on Pocket or Evernote! But it&#39;s always running, and someday my personal weak-AI agent will be able to do something with it.&lt;/p&gt;
+&lt;p&gt;PS: Do you use Gmail? Do you only use the web interface or Android/iOS apps? Then you probably don&#39;t have a backup of your email. I run an IMAP mail client (Thunderbird) periodically to get an updated offline copy of my Gmail in an open format.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Dormancy: Freeing up memory from unused tabs</title>
+		<link href="https://metafluff.com/posts/dormancy-freeing-up-memory-from-unused-tabs/"/>
+		<updated>2011-09-03T00:00:00Z</updated>
+		<id>https://metafluff.com/posts/dormancy-freeing-up-memory-from-unused-tabs/</id>
+		<content type="html">&lt;p&gt;Dormancy &#39;retires&#39; tabs that have gone unused for a while, freeing up that memory. It then restores the tabs to life when accessed.&lt;/p&gt;
+&lt;p&gt;While Firefox 9 adds restore-on-demand for users that restore their session by default, many users will never benefit from it. This add-on targets users who don&#39;t restore session, but do have long-running instances of Firefox and many tabs. This might land as a core feature in Firefox 9 (&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=675539&quot;&gt;https://bugzilla.mozilla.org/show_bug.cgi?id=675539&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;NOTE: This is highly experimental, has only been tested on the Nightly builds, and probably will destroy your session. You&#39;ve been warned.&lt;/p&gt;
+&lt;p&gt;Tabs are considered inactive when they haven&#39;t been selected in longer than 5 minutes. To change that, set this pref to a value in milliseconds:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;extensions.dormancy.TabDormancyAgeMs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tabs are checked for inactivity every 5 minutes. To change this, set this pref to a value in milliseconds:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;extensions.dormancy.TabCheckIntervalMs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Known bugs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Awesomebar entry for dormant tabs shows data URI&lt;/li&gt;
+&lt;li&gt;Sometimes dormant tabs have no title and no favicon&lt;br /&gt;
+EXPERIMENTAL. MAY EAT YOUR SESSION OR DO OTHER BAD THINGS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;http://j.mp/oW3xQN&quot;&gt;INSTALL&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://j.mp/n82njh&quot;&gt;Source code&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
+</feed>

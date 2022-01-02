@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble and Tweak - IoT at the Ends of the Earth</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://twitter.com/dietrich" target="_blank" title="twitter" rel="me">twitter</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+
+      
+<!--
+<div class="post-container">
+-->
+<div class="post-content">
+
+<h1>Bubble and Tweak - IoT at the Ends of the Earth</h1>
+
+<time datetime="2016-07-13">13 Jul 2016</time><a href="/tags/anstruther/" class="post-tag">anstruther</a><a href="/tags/iot/" class="post-tag">iot</a><a href="/tags/scotland/" class="post-tag">scotland</a>
+
+<p><img src="screen-shot-2016-07-12-at-3-19-07-pm.png" alt="Screen Shot 2016-07-12 at 3.19.07 PM"></p>
+<p>Last month I spent a week working on IoT projects with a group of 40 researchers, designers and coders... in Anstruther, a small fishing village in Scotland. Not a high-tech hub, but that was the point. We immersed ourselves in a small community with limited connectivity and interesting weather (and <a href="https://www.tripadvisor.com/Restaurant_Review-g551743-d1898308-Reviews-The_Wee_Chippy-Anstruther_Fife_Scotland.html">fantastic F&amp;C</a>) in order to explore how they use technology and how ubiquitous physical computing might be woven into their lives.</p>
+<p>The ideamonsters behind this event were <a href="https://twitter.com/thornet">Michelle Thorne</a> and <a href="https://twitter.com/ileddigital">Jon Rogers</a>, who are putting on a series of these exploratory events around the world this year as part of the Mozilla Foundation's <a href="https://wiki.mozilla.org/Open_IoT">Open IoT Studio</a>. The two previous editions of this event were a train caravan in India and a fablab sprint in Berlin (which I also attended, and will write up as well. I SWEAR.).</p>
+<p>Michelle and Jon will be writing a proper summary of the week as a whole, so I'm going to focus on the project my group built: Bubble.</p>
+<p><img src="screen-shot-2016-07-12-at-3-18-39-pm.png" alt="Screen Shot 2016-07-12 at 3.18.39 PM"></p>
+<h2 id="context" tabindex="-1"><strong>Context</strong> <a class="direct-link" href="#context" aria-hidden="true">#</a></h2>
+<p>From research conducted with local fishing folk, farmers from a bit inland, and a group of teenagers from the local school, we figured out a few things:</p>
+<ul>
+<li><strong>Mobile connectivity is sparse and unreliable</strong> throughout the whole region. In this particular town, only about half the town had any service.</li>
+<li>The important <strong>information, places and things aren't immediately obvious</strong> unless you know a local.</li>
+<li>Just like I was, growing up in a small town: <strong>The kids are just looking for something to do.</strong><br>
+Initially we focused on the teens... fun things like virtual secret messaging at the red telephone boxes. Imagine you connect to the wifi at the phone box, and the captive portal is a web UI for leaving and receiving secret messages. Perhaps they're only read once before dying, like a hyperlocal Snapchat. Perhaps the system is user-less, mediated only by secret combinations of emojis as keys. The street corner becomes the hangout, physically and digitally.</li>
+</ul>
+<p>We meandered to public messaging from there, thinking about how there's so much to learn and share about the physical space. What's the story behind the messages to fairies that are being left in that phone box? I can see the island off the coast from here - what's it called and what's out there? Who the hell is Urquardt and what's a &quot;wynd&quot;? Maybe we make a public message board as well - disconnected from the internet but connected to anything within view.</p>
+<p>We kept going back to the physical space. We talked about a virtual graffiti wall, and then started exploring AR and ways of marking up the surroundings - the people, the history, the local pro-tip on which fish and chips shop is the best. But all of this available only to people in close physical proximity.</p>
+<p><img src="screen-shot-2016-07-12-at-3-40-49-pm.png" alt="Screen Shot 2016-07-12 at 3.40.49 PM"></p>
+<h2 id="implementation" tabindex="-1"><strong>Implementation</strong> <a class="direct-link" href="#implementation" aria-hidden="true">#</a></h2>
+<p>Given the context and the constraints, as well as watching direction some of the other groups were going in, we started designing a general approach to bringing digital interactivity to disconnected spaces.</p>
+<p>The first cut is <strong>Bubble</strong>: A <strong>wi-fi access point</strong> with a <strong>captive portal</strong> that opens a web page that displays an <strong>augmented reality</strong> view of your <strong>immediate surroundings</strong>, with messages overlaid on what you're seeing:</p>
+<p><img src="screen-shot-2016-07-12-at-2-36-26-pm.png" alt="Screen Shot 2016-07-12 at 2.36.26 PM"></p>
+<p>A few implementation notes:</p>
+<ul>
+<li>We used a Raspberry Pi 3, running as a wi-fi access point.</li>
+<li>It ran a node.js script that served up the captive portal web UI.</li>
+<li>The web UI used getUserMedia to access the device camera awe.js for the AR bits and A-Frame for a VR backup view on iOS.</li>
+<li>We designed a logo and descriptive text and then lasercut some plaques to put up where hotspots are.<br>
+<strong>Designs, board, battery and boxes:</strong></li>
+</ul>
+<p><img src="screen-shot-2016-07-12-at-3-58-10-pm.png" alt="Screen Shot 2016-07-12 at 3.58.10 PM"><br>
+<strong>Connected to the front-end:</strong></p>
+<p><img src="screen-shot-2016-07-12-at-3-57-57-pm.png" alt="Screen Shot 2016-07-12 at 3.57.57 PM"></p>
+<p><strong>In the final box:</strong></p>
+<p><img src="screen-shot-2016-07-12-at-3-58-33-pm.png" alt="Screen Shot 2016-07-12 at 3.58.33 PM"></p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Captive portals are hobbled web pages. You can't do things like use getUserMedia to get access to the camera.</li>
+<li>iOS doesn't have <em>any</em> way to let web pages access the camera.</li>
+<li>Power can be hard. We talked about solar and other ways of powering these.</li>
+<li>Gotta hope they don't get nicked.<br>
+Bubble was an experimental prototype. There are no plans to work further on it at this time. If you're interested, everything is on Github <a href="https://github.com/autonome/bubble">here</a>. You can read more about the design <a href="https://www.dropbox.com/s/yj11w3g3scwu93q/Bubble_DesignSprint_Scotland.pdf?dl=0">here (PDF)</a>.</li>
+</ul>
+<p>Thanks to fellow team members <a href="https://twitter.com/juliagratsova">Julia Gratsova</a>, <a href="https://twitter.com/kc_coffeekid">Katie Caldwell</a>, <a href="https://twitter.com/thecreatureslab">Vladan Joler</a>. (Sadly, no Julia in the phonebox!)</p>
+<p><img src="screen-shot-2016-07-12-at-3-19-51-pm.png" alt="Screen Shot 2016-07-12 at 3.19.51 PM"></p>
+
+<hr>
+<ul><li>Next: <a href="/posts/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/">Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT</a></li><li>Previous: <a href="/posts/doublestitch-a-simpler-and-cleaner-pocket-for-firefox/">Doublestitch - A Simpler and Cleaner Pocket for Firefox</a></li>
+</ul>
+
+</div>
+<!--
+</div>
+-->
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

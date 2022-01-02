@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dormancy: Freeing up memory from unused tabs</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://twitter.com/dietrich" target="_blank" title="twitter" rel="me">twitter</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+
+      
+<!--
+<div class="post-container">
+-->
+<div class="post-content">
+
+<h1>Dormancy: Freeing up memory from unused tabs</h1>
+
+<time datetime="2011-09-03">03 Sep 2011</time><a href="/tags/add-ons/" class="post-tag">Add-ons</a><a href="/tags/jetpack/" class="post-tag">jetpack</a><a href="/tags/memory/" class="post-tag">Memory</a><a href="/tags/performance/" class="post-tag">Performance</a>
+
+<p>Dormancy 'retires' tabs that have gone unused for a while, freeing up that memory. It then restores the tabs to life when accessed.</p>
+<p>While Firefox 9 adds restore-on-demand for users that restore their session by default, many users will never benefit from it. This add-on targets users who don't restore session, but do have long-running instances of Firefox and many tabs. This might land as a core feature in Firefox 9 (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=675539">https://bugzilla.mozilla.org/show_bug.cgi?id=675539</a>).</p>
+<p>NOTE: This is highly experimental, has only been tested on the Nightly builds, and probably will destroy your session. You've been warned.</p>
+<p>Tabs are considered inactive when they haven't been selected in longer than 5 minutes. To change that, set this pref to a value in milliseconds:</p>
+<ul>
+<li>extensions.dormancy.TabDormancyAgeMs</li>
+</ul>
+<p>Tabs are checked for inactivity every 5 minutes. To change this, set this pref to a value in milliseconds:</p>
+<ul>
+<li>extensions.dormancy.TabCheckIntervalMs</li>
+</ul>
+<p>Known bugs:</p>
+<ul>
+<li>Awesomebar entry for dormant tabs shows data URI</li>
+<li>Sometimes dormant tabs have no title and no favicon<br>
+EXPERIMENTAL. MAY EAT YOUR SESSION OR DO OTHER BAD THINGS.</li>
+</ul>
+<p><a href="http://j.mp/oW3xQN">INSTALL</a></p>
+<p><a href="http://j.mp/n82njh">Source code</a></p>
+
+<hr>
+<ul><li>Next: <a href="/posts/baby-steps-to-owning-your-data/">Baby Steps to Owning Your Data</a></li>
+</ul>
+
+</div>
+<!--
+</div>
+-->
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /posts/dormancy-freeing-up-memory-from-unused-tabs/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>
