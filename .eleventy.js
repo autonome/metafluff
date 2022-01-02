@@ -100,6 +100,7 @@ module.exports = function(eleventyConfig) {
 
   // Copy the `oldsite-static` folders to the output
   //eleventyConfig.addPassthroughCopy("oldsite-static");
+  eleventyConfig.addPassthroughCopy({'oldsite-static':  '.'})
 
   return {
     // Control which files Eleventy will process
