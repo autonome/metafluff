@@ -1,3 +1,17 @@
-- name: Eleventy Action
-    uses: TartanLlama/actions-eleventy@v1.2
+name: Eleventy Build
+on: [push]
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        uses: TartanLlama/actions-eleventy@v1.1.0
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        env:
+          publish_dir: _site 
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
