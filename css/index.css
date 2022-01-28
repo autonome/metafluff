@@ -18,8 +18,6 @@ body {
   padding: 0;
   margin: 2rem;
   font-family: -apple-system, system-ui, sans-serif;
-  color: var(--darkgray);
-  background-color: var(--white);
 }
 p:last-child {
   margin-bottom: 0;
@@ -32,12 +30,6 @@ img {
 p,
 .tmpl-post li {
   line-height: 1.45;
-}
-a[href] {
-  color: var(--blue);
-}
-a[href]:visited {
-  color: var(--navy);
 }
 main {
   padding: 1rem;
@@ -171,7 +163,6 @@ code {
 .postlist-date,
 .postlist-item:before {
   font-size: 0.8125em; /* 13px /16 */
-  color: var(--darkgray);
 }
 .postlist-date {
   word-spacing: -0.5px;
@@ -206,8 +197,7 @@ code {
   margin-left: 0.6666666666667em; /* 8px /12 */
   margin-top: 0.5em; /* 6px /12 */
   margin-bottom: 0.5em; /* 6px /12 */
-  color: var(--darkgray);
-  border: 1px solid var(--gray);
+  border: 1px solid;
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
   line-height: 1.8;
@@ -215,10 +205,6 @@ code {
 a[href].post-tag,
 a[href].post-tag:visited {
   color: inherit;
-}
-a[href].post-tag:hover,
-a[href].post-tag:focus {
-  background-color: var(--lightgray);
 }
 .postlist-item > .post-tag {
   align-self: center;
@@ -251,6 +237,7 @@ a[href].direct-link:focus:visited,
   color: #aaa;
 }
 
+/* Layout */
 .columns {
   display: flex;
 }
@@ -259,6 +246,7 @@ a[href].direct-link:focus:visited,
   padding: 1rem; 
 }
 
+/* Vestigial? */
 .melist {
   list-style: none;
   padding: 0;
@@ -298,6 +286,7 @@ a[href].direct-link:focus:visited,
   */
 }
 
+/* Post layout - rehome to post section? */
 .post-container {
   display: flex;
   justify-content: center;
@@ -306,3 +295,52 @@ a[href].direct-link:focus:visited,
   max-width: 40rem;
   min-width: 0;
 }
+
+/* Color mode management */
+body {
+  color: var(--white);
+  background-color: var(--darkgray);
+}
+a[href] {
+  color: var(--white);
+}
+a[href]:visited {
+  color: var(--lightgray);
+}
+.postlist-date,
+.postlist-item:before {
+  color: var(--darkgray);
+}
+.post-tag {
+  color: var(--darkgray);
+  border-color: var(--gray);
+}
+a[href].post-tag:hover,
+a[href].post-tag:focus {
+  background-color: var(--lightgray);
+}
+@media (prefers-color-scheme: light) {
+  body {
+    color: var(--darkgray);
+    background-color: var(--white);
+  }
+  a[href] {
+    color: var(--blue);
+  }
+  a[href]:visited {
+    color: var(--navy);
+  }
+  .postlist-date,
+  .postlist-item:before {
+    color: var(--darkgray);
+  }
+  .post-tag {
+    color: var(--darkgray);
+    border-color: var(--gray);
+  }
+  a[href].post-tag:hover,
+  a[href].post-tag:focus {
+    background-color: var(--lightgray);
+  }
+}
+
