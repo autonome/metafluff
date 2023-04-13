@@ -102,26 +102,6 @@
   </url>
   
   <url>
-    <loc>https://metafluff.com/tags/firefox/</loc>
-    <lastmod>2023-04-13</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://metafluff.com/tags/mozilla/</loc>
-    <lastmod>2023-04-13</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://metafluff.com/tags/devrel/</loc>
-    <lastmod>2023-04-13</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://metafluff.com/tags/asia/</loc>
-    <lastmod>2023-04-13</lastmod>
-  </url>
-  
-  <url>
     <loc>https://metafluff.com/tags/vr/</loc>
     <lastmod>2023-04-13</lastmod>
   </url>
@@ -192,12 +172,12 @@
   </url>
   
   <url>
-    <loc>https://metafluff.com/tags/tabs/</loc>
+    <loc>https://metafluff.com/tags/events/</loc>
     <lastmod>2023-04-13</lastmod>
   </url>
   
   <url>
-    <loc>https://metafluff.com/tags/events/</loc>
+    <loc>https://metafluff.com/tags/asia/</loc>
     <lastmod>2023-04-13</lastmod>
   </url>
   
@@ -208,6 +188,16 @@
   
   <url>
     <loc>https://metafluff.com/tags/ifttt/</loc>
+    <lastmod>2023-04-13</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://metafluff.com/tags/firefox/</loc>
+    <lastmod>2023-04-13</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://metafluff.com/tags/tabs/</loc>
     <lastmod>2023-04-13</lastmod>
   </url>
   
@@ -233,6 +223,16 @@
   
   <url>
     <loc>https://metafluff.com/tags/trump/</loc>
+    <lastmod>2023-04-13</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://metafluff.com/tags/mozilla/</loc>
+    <lastmod>2023-04-13</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://metafluff.com/tags/devrel/</loc>
     <lastmod>2023-04-13</lastmod>
   </url>
 </urlset>
