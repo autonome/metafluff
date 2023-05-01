@@ -5,7 +5,6 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const pageAssetsPlugin = require('eleventy-plugin-page-assets');
 
 module.exports = function(eleventyConfig) {
   // Add plugins
@@ -65,10 +64,18 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
 
-  //eleventyConfig.addPlugin(pageAssetsPlugin, {
-  //  mode: "directory",
-  //  postsMatching: "posts/*/*.md",
-  //  hashAssets: false
+  // Copy all post assets to its rendered output dir
+  eleventyConfig.addPassthroughCopy("posts/**/*.gif");
+  eleventyConfig.addPassthroughCopy("posts/**/*.jpg");
+  eleventyConfig.addPassthroughCopy("posts/**/*.png");
+
+  // Copy all post assets to its rendered output dir
+  // except the source markdown file.
+  //eleventyConfig.addPassthroughCopy("posts/**/*.*");
+
+  //eleventyConfig.addPassthroughCopy("posts/**/*.*", {
+    //filter: path => (path.endsWith('md') == false)
+    //filter: [ "!posts/**/*.md" ]
   //});
 
   // Customize Markdown library and settings:
