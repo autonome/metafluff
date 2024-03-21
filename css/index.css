@@ -16,9 +16,16 @@
 html,
 body {
   padding: 0;
-  margin: 2rem;
   font-family: -apple-system, system-ui, sans-serif;
 }
+
+@media (min-width: 768px) {
+  body {
+    margin: 2rem;
+    padding: 2rem;
+  }
+}
+
 p:last-child {
   margin-bottom: 0;
 }
