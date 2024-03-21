@@ -11,7 +11,7 @@ eleventyNavigation:
 
 Donations + DeFi: Turn single donations into long term financial stabilty for non-profits via staking yield.
 
-[Peek](https://github.com/autonome/peek): Explorations in browser infrastcuture, experimental web user agents, local-first data and applications.
+[Peek](https://github.com/autonome/peek): Explorations in browser infrastructure, experimental web user agents, local-first data and applications.
 
 [Filecoin Foundation](https://fil.org): Advisor for IPFS, digital archiving, space, devrel and more.
 
@@ -19,7 +19,7 @@ fLSD: Filecoin liquid staking derivative multi-token.
 
 ## past
 
-[Protocol Labs](https://fil.org)
+[Protocol Labs](https://protocol.ai)
 
 [Mozilla](https://mozilla.com)
 
