@@ -7,7 +7,7 @@ eleventyNavigation:
 
 ## current
 
-[Web Transitions](https://webtransitions.org): Supporting transitional change on the web platform and in browsers with funding, coordination and development.
+[WebTransitions](https://webtransitions.org): Supporting transitional change on the web platform and in browsers with funding, coordination and development.
 
 Donations + DeFi: Turn single donations into long term financial stabilty for non-profits via staking yield.
 
