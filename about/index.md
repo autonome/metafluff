@@ -12,7 +12,7 @@ dietrich ayala
 - he/him
 - raised skateboarding
 - ex barista and chef
-- married to [shauna](https://twitter.com/shaunamc)
+- married to [shauna](https://www.justground.org/shauna-curphey)
 - started computering in mid 20s
 - sub pop records
 - nusphere
@@ -21,6 +21,7 @@ dietrich ayala
 - yahoo
 - mozilla
 - protocol labs
+- filecoin fdn
 - tbd
 
 
