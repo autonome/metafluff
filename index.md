@@ -39,9 +39,18 @@ Vim keybindings: Browser extension providing basic directional keybindings - [Fi
 
 ## oldentymes projects
 
+[Libdweb](https://github.com/libdweb/libdweb)
+
 [Meatclub.in](https://meatclub.in)
 
 [Noms.in](https://noms.in)
 
 [NuSOAP](https://sourceforge.net/projects/nusoap/)
 
+## the hits
+
+#1 on HackerNews: January 17 2024 - ["Filecoin Foundation successfully deploys IPFS in space"](https://news.ycombinator.com/item?id=39013412)
+
+#1 on HackerNews: July 21, 2017 - ["The new Firefox and ridiculous numbers of tabs"](https://news.ycombinator.com/item?id=14823807)
+
+Digg front page: June 20, 2006 - I wrote up the plans for session-restore in Firefox [on this wiki page](https://wiki.mozilla.org/Session_Restore) which hit the Digg front page and knocked over the Mozilla wiki
