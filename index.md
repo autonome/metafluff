@@ -25,7 +25,7 @@ fLSD: Filecoin liquid staking derivative multi-token.
 
 ## ongoing projects
 
-Intent to Ship: A bot that posts when browser makers announce their intent to ship/change/remove/etc features in their web engines - [Mastodon](https://twitter.com/intenttoship/) / [Twitter](https://twitter.com/intenttoship/) / [Github](https://github.com/autonome/intenttoship-bot)
+[Intent to Ship](https://intenttoship.dev): A bot that posts when browser makers announce their intent to ship/change/remove/etc features in their web engines - [Bluesky](https://bsky.app/profile/intenttoship.dev) / [Mastodon](https://twitter.com/intenttoship/) / [Twitter](https://twitter.com/intenttoship/) / [Github](https://github.com/autonome/intenttoship-bot)
 
 [Superflow.dev](https://superflow.dev) - Stack Overflow metrics dashboard and health monitoring for maintainers - [Github](https://github.com/autonome/superflow)
 
