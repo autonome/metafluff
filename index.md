@@ -7,15 +7,11 @@ eleventyNavigation:
 
 ## current
 
-[WebTransitions](https://webtransitions.org): Supporting transitional change on the web platform and in browsers with funding, coordination and development.
-
-Donations + DeFi: Turn single donations into long term financial stabilty for non-profits via staking yield.
+[WebTransitions](https://webtransitions.org): Accelerating transitional change on the web platform and in browsers with funding, coordination and development.
 
 [Peek](https://github.com/autonome/peek): Explorations in browser infrastructure, experimental web user agents, local-first data and applications.
 
-[Filecoin Foundation](https://fil.org): Advisor for IPFS, digital archiving, space, devrel and more.
-
-fLSD: Filecoin liquid staking derivative multi-token.
+[Filecoin Foundation](https://fil.org): Advising on IPFS, digital archiving, space, devrel and more.
 
 ## past
 
