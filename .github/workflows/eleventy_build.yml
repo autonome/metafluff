@@ -5,12 +5,13 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup
       - uses: actions/checkout@master
-      - name: Build
       - uses: actions/setup-node@v4
         with:
           node-version: 18
       - run: npm install
+      - name: Build
         uses: TartanLlama/actions-eleventy@master
         #with:
           #args: '--output=_dist'
