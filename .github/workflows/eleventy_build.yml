@@ -12,9 +12,9 @@ jobs:
       - run: npm install
       - name: Build
         uses: TartanLlama/actions-eleventy@master
-        with:
+        #with:
           #args: '--output=_dist'
-          install_dependencies: true
+          #install_dependencies: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
