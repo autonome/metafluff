@@ -5,10 +5,13 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@master
       - run: npm install
       - name: Build
         uses: TartanLlama/actions-eleventy@master
+        with:
+          #args: '--output=_dist'
+          install_dependencies: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
