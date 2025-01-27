@@ -5,21 +5,17 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup
       - uses: actions/checkout@master
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      #- uses: actions/setup-node@v4
+       #with:
+       #  node-version: 18
       - run: npm install
       - name: Build
         uses: TartanLlama/actions-eleventy@master
-        #with:
-          #args: '--output=_dist'
-          #install_dependencies: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: _site 
-          publish_branch: gh-pages
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        #with:
+          #publish_dir: _site 
+          #publish_branch: gh-pages
+          #github_token: ${{ secrets.GITHUB_TOKEN }}
 
