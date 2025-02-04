@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harvesting Air Quality Data with a NodeMCU, SensorWeb and IFTTT</title>
     <meta name="description" content="blog de dietrich ayala">
-    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
-    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
-    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
-    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
   </head>
   <body>
     <header>
       <!--
-      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      <h1 class="home"><a href="/">dietrich</a></h1>
       -->
       <ul class="nav">
         <li class="nav-item">
-          <a href="/eleventy-base-blog/">dietrich</a>
+          <a href="/">dietrich</a>
         </li>
         <li class="nav-item">
-          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+          <a href="/posts/">blog</a>
         </li>
         <li class="nav-item">
-          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+          <a href="/about/">about</a>
         </li>
         <li class="nav-item">
           <a href="mailto:me@burrito.space" target="_blank">email</a>
@@ -46,11 +46,11 @@
     <main class="tmpl-home">
 
       <p><a href="http://sensorweb.io/">Project SensorWeb</a> is an experiment from the <a href="https://wiki.mozilla.org/Connected_Devices/Projects">Connected Devices</a> group at Mozilla in open publishing of environmental data. I am excited about this experiment because we've had some <a href="http://topics.oregonlive.com/tag/toxic%20air/">serious air quality discoveries in Portland</a> recently - our air is possibly <a href="http://koin.com/2016/03/02/study-portland-air-among-worst-in-nation/">the worst in the USA</a>, and bad enough that <a href="http://koin.com/2016/02/26/erin-brockovich-joins-portland-air-quality-fight/">mega-activists like Erin Brockovich are getting involved</a>.</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/PovPuoz5Em-432.avif 432w"><source type="image/webp" srcset="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/PovPuoz5Em-432.webp 432w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/PovPuoz5Em-432.png" alt="Screen Shot 2016-07-13 at 5.21.01 PM" width="432" height="599"></picture></p>
+<p><picture><source type="image/avif" srcset="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/PovPuoz5Em-432.avif 432w"><source type="image/webp" srcset="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/PovPuoz5Em-432.webp 432w"><img loading="lazy" decoding="async" src="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/PovPuoz5Em-432.png" alt="Screen Shot 2016-07-13 at 5.21.01 PM" width="432" height="599"></picture></p>
 <p>A couple of weeks ago, Eddie and Evan from Project SensorWeb helped me put together a NodeMCU board and a PM2.5 sensor so I could set up an air quality sensor in Portland to report to their network. They're still setting up the project so I haven't gotten the configuration info from them yet...</p>
 <p>But you don't need the SensorWeb server to get your sensor up and running and pushing data to your own server! I want a copy of the data for myself anyway, to be able to do my own visualizations and notifications. I can then forward the data on to SensorWeb.</p>
 <p>So I started by flashing the current version of the SensorWeb code to the device, which is a Nodemcu 0.9 board with an ESP8266 wifi chip on board, and a PM2.5 sensor attached to it.</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/wtVPMnmkH6-4032.avif 4032w"><source type="image/webp" srcset="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/wtVPMnmkH6-4032.webp 4032w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/wtVPMnmkH6-4032.jpeg" alt="2016-07-13 17.05.59" width="4032" height="3024"></picture></p>
+<p><picture><source type="image/avif" srcset="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/wtVPMnmkH6-4032.avif 4032w"><source type="image/webp" srcset="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/wtVPMnmkH6-4032.webp 4032w"><img loading="lazy" decoding="async" src="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/wtVPMnmkH6-4032.jpeg" alt="2016-07-13 17.05.59" width="4032" height="3024"></picture></p>
 <p>I used <a href="https://rishav006.wordpress.com/2016/06/22/pm2-5-a-sensorweb-project-by-mozilla/">Kumar Rishav's excellent step-by-step post</a> to get through the process.</p>
 <p>Some things I learned along the way:</p>
 <ul>
@@ -66,7 +66,7 @@ After getting the regular version flashed correctly, I tested with Kumar's API k
 I flashed the device and viola, it is publishing data to my spreadsheet.</li>
 </ul>
 <p> </p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ZxiUMc6Tct-1416.avif 1416w"><source type="image/webp" srcset="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ZxiUMc6Tct-1416.webp 1416w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ZxiUMc6Tct-1416.png" alt="Screen Shot 2016-07-13 at 4.48.28 PM" width="1416" height="738"></picture></p>
+<p><picture><source type="image/avif" srcset="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ZxiUMc6Tct-1416.avif 1416w"><source type="image/webp" srcset="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ZxiUMc6Tct-1416.webp 1416w"><img loading="lazy" decoding="async" src="/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ZxiUMc6Tct-1416.png" alt="Screen Shot 2016-07-13 at 4.48.28 PM" width="1416" height="738"></picture></p>
 <p>And now once SensorWeb is ready to take new devices, I can set up a new IFTTT recipe to forward the posts to them, allowing me to own my own data and also publish to the project!</p>
 
 
@@ -74,7 +74,7 @@ I flashed the device and viola, it is publishing data to my spreadsheet.</li>
 
     <footer></footer>
 
-    <!-- Current page: /eleventy-base-blog/2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ -->
+    <!-- Current page: /2016/07/14/harvesting-air-quality-data-with-a-nodemcu-sensorweb-and-ifttt/ -->
 
 
     <!-- Fathom - beautiful, simple website analytics -->

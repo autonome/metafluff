@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble and Tweak - IoT at the Ends of the Earth</title>
     <meta name="description" content="blog de dietrich ayala">
-    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
-    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
-    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
-    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
   </head>
   <body>
     <header>
       <!--
-      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      <h1 class="home"><a href="/">dietrich</a></h1>
       -->
       <ul class="nav">
         <li class="nav-item">
-          <a href="/eleventy-base-blog/">dietrich</a>
+          <a href="/">dietrich</a>
         </li>
         <li class="nav-item">
-          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+          <a href="/posts/">blog</a>
         </li>
         <li class="nav-item">
-          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+          <a href="/about/">about</a>
         </li>
         <li class="nav-item">
           <a href="mailto:me@burrito.space" target="_blank">email</a>
@@ -45,11 +45,11 @@
 
     <main class="tmpl-home">
 
-      <p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/EPdDZwoE-U-1480.avif 1480w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/EPdDZwoE-U-1480.webp 1480w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/EPdDZwoE-U-1480.png" alt="Screen Shot 2016-07-12 at 3.19.07 PM" width="1480" height="1098"></picture></p>
+      <p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/EPdDZwoE-U-1480.avif 1480w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/EPdDZwoE-U-1480.webp 1480w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/EPdDZwoE-U-1480.png" alt="Screen Shot 2016-07-12 at 3.19.07 PM" width="1480" height="1098"></picture></p>
 <p>Last month I spent a week working on IoT projects with a group of 40 researchers, designers and coders... in Anstruther, a small fishing village in Scotland. Not a high-tech hub, but that was the point. We immersed ourselves in a small community with limited connectivity and interesting weather (and <a href="https://www.tripadvisor.com/Restaurant_Review-g551743-d1898308-Reviews-The_Wee_Chippy-Anstruther_Fife_Scotland.html">fantastic F&amp;C</a>) in order to explore how they use technology and how ubiquitous physical computing might be woven into their lives.</p>
 <p>The ideamonsters behind this event were <a href="https://twitter.com/thornet">Michelle Thorne</a> and <a href="https://twitter.com/ileddigital">Jon Rogers</a>, who are putting on a series of these exploratory events around the world this year as part of the Mozilla Foundation's <a href="https://wiki.mozilla.org/Open_IoT">Open IoT Studio</a>. The two previous editions of this event were a train caravan in India and a fablab sprint in Berlin (which I also attended, and will write up as well. I SWEAR.).</p>
 <p>Michelle and Jon will be writing a proper summary of the week as a whole, so I'm going to focus on the project my group built: Bubble.</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xF9gNNRd0W-1458.avif 1458w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xF9gNNRd0W-1458.webp 1458w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xF9gNNRd0W-1458.png" alt="Screen Shot 2016-07-12 at 3.18.39 PM" width="1458" height="1100"></picture></p>
+<p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xF9gNNRd0W-1458.avif 1458w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xF9gNNRd0W-1458.webp 1458w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xF9gNNRd0W-1458.png" alt="Screen Shot 2016-07-12 at 3.18.39 PM" width="1458" height="1100"></picture></p>
 <h2 id="context"><strong>Context</strong></h2>
 <p>From research conducted with local fishing folk, farmers from a bit inland, and a group of teenagers from the local school, we figured out a few things:</p>
 <ul>
@@ -60,11 +60,11 @@ Initially we focused on the teens... fun things like virtual secret messaging at
 </ul>
 <p>We meandered to public messaging from there, thinking about how there's so much to learn and share about the physical space. What's the story behind the messages to fairies that are being left in that phone box? I can see the island off the coast from here - what's it called and what's out there? Who the hell is Urquardt and what's a &quot;wynd&quot;? Maybe we make a public message board as well - disconnected from the internet but connected to anything within view.</p>
 <p>We kept going back to the physical space. We talked about a virtual graffiti wall, and then started exploring AR and ways of marking up the surroundings - the people, the history, the local pro-tip on which fish and chips shop is the best. But all of this available only to people in close physical proximity.</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/o2n9F4uvSn-1464.avif 1464w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/o2n9F4uvSn-1464.webp 1464w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/o2n9F4uvSn-1464.png" alt="Screen Shot 2016-07-12 at 3.40.49 PM" width="1464" height="1094"></picture></p>
+<p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/o2n9F4uvSn-1464.avif 1464w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/o2n9F4uvSn-1464.webp 1464w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/o2n9F4uvSn-1464.png" alt="Screen Shot 2016-07-12 at 3.40.49 PM" width="1464" height="1094"></picture></p>
 <h2 id="implementation"><strong>Implementation</strong></h2>
 <p>Given the context and the constraints, as well as watching direction some of the other groups were going in, we started designing a general approach to bringing digital interactivity to disconnected spaces.</p>
 <p>The first cut is <strong>Bubble</strong>: A <strong>wi-fi access point</strong> with a <strong>captive portal</strong> that opens a web page that displays an <strong>augmented reality</strong> view of your <strong>immediate surroundings</strong>, with messages overlaid on what you're seeing:</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xTD5sUzkJY-2344.avif 2344w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xTD5sUzkJY-2344.webp 2344w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xTD5sUzkJY-2344.png" alt="Screen Shot 2016-07-12 at 2.36.26 PM" width="2344" height="1378"></picture></p>
+<p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xTD5sUzkJY-2344.avif 2344w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xTD5sUzkJY-2344.webp 2344w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/xTD5sUzkJY-2344.png" alt="Screen Shot 2016-07-12 at 2.36.26 PM" width="2344" height="1378"></picture></p>
 <p>A few implementation notes:</p>
 <ul>
 <li>We used a Raspberry Pi 3, running as a wi-fi access point.</li>
@@ -73,11 +73,11 @@ Initially we focused on the teens... fun things like virtual secret messaging at
 <li>We designed a logo and descriptive text and then lasercut some plaques to put up where hotspots are.
 <strong>Designs, board, battery and boxes:</strong></li>
 </ul>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qpInmD0PYA-1464.avif 1464w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qpInmD0PYA-1464.webp 1464w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qpInmD0PYA-1464.png" alt="Screen Shot 2016-07-12 at 3.58.10 PM" width="1464" height="1098"></picture>
+<p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qpInmD0PYA-1464.avif 1464w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qpInmD0PYA-1464.webp 1464w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qpInmD0PYA-1464.png" alt="Screen Shot 2016-07-12 at 3.58.10 PM" width="1464" height="1098"></picture>
 <strong>Connected to the front-end:</strong></p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/DkQwF0QpY7-1464.avif 1464w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/DkQwF0QpY7-1464.webp 1464w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/DkQwF0QpY7-1464.png" alt="Screen Shot 2016-07-12 at 3.57.57 PM" width="1464" height="1100"></picture></p>
+<p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/DkQwF0QpY7-1464.avif 1464w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/DkQwF0QpY7-1464.webp 1464w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/DkQwF0QpY7-1464.png" alt="Screen Shot 2016-07-12 at 3.57.57 PM" width="1464" height="1100"></picture></p>
 <p><strong>In the final box:</strong></p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qzCCouwrVy-1462.avif 1462w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qzCCouwrVy-1462.webp 1462w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qzCCouwrVy-1462.png" alt="Screen Shot 2016-07-12 at 3.58.33 PM" width="1462" height="1096"></picture></p>
+<p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qzCCouwrVy-1462.avif 1462w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qzCCouwrVy-1462.webp 1462w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/qzCCouwrVy-1462.png" alt="Screen Shot 2016-07-12 at 3.58.33 PM" width="1462" height="1096"></picture></p>
 <p><strong>Challenges:</strong></p>
 <ul>
 <li>Captive portals are hobbled web pages. You can't do things like use getUserMedia to get access to the camera.</li>
@@ -87,14 +87,14 @@ Initially we focused on the teens... fun things like virtual secret messaging at
 Bubble was an experimental prototype. There are no plans to work further on it at this time. If you're interested, everything is on Github <a href="https://github.com/autonome/bubble">here</a>. You can read more about the design <a href="https://www.dropbox.com/s/yj11w3g3scwu93q/Bubble_DesignSprint_Scotland.pdf?dl=0">here (PDF)</a>.</li>
 </ul>
 <p>Thanks to fellow team members <a href="https://twitter.com/juliagratsova">Julia Gratsova</a>, <a href="https://twitter.com/kc_coffeekid">Katie Caldwell</a>, <a href="https://twitter.com/thecreatureslab">Vladan Joler</a>. (Sadly, no Julia in the phonebox!)</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/9VElwTzeQR-1464.avif 1464w"><source type="image/webp" srcset="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/9VElwTzeQR-1464.webp 1464w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/9VElwTzeQR-1464.png" alt="Screen Shot 2016-07-12 at 3.19.51 PM" width="1464" height="1070"></picture></p>
+<p><picture><source type="image/avif" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/9VElwTzeQR-1464.avif 1464w"><source type="image/webp" srcset="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/9VElwTzeQR-1464.webp 1464w"><img loading="lazy" decoding="async" src="/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/9VElwTzeQR-1464.png" alt="Screen Shot 2016-07-12 at 3.19.51 PM" width="1464" height="1070"></picture></p>
 
 
     </main>
 
     <footer></footer>
 
-    <!-- Current page: /eleventy-base-blog/posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/ -->
+    <!-- Current page: /posts/bubble-and-tweak-iot-at-the-ends-of-the-earth/ -->
 
 
     <!-- Fathom - beautiful, simple website analytics -->

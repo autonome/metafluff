@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The New Firefox and Ridiculous Numbers of Tabs</title>
     <meta name="description" content="blog de dietrich ayala">
-    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
-    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
-    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
-    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
   </head>
   <body>
     <header>
       <!--
-      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      <h1 class="home"><a href="/">dietrich</a></h1>
       -->
       <ul class="nav">
         <li class="nav-item">
-          <a href="/eleventy-base-blog/">dietrich</a>
+          <a href="/">dietrich</a>
         </li>
         <li class="nav-item">
-          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+          <a href="/posts/">blog</a>
         </li>
         <li class="nav-item">
-          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+          <a href="/about/">about</a>
         </li>
         <li class="nav-item">
           <a href="mailto:me@burrito.space" target="_blank">email</a>
@@ -45,7 +45,7 @@
 
     <main class="tmpl-home">
 
-      <p><picture><source type="image/avif" srcset="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/TurzVMwA_p-1857.avif 1857w"><source type="image/webp" srcset="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/TurzVMwA_p-1857.webp 1857w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/TurzVMwA_p-1857.png" alt="Tabs!" width="1857" height="827"></picture></p>
+      <p><picture><source type="image/avif" srcset="/2017/07/21/i-am-a-tab-hoarder/TurzVMwA_p-1857.avif 1857w"><source type="image/webp" srcset="/2017/07/21/i-am-a-tab-hoarder/TurzVMwA_p-1857.webp 1857w"><img loading="lazy" decoding="async" src="/2017/07/21/i-am-a-tab-hoarder/TurzVMwA_p-1857.png" alt="Tabs!" width="1857" height="827"></picture></p>
 <p>I've got a Firefox profile with 1691 tabs.</p>
 <p>I started trying to write down why, but gave up for now. It was becoming an overly long exploration of product design and the future of the web.</p>
 <p>It's Friday. Let's keep things simple.</p>
@@ -84,11 +84,11 @@
 </ul>
 <p>## Start-up Time</p>
 <p>Graph of startup time with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. The Y axis is <em>minutes</em>. Yes, Firefox 51 took almost <em>8 MINUTES</em> to start up. However, as of Firefox 55 it only takes <em>15 seconds</em>. For 1691 tabs. Really. I no longer fear restarts. Lately, I just restart Firefox for fun sometimes.</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/kwXZ19i_hB-958.avif 958w"><source type="image/webp" srcset="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/kwXZ19i_hB-958.webp 958w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/kwXZ19i_hB-958.png" alt="Startup time" width="958" height="597"></picture></p>
+<p><picture><source type="image/avif" srcset="/2017/07/21/i-am-a-tab-hoarder/kwXZ19i_hB-958.avif 958w"><source type="image/webp" srcset="/2017/07/21/i-am-a-tab-hoarder/kwXZ19i_hB-958.webp 958w"><img loading="lazy" decoding="async" src="/2017/07/21/i-am-a-tab-hoarder/kwXZ19i_hB-958.png" alt="Startup time" width="958" height="597"></picture></p>
 <p>It's interesting that Firefox startup time got consistently <em>worse</em> over time until Firefox 51. It'd be interesting to do this test with varying numbers of tabs and find out at what point these types of regressions become noticeable.</p>
 <p>## Memory Usage</p>
 <p>Graph of memory use one minute after startup with 1691 tabs across Firefox versions 20, 30, 40 and 50 - 56. While consistently using around two gigs of memory, we've now reduced to <em>less than half a gig</em>. Yes, this is without actual web pages loaded, but look at this, haters: I've now got 1.5 gigs of memory to load web pages into that I didn't have before.</p>
-<p><picture><source type="image/avif" srcset="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/cUdT1ZEnWI-962.avif 962w"><source type="image/webp" srcset="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/cUdT1ZEnWI-962.webp 962w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/cUdT1ZEnWI-962.png" alt="Memory use" width="962" height="598"></picture></p>
+<p><picture><source type="image/avif" srcset="/2017/07/21/i-am-a-tab-hoarder/cUdT1ZEnWI-962.avif 962w"><source type="image/webp" srcset="/2017/07/21/i-am-a-tab-hoarder/cUdT1ZEnWI-962.webp 962w"><img loading="lazy" decoding="async" src="/2017/07/21/i-am-a-tab-hoarder/cUdT1ZEnWI-962.png" alt="Memory use" width="962" height="598"></picture></p>
 <p>The efforts that the Firefox and Gecko and Servo teams are putting into making a SUPERFUCKINGFAST browser are having a real impact, and that's exciting to see.</p>
 
 
@@ -96,7 +96,7 @@
 
     <footer></footer>
 
-    <!-- Current page: /eleventy-base-blog/2017/07/21/i-am-a-tab-hoarder/ -->
+    <!-- Current page: /2017/07/21/i-am-a-tab-hoarder/ -->
 
 
     <!-- Fathom - beautiful, simple website analytics -->
