@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox 11 is Smaller and Faster</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>We quietly shipped Firefox 11 with a bunch of performance fixes that both reduce the amount of memory that Firefox uses, and improve the responsiveness of it's user interface.</p>
+<p>These types of changes are not easy to talk about. Often they're very technical, and meaningless to anyone but the developers involved, which is probably why we usually don't enumerate them in the the <a href="http://www.mozilla.org/en-US/firefox/11.0/releasenotes/">release notes</a> or other public announcements. &quot;Firefox is 74% faster when you open menu X, and twice as fast in some garbage collection scenarios!&quot; Yeah, not an eye-popping headline. We could do a lot better in communicating these improvements in broadly meaningful ways though - nice graphs or some competitive site like <a href="http://arewefastyet.com/">arewefastyet</a> would help a lot. But until then, here's a short summary of the improvements in Firefox 11. And if you know of other performance fixes that don't fall into the categories below, please add them in the comments!</p>
+<p>### Memory Use (aka &quot;memshrink&quot;)</p>
+<p>The <a href="https://wiki.mozilla.org/Performance/MemShrink">Memshrink project</a> has been going for quite a while now, led by Nicholas Nethercote. He blogs <a href="http://blog.mozilla.com/nnethercote/category/memshrink/">weekly updates on the project's activity</a>. According to Bugzilla, there were <a href="http://j.mp/A9pVz4">29 memshrink bugs marked fixed</a> during the Firefox 11 development cycle - four of which were P1, or very high priority. Some of the fixes were related to tools and detection methods, but many are actual reductions in memory use. The changes that made it into Firefox 11 include fixes for detected leaks, removing of zombie compartments, lazy-loading data, reducing the size of some caches, reducing memory used while scrolling, and many more.</p>
+<p>### UI Responsiveness (aka &quot;snappy&quot;)</p>
+<p>The <a href="https://wiki.mozilla.org/Performance/Snappy">Snappy project</a> started last December, and is run by <a href="https://twitter.com/#!/tarasglek">Taras Glek</a>. Its aim is to improve the responsiveness of the Firefox UI. Taras has been posting <a href="http://blog.mozilla.com/tglek/category/snappy/">weekly updates on Snappy activity</a> on his blog. Bugzilla shows <a href="http://j.mp/ypxFzj">15 snappy bugs marked fixed</a> during the Firefox 11 development cycle. The project had just started, but there are still some significant wins in this release! Firefox 11 includes reductions in queries in the bookmarks system, reduced preference lookups, faster data collection for session restore, and various improvements in the DOM code.</p>
+<p>### Add-on Compatibility</p>
+<p>While it's not related to performance, I do want to call attention to something that many people don't seem to know: In Firefox 10 (yes, the previous release) we stopped marking most add-ons incompatible when you upgrade. That means that a LOT more of your add-ons will continue to work when you upgrade Firefox from here on out. The only add-ons that still require compatibility bumps are those that have binary components, since they need to be recompiled against the current version.</p>
+<p><a href="http://www.mozilla.org/en-US/firefox/new/">Download Firefox 11</a>.</p>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2012/03/14/firefox-11-is-smaller-and-faster/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

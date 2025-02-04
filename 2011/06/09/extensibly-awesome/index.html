@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extensibly Awesome: A Jetpack API for the Firefox Location Bar</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>I tweaked some of <a href="http://mozillalabs.com/prospector/2011/06/01/exploring-social-search-with-twitter-address-bar-search/">Mardak's code for the Twitter Add-on</a>, and created a Jetpack module that makes it terribly simple to write add-ons that extend the awesomebar with your own suggestions. As an example, here's an add-on that uses the Google Translate API to translate text into a specified language directly in the location bar. If you type in the keyword 'translate', followed by a language code and some text, it will show the translation in the awesomebar results:</p>
+<p><a href="screen-shot-2011-06-09-at-3-36-53-am.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/2011/06/09/extensibly-awesome/d37snxx7Wg-542.avif 542w"><source type="image/webp" srcset="/eleventy-base-blog/2011/06/09/extensibly-awesome/d37snxx7Wg-542.webp 542w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2011/06/09/extensibly-awesome/d37snxx7Wg-542.png" alt="Screenshot" title="Screenshot" width="542" height="144"></picture></a></p>
+<p>The code:</p>
+<pre>require('awesomebar').add(\{
+  keyword: 'translate',
+  onSearch: function(query, suggest) \{
+    let lang = query.substring(0, query.indexOf(' '));
+    let text = query.substring(query.indexOf(' '));
+    if (lang.length == 2 && text.length > 2) \{
+      translate(lang, text, function(translatedText) \{
+        suggest(\{
+          title: 'Translated text in ' + lang + ': ' + translatedText,
+          url: 'http://translate.google.com/?tl=' + lang +
+               '&q=' + encodeURIComponent(text),
+        \}, true);
+      \});
+    \}
+  \}
+\});
+
+function translate(lang, text, callback) \{
+  require('request').Request(\{
+    url: 'http://ajax.googleapis.com/ajax/services/language/translate',
+    content: \{
+      v: '1.0',
+      q: text,
+      langpair: ''' + lang
+    \},
+    headers: \{
+      Referer: require('tabs').activeTab.location
+    \},
+    onComplete: function() \{
+      callback(this.response.json.responseData.translatedText);
+    \}
+  \}).get();
+\}</pre>
+<p>The example needs niceties such as being able to write full language names, but you get the gist.</p>
+<p>Here's the <a href="https://github.com/autonome/Jetpack-Modules/blob/master/awesomebar.js">awesomebar.js module</a>.</p>
+<p>There's a bit of documentation in there. The code could use some cleanup, and could probably be much smaller if converted to use the internal Jetpack APIs for things like window-watching, etc.</p>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2011/06/09/extensibly-awesome/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

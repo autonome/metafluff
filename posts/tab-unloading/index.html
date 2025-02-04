@@ -5,37 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiments in Tab Unloading</title>
     <meta name="description" content="blog de dietrich ayala">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
-    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
-    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
   </head>
   <body>
     <header>
       <!--
-      <h1 class="home"><a href="/">dietrich</a></h1>
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
       -->
       <ul class="nav">
         <li class="nav-item">
-          <a href="/">dietrich</a>
+          <a href="/eleventy-base-blog/">dietrich</a>
         </li>
         <li class="nav-item">
-          <a href="/posts/">blog</a>
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
         </li>
         <li class="nav-item">
-          <a href="/about/">about</a>
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
         </li>
         <li class="nav-item">
           <a href="mailto:me@burrito.space" target="_blank">email</a>
         </li>
         <li class="nav-item">
           <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://mastodon.social/@dietrich" target="_blank" title="mastodon" rel="me">mastodon</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://twitter.com/dietrich" target="_blank" title="twitter" rel="me">twitter</a>
         </li>
         <li class="nav-item">
           <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
@@ -49,23 +43,13 @@
       </ul>
     </header>
 
-    <main class="tmpl-post">
+    <main class="tmpl-home">
 
-      
-<!--
-<div class="post-container">
--->
-<div class="post-content">
-
-<h1>Experiments in Tab Unloading</h1>
-
-<time datetime="2018-11-27">27 Nov 2018</time><a href="/tags/firefox/" class="post-tag">Firefox</a><a href="/tags/tabs/" class="post-tag">Tabs</a><a href="/tags/ux/" class="post-tag">UX</a><a href="/tags/extensions/" class="post-tag">Extensions</a><a href="/tags/webextensions/" class="post-tag">WebExtensions</a>
-
-<p><strong>We implemented session restore in Firefox 2, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328154">thirteen years ago</a>.</strong> This was back when we used CVS, automated tests weren't yet required, and everything we did was uphill both ways... in snow.</p>
+      <p><strong>We implemented session restore in Firefox 2, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328154">thirteen years ago</a>.</strong> This was back when we used CVS, automated tests weren't yet required, and everything we did was uphill both ways... in snow.</p>
 <p>Tab unloading was a feature I <em>really</em> wanted, but it was lower priority, and discussions with our design team always went into the sarlaac pit of heuristics - when is the right time to unload the tab, without annoying the user by having to reload the page when they want it?</p>
 <p>Being a <a href="https://metafluff.com/2017/07/21/i-am-a-tab-hoarder/">tab hoarder myself</a>, I wrote an extension that implements this feature for my own benefit, and also to learn a bit about what worked and didn't. I had to live without it for a bit after the great WebExtension migration, until the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1128502">right API was finally shipped</a> that supported the features I needed.</p>
-<p>You can install this extension here: <a href="https://addons.mozilla.org/en-US/firefox/addon/dormancy/">https://addons.mozilla.org/en-US/firefox/addon/dormancy/</a></p>
-<p><img src="dormancy.png" alt="Dormancy Options"></p>
+<p>You can install this extension here: https://addons.mozilla.org/en-US/firefox/addon/dormancy/</p>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/tab-unloading/yKxBZWCJIC-844.avif 844w"><source type="image/webp" srcset="/eleventy-base-blog/posts/tab-unloading/yKxBZWCJIC-844.webp 844w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/tab-unloading/yKxBZWCJIC-844.png" alt="Dormancy Options" width="844" height="316"></picture></p>
 <p>I'd like to share a few things I learned while making and running this extension.</p>
 <p><strong>TL;DR: My optimal heuristics for tab unloading are &quot;unload tabs 15 minutes after last focused&quot; + &quot;never unload tabs in active window&quot;.</strong></p>
 <p>Here are my findings and recommendations for building a tab unloading feature. They're not exhaustive, just the set of things I learned in my experiments.</p>
@@ -94,24 +78,16 @@
 <li><a href="https://addons.mozilla.org/en-US/firefox/addon/tabs-switched-button/">Show number of tab switches today</a></li>
 </ul>
 <p>These are shipped as separate extensions because you cannot adjust the width of toolbar icons, and I want all counts visible. They're all one extension, and the <a href="https://github.com/autonome/tabstatistics">source code is on Github</a>.</p>
-<p><img src="tabstats.png" alt="Tab Statistics"></p>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/tab-unloading/5wBFJjDjzl-642.avif 642w"><source type="image/webp" srcset="/eleventy-base-blog/posts/tab-unloading/5wBFJjDjzl-642.webp 642w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/tab-unloading/5wBFJjDjzl-642.png" alt="Tab Statistics" width="642" height="284"></picture></p>
 <p>I've only done some basic counting, but research into more complex interactions and behavior should be done. For example, how people traverse tabs will determine whether the feature really works for them. If they use keyboard shortcuts to move across large sets of tabs, it will not be effective in single window mode using only a timeout, because the last-focused-time will constantly be reset.</p>
 <p>If you'd like to learn more, there's <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=675539">a bug filed for this feature</a>, with many years of discussion.</p>
 
-<hr>
-<ul><li>Previous: <a href="/posts/trumplandia/">Trumplandia: Portlands Independent Businesses and Gordon Sondland</a></li>
-</ul>
-
-</div>
-<!--
-</div>
--->
 
     </main>
 
     <footer></footer>
 
-    <!-- Current page: /posts/tab-unloading/ -->
+    <!-- Current page: /eleventy-base-blog/posts/tab-unloading/ -->
 
 
     <!-- Fathom - beautiful, simple website analytics -->

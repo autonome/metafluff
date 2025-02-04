@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Performance Update</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>I've been focusing more on <a href="https://wiki.mozilla.org/Labs/Jetpack">Jetpack</a> development this quarter, but will still be posting performance round-ups regularly here. In fact, here's one now:</p>
+<ul>
+<li>Taras Glek continues to blog his progress on improving the binaries we ship, talking about <a href="http://blog.mozilla.com/tglek/2010/04/05/linux-how-to-make-startup-suck-less-and-reduce-memory-usage/">how reordering binaries improves memory use as well as load time</a>, <a href="http://blog.mozilla.com/tglek/2010/04/12/squeezing-every-last-bit-of-performance-out-of-the-linux-toolchain/">leveraging GCC's PGO for fast startup</a>, and finally about <a href="http://blog.mozilla.com/tglek/2010/04/07/icegrind-valgrind-plugin-for-optimizing-cold-startup/">Icegrind, his Valgrind plugin</a> that generates a log of the order of access to mmap'd files.</li>
+<li>Are we fast yet?! The answer to that question, at least in regards to JavaScript performance test suites, can be found at <a href="http://arewefastyet.com/">AreWeFastYet.com</a>, where you'll see graphs that show Firefox trunk's performance relative to Google's V8 and Apple's Nitro on the Sunspider and V8Bench tests. I won't spoil the answer for you, you'll have to go check it out for yourself.</li>
+<li>I <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=557552">finished and checked-in</a> my changes to the <a href="http://tests.themasta.com/tinderboxpushlog/?tree=Firefox">Tinderbox Pushlog</a>, adding a new feature that provides at-a-glance comparison in performance test results between any two pushes on the page (<a href="https://bug557552.bugzilla.mozilla.org/attachment.cgi?id=437335">screenshot</a>). It will go live next time Marcus pushes changes out to his server. <span style="text-decoration:line-through;">But he's not online at the moment, so I don't know when this feature will go live.</span> Heh, it went live moments after I published this post.</li>
+<li>Heather Arthur and Clint Talbert are working on a project to add performance data to Addons.mozilla.org for extensions. They're starting with the effect of a given extension on Firefox startup time. Follow along on the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=559929">bug</a>, or <a href="http://github.com/harthur/dirtyharry">watch project Dirty Harry on Github</a>.</li>
+<li>Improving the AMO extension validator: AMO scans uploaded extensions and reports problems to the authors. For performance best-practices, we should at least warn the authors if possible if their add-on is doing something that'll make Firefox slow. This bug is for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=551714">warning about add-ons that don't have their content in a JAR file</a>. If you see any thing in the <a href="https://wiki.mozilla.org/Performance/Addons/BestPractices">best practices guide</a> that can be statically detected, please file a bug for it <a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=addons.mozilla.org&amp;component=Admin%2fEditor%20Tools">here</a>.
+If you have any other performance-related bugs, blog posts, anecdotes or other tomfoolery, post it in the comments!</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2010/04/17/firefox-performance-update-2/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

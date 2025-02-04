@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Firefox UI Response Time</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>I wrote an add-on for Firefox 4 that tracks how long various parts of the browser's user-interface take to load. It does not require a restart of the browser.</p>
+<p><a href="http://people.mozilla.com/~dietrich/aboutresponse.xpi">Click here to install.</a></p>
+<ul>
+<li>It measures the duration between 'popupshowing' and 'popupshown' events. This covers menus, menu-like things, and those floating panels you're starting to see everywhere.</li>
+<li>You can see your results at <a href="response">about:response</a>. There won't be anything there if you just installed the add-on. Browse around for a few days and then check it out.</li>
+<li>It doesn't track popups without an id yet. It could also be nicer by showing the containing menu name if available.</li>
+<li>I'd like to add window load times. What else in the front-end could we be measuring? I was thinking about <command> execution, but there's not a way to do that without modifying the core, afaict.</li>
+<li>Perhaps we could add a button for users to submit their anonymized data somewhere.
+Try it out, let me know if you have any problems. The <a href="https://github.com/autonome/about-response">source code</a> is available on Github.</li>
+</ul>
+<p><a href="about-response-screenshot.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/2011/02/22/tracking-firefox-ui-response-time/NWS-8B9MEq-507.avif 507w"><source type="image/webp" srcset="/eleventy-base-blog/2011/02/22/tracking-firefox-ui-response-time/NWS-8B9MEq-507.webp 507w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2011/02/22/tracking-firefox-ui-response-time/NWS-8B9MEq-507.png" alt="about-response-screenshot" title="about-response-screenshot" width="507" height="312"></picture></a></p>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2011/02/22/tracking-firefox-ui-response-time/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

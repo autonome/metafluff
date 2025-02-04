@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixing a papercut in Firefoxs WebIDE</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>Web IDE has gone though some twists and turns as a feature in Firefox, but one thing has remained constant for me: When I launch an app, I <em>always</em> want to debug it. Having to repeatedly wait and hit the wrench button has always bothered me. During a development session I may do this hundreds of times.</p>
+<p>So I wrote a small Firefox add-on that changes the functionality of the &quot;play&quot; button in Web IDE to also open the Developer Tools once the app has launched.</p>
+<p>Warning: It's not pretty. There's probably a better way to do it. Take a look at <a href="https://github.com/autonome/webide-autodebug">the source here</a> and let me know if you have ideas.</p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/webide-auto-debug/">INSTALL</a></p>
+<p>A couple of other things I want to add:</p>
+<ul>
+<li>First force-stop app when you hit Play. Currently the new app source doesn't get reloaded because the old app instance is running, which is wrong and maddening.</li>
+<li>Always show dev tools. The way the pop in and out is very heavy feeling. Just keep them open all the time.</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2016/02/23/fixing-a-papercut-in-firefoxs-webide/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

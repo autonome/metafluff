@@ -5,37 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dietrich</title>
     <meta name="description" content="blog de dietrich ayala">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
-    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
-    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
   </head>
   <body>
     <header>
       <!--
-      <h1 class="home"><a href="/">dietrich</a></h1>
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
       -->
       <ul class="nav">
         <li class="nav-item">
-          <a href="/">dietrich</a>
+          <a href="/eleventy-base-blog/">dietrich</a>
         </li>
         <li class="nav-item">
-          <a href="/posts/">blog</a>
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
         </li>
         <li class="nav-item">
-          <a href="/about/">about</a>
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
         </li>
         <li class="nav-item">
           <a href="mailto:me@burrito.space" target="_blank">email</a>
         </li>
         <li class="nav-item">
           <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://mastodon.social/@dietrich" target="_blank" title="mastodon" rel="me">mastodon</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://twitter.com/dietrich" target="_blank" title="twitter" rel="me">twitter</a>
         </li>
         <li class="nav-item">
           <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
@@ -51,15 +45,25 @@
 
     <main class="tmpl-home">
 
-      <h1 id="content-not-found." tabindex="-1">Content not found. <a class="direct-link" href="#content-not-found." aria-hidden="true">#</a></h1>
-<p>Go <a href="/">home</a>.</p>
+      <h1 id="content-not-found">Content not found.</h1>
+<p>Go <a href="index.njk">home</a>.</p>
+<!--
+
+Read more: https://www.11ty.dev/docs/quicktips/not-found/
+
+This will work for both GitHub pages and Netlify:
+
+* https://help.github.com/articles/creating-a-custom-404-page-for-your-github-pages-site/
+* https://www.netlify.com/docs/redirects/#custom-404
+
+-->
 
 
     </main>
 
     <footer></footer>
 
-    <!-- Current page: /404.html -->
+    <!-- Current page: /eleventy-base-blog/404.html -->
 
 
     <!-- Fathom - beautiful, simple website analytics -->

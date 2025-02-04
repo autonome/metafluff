@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Startup Performance</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>A team of Firefox developers and others are working on making Firefox startup faster. Per <a href="http://beltzner.ca/mike/2009/08/07/firefox-team-weekly-roundups-planning-sprinting-and-reporting/">Mike Beltzner's post</a>, we'll be updating our status weekly. Here's the status of what the team did this week, as well as pointers to some other work going on. The list here highlights major points, but is not complete. Many more details of these projects, as well as other areas for investigation can be found on the <a href="https://wiki.mozilla.org/Firefox/Sprints/Startup_Time_Improvements">wiki page</a>, and on <a href="http://blog.vlad1.com/">Vlad</a> and <a href="http://blog.mozilla.com/tglek/">Taras'</a> blogs.</p>
+<p><strong>Status</strong></p>
+<ul>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=507101">XPCOM component combining</a> (Dietrich): Manually combined a bunch of files, and found improvements in sub 100ms, but varying results, so going to check-in to the Places branch temporarily to get better  numbers. Writing a script to hook into the build system to knit the components together automatically, but need better numbers before going further.</p>
+</li>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=419893">Enabling PGO for SQLite, mozStorage and Places</a> (Dietrich): Made a patch to re-enable PGO for these, and checked into the Places branch. Currently there are unit tests failing, but they look unrelated. Need to trigger more runs to ensure that's the case. Performance numbers are not definitive, need more runs to complete.</p>
+</li>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">Dead code  hunting with JSHydra</a> (DDahl): Have basic code for function finding,  making progress on code for building JS context for chrome URIs. (props  for help from taras, humph, jcranmer in #static)</p>
+</li>
+<li>
+<p>Combining XPT files on Mac (Drew): Potentially significant gain of a few seconds on startup, investigation continuing.</p>
+</li>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=480735">Startup Timeline</a> (Vlad, DDahl): This is still in review.</p>
+</li>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=504864">Combining jar files</a> (Taras): This is ready to check-in (again).
+<strong>Next Steps</strong></p>
+</li>
+<li>
+<p>Confirm numbers for combining JS components, finish script to automate combining, work with Ted to hook it into the packaging process, see if any modules can be combined.</p>
+</li>
+<li>
+<p>Find out why tests are failing for PGO and quantify gain/loss when the slow tinderboxen finally report some numbers.</p>
+</li>
+<li>
+<p>Get the startup timeline reviewed, landed and start adding markers and performing analysis.</p>
+</li>
+<li>
+<p>Investigate why wall-clock time of combined jars doesn't decrease.</p>
+</li>
+<li>
+<p>Get full browser JS context working in JSHydra, write the uncalled-function script, file dead-code bugs, get it plugged into continuous integration on tinderbox.</p>
+</li>
+<li>
+<p>Get <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=475289">bug 475289</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=499123">bug 499123</a> landed, further reducing IO and component registration time spent at startup.</p>
+</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/08/08/firefox-startup-performance/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

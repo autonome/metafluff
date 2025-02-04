@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Add-ons with Jetpack, Flightdeck and... Vim.</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>AddonEditor is an add-on for Firefox that allows you to use an external editor when building add-ons with the Add-ons Builder (aka Flightdeck). Yeah, say that 10 times fast.</p>
+<p>While Skywriter (aka Bespin) is nice, it's just not [insert your favorite editor here]. So I stole the code from the <a href="http://bit.ly/gZQIiP">Ubiquity project for loading an external app as editor</a>, and converted it to a CommonJS module for Jetpack (which I've listed on the <a href="http://mzl.la/aDar20">Jetpack Modules page</a>). I built an add-on using Jetpack's page-mod module to add buttons to the Add-on Builder for loading a file in an external editor:</p>
+<p><a href="addon-editor.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/2010/12/06/building-add-ons-with-jetpack-flightdeck-and-vim/Bm16VRdwO--380.avif 380w"><source type="image/webp" srcset="/eleventy-base-blog/2010/12/06/building-add-ons-with-jetpack-flightdeck-and-vim/Bm16VRdwO--380.webp 380w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2010/12/06/building-add-ons-with-jetpack-flightdeck-and-vim/Bm16VRdwO--380.png" alt="" title="addon-editor" width="380" height="139"></picture></a></p>
+<p>When you click the button the first time, you're prompted with a file-open dialog. Select the editor application of your choice, and the file will open in it. From then on, your chosen editor will automatically load files when you click the button. To clear your choice, choose the other button.</p>
+<p><a href="http://bit.ly/eDVYEo">Install AddonEditor</a>. Requires Firefox 4 Beta 7 or newer.</p>
+<p><a href="http://bit.ly/idHrqa">Clone and make your own, based on AddonEditor.</a> I built it using  Jetpack 0.10, which isn't released yet. However, I don't think it takes advantage of anything new, so it might be test-able from the Builder. But the Builder is giving errors when I hit the &quot;test&quot; button (which I've reported to Zalun), so I can't tell for sure yet.</p>
+<p>BEWARE:</p>
+<ul>
+<li>I've only tested on Linux. Let me know in the comments if it works or doesn't for you.</li>
+<li>Terminal apps not liked, apparently: /usr/bin/vim hangs Firefox completely. /usr/bin/gvim works fine.</li>
+<li>The UI augmentation to Flightdeck probably made Zalun puke. It should probably just be an option in the context menu or something. Except that you'd never find it. Ideas?</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2010/12/06/building-add-ons-with-jetpack-flightdeck-and-vim/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

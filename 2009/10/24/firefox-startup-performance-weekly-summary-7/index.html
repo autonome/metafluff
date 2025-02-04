@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Startup Performance Weekly Summary</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>First, the numbers. This is the first round where all the posted numbers are from Talos. We're getting closer to having Windows numbers for cold startup (details further down). The cold numbers didn't have much in the way of results yet, only 3-5 boxes for today's numbers, and given the variability we should probably put more boxes on those. The notable datapoint is that cold startup on Mac for 3.6 is better than for trunk, which is odd since it's been the opposite in all of our manual testing, and most of the big wins haven't made it to the branch yet. It could be because of the dearth of results so far. Next week I'll include the dirty profile test results in these tables as well.</p>
+<p>Cold Startup</p>
+<table border="1">
+<tbody>
+<tr>
+<td>Platform</td>
+<td>3.5</td>
+<td>3.6</td>
+<td>Trunk</td>
+</tr>
+<tr>
+<td>Mac Leopard (10/23)</td>
+<td>15605ms</td>
+<td>13120ms (-16\%)</td>
+<td>13859ms (-11\%)</td>
+</tr>
+<tr>
+<td>Win XP</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Win Vista</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Linux (10/23)</td>
+<td>7056ms</td>
+<td>7159ms (1\%)</td>
+<td>7204ms (2\%)</td>
+</tr>
+</tbody></table>
+Warm Startup
+<table border="1">
+<tbody>
+<tr>
+<td>Platform</td>
+<td>3.5</td>
+<td>3.6</td>
+<td>Trunk</td>
+</tr>
+<tr>
+<td>Mac Leopard (10/23)</td>
+<td>1451ms</td>
+<td>1108ms (-23\%)</td>
+<td>1017ms (-30\%)</td>
+</tr>
+<tr>
+<td>Win XP (10/23)</td>
+<td>459ms</td>
+<td>462ms (0\%)</td>
+<td>449ms  (-2\%)</td>
+</tr>
+<tr>
+<td>Win Vista (10/23)</td>
+<td>535ms</td>
+<td>544ms (1\%)</td>
+<td>506ms (-5\%)</td>
+</tr>
+<tr>
+<td>Linux (10/23)</td>
+<td>625ms</td>
+<td>632ms (1\%)</td>
+<td>629ms  (0\%)</td>
+</tr>
+</tbody></table>
+As usual, more details and links are  available on [the    project wiki](https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements), and we're available to answer questions in [\#startup on irc.mozilla.org](irc://irc.mozilla.org/\#startup).
+<ul>
+<li>
+<p>Taras is zooming in on library IO, and <a href="http://blog.mozilla.com/tglek/2009/10/20/large-apps-just-have-to-start-slow/">posted some details and optimization approaches</a>, and<a href="http://blog.mozilla.com/tglek/2009/10/23/studying-library-io-systemtap-style/"> today posted a log</a> of what's loaded and how long it takes.</p>
+</li>
+<li>
+<p>Windows Cold Ts: As you can see above in the table, the new cold startup graphs are here for <a href="http://tinyurl.com/2vr3pz">Mac </a>and <a href="http://tinyurl.com/2vr3pz">Linux</a>. I've made progress on emulating cold startup on Windows using a utility from the Windows Server 2003 Resource Kit called Consume.exe. I found a reference to it in some random blog comment, and then<a href="https://developer.mozilla.org/en/QA/Stress_Testing"> found it on MDC</a> as the #2 link on Google. The help file that the resource kit installer links from the start menu  is... not actualy there, but I did find some <a href="http://www.windows-management.com/msk-rk/win2003/0127/">tidbits of  documentation</a>. It will consume one of physical memory, cpu time, <a href="http://blogs.technet.com/askperf/archive/2007/03/07/memory-management-understanding-pool-resources.aspx">kernel pool memory</a>, disk space (!) and the page file, for the number of seconds specified by the user. Running consume.exe for 15 seconds was enough to completely exhaust my physical ram, and subsequent starts of Firefox trunk are about 22 seconds. Next steps: I'll continue to test to see what combination of these options gives us the best visibility into changes to cold startup time, and then work with Rel/Eng to get it deployed.</p>
+</li>
+<li>
+<p>Alfred Kayser landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=511754">bug  511754</a>, which improves JAR file reading efficiency.</p>
+</li>
+<li>
+<p>Rob Strong has been making a bunch of changes in the update system to improve startup time, and <a href="http://blog.mozilla.com/rstrong/2009/10/23/app-update-status/">posted a list of the changes</a>.</p>
+</li>
+<li>
+<p>Drew has a patch up for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506814">bug  506814</a>, getting rid of Change   GetPersistentDescriptor/SetPersistentDescriptor on Mac, just needs review from Josh.</p>
+</li>
+<li>
+<p>Peter got review on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512645">bug 542615</a>, removing the setTimeout 10ms wait in chrome JS.</p>
+</li>
+<li>
+<p>Ben Hsieh has been prototyping a whole Fastload cache replacement in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">bug 520309</a>.</p>
+</li>
+<li>
+<p>Ben's work on fastload cache invalidation in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=511761">bug 511761</a> closed other bugs such as <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=517515">bug 517515</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512827">bug 512827</a>.</p>
+</li>
+<li>
+<p>Ted has been looking at re-enabling rebasing on Windows in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=484799">bug 484799</a> for a potential performance boost there.
+Projects in a holding pattern:</p>
+</li>
+<li>
+<p>Service caching work in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug       516085</a> still needs to be pushed  to  the  Places branch for testing.</p>
+</li>
+<li>
+<p>Moving font-loading out of the startup path on Mac: Jonathan Kew   filed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug     519445</a> with a WIP patch for yet further reductions in Mac startup     time spent in font system initialization.</p>
+</li>
+<li>
+<p>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS        modules into a JAR file</a>, since those files are fastloaded.       However, since we want things like post-extension-install restarts to   be     fast, and those cause fastload cache invalidation, we might  want  to   do   things like this anyways. I filed a bug for the same  treatment  for     components. These are lower priority, since they're  not the  normal     startup case. Follow along with all JAR-ification  via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the       tracker  bug</a>.</p>
+</li>
+<li>
+<p>Startup Timeline: No updates, still not landed. Add [ft] in the      whiteboard of your bug w/ the function names you want timed and David      will generate it and update the bug.</p>
+</li>
+<li>
+<p>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug      506128</a>.  David needs to file a bug with the final log of      named-yet-uncalled  functions.</p>
+</li>
+<li>
+<p>Dirty Profile Testing: No progress. Need to list scenarios, file      bugs  for each, generate Talos config patches and profile data, and  then     move  it into Rel-Eng territory. Also, need to get a separate     Tinderbox  tree,  since it's going to cause a bazillion new columns.</p>
+</li>
+<li>
+<p><a href="http://wagerlabs.com/">Joel      Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug      513076</a> that there are serious drawbacks to getting our libraries in      the dyld  shared cache on Mac, so has deprioritized that work.</p>
+</li>
+<li>
+<p>No updates on Zack's CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug        513149</a>.</p>
+</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/10/24/firefox-startup-performance-weekly-summary-7/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Firefox Startup Performance Roundup</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>Here's a summary of all the startup-related work going on. Other people on the team are also blogging updates on their individual projects:</p>
+<ul>
+<li>Ryan Flint: <a href="http://screwedbydesign.com/blog/2009/08/this-week-in-perf-aug14.php">This Week in Perf - Aug. 14th Edition</a></li>
+<li>David Dahl: <a href="http://daviddahl.blogspot.com/2009/08/looking-for-dead-code.html">Looking for Dead Code</a></li>
+<li>Drew Willcoxon: <a href="http://blog.mozilla.com/adw/2009/08/14/startup/">Startup</a>
+As usual, for the details, check out the <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements" title="Startup Improvements wiki">Startup Project wiki page</a>.</li>
+</ul>
+<p>### Progress</p>
+<ul>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=419893">PGO for SQLite, MozStorage and Places</a>: Landed on the Places branch. The test failures seen when PGO first landed are not there (yay), but the Talos boxes don't show any clear wins (boo).</p>
+</li>
+<li>
+<p>Dead Code Hunting: Even though he's supposed to be on vacation, David has got the full browser.xul environment pulled in for analysis. More info in his post (linked above). Still a lot of false-positives in the detection code.</p>
+</li>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=480735">Startup timeline</a>: Vlad's been working with the NSPR owner, and the latest patch has review, so almost there.</p>
+</li>
+<li>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=507038">XPCOM component combining</a>: No progress from me, but Florian Quèze <span></span>attached a shell script to knit the components together!</p>
+</li>
+<li>
+<p>XPT Linking on Mac: Drew has confirmed big wins from this, split it off into it's <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510309">own bug</a>. More detailed notes from him on his <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements/adw_notes">wiki page.</a></p>
+</li>
+<li>
+<p>JARification</p>
+<ul>
+<li>Taras' <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=504864">core IO improvements to how JAR file contents are read</a> have landed, as well as the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=468011">combining of all chrome into browser and toolkit JARs</a> (this morning!).</li>
+<li>Ryan is looking at putting the components directory into a JAR so that it reaps the same benefits as the chrome directories.</li>
+</ul>
+</li>
+<li>
+<p>Testing/Measurement</p>
+<ul>
+<li>Met with Alice to talk about various test scenarios, and the deployment process</li>
+<li>Started a guide for <a href="https://wiki.mozilla.org/Testing/Talos/NewTests" title="Creating a new Talos test">taking a Talos test from idea to production</a></li>
+<li>Initial steps on automatedly testing cold-startup, figuring out platform-specific calls, and what Talos changes are needed</li>
+<li>Discussing approaches to micro-benchmarking the browser UI</li>
+</ul>
+</li>
+</ul>
+<p>### Next Steps</p>
+<ul>
+<li>Enable PGO on mozilla-central, get nightly tester feedback</li>
+<li>Once the startup timeline lands, get an actual timeline to analyze</li>
+<li>Reduce false-positives on the dead-code report, document installation and usage, develop plan for continuous integration</li>
+<li>Work with Ted to get a patch for JS component combining into the packaging process</li>
+<li>Figure out if there's a win in jar'ing /components or if we just need to fix fastload to not touch the files as much</li>
+<li>Get XPT linking landed</li>
+<li>File bugs and get the Talos changes in Alice's queue for cold-startup testing</li>
+<li>Finish the Talos test development guide</li>
+<li>Talk with Ryan Doherty about the reporting side of microbenchmarking
+[UPDATE: added Drew's blog post]</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/08/15/weekly-firefox-startup-performance-roundup/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

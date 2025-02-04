@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox, Plugins and Jetpack Widgets</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>Flash was chewing CPU in one of my myriad tabs, so I used <a href="https://jetpack.mozillalabs.com/">Jetpack</a> and the new <a href="https://developer.mozilla.org/en/Addons/Add-on_Manager">AddonsManager API</a> to whip up a quick add-on to enable and disable Flash quickly. It's &lt;30 lines of code and an image. It puts an icon in the Firefox 4 add-on bar that toggles the plug-in, and sends a Growl notification (or whatever system your OS uses) indicating that the plug-in was successfully enabled or disabled. Screenshot:</p>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/2010/12/04/firefox-plugins-and-jetpack-widgets/eK2HdkMc6E-186.avif 186w"><source type="image/webp" srcset="/eleventy-base-blog/2010/12/04/firefox-plugins-and-jetpack-widgets/eK2HdkMc6E-186.webp 186w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2010/12/04/firefox-plugins-and-jetpack-widgets/eK2HdkMc6E-186.png" alt="" title="flashtoggle" width="186" height="66"></picture></p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/260486/">Install FlashToggle.</a> Requires Firefox 4 beta 7 or newer.</p>
+<p><a href="https://builder.mozillalabs.com/addon/1004584/latest/">Clone and make your own on the Add-on Builder.</a> This might require a minor change in the code since I built using Jetpack 0.10, which isn't released yet. Changing 'contentURL' to 'image' in the widget options should do the trick.</p>
+<p>The entire code listing:</p>
+<pre>function toggleFlash(callback) \{
+  const \{ Cu \} = require("chrome");
+  Cu.import("resource://gre/modules/AddonManager.jsm", this);
+  AddonManager.getAddonsByTypes(["plugin"], function(addons) \{
+    for (let i = 0; i < addons.length; i++) \{
+      if (addons[i].name == "Shockwave Flash") \{
+        addons[i].userDisabled = !addons[i].userDisabled;
+        callback(addons[i].userDisabled);
+        break;
+      \}
+    \}
+  \});
+\}
+
+let flashLogoURL = require("self").data.url("flash-logo.jpg");
+require("widget").Widget(\{
+  label: "Toggle Flash",
+  contentURL: flashLogoURL,
+  onClick: function() \{
+    toggleFlash(function(disabled) \{
+      let message = "Flash is now " + (disabled ? "disabled" : "enabled") + ".";
+      require("notifications").notify(\{
+        title: message,
+        iconURL: flashLogoURL
+      \});
+    \});
+  \}
+\});</pre>
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2010/12/04/firefox-plugins-and-jetpack-widgets/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

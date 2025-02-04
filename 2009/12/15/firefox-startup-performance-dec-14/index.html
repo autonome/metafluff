@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Startup Performance - Dec 14</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>I'm going to be changing the format of these posts a bit, to put focus on the most important issues currently blocking a super-fast startup of Firefox. Hopefully it'll bring attention on the longest-running, hardest-to-fix, but highest-impact bugs. Right now I'm defining high-impact as changes that bring a 10% or greater improvement. Some of these bugs we don't yet have solid data on how much of an impact, but expect it to be filled in soon as we narrow the focus onto these. As always, the current numbers for startup and all other tests are available on the <a href="http://graphs.mozilla.org/dashboard/snapshot/">Performance  Snapshot Page</a>.</p>
+<p>Top Startup Bugs</p>
+<!-- table\#ts \{ border: 1px solid silver; \} -->
+<table id="ts" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td class="s0">Estimated win</td>
+<td class="s1">Bug \#</td>
+<td class="s1">Summary</td>
+<td class="s1">Owner</td>
+<td class="s1">Status</td>
+<td class="s1">Notes</td>
+</tr>
+<tr>
+<td class="s2">>10\%</td>
+<td class="s3">[512584](https://bugzilla.mozilla.org/show_bug.cgi?id=512584)</td>
+<td class="s4">Super fast paths for Components.classes and Components.interfaces</td>
+<td class="s4">Taras Glek</td>
+<td class="s4">in progress</td>
+<td>Got consultation from mrbkap, needs new patch.</td>
+</tr>
+<tr>
+<td class="s2">>10\%</td>
+<td class="s3">[525013](https://bugzilla.mozilla.org/show_bug.cgi?id=525013)</td>
+<td class="s4">Investigate a more static build configuration of Firefox</td>
+<td class="s4">Joel Reymont</td>
+<td class="s4">Mac and Linux in progress</td>
+<td class="s4">Only measured on Mac so far, need Linux numbers and someone to figure out the Windows story.</td>
+</tr>
+<tr>
+<td class="s2">up to 25\%</td>
+<td class="s3">[514083](https://bugzilla.mozilla.org/show_bug.cgi?id=514083)</td>
+<td class="s4">Per-file HFS+ compression on Mac OSX 10.6</td>
+<td class="s4">Joel Reymont</td>
+<td class="s4">in progress</td>
+<td class="s4">Snow Leopard only.</td>
+</tr>
+<tr>
+<td class="s2">TBD</td>
+<td class="s3">[520309](https://bugzilla.mozilla.org/show_bug.cgi?id=520309)</td>
+<td class="s4">Startup cache: replacement for fastload cache</td>
+<td class="s4">Ben Hsieh</td>
+<td class="s4">review</td>
+<td class="s4">More efficient than current fastload, and key to enabling fastloading of XBL, CSS, manifests and various other data. Need to push to Places branch to figure out base perf difference from current fastload.</td>
+</tr>
+<tr>
+<td class="s2">TBD</td>
+<td class="s3">[503483](https://bugzilla.mozilla.org/show_bug.cgi?id=503483)</td>
+<td class="s4">Turn on --enable-faststart for Firefox by default</td>
+<td class="s4">Dietrich</td>
+<td class="s4">needs testing</td>
+<td class="s4">Loads Firefox core libraries at boot time. Need to test on all OSes, publish the numbers, and get discussion going.</td>
+</tr>
+<tr>
+<td class="s2">TBD</td>
+<td class="s3">[513149](https://bugzilla.mozilla.org/show_bug.cgi?id=513149)</td>
+<td class="s4">Speed up CSS parsing by using a machine generated lexer</td>
+<td class="s4">Zack Weinberg</td>
+<td class="s4">Zack's blocked on other work</td>
+<td class="s4">Taras says it's high, but no figures, so need better data here.</td>
+</tr>
+</tbody>
+</table>
+Other activity this week:
+<ul>
+<li>
+<p>Jonathan Kew landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug 519445</a> on trunk, which improves font loading on Mac. The patch didn't dent the Ts graph, as the test loads a basically empty page. This patch has the largest effect when pages load various fonts, and have a large font collection. For instance, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445#c15">here</a> John Dagget comments that on a system with 2000+ fonts, the loading time of the font system went from 6 seconds down to 0.33 seconds.</p>
+</li>
+<li>
+<p>Rob Strong <a href="http://blog.mozilla.com/rstrong/2009/12/13/status-update-%E2%80%93-week-of-1211/">blogged  about time spent executing JS in the front-end</a>, and put up a table  of the worst offenders.</p>
+</li>
+<li>
+<p>The measurements Rob made above are from an instrumentation effort that's happening in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=507012">bug 507012</a>, that will give us great visibility into where time is spent in JS. You can do similar profiling using DTrace, but that's Mac only, and requires separate tools and scripts to be installed. This instrumentation will eventually be available across platforms in release builds of Firefox. It'll default to off, but be togglable via an environmental variable or some other method. Providing tools like this makes it <em>easy</em> for anyone working on Firefox to diagnose performance problems.
+Projects in a holding pattern:</p>
+</li>
+<li>
+<p>Ryan Flint has a WIP patch to minify JS on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524858">bug  524858</a> that significantly reduces the size of shipped JavaScript  files.</p>
+</li>
+<li>
+<p>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS          modules into a JAR file</a>, since those files are fastloaded.         However, since we want things like post-extension-install  restarts  to   be     fast, and those cause fastload cache invalidation,  we might   want  to   do   things like this anyways. I filed a bug for  the same   treatment  for     components. These are lower priority,  since they're   not the  normal     startup case. Follow along with all  JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the         tracker  bug</a>.</p>
+</li>
+<li>
+<p>Startup Timeline: No updates, still not landed. Add [ft] in the        whiteboard of your bug w/ the function names you want timed and David        will generate it and update the bug.</p>
+</li>
+<li>
+<p>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug        506128</a>.  David needs to file a bug with the final log of        named-yet-uncalled  functions.</p>
+</li>
+<li>
+<p>Dirty Profile Testing: No progress. We have <a href="https://wiki.mozilla.org/Firefox/Sprints/Startup_Time_Improvements#Test_Coverage">a list of test scenarios</a>, still need to file        bugs  for each, generate Talos config patches and profile data, and    then     move  it into Rel-Eng territory. Also, need to get a separate       Tinderbox  tree,  since it's going to cause a bazillion new  columns.</p>
+</li>
+<li>
+<p><a href="http://wagerlabs.com/">Joel        Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug        513076</a> that there are serious drawbacks to getting our libraries  in       the dyld  shared cache on Mac, so has deprioritized that work.
+As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the       project wiki</a>, and we're available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</p>
+</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/12/15/firefox-startup-performance-dec-14/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

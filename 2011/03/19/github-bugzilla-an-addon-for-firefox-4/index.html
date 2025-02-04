@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github + Bugzilla (an Addon for Firefox 4)</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>We use Github for the source code of the <a href="https://jetpack.mozillalabs.com/" title="Add-on SDK">Firefox Add-on SDK (aka Jetpack)</a>. We use Bugzilla to track bugs and feature development. These two systems do not play nicely together.</p>
+<p>One especially annoying aspect of the workflow we use for the Add-on SDK is that it's a pain to submit a change in a way that satisfies both the Github and Bugzilla workflows. On Github you need to create a branch for your change, push it to Github, then go the page for the branch and submit a &quot;pull request&quot;, informing the forkees that you have changes you'd like merged into the main repository. On Bugzilla, the typical process is to attach a diff of your changes to a bug, and request review from a specific person.</p>
+<p>Atul Varma improved things with a great idea: Submit an HTML file as a bug attachment, which points to the pull-request page on Github. He added a feature to <a href="https://github.com/toolness/pybugzilla" title="Pybugzilla">Pybugzilla</a> that, given a pull-request URL and bug id, would generate the HTML file and submit it as an attachment to the bug. We now had something that was attached to a bug, that a reviewer could r+ or r-, making it easy for anyone following along to know where things were at, while allowing the code review itself to be done inline on Github.</p>
+<p>However, using the tool isn't easy. You have to do your development work, then go to the Github page to make the pull request, then go back to the command line to construct the correct invocation of the command, then back to the Bugzilla page to request review from someone.</p>
+<p>So I wrote an add-on to reduce the number of steps. With the Github Bugzilla Tweaks add-on, there's now a button the Github pull-request page that allows you to submit the request as an attachment on a bug in one-click:</p>
+<p><img src="content/2011/03/19/github-bugzilla-an-addon-for-firefox-4/4qtB.png" alt="" title="Screenshout"></p>
+<p>To make it work, just title your pull request starting with &quot;bug ######&quot;, replacing # with the bug id from Bugzilla. The add-on logs into Bugzilla with the stored credentials found in the Firefox password manager.</p>
+<p><a href="http://j.mp/dYtZbs" title="Install">Install</a>.</p>
+<p><a href="http://j.mp/g2LLee" title="Source code.">Source code</a>.</p>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2011/03/19/github-bugzilla-an-addon-for-firefox-4/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

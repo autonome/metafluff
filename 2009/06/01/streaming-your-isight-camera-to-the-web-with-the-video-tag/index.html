@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Your iSight Camera to the Web with the Video Tag</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>I wanted to do a demonstration of live streaming using the <a href="https://developer.mozilla.org/en/html/element/video"><video> tag</video></a> for <a href="http://opensourcebridge.org/sessions/251">my talk at the upcoming Open Source Bridge conference</a>; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro's built-in iSight camera.</p>
+<p>I pinged <a href="http://weblogs.mozillazine.org/asa/">Asa</a> to get details about how he streams <a href="http://air.mozilla.com/">Air Mozilla</a>, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, the capture module barfed when trying to talk to the camera. VLC ships with a capture module for the iSight, but hasn't been updated to work with the internal iSight. Bah. VLC also supported transcoding to Ogg Theora, as well as streaming to Icecast servers, so it really seemed like it'd provide just about everything, if it only supported the camera.</p>
+<p>I looked up the error I got from VLC, posted on the VLC forums, no answers. So I emailed the author of VLC's Quicktime module, <a href="http://www.ohloh.net/accounts/pdherbemont">Pierre d'Herbemont</a>, at the email he left in the source file. After a couple of emails, and less than 24 hours later, <a href="http://git.videolan.org/?p=vlc.git;a=commitdiff;h=d032b62bfaada60a4f3e0b3b2a5a71f65bf8eea9">he'd checked in a fix</a>. Open source FTW. Thanks Pierre.</p>
+<p>The steps to get it working are enumerated below. At some point, the VLC fix will ship, but until then you'll need to use nightly builds.</p>
+<p>Install and configure the Icecast2 server:</p>
+<ol>
+<li>
+<p>Install <a href="http://www.macports.org/">MacPorts</a></p>
+</li>
+<li>
+<p>In the Terminal: sudo port install icecast2. This installs everything into various dirs in /opt/local.</p>
+</li>
+<li>
+<p>Edit /opt/local/etc/icecast.xml, set user/group it runs as (for logfiles, i set mine to _www, same as Apache), and change the default passwords in the authentication section.</p>
+</li>
+<li>
+<p>Set permissions on /opt/local/var/log/icecast to be writable by the user you configured Icecast to run as.</p>
+</li>
+<li>
+<p>In the Terminal, start the server: sudo icecast -c /opt/local/etc/icecast.xml -b</p>
+</li>
+<li>
+<p>Test your install by checking the server's status at <a href="http://localhost:8000/status.xsl">http://localhost:8000/status.xsl</a></p>
+</li>
+<li>
+<p>Watch the log in the Terminal: tail -f opt/local/var/log/icecast/error.log (Useful for confirming VLC access, as well as catching authentication problems)
+Start the stream:</p>
+</li>
+<li>
+<p>Download and install the most recent <a href="http://nightlies.videolan.org/build/macosx-intel/?C=M%3BO=D">VLC nightly build</a></p>
+</li>
+<li>
+<p>Open the terminal, and execute the command below</p>
+</li>
+<li>
+<p>Open <a href="http://localhost:8000/stream/isight">http://localhost:8000/stream/isight</a> with Firefox 3.5b4 (or newer)
+VLC Command (all one line):</p>
+</li>
+</ol>
+<p>/Applications/VLC.app/Contents/MacOS/VLC qtcapture:// --sout=&quot;#transcode{vcodec=theora,vb=256,venc=theora,acodec=vorbis,ab=64,aenc=vorbis}: standard{access=shout,mux=ogg,dst=source:yourpassword@localhost:8000/stream/isight}&quot;</p>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/2009/06/01/streaming-your-isight-camera-to-the-web-with-the-video-tag/fcn_iLO7PP-300.avif 300w"><source type="image/webp" srcset="/eleventy-base-blog/2009/06/01/streaming-your-isight-camera-to-the-web-with-the-video-tag/fcn_iLO7PP-300.webp 300w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2009/06/01/streaming-your-isight-camera-to-the-web-with-the-video-tag/fcn_iLO7PP-300.png" alt="screenshot" title="screenshot" width="300" height="219"></picture></p>
+<p>It's still not quite ready for practical use:</p>
+<ul>
+<li>There's still some size distortion, maybe I have the aspect ratio wrong or something</li>
+<li>Still working on sound</li>
+<li>Lag is pretty bad</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/06/01/streaming-your-isight-camera-to-the-web-with-the-video-tag/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

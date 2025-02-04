@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Startup Performance Weekly Summary</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>Current numbers are available on the <a href="http://graphs.mozilla.org/dashboard/snapshot/">Performance  Snapshot</a> page.</p>
+<p>Summary, relative to Firefox 3.5:</p>
+<ul>
+<li>
+<p>Warm startup: For Mac, 36% better on 3.6 and 35% better on 3.7. For  Windows, 5% and 5%. Flat on Linux. Also, Warm startup for Mac on 3.6 is a whopping 13% better than last week, due to the landing of <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=517804">bug 517804</a>.</p>
+</li>
+<li>
+<p>Cold startup:  For Mac, 20% better on both 3.6 and 3.7. For  Windows, not measuring yet. For Linux, we're seeing a regression of ~9% across branch and trunk in the snapshot but not on the graphs, so I need to figure out where the discrepancy is.
+This week's activity:</p>
+</li>
+<li>
+<p>Dirty-cold-Ts went live this week, thanks to Alice and Lukas. Example: <a href="http://graphs.mozilla.org/#tests=%5B%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22169%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22170%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22172%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22173%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22174%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22175%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22177%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22178%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22180%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22181%22%7D,%7B%22test%22:%2266%22,%22branch%22:%2210%22,%22machine%22:%22182%22%7D%5D" title="http://tinyurl.com/258pht">cold startup with a  large places.sqlite on Mac</a>.</p>
+</li>
+<li>
+<p>Joel is making progress on making a super-static Firefox in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=525013" title="https://bugzilla.mozilla.org/show_bug.cgi?id=525013">bug 525013</a>.</p>
+</li>
+<li>
+<p>Ben is making progress on the fastload replacement in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309" title="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">bug 520309</a>.</p>
+</li>
+<li>
+<p>No updates on Windows cold-startup testing for  Talos on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=522807">bug  522807</a>. I need to test on Vista, and turn off Pre/Superfetch.</p>
+</li>
+<li>
+<p>Taras has patches up for service caching (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085" title="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug 516085</a>) and super-fast-path-ing of Components.* (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512584" title="https://bugzilla.mozilla.org/show_bug.cgi?id=512584">bug 512584</a>), however the latter he's hit a wall, passing on to Blake or someone else who knows that code.</p>
+</li>
+<li>
+<p>Ted landed rebasing on Windows in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=484799" title="https://bugzilla.mozilla.org/show_bug.cgi?id=484799">bug 484799</a>.</p>
+</li>
+<li>
+<p>Jonathan Kew has a new patch in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug        519445</a> for further reductions in Mac startup       time spent in  font system initialization, just about there...</p>
+</li>
+<li>
+<p>Ryan Flint put a patch to minify JS on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524858">bug 524858</a>, not working yet, but significantly reduced the size of shipped JavaScript files.
+Projects in a holding pattern:</p>
+</li>
+<li>
+<p>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS          modules into a JAR file</a>, since those files are fastloaded.         However, since we want things like post-extension-install  restarts  to   be     fast, and those cause fastload cache invalidation,  we might   want  to   do   things like this anyways. I filed a bug for  the same   treatment  for     components. These are lower priority,  since they're   not the  normal     startup case. Follow along with all  JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the         tracker  bug</a>.</p>
+</li>
+<li>
+<p>Startup Timeline: No updates, still not landed. Add [ft] in the        whiteboard of your bug w/ the function names you want timed and David        will generate it and update the bug.</p>
+</li>
+<li>
+<p>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug        506128</a>.  David needs to file a bug with the final log of        named-yet-uncalled  functions.</p>
+</li>
+<li>
+<p>Dirty Profile Testing: No progress. Need to list scenarios, file        bugs  for each, generate Talos config patches and profile data, and    then     move  it into Rel-Eng territory. Also, need to get a separate       Tinderbox  tree,  since it's going to cause a bazillion new  columns.</p>
+</li>
+<li>
+<p><a href="http://wagerlabs.com/">Joel        Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug        513076</a> that there are serious drawbacks to getting our libraries  in       the dyld  shared cache on Mac, so has deprioritized that work.</p>
+</li>
+<li>
+<p>No updates on Zack's CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug          513149</a>.
+As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the       project wiki</a>, and we're available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</p>
+</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/11/21/firefox-startup-performance-weekly-summary-11/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

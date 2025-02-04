@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Howto: Build an XPCOM Component in Javascript</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>## Introduction</p>
+<p>Here's my first cut at a &quot;Hello World&quot; tutorial for creating an XPCOM component in Javascript. The tutorials, wiki pages and knowledge-base entries that exist on this subject are mostly from the perspective of a C++ developer, not a front-end developer, and therefore seemed to always leave out basic steps and information. Slay me with corrections in the comments :)</p>
+<p><span style="color:red;">UPDATE:</span> I've moved this tutorial to the Mozilla Developer Center, and made a some of the changes recommended in the comments. Please read the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">updated version</a> instead of this one.</p>
+<p>This is a very utilitarian tutorial (say that 10x fast!): I'm not going to describe how and why XPCOM works the way it does, or what every bit of the example code does. That's been detailed <a href="http://developer.mozilla.org/en/docs/XPCOM">elsewhere</a>. I'm just going to show you what you need to do to get things <em>working</em>, in as few and as simple steps as possible.</p>
+<p>Caveat: This was done on a Mac. YMMV with Windows.</p>
+<p>## Prerequisites</p>
+<p><strike>Download and compile Firefox. Haha, ok maybe this tutorial is not as simple as I thought :) Seriously though, it takes a while to build, but it's not hard, and the instructions (at least for Mac) are simple and intuitive. If you don't want to do this, then you probably don't need to implement your class as an XPCOM component, and should just stick with plain ol' Javascript. (There is probably a way to fetch and build only what is needed to compile the typelib, but that's probably more complicated and less documented than building Firefox. Maybe it's time to build a web-service for compiling XPCOM typelibs...)</strike></p>
+<p><span style="color:red;">Please read the <a href="http://developer.mozilla.org/en/docs/How_to_Build_an_XPCOM_Component_in_Javascript">updated version</a> of this tutorial!</span></p>
+<p>## Implementation</p>
+<p>This example component will expose a single method, which returns the string &quot;Hello World!&quot;.</p>
+<p>### Defining the Interface</p>
+<p>XPCOM uses a dialect of IDL to define interfaces, called XPIDL. Here's the XPIDL for our HelloWorld component:</p>
+<p>HelloWorld.idl</p>
+<div style="font-size:-1px;overflow:auto;border:1px solid black;">
+<pre>
+\#include "nsISupports.idl"
+[scriptable, uuid(1C0E8D86-B661-40d0-AE3D-CA012FADF170)]
+interface nsIHelloWorld: nsISupports \{
+  string hello();
+\};
+</pre>
+<p>Note that you must generate a new UUID for each XPCOM component that you create. A web-based UUID generator is available <a href="http://www.bengoodger.com/software/mb/extensions/guidgen.html">here</a>.</p>
+<p>### Creating the Component</p>
+<p>HelloWorld.js</p>
+<div style="font-size:-1px;overflow:auto;border:1px solid black;">
+<pre>
+/***********************************************************
+constants
+***********************************************************/
+<p>// reference to the interface defined in nsIHelloWorld.idl
+const nsIHelloWorld = Components.interfaces.nsIHelloWorld;</p>
+<p>// reference to the required base interface that all components must support
+const nsISupports = Components.interfaces.nsISupports;</p>
+<p>// guid uniquely identifying our component
+const CLASS_ID = Components.ID(&quot;{1C0E8D86-B661-40d0-AE3D-CA012FADF170}&quot;);</p>
+<p>// description
+const CLASS_NAME = &quot;My Hello World Javascript XPCOM Component&quot;;</p>
+<p>// textual unique identifier
+const CONTRACT_ID = &quot;@dietrich.ganx4.com/helloworld;1&quot;;</p>
+<p>/***********************************************************
+class definition
+***********************************************************/</p>
+<p>//class constructor
+function HelloWorld() {
+};</p>
+<p>// class definition
+HelloWorld.prototype = {</p>
+<p>// define the function we want to expose in our interface
+hello: function() {
+return &quot;Hello World!&quot;;
+},</p>
+<p>QueryInterface: function(aIID)
+{
+if (!aIID.equals(nsIHelloWorld) &amp;&amp;
+!aIID.equals(nsISupports))
+throw Components.results.NS_ERROR_NO_INTERFACE;
+return this;
+}
+};</p>
+<p>/***********************************************************
+class factory</p>
+<p>This object is a member of the global-scope Components.classes.
+It is keyed off of the contract ID. Eg:</p>
+<p>myHelloWorld = Components.classes[&quot;@dietrich.ganx4.com/helloworld;1&quot;].
+createInstance(Components.interfaces.nsIHelloWorld);</p>
+<p>***********************************************************/
+var HelloWorldFactory = {
+createInstance: function (aOuter, aIID)
+{
+if (aOuter != null)
+throw Components.results.NS_ERROR_NO_AGGREGATION;
+return (new HelloWorld()).QueryInterface(aIID);
+}
+};</p>
+<p>/***********************************************************
+module definition (xpcom registration)
+***********************************************************/
+var HelloWorldModule = {
+_firstTime: true,
+registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
+{
+if (this._firstTime) {
+this._firstTime = false;
+throw Components.results.NS_ERROR_FACTORY_REGISTER_AGAIN;
+};
+aCompMgr = aCompMgr.
+QueryInterface(Components.interfaces.nsIComponentRegistrar);
+aCompMgr.registerFactoryLocation(CLASS_ID, CLASS_NAME,
+CONTRACT_ID, aFileSpec, aLocation, aType);
+},</p>
+<p>unregisterSelf: function(aCompMgr, aLocation, aType)
+{
+aCompMgr = aCompMgr.
+QueryInterface(Components.interfaces.nsIComponentRegistrar);
+aCompMgr.unregisterFactoryLocation(CLASS_ID, aLocation);
+},</p>
+<p>getClassObject: function(aCompMgr, aCID, aIID)
+{
+if (!aIID.equals(Components.interfaces.nsIFactory))
+throw Components.results.NS_ERROR_NOT_IMPLEMENTED;</p>
+<p>if (aCID.equals(CLASS_ID))
+return HelloWorldFactory;</p>
+<p>throw Components.results.NS_ERROR_NO_INTERFACE;
+},</p>
+<p>canUnload: function(aCompMgr) { return true; }
+};</p>
+<p>/***********************************************************
+module initialization</p>
+<p>When the application registers the component, this function
+is called.
+***********************************************************/
+function NSGetModule(aCompMgr, aFileSpec) { return HelloWorldModule; }</p>
+</pre>
+<p>## Usage</p>
+<p>### Compile Typelib</p>
+<p>Here {objdir} is the directory specified for the MOZ_OBJDIR option in your .mozconfig file.</p>
+<ol>
+<li>Copy HelloWorld.idl to {objdir}/dist/idl/</li>
+<li>Copy HelloWorld.js to {objdir}/dist/bin/components/</li>
+<li>Change directories to {objdir}/dist/idl/</li>
+<li>$../bin/xpidl -m typelib -w -v -e ../bin/components/HelloWorld.xpt HelloWorld.idl</li>
+</ol>
+<p>This will create a typelib file at {objdir}/dist/bin/compontents/HelloWorld.xpt.</p>
+<p>## Installation</p>
+<p>### For extensions:</p>
+<ol>
+<li>Copy HelloWorld.js and HelloWorld.xpt to {extensiondir}/components/</li>
+<li>Delete compreg.dat and xpti.dat from your profile directory.</li>
+<li>Restart application</li>
+</ol>
+<p>### For Firefox core, using the application that you just built:</p>
+<ol>
+<li>Copy HelloWorld.js and HelloWorld.xpt to the {objdir}/dist/bin/components directory</li>
+<li>Delete compreg.dat and xpti.dat from the components directory.</li>
+<li>Delete compreg.dat and xpti.dat from your profile directory.</li>
+<li>Restart application</li>
+</ol>
+<p>## Using Your Component</p>
+<div style="font-size:-1px;overflow:auto;border:1px solid black;">
+<pre>
+var oMyComponent = Components.classes['@dietrich.ganx4.com/helloworld;1'].
+                        createInstance(Components.interfaces.nsIHelloWorld);
+<p>alert(oMyComponent.hello());
+</p></pre><p></p>
+
+
+    </div></div></div></main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2006/02/25/howto-build-an-xpcom-component-in-javascript/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

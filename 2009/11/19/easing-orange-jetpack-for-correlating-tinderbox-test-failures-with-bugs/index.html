@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easing Orange: Jetpack for Correlating Tinderbox Test Failures with Bugs</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>This is a <a href="https://jetpack.mozillalabs.com/">Jetpack </a>feature for finding out if a bug is already filed for a test failure on <a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox">Tinderbox</a>. When viewing log files for failed test runs, the Jetpack will add a link next to the test failure summary at the top of the log, that looks like &quot;(maybe bug XXXXXX?)&quot;. This allows sheriff's and other awesome community members to easily mark known-oranges, and update the bug with log's URL.</p>
+<p><a href="http://people.mozilla.org/~dietrich/jetpack-orange.html">Install the Jetpack feature</a>.</p>
+<p>Notes:</p>
+<ul>
+<li>So far it only pulls file names out of error text, so won't match leaks, crashes or oranges without a filename in the summary.</li>
+<li>Only searches the bug summary, and only searches known orange bugs (ie: has &quot;[orange]&quot; in the bug whiteboard).</li>
+<li>Scrapes bugzilla.mozilla.org, since the new REST api is very very slow, so might break with bugzilla upgrades.</li>
+<li>It doesn't run until the log has completed loading, which sometimes can  be a while. Load that shit in a background tab and be patient yo.
+Let me know if this helps you out, or any bugs or improvements you'd like to see!</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/11/19/easing-orange-jetpack-for-correlating-tinderbox-test-failures-with-bugs/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

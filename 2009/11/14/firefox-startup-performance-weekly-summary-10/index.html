@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Startup Performance Weekly Summary</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>Current numbers are available on the <a href="http://graphs.mozilla.org/dashboard/snapshot/">Performance Snapshot</a> page. Thanks to <a href="http://atlee.ca/blog/">Chris Atlee</a> for deploying it to the graph server. The snapshot is updated every 5 minutes with fresh data from Talos.</p>
+<p>Summary, relative to Firefox 3.5:</p>
+<ul>
+<li>
+<p>Warm startup: For Mac, 26% better on 3.6 and 31% better on 3.7. For Windows, 4% and 7%. Flat on Linux.</p>
+</li>
+<li>
+<p>Cold startup:  For Mac, 22% better on 3.6, 23% better on 3.7. For Windows, not measuring yet. For Linux, 3% and 9%.
+This week's activity:</p>
+</li>
+<li>
+<p>Using the data from <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524202">bug 524202</a>, Joel is tracking down exactly how and when dynamic library code is loaded. They're past diagnostics, and are now into implementation, coaxing the linker into ordering functions in the optimal sequence. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524202#c3">this  comment</a> for a good summary of the issue. Joel put up <a href="http://wagerlabs.com/post/230853261/tracking-io-patterns-in-memory-mapped-dynamic-libaries">a very detailed blog post</a> about the work they've been doing.</p>
+</li>
+<li>
+<p>Ryan Flint updated the<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=496217"> spellcheck bug</a> with some new findings.</p>
+</li>
+<li>
+<p>I got a working (so far) patch for Windows cold-startup testing for Talos on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=522807">bug 522807</a>.</p>
+</li>
+<li>
+<p>Taras is in the patch review cycle for service caching in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug         516085</a>.</p>
+</li>
+<li>
+<p>Re-enabling rebasing on  Windows in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=484799">bug    484799</a> has review now, just needs landing.</p>
+</li>
+<li>
+<p>John Dagget and Jonathan Kew have a bunch of new findings in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug       519445</a> for further reductions in Mac startup       time spent in font system initialization. Sometimes the patch helps, sometimes it doesn't.</p>
+</li>
+<li>
+<p>B<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512645">ug    512645</a>, removing the setTimeout 10ms wait in chrome JS has landed.</p>
+</li>
+<li>
+<p>Drew's work on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506814">bug     506814</a>, getting rid of Change      GetPersistentDescriptor/SetPersistentDescriptor on Mac, has landed.
+Projects in a holding pattern:</p>
+</li>
+<li>
+<p>Ben Hsieh has been prototyping a whole Fastload cache  replacement in  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">bug   520309</a>.</p>
+</li>
+<li>
+<p>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS         modules into a JAR file</a>, since those files are fastloaded.        However, since we want things like post-extension-install restarts  to   be     fast, and those cause fastload cache invalidation, we might   want  to   do   things like this anyways. I filed a bug for the same   treatment  for     components. These are lower priority, since they're   not the  normal     startup case. Follow along with all JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the        tracker  bug</a>.</p>
+</li>
+<li>
+<p>Startup Timeline: No updates, still not landed. Add [ft] in the       whiteboard of your bug w/ the function names you want timed and David       will generate it and update the bug.</p>
+</li>
+<li>
+<p>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug       506128</a>.  David needs to file a bug with the final log of       named-yet-uncalled  functions.</p>
+</li>
+<li>
+<p>Dirty Profile Testing: No progress. Need to list scenarios, file       bugs  for each, generate Talos config patches and profile data, and   then     move  it into Rel-Eng territory. Also, need to get a separate      Tinderbox  tree,  since it's going to cause a bazillion new columns.</p>
+</li>
+<li>
+<p><a href="http://wagerlabs.com/">Joel       Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug       513076</a> that there are serious drawbacks to getting our libraries in       the dyld  shared cache on Mac, so has deprioritized that work.</p>
+</li>
+<li>
+<p>No updates on Zack's CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug         513149</a>.
+As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the      project wiki</a>, and we're available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</p>
+</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/11/14/firefox-startup-performance-weekly-summary-10/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

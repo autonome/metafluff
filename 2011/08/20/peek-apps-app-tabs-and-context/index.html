@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peek: Apps, App Tabs, and Context.</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>The new app tab feature in Firefox is great. I use it a lot... which has starkly illustrated how apps and tabs have very different use-cases and usage patterns. Often I will check my Gmail app tab because I see the glowing notification that a new email has arrived, do something (or nothing), and then pop back to where I was browsing... in one of those 78 tabs I have open?!
+The windowing model in operating systems allows me switch back and forth between contexts with ease. But app tabs do not:</p>
+<ul>
+<li>
+<p>If I'm using my Gmail app tab and I didn't open any links while there, I can still see the last tab I was at, and click on it. But I have to use the mouse if I want to get directly back there.</p>
+</li>
+<li>
+<p>Out of sheer muscle memory and mouse-averseness, sometimes I can traverse tabs via the next/previous-tab keyboard shortcuts to get back to where I was. Sometimes it's a <em>lot</em> of tabs, so either I'll hold the arrow key down, speeding past the tab I wanted (and back and forth a few times), or I'll just hit the arrow key a bunch of times in quick succession. Both options are frustrating, slow and RSI-inducing.</p>
+</li>
+<li>
+<p>Or I could expend mental energy to search in the awesomebar and switch to that tab, which often looks like this: &quot;hm, type 'bug' and then try to remember some words in the bug summary, but those words match a bunch of other bugs, and i don't know the bug number, and also I'm on an attachment page because I'm reviewing a patch on the bug, so the summary won't be in the page title...&quot; and on and on. Now add the fact that switch-to-tab rarely even shows up in the awesomebar for me, and well, a generally high level of fail with this option.
+Then there's link opening:</p>
+</li>
+<li>
+<p>Links opened in app tabs are put at the beginning of your tabs, and the tab strip is animatedly scrolled there. Boom, instantly lost where I was before checking my email.</p>
+</li>
+<li>
+<p>We tried an experiment where they open at the end of the set of open tabs. I found that to have serious &quot;out of sight, out of mind&quot; problems. That experiment was rolled back. And it doesn't necessarily solve the context problem anyway.</p>
+</li>
+<li>
+<p>Both approaches cause excess amounts of whizzing animations, either when you want to &quot;go around the horn&quot; to get to the tabs you just opened from app tabs, or when you want to go to them and then get back to where you were.</p>
+</li>
+<li>
+<p>There's no right answer! Sometimes I see a link to a recipe in my Seesmic app tab that I'd like to open in that series of tabs related to food that I have open somewhere in the middle of my open tabs. The user is not in control of <em>where</em> these links are opened. I can't choose whether to open them at the beginning or end of the tab strip, or in a new tab group, or new window, etc. Part of me thinks that I actually might work best in a world where each app tab is bound to a single tab group, so that tab growth is bound to the source... but that's a vision for another day (and blog post and add-on).
+So I've made Peek, an add-on that's a hybrid solution: Instead of making you go to your app tabs, your app tabs will come to you. Peek allows you to open your app tabs in a floating panel that opens on top of wherever you are in your tabs. Links open to the right of whatever your current active tab is, and in the background, so that when you're finished peeking, you are exactly where you left off.</p>
+</li>
+</ul>
+<p>To use Peek, first create some app tabs. Then you can peek at them using the keyboard shortcut ALT+SHIFT+1-9 where the number corresponds with the order your app tabs are in. To stop peeking, hit escape (or switch apps or anything else that takes focus away from the panel).</p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/peek/">INSTALL</a>. Peek is a Jetpack add-on that does not require a restart of the browser. User beware: This is an experimental add-on - I've been using it on Nightly builds, but haven't done much testing elsewhere.</p>
+<p>Benefits:</p>
+<ul>
+<li>Interact with your apps, and when you're done, be exactly where you left off browsing.</li>
+<li>Links are opened in the context of wherever you're peeking.
+<a href="screen-shot-2011-08-19-at-1-46-45-pm.png"><picture><source type="image/avif" srcset="/eleventy-base-blog/2011/08/20/peek-apps-app-tabs-and-context/bO3sJyF6LA-465.avif 465w"><source type="image/webp" srcset="/eleventy-base-blog/2011/08/20/peek-apps-app-tabs-and-context/bO3sJyF6LA-465.webp 465w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/2011/08/20/peek-apps-app-tabs-and-context/bO3sJyF6LA-465.png" alt="" title="Screen shot 2011-08-19 at 1.46.45 PM" width="465" height="328"></picture></a></li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2011/08/20/peek-apps-app-tabs-and-context/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

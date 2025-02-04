@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming changes to the Jetpack Widget API</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>Between <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=612169">bug 612169</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=569479">bug 569479</a>, the widget API has undergone a major transformation in the upcoming <a href="https://wiki.mozilla.org/Labs/Jetpack/SDK/0.10">0.10 SDK release</a>.</p>
+<p>Both sets of changes have made the API more compact, reducing the amount of code required to build widgets. The Electrolysis (e10s) changes are in preparation for moving Jetpack code out of the main Firefox process. They also make the widget API significantly more powerful, combining the current widget functionality with content scripts.</p>
+<p>The e10s changes have affected the API to a significant degree; your widgets will certainly require more than just cosmetic changes.  I was worried at first that the e10s changes would complicate things, causing more verbose code patterns, and tricky message sequences to wire things together. However, the opposite was true: The documentation examples and the automated test code were both <em>more compact</em> and <em>simpler</em> after I'd rewritten them to use the new API.</p>
+<p>Here's an example widget that shows the Facebook profile pic of the most recent friend in your news feed:</p>
+<pre>require("widget").Widget(\{
+  label: "Latest Friend",
+  contentURL: "https://www.facebook.com/home.php",
+  contentScript: "document.location = document.querySelector('.profilePic').src;",
+  contentScriptWhen: "ready",
+  onClick: function() require("tabs").tabs.active.location = this.contentURL
+\});</pre>
+<p>Hmmm, with the page-worker module, querySelectorAll and some hot timer action, you could have a Rockmelt-y bar...</p>
+<p>A summary of the API changes:</p>
+<ul>
+<li>You no longer need to explicitly add and remove widgets.</li>
+<li>Constructing a widget immediately adds it to the add-on bar. To remove a widget, call its destroy() method.</li>
+<li>The image property has been removed. Instead use the contentURL property, which can be used with image URLs, or local or remote content URLs. The content property is still present, used for HTML fragments or plain text.</li>
+<li>The API now exposes the page-mod API set - meaning that you can attach a content script either inline via contentScript, or a separate file via contentScriptURL, and specify whether it runs at load or when the DOM is ready via contentScriptWhen.</li>
+<li>The onLoad and onReady event listeners have been removed in favor of content scripts, where you can listen for those events, and post messages back to your Jetpack code. The examples in the docs show how easy this is.
+For more details, check out the <a href="https://github.com/mozilla/addon-sdk/blob/master/packages/addon-kit/docs/widget.md">updated widget API documentation</a>.</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2010/11/23/upcoming-changes-to-the-jetpack-widget-api/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

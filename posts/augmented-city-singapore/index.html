@@ -5,37 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Augmented City - Singapore</title>
     <meta name="description" content="blog de dietrich ayala">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
-    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
-    <link rel="alternate" href="/feed/feed.json" type="application/json" title="dietrich">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
   </head>
   <body>
     <header>
       <!--
-      <h1 class="home"><a href="/">dietrich</a></h1>
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
       -->
       <ul class="nav">
         <li class="nav-item">
-          <a href="/">dietrich</a>
+          <a href="/eleventy-base-blog/">dietrich</a>
         </li>
         <li class="nav-item">
-          <a href="/posts/">blog</a>
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
         </li>
         <li class="nav-item">
-          <a href="/about/">about</a>
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
         </li>
         <li class="nav-item">
           <a href="mailto:me@burrito.space" target="_blank">email</a>
         </li>
         <li class="nav-item">
           <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://mastodon.social/@dietrich" target="_blank" title="mastodon" rel="me">mastodon</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://twitter.com/dietrich" target="_blank" title="twitter" rel="me">twitter</a>
         </li>
         <li class="nav-item">
           <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
@@ -49,23 +43,13 @@
       </ul>
     </header>
 
-    <main class="tmpl-post">
+    <main class="tmpl-home">
 
-      
-<!--
-<div class="post-container">
--->
-<div class="post-content">
-
-<h1>Augmented City - Singapore</h1>
-
-<time datetime="2017-07-20">20 Jul 2017</time><a href="/tags/vr/" class="post-tag">vr</a><a href="/tags/aframe/" class="post-tag">aframe</a><a href="/tags/webvr/" class="post-tag">webvr</a><a href="/tags/augmented-city/" class="post-tag">augmented city</a><a href="/tags/singapore/" class="post-tag">singapore</a>
-
-<p>This post is part of the Augmented City series. The <a href="https://metafluff.com/2017/07/06/aframe-augmented-city/">first post is introduced A-Frame</a> as a tool for creating 3D content for the web. The second post introduced <a href="https://metafluff.com/2017/07/12/augmented-city-vr/">VR on the web</a>. These were prep posts for the event attendees. This post is about the design and goals for the <a href="https://www.eventbrite.com/e/vrar-maker-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486">first event</a>, and how it went.</p>
+      <p>This post is part of the Augmented City series. The <a href="https://metafluff.com/2017/07/06/aframe-augmented-city/">first post is introduced A-Frame</a> as a tool for creating 3D content for the web. The second post introduced <a href="https://metafluff.com/2017/07/12/augmented-city-vr/">VR on the web</a>. These were prep posts for the event attendees. This post is about the design and goals for the <a href="https://www.eventbrite.com/e/vrar-maker-lab-augmented-city-creating-vr-ar-web-content-showcasing-singapore-tickets-35297738486">first event</a>, and how it went.</p>
 <p>We brought a group of developers and designers together for a day to explore how a city can be experienced using VR and AR. The day was split into a lightweight ideation workshop in the morning and team coding after lunch. The technical focus was to use A-Frame, a declarative 3D authoring tool for VR on the web, to rapidly prototype the ideas from the morning.</p>
 <blockquote class="instagram-media" data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:28.10185185185185% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/BVJQaVMgKpX/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by rockintosh (@rockintosh)</a> on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-06-10T03:52:06+00:00">Jun 9, 2017 at 8:52pm PDT</time></p></div></blockquote>
-<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
-<h2 id="event-concept:-the-un-hackathon" tabindex="-1">Event Concept: The Un-Hackathon <a class="direct-link" href="#event-concept:-the-un-hackathon" aria-hidden="true">#</a></h2>
+<script async="" defer="" src="//platform.instagram.com/en_US/embeds.js"></script>
+<h2 id="event-concept-the-un-hackathon">Event Concept: The Un-Hackathon</h2>
 <p>Augmented City is an experimental event series created collaboratively by the <a href="https://m.facebook.com/XR-Alliance-1703741423255746/">XR Alliance</a> and <a href="https://www.mozilla.org">Mozilla</a>. The kickoff of this first installment was supported by <a href="https://www.intel.sg/content/www/xa/en/homepage.html">Intel</a>, and was in Singapore on July 15, 2017.</p>
 <p><a href="https://twitter.com/vanradd">Vanessa Radd</a>, <a href="https://twitter.com/chrisgomez">Chris Gomez</a> and I met at <a href="https://metafluff.com/2017/03/28/fossasia2017/">FOSSAsia in March</a>, and they reached out about doing an event together where professionals can learn and create VR and AR experiences together as a group.</p>
 <p>We wanted an event that...</p>
@@ -90,8 +74,8 @@
 </li>
 </ul>
 <p>The theme that Chris came up with was &quot;augmented city&quot;, which is flexible and broad enough that we could do a series of events, possibly in different cities, experimenting with the format to refine it over time.</p>
-<p><img src="ideation.png" alt="ideation"></p>
-<h2 id="event-design:-the-un-hackathon" tabindex="-1">Event Design: The Un-Hackathon <a class="direct-link" href="#event-design:-the-un-hackathon" aria-hidden="true">#</a></h2>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/augmented-city-singapore/f-jGrkTm3N-1204.avif 1204w"><source type="image/webp" srcset="/eleventy-base-blog/posts/augmented-city-singapore/f-jGrkTm3N-1204.webp 1204w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/augmented-city-singapore/f-jGrkTm3N-1204.png" alt="ideation" width="1204" height="675"></picture></p>
+<h2 id="event-design-the-un-hackathon">Event Design: The Un-Hackathon</h2>
 <p>In May I'd helped out at the <a href="https://moztw.kktix.cc/events/voice-jam">Mozilla VoiceJam</a>, a two-day design sprint with <a href="https://twitter.com/mikehenrty">Michael Henretty</a> and <a href="https://shinglyu.github.io/">Shing Lyu</a>, which invited local designers, researchers and developers to get together to come up with ways to get people to donate their voices for <a href="https://voice.mozilla.org/">Project CommonVoice</a>.</p>
 <p>At that event we used some of the human-centered design practices in <a href="https://toolkit.mozilla.org/">Mozilla's Open Innovation Toolkit</a> to help the group come up with ideas and refine them over two days.</p>
 <p>At this event, I wanted to take it a step further and see if we can take a group from innovation prompt to <em>working code</em> in <em>one day</em>.</p>
@@ -109,16 +93,16 @@
 <li>Team coding.</li>
 </ul>
 <p>We wanted a mix of developers and designers, so on the Eventbrite page, offered tickets for each. This means we knew in advance that the ratio was almost 50/50.</p>
-<p><img src="teamcam.png" alt="team cam"></p>
-<h2 id="how-the-day-went" tabindex="-1">How The Day Went <a class="direct-link" href="#how-the-day-went" aria-hidden="true">#</a></h2>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/augmented-city-singapore/vPkyFw7hB6-1208.avif 1208w"><source type="image/webp" srcset="/eleventy-base-blog/posts/augmented-city-singapore/vPkyFw7hB6-1208.webp 1208w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/augmented-city-singapore/vPkyFw7hB6-1208.png" alt="team cam" width="1208" height="678"></picture></p>
+<h2 id="how-the-day-went">How The Day Went</h2>
 <p><em>Prep:</em> We published a few blog posts to prep the participants for A-Frame and how to do VR on the web, including those in the pre-event emails. However, in a show of hands at the actual event, we found almost nobody read any of the material. Lesson learned!</p>
 <p><em>Teams:</em> As we knew the participants were split down the middle, I put post-its marked with numbers in two stacks by the doors, one stack for developers and another for designers, that matched with corresponding numbers on the tables. This way, teams were selected at random, divided evenly by role, and and no time was wasted during the event on team-making. A sound strategy in theory. In reality, the people who showed up were almost exclusively developers.</p>
 <p><em>Topic Ideation:</em> This was a sped-up version of the <a href="https://toolkit.mozilla.org/method/idea-generation/">Idea Generation</a> process of diverging then converging ideas from the group, done in teams with post-its at their tables. The teams seemed to have a blast, and the exercise seemed useful in helping design the landscape of ideas for the rest of the day.</p>
 <p><em>Project Ideation:</em> We used the same Idea Generation process as before, but seeded it the top two categories from the first ideation round. The goal here was to narrow down all the project ideas generated based on the categories in the first round, into one project idea. It definitely was successful in generating project ideas from categories, but the narrowing didn't really work - teams had multiple ideas and really needed more time to coalesce on one.</p>
 <p><em>Coding:</em> Almost two-thirds of the time of the event was allocated to actually making the selected idea. This was good, as the first two hours was spent getting people up to speed on A-Frame. As people got more comfortable with the tool and dev workflow, the pace and excitement quickened, with people showing the things they got working. Some teams worked together on one idea, some teams worked on their individual ideas, but communicating and sharing as they went.</p>
 <p><em>Closing:</em> At 5:30pm, people were still focused and coding, with the occasional whoop when something worked. We did a quick share around the room, had a conversation about how people felt about the event itself, and closed it down.</p>
-<p><img src="arjs.png" alt="ar.js"></p>
-<h2 id="notes-for-next-time" tabindex="-1">Notes for Next Time <a class="direct-link" href="#notes-for-next-time" aria-hidden="true">#</a></h2>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/augmented-city-singapore/OOMPj-0vvR-1208.avif 1208w"><source type="image/webp" srcset="/eleventy-base-blog/posts/augmented-city-singapore/OOMPj-0vvR-1208.webp 1208w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/augmented-city-singapore/OOMPj-0vvR-1208.png" alt="ar.js" width="1208" height="676"></picture></p>
+<h2 id="notes-for-next-time">Notes for Next Time</h2>
 <ul>
 <li>
 <p>Move any prep material into the event itself. Next time I'd add a one-hour A-Frame bootstrap workshop into the program, maybe even before the ideation section...</p>
@@ -139,7 +123,7 @@
 <p>Common issues that came up when working with A-Frame: How to load transparent PNGs, how to position a specific part of a 360 degree photo as the default view, and how to train AR markers, how to use the and reference assets, and what exactly to modify when you've got an asset, a link and the actual entity itself.</p>
 </li>
 <li>
-<p>Things that came easy in A-Frame were almost entirely due to the flow of being able to remix the examples on <a href="http://aframe.io">aframe.io</a> on Glitch. Once I showed people that flow, things really got moving. However, it also meant that the projects all contained the same layouts, default entities, text, etc. Need to find a way to use that flow but encourage visual differentiation.</p>
+<p>Things that came easy in A-Frame were almost entirely due to the flow of being able to remix the examples on aframe.io on Glitch. Once I showed people that flow, things really got moving. However, it also meant that the projects all contained the same layouts, default entities, text, etc. Need to find a way to use that flow but encourage visual differentiation.</p>
 </li>
 <li>
 <p>I need to make a better set of A-Frame starter Glitch examples for AR scenarios based on my demos. Right now they're too hard to remix.</p>
@@ -148,22 +132,14 @@
 <p>Overall the event went really well. Most gratifiying was seeing how focused everyone was in the afternoon, and how many people stuck to the theme. People definitely were deep in the flow, using A-Frame to bring their ideas to life, which is a win.</p>
 <p>The resources, links and projects from the event are all collected on the <a href="https://github.com/augmented-city/singapore">augmented-city/singapore repo</a> on Github.</p>
 <p>See you at the next one!</p>
-<p><img src="shareoff.png" alt="share-off"></p>
+<p><picture><source type="image/avif" srcset="/eleventy-base-blog/posts/augmented-city-singapore/1L6z6SNjXh-1208.avif 1208w"><source type="image/webp" srcset="/eleventy-base-blog/posts/augmented-city-singapore/1L6z6SNjXh-1208.webp 1208w"><img loading="lazy" decoding="async" src="/eleventy-base-blog/posts/augmented-city-singapore/1L6z6SNjXh-1208.png" alt="share-off" width="1208" height="672"></picture></p>
 
-<hr>
-<ul><li>Next: <a href="/posts/i-am-a-tab-hoarder/">The New Firefox and Ridiculous Numbers of Tabs</a></li><li>Previous: <a href="/posts/augmented-city-vr/">Augmented City - VR</a></li>
-</ul>
-
-</div>
-<!--
-</div>
--->
 
     </main>
 
     <footer></footer>
 
-    <!-- Current page: /posts/augmented-city-singapore/ -->
+    <!-- Current page: /eleventy-base-blog/posts/augmented-city-singapore/ -->
 
 
     <!-- Fathom - beautiful, simple website analytics -->

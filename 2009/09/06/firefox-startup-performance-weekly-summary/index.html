@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Startup Performance Weekly Summary</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>Let's start with the numbers. Vlad spent some time measuring warm startup on the Mac, and it looks very nice: Firefox 3.6 starts up about 10% faster than 3.5, and 3.7 starts up about 20% faster than 3.5. I measured both cold and warm startup on Windows 7, and the picture is not so rosy there. Warm startup is basically flat across 3.5, 3.6 and 3.7, in my tests. Cold startup is... well, weird. Allow me to explain...</p>
+<p>My cold startup methodology is simple: On a basically clean install of Windows 7, I'd create a new profile, start the browser up, close it and then reboot. Then I'd measure Firefox startup time after the OS settled. Then I'd do that reboot-and-measure step a bunch more times. Yes, so much fun. I measured Firefox startup time using the method Vlad posted to his blog. This doesn't do anything to avoid OS optimizations that might persist across reboots, which is a potential flaw, as you'll see below.</p>
+<p>Firefox 3, 3.6 and 3.7 all had consistent numbers across their runs. However, Firefox 3.5 displayed a unique behavior: The first two cold starts were appropriately slow, similar to the cold startup times of the other versions. The subsequent runs were <em>very</em> fast for a cold start! I rebooted a few times, and started other versions a few times, then tried a series of 3.5 runs again... and saw the same thing: the first two runs were in the ballpark of other Firefox versions, but subsequent runs were crazy fast. Vlad was talking earlier in the week about a predictive optimization feature that Windows has, learning from an application's behavior to optimize it's performance. Possibly that feature works fantastically with Firefox 3.5, and for whatever reason does not work nearly as well with previous or subsequent versions of the app? I've clearly crossed into the realm of fantasy here, so alternate theories are welcome. Perhaps I should round-robin through all versions instead of doing serial runs of the same version.</p>
+<p>Firefox 3.5 aside, when measuring cold startup I also see the regression that <a href="http://blog.mozilla.com/adw/2009/09/04/cold-ts/">Drew blogged about</a>. We'll get a bug filed and help from QA to get a regression range for this.</p>
+<p>Status updates:</p>
+<ul>
+<li>Startup Timeline: Still not landed, and David found that the timeline instrumentation if put in certain places causes major stability issues. As before, he can provide timeline info for you, just point him at the code by putting [ft] in the whiteboard of your bug.</li>
+<li>PGO for Places, mozStorage and SQLite: Still blocking on Rel-Eng fixing <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=486783">bug 486783</a>. I still need to connect with John O'Duinn and see if we can move this up in the schedule.</li>
+<li>JARification: David started working on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS modules into a JAR file</a>. Follow along with all JAR-ification via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the tracker bug</a>. Alfred Kayser is working on getting <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510844">bug 510844</a> landed, which should increase throughput of JAR file reading.</li>
+<li>JS Component Combining: Further effort is probably not worth it, since these components are fastloaded. Removing the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=512827">needless file stats when these are first instantiated</a> is what we need to do. I need to talk to Damon and find a XPConnect/Component-loader person for this.</li>
+<li>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">Bug 506128</a>. David needs to file a bug with the final log of named-yet-uncalled functions.</li>
+<li>Dirty Profile Testing: No progress. Need to list scenarios, file bugs for each, generate Talos config patches and profile data, and then move it into Rel-Eng territory. Also, need to get a separate Tinderbox tree, since it's going to cause a bazillion new columns.</li>
+<li>Cold Startup Testing: Drew and Alice made a bunch of progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510587">bug 510587</a>, to create a new Ts that measures cold startup. They're starting with Mac and Linux, and will tackle Windows later. Drew <a href="http://blog.mozilla.com/adw/2009/09/04/cold-ts/">blogged about their work</a> on this.</li>
+<li><a href="http://wagerlabs.com/">Joel Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug 513076</a> that there are serious drawbacks to getting our libraries in the dyld shared cache on Mac, so is deprioritizing that work for now.</li>
+<li><a href="http://screwedbydesign.com/blog/2009/09/this-week-in-perf-sep04.php">Ryan Flint blogged about</a> various front-end improvements he's working on that affect startup time.</li>
+<li>CSS Parsing Time: Zack says his work in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug 513149</a> might improve CSS parsing time by 50%, and it's next on his list.</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/09/06/firefox-startup-performance-weekly-summary/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

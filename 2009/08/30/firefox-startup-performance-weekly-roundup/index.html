@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox Startup Performance Weekly Roundup</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>The Firefox and Platform teams were both onsite at the Mountain View office this week, getting some face-to-face time. There was a lot of great conversation and productive interaction between groups. The team of people focusing on application startup time went over all <a href="https://bugzilla.mozilla.org/buglist.cgi?quicksearch=sw:%5Bts%5D">the bugs marked [ts]</a>, discussing and prioritizing.</p>
+<ul>
+<li>Startup Timeline: While the timeline hasn't landed yet, you can still take advantage of it: David Dahl has an instrumented build, and will provide timeline info for you if you have an area you want to know about. More details on <a href="http://daviddahl.blogspot.com/2009/08/functiontimertimeline-update.html">his post</a>.</li>
+<li>PGO for Places, mozStorage and SQLite: Still blocking on Rel-Eng fixing <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=486783">bug 486783</a>. I need to connect with John O'Duinn and see if we can move this up in the schedule.</li>
+<li>JAR Transition: Taras landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=508421">bug 508421</a> which allows anything in jar:toolkit.jar!/res/* to be loaded via resource://gre-resources/. This makes it very easy to move individual files into a jar, and access them in a fairly transparent way from code. This helps cold startup, as well as page-load time. He <a href="http://blog.mozilla.com/tglek/2009/08/27/moving-files-into-jars/">posted a HOWTO</a> for taking advantage of this.</li>
+<li>JS Component Combining: No progress this week.</li>
+<li>Static Analysis: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">Bug 506128</a> is wrapping up. David need to file a bug with the final log of named-yet-uncalled functions.</li>
+<li>Dirty Profile Testing: No progress. Need to list scenarios, file bugs for each, generate Talos config patches and profile data, and then move it into Rel-Eng territory. Also, need to get a separate Tinderbox tree, since it's going to cause a bazillion new columns.</li>
+<li>Cold Startup Testing: Drew Willcoxon is working on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510587">bug 510587</a>, to create a new Ts that measures cold startup. He's got patches up for adding head/tail file support to Talos. A new issue that cropped up this week is that the simulated cold-startup methods on Windows don't appear to work very well, so he's looking for advice there, as well as looking into reboot support in Talos.</li>
+<li><a href="http://wagerlabs.com/">Joel Reymont</a> noticed that Safari's libs are loaded from the OS's warm cache, and ours are not! In<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug 513076</a> he's investigating whether or not we can get our dynamic libraries in there as well.</li>
+<li>Ryan Flint started looking into taking NSS and spellcheck initialization out of the startup path, and found that Shark says they're not in it on a regular startup! However, I found a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=511515">recent bug from Vlad</a> talking about crazy stuff NSS does at startup (aside from the temp file dir skullduggery), so need to figure out how he's seeing that, and why Shark isn't.</li>
+<li>CSS Parsing Time: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=91242">Bug 91242</a> says CSS parsing is 5.5% of startup time... in 2001. Taras has mentioned several times that it's still significant, so asked him for numbers for contemporary builds. <a href="http://zwol.livejournal.com/">Zack Weinberg</a> is working on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">speeding up parsing using a machine generated lexer</a>, need to get numbers from him on what kind of a difference it makes in parse time.
+And if you haven't yet, read through<a href="http://blog.mozilla.com/tglek/2009/08/20/cleaning-up-startup-disk-io/"> Taras' annotated log of files opened at startup</a>. If you see anything that can be delayed, or want to dig into why a certain file is loaded, let me know! Or just file a bug and put &quot;[ts]&quot; in the bug's status whiteboard.</li>
+</ul>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2009/08/30/firefox-startup-performance-weekly-roundup/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>

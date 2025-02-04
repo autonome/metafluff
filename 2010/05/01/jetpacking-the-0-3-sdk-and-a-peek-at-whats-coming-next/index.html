@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetpacking: The 0.3 SDK and a peek at whats coming next.</title>
+    <meta name="description" content="blog de dietrich ayala">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/index.css">
+    <link rel="stylesheet" href="/eleventy-base-blog/eleventy-base-blog/css/prism-base16-monokai.dark.css">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.xml" type="application/atom+xml" title="dietrich">
+    <link rel="alternate" href="/eleventy-base-blog/eleventy-base-blog/feed/feed.json" type="application/json" title="dietrich">
+  </head>
+  <body>
+    <header>
+      <!--
+      <h1 class="home"><a href="/eleventy-base-blog/">dietrich</a></h1>
+      -->
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/">dietrich</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/posts/">blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="/eleventy-base-blog/eleventy-base-blog/about/">about</a>
+        </li>
+        <li class="nav-item">
+          <a href="mailto:me@burrito.space" target="_blank">email</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="tmpl-home">
+
+      <p>I've been working on the Jetpack project for about a month now - implementing features, fixing bugs, and generally helping move things forward as we build out the wide set of capabilities needed to enable an <em>awesome</em> future for Firefox add-on development.</p>
+<p>The Jetpack team <a href="http://mozillalabs.com/jetpack/2010/04/29/announcing-jetpack-sdk-0-3/">released the 0.3 version of the SDK</a> yesterday, which has a bunch of platform improvements, and also the <a href="https://jetpack.mozillalabs.com/sdk/0.3/docs/#module/jetpack-core/context-menu">context menu API</a> - the first UI feature to ship in the SDK. The <a href="https://jetpack.mozillalabs.com/sdk/0.3/docs/#guide/programs">SDK documentation has an example</a> of using this feature that shows 1) how easy it is to build UI features with Jetpack, but also 2) shows how add-on development process has <em>changed</em> with the SDK. For example, all of the manual packaging steps are <em>gone</em>. That's right. No more crazy directory structures, no more RDF files, no more GUIDs. All of that stuff is gone, replaced with a couple of simple commands. It's not perfect yet, but expect it to get even easier to both package and deploy add-ons as we build out the SDK further.</p>
+<p>So what's next? The 0.4 release is where the feature set of the SDK really starts to blow up:</p>
+<ul>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/103">Panels</a>: Floating rich content, tooltips, contextual UI.</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/116">Private Browsing</a>: Making it easy for add-ons to respect your privacy.</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/111">Selection</a>: Remember how awesome it was having an intuitive selection API in Ubiquity?</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/113">Localization</a>: Simple access and distribution of locale data.</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/108">Page Worker</a>: Like a <a href="https://developer.mozilla.org/En/Using_web_workers">Web Worker</a>, but with more privileges and a DOM.</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/104">Simple Storage</a>: Persistent object store - like DOMStorage for add-ons.</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/114">Places</a>: Improved bookmarks and history searching and browsing.</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/102">Widgets</a>: A preview of the ideas <a href="http://mozillalabs.com/jetpack/2010/04/08/the-single-ui-element/">Daniel</a> and <a href="http://jboriss.wordpress.com/2010/04/29/removing-firefoxs-status-bar-and-rehousing-add-on-icons-part-1-of-2/">Boriss</a> have recently blogged about.</li>
+<li><a href="https://wiki.mozilla.org/Labs/Jetpack/Reboot/JEP/109">Request</a>: Even easier AJAX (Please don't make that into an acronym. Please.)</li>
+<li>Installable without needing to restart Firefox (trunk builds only).</li>
+<li>Documentation: More and better!
+And it's not just about the feature set: The diligent focus of the Jetpack core team on developer ergonomics, and the experience gained from the Jetpack prototype and projects like Ubiquity, is resulting in a set of APIs that are far more intuitive and easy to use than the current XPCOM-riddled minefield that add-on developers have to deal with today.</li>
+</ul>
+<p>If you have questions or suggestions, let me know in the comments, or join us on <a href="http://groups.google.com/group/mozilla-labs-jetpack">Jetpack developer forum</a>.</p>
+
+
+    </main>
+
+    <footer></footer>
+
+    <!-- Current page: /eleventy-base-blog/2010/05/01/jetpacking-the-0-3-sdk-and-a-peek-at-whats-coming-next/ -->
+
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/3.js" site="EIIOBSXT"></script>
+    <!-- / Fathom -->
+
+  </body>
+</html>
