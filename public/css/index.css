@@ -200,7 +200,7 @@ header {
 	list-style: none;
 }
 .nav-item {
-	display: inline-block;
+  display: inline-block;
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration: none;
@@ -277,3 +277,8 @@ header {
 	margin-right: 1em;
 }
 
+/* Customizations */
+.nav-item {
+  display: inline-block;
+  margin-right: 0.5em;
+}
