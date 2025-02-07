@@ -1,8 +1,8 @@
----js
-const eleventyNavigation = {
-	key: "about",
-	order: 3
-};
+---
+layout: "layouts/home.njk"
+eleventyNavigation:
+  key: "about"
+  order: 3
 ---
 
 dietrich ayala
@@ -21,8 +21,8 @@ dietrich ayala
 - mozilla
 - protocol labs
 - filecoin fdn
+- webtransitions.org
 - u&a
-- tbd
 
 places
 - berkeley, ca

@@ -1,10 +1,6 @@
----js
-const eleventyNavigation = {
-	key: "dietrich",
-	order: 1
-};
-
-const numberOfLatestPostsToShow = 3;
+---
+layout: "layouts/home.njk"
+numberOfLatestPostsToShow: 3
 ---
 
 <!--

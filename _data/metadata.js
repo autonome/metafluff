@@ -2,9 +2,9 @@ export default {
   "title": "dietrich",
   "url": "https://metafluff.com/",
   "language": "en",
-  "description": "blog de dietrich ayala",
+  "description": "website de dietrich ayala",
   "feed": {
-    "subtitle": "blog de dietrich ayala",
+    "subtitle": "website de dietrich ayala",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://metafluff.com/"

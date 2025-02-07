@@ -118,9 +118,6 @@ export default async function(eleventyConfig) {
 
   // Copy the `oldsite-static` folders to the output
   eleventyConfig.addPassthroughCopy({'oldsite-static':  '.'})
-
-	// Add old posts (date formatted paths)
-  //eleventyConfig.addPassthroughCopy({'dated':  '.'})
 };
 
 export const config = {

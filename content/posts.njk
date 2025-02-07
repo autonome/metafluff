@@ -1,8 +1,8 @@
----js
-const eleventyNavigation = {
-	key: "blog",
-	order: 2
-};
+---
+layout: "layouts/home.njk"
+eleventyNavigation:
+  key: "blog"
+  order: 2
 ---
 
 {% set postslist = collections.posts %}

@@ -1,0 +1,80 @@
+/* Customizations */
+.nav {
+  display: flex;  
+  flex-wrap: wrap;
+}
+.nav-item {
+  /*display: inline-block;*/
+  /*margin-right: 0.3em;*/
+  text-wrap: nowrap;
+}
+
+/* Post layout - rehome to post section? */
+.post-container {
+  display: flex;
+  justify-content: center;
+}
+.post-content {
+  max-width: 40rem;
+  min-width: 0;
+}
+.postlist-item:before {
+  content: none;
+}
+.postlist-date {
+  margin-right: 0.5em;
+}
+
+header {
+	border-bottom: none;
+}
+
+/* Color mode management */
+/*
+body {
+  color: var(--darkgray);
+  background-color: var(--white);
+}
+a[href] {
+  color: var(--blue);
+}
+a[href]:visited {
+  color: var(--navy);
+}
+.postlist-date,
+.postlist-item:before {
+  color: var(--darkgray);
+}
+.post-tag {
+  color: var(--darkgray);
+  border-color: var(--gray);
+}
+a[href].post-tag:hover,
+a[href].post-tag:focus {
+  background-color: var(--lightgray);
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--text-color);
+    background-color: var(--color-gray-90);
+  }
+  a[href] {
+    color: var(--white);
+  }
+  a[href]:visited {
+    color: var(--lightgray);
+  }
+  .postlist-date,
+  .postlist-item:before {
+    color: var(--darkgray);
+  }
+  .post-tag {
+    color: var(--darkgray);
+    border-color: var(--gray);
+  }
+  a[href].post-tag:hover,
+  a[href].post-tag:focus {
+    background-color: var(--lightgray);
+  }
+}
+*/

@@ -276,9 +276,3 @@ header {
 .post-metadata time {
 	margin-right: 1em;
 }
-
-/* Customizations */
-.nav-item {
-  display: inline-block;
-  margin-right: 0.5em;
-}
