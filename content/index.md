@@ -29,9 +29,11 @@ numberOfLatestPostsToShow: 3
 
 ## current
 
-[WebTransitions](https://webtransitions.org): Accelerating transitional change on the web platform and in browsers with funding, coordination and development.
+[User &amp; Agents](https://userandagents.com): Growing a community working on projects that increase user agency at the intersection of the web, AI and end-user programming.
 
 [Peek](https://github.com/autonome/peek): Explorations in browser infrastructure, experimental web user agents, local-first data and applications.
+
+[WebTransitions](https://webtransitions.org): Accelerating transitional change on the web platform and in browsers with funding, coordination and development.
 
 [Filecoin Foundation](https://fil.org): Advising on IPFS, digital archiving, space, devrel and more.
 
