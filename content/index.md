@@ -35,6 +35,10 @@ numberOfLatestPostsToShow: 3
 
 [WebTransitions](https://webtransitions.org): Accelerating transitional change on the web platform and in browsers with funding, coordination and development.
 
+## recent
+
+[Web Features Project](https://web-platform-dx.github.io/web-features/): Spent a half-year on an initiative funded by Google at the [W3C Web DX CG](https://www.w3.org/community/webdx/) to shape the 15k+ individual pieces of the web platform into ~1000 Web Features, currently used by [MDN](https://developer.mozilla.org/), [Caniuse](https://caniuse.com/), Google and more.
+
 [Filecoin Foundation](https://fil.org): Advising on IPFS, digital archiving, space, devrel and more.
 
 ## past
