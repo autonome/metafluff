@@ -31,7 +31,7 @@ numberOfLatestPostsToShow: 3
 
 [User &amp; Agents](https://userandagents.com): Growing a community working on projects that increase user agency at the intersection of the web, AI and end-user programming.
 
-[Peek](https://github.com/autonome/peek): What comes after browsers? How can we work more directly with the web itself? Peek is an experimental web user agent exploring these questions though design experiments and (mostly) working code.
+[Peek](https://tangled.org/burrito.space/peek): What comes after browsers? How can we work more directly with the web itself? Peek is an experimental web user agent exploring these questions though design experiments and (mostly) working code.
 
 [WebTransitions](https://webtransitions.org): Accelerating transitional change on the web platform and in browsers with funding, coordination and development.
 
