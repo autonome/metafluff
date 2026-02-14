@@ -7,7 +7,7 @@
   	<meta name="description" content="{{ description or metadata.description }}">
   	<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
-  	{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
+  	{#- Uncomment this if you'd like folks to know that you used Eleventy to build your site!  #}
   	{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
 
   	{#-
@@ -52,28 +52,7 @@
   			{%- for entry in collections.all | eleventyNavigation %}
   				<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
   			{%- endfor %}
-
-          <li class="nav-item">
-            <a href="mailto:me@burrito.space" target="_blank">email</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://signal.me/#eu/JgYm3GJ64TGkbg9r3RHPBeuowAO5eNAoi9kqELN2XGWX6-eJpzdMVbGAmXCy4BvK" target="_blank" title="signal" rel="me">signal</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://discord.com/users/364757227833131011" target="_blank" title="discord" rel="me">discord</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
-          </li>
+  				<li class="nav-item mobile-nav-item"><a href="https://autonome.github.io/elephant/">talks</a></li>
   			</ul>
 
   		</nav>

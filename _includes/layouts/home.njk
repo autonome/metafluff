@@ -1,5 +1,54 @@
 ---
 layout: layouts/base.njk
 ---
+{%- css %}
+@media (min-width: 769px) {
+  .nav-item a[href="/posts/"] { display: none; }
+}
+{% endcss %}
 
-{{ content | safe }}
+<div class="home-grid">
+  <div class="col-contact">
+    <h2>me</h2>
+    <ul class="contact-list">
+      <li><a href="mailto:{{ metadata.author.email }}">email</a></li>
+      <li><a href="https://bsky.app/profile/burrito.space" target="_blank" rel="me">bluesky</a></li>
+      <li><a href="https://signal.me/#eu/JgYm3GJ64TGkbg9r3RHPBeuowAO5eNAoi9kqELN2XGWX6-eJpzdMVbGAmXCy4BvK" target="_blank" rel="me">signal</a></li>
+      <li><a href="https://discord.com/users/364757227833131011" target="_blank" rel="me">discord</a></li>
+      <li><a href="https://t.me/dietricha" target="_blank" rel="me">telegram</a></li>
+      <li><a href="https://github.com/autonome" target="_blank" rel="me">github</a></li>
+      <li><a href="https://www.linkedin.com/in/dietrich" target="_blank" rel="me">linkedin</a></li>
+    </ul>
+  </div>
+
+  <div class="col-projects">
+    {{ content | safe }}
+  </div>
+
+  <div class="col-talks">
+    <h2>talks/publications</h2>
+    {%- for group in talks %}
+    <h3>{{ group.year }}</h3>
+    <ul class="talks-list">
+      {%- for item in group.items %}
+      <li>
+        {%- if item.url %}
+        <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+        {%- else %}
+        {{ item.title }}
+        {%- endif %}
+        {%- if item.venue %} <span class="talks-venue">{{ item.venue }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endfor %}
+  </div>
+
+  <div class="col-blog">
+    <h2>blog</h2>
+    {% set postsCount = collections.posts | length %}
+    {% set postslist = collections.posts | head(-1 * postsCount) %}
+    {% set postslistCounter = postsCount %}
+    {% include "postslist.njk" %}
+  </div>
+</div>

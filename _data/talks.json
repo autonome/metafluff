@@ -1,0 +1,138 @@
+[
+  {
+    "year": 2025,
+    "items": [
+      { "title": "Reimagining the Browser for a Green Web", "url": "https://branch.climateaction.tech/issues/issue-9/reimagining-the-browser-for-a-green-web/", "venue": "Branch Magazine", "type": "publication" },
+      { "title": "User / Agents / Berlin", "url": "https://luma.com/v457jxp2", "venue": "", "type": "event" },
+      { "title": "AT Protocol Developer Meet-and-greet BOF", "url": "https://archive.fosdem.org/2025/schedule/event/fosdem-2025-6742-at-protocol-developer-meet-and-greet/", "venue": "FOSDEM", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2024,
+    "items": [
+      { "title": "IPFS, Open Source, and Space Tech", "url": "https://www.youtube.com/watch?v=IBNNzC82f8s", "venue": "DWeb Decoded", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2023,
+    "items": [
+      { "title": "Welcome and introduction", "url": "https://www.youtube.com/watch?v=G2hlQqvjE-Y", "venue": "IPFS Thing Brussels", "type": "talk" },
+      { "title": "IPFS on the Web in 2023 (so far)", "url": "https://www.youtube.com/watch?v=dn8PssXkRbY", "venue": "IPFS Thing Brussels", "type": "talk" },
+      { "title": "Episode 546: Dietrich Ayala on IPFS", "url": "https://se-radio.net/2023/01/episode-546-dietrich-ayala-on-the-interplanetary-file-system/", "venue": "IEEE Software Engineering Radio", "type": "interview" },
+      { "title": "Decentralized Infrastructure and the Metaverse", "url": "https://www.youtube.com/watch?v=r2u_qc2uaaQ", "venue": "The Filecoin Sanctuary Davos", "type": "panel" },
+      { "title": "IPFS, NFTs and the Web", "url": "https://docs.google.com/presentation/d/1y7-HLoTWrX2wlzQIrv8mKCNBt5gjfj5D9ddvPrnsowg/edit", "venue": "Not First Tuesday, Amsterdam", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2022,
+    "items": [
+      { "title": "Edges Are Infrastructure: IPFS Everywhere", "url": "https://av.tib.eu/media/57049", "venue": "FOSDEM", "type": "talk" },
+      { "title": "Exploring the Decentralized Web Ep 8: Browsers and dApps", "url": "https://youtube.com/watch?v=wF_a2vR4zxQ", "venue": "FFDW", "type": "talk" },
+      { "title": "Architectural Collisions", "url": "https://www.youtube.com/watch?v=pfX8S7yKSCE", "venue": "Paris P2P Festival", "type": "talk" },
+      { "title": "IPFS Everywhere - What's Worked, What Hasn't", "url": "https://www.youtube.com/watch?v=HEFcBvIFw5E", "venue": "IPFS Implementations Workshop", "type": "talk" },
+      { "title": "Lessons from Putting IPFS in Weird Places", "url": "https://www.youtube.com/watch?v=87D8tl_U7Wg", "venue": "IPFS Thing Reykjavik", "type": "talk" },
+      { "title": "Immanentizing The Web(3) Platform", "url": "https://www.youtube.com/watch?v=PFC463crG8I", "venue": "DappCon Berlin", "type": "talk" },
+      { "title": "IPFS Impact", "url": "https://youtube.com/watch?v=ZUqZgtaAa7g", "venue": "PL Summit", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2021,
+    "items": [
+      { "title": "The Future of Web3", "url": "https://cloudflare.tv/research/the-future-of-web3/8v3Wy3vG", "venue": "Cloudflare Research", "type": "panel" },
+      { "title": "Subverting the Dominant Metaphor", "url": "https://www.youtube.com/watch?v=jnIZUluXhMw", "venue": "Future of Browsers Conference", "type": "talk" },
+      { "title": "No Bigger Ship", "url": "https://www.youtube.com/watch?v=CTiTiNqe7x0", "venue": "Berty Builders", "type": "talk" },
+      { "title": "IPFS in Brave: Interview with Brian Bondy", "url": "https://www.youtube.com/watch?v=W6aBrmmJKgo", "venue": "Brave/IPFS", "type": "interview" },
+      { "title": "IPFS Architectures, Topologies and Menageries", "url": "https://www.youtube.com/watch?v=oesN-FM7Rk8", "venue": "ETHGlobal", "type": "workshop" },
+      { "title": "IPFS - A Global Commons Network", "url": "https://www.youtube.com/watch?v=p5zNbs6HwrI", "venue": "Deploy Friday", "type": "talk" },
+      { "title": "Bridging Web2 – Web3: IPFS x Opera", "url": "https://www.youtube.com/watch?v=OgzQAZj3Y-E", "venue": "ETHDenver", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2020,
+    "items": [
+      { "title": "User Agency through Participatory Infrastructure", "url": "https://www.youtube.com/watch?v=KBfGsdmV95M", "venue": "ETHGlobal", "type": "talk" },
+      { "title": "IPFS in the Second Half of 2020", "url": "https://www.youtube.com/watch?v=mBFYKesErvI", "venue": "IPFS Virtual Meetup", "type": "talk" },
+      { "title": "Web 3.0 - The New Stack", "url": "https://www.youtube.com/watch?v=qP33DE3boy4", "venue": "Filecoin Liftoff", "type": "panel" }
+    ]
+  },
+  {
+    "year": 2019,
+    "items": [
+      { "title": "Decentralizing the Web Despite Itself", "url": "https://www.youtube.com/watch?v=CSQgJIrRWVM", "venue": "FOSDEM", "type": "talk" },
+      { "title": "Superbrowser - True User Agency in a Dweb World", "url": "https://youtube.com/watch?v=oesN-FM7Rk8", "venue": "Dweb Camp", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2018,
+    "items": [
+      { "title": "Inside Out and Upside Down", "url": "https://www.youtube.com/watch?v=wby8Qt3WZkU", "venue": "Ethereum DevCon IV Prague", "type": "talk" },
+      { "title": "How do we make the Decentralized Web work in browsers?", "url": "https://decentralizedwebsummit2018.sched.com/event/FfTH/roundtable-how-do-we-make-the-decentralized-web-work-in-browsers-of-today", "venue": "Dweb Summit", "type": "roundtable" },
+      { "title": "Browser Superpowers", "url": "https://decentralizedwebsummit2018.sched.com/event/FfRf/workshop-browser-superpowers-building-the-distributed-web-with-extensions", "venue": "Dweb Summit", "type": "workshop" }
+    ]
+  },
+  {
+    "year": 2017,
+    "items": [
+      { "title": "Trust, Lies and Fitness Wearables", "url": "https://medium.com/the-state-of-responsible-internet-of-things-iot/dietrichayala-115fda22a95a", "venue": "", "type": "publication" },
+      { "title": "Designing Physical Experiences", "url": "https://www.youtube.com/watch?v=n-08CUs6cl0", "venue": "MDN Roadshow Kuala Lumpur", "type": "talk" },
+      { "title": "Touching the Future", "url": "https://www.youtube.com/watch?v=_TWGDklUlD4", "venue": "FOSSAsia Singapore", "type": "talk" },
+      { "title": "App-ocalypse Now", "url": "", "venue": "ThingsCon Shenzhen", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2016,
+    "items": [
+      { "title": "An Unintended Web", "url": "", "venue": "Tokyo Fx Dev Con", "type": "talk" },
+      { "title": "Turning Sensors into Signals", "url": "", "venue": "Open IoT Summit San Diego", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2015,
+    "items": [
+      { "title": "Unlocking innovation: Bridging hardware and the web", "url": "https://tech.ebu.ch/publications/unlocking-innovation-bridging-ha", "venue": "EBU Devcon", "type": "talk" },
+      { "title": "Firefox OS and the Web of Things", "url": "https://docs.google.com/presentation/d/1vGEy1-PKnAFoLzNP6WQyEsXf_nYbrlawV1XO15-fc-Y/edit", "venue": "Paris Firefox OS meetup", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2014,
+    "items": [
+      { "title": "Firefox OS University of Michigan Bootcamp", "url": "", "venue": "University of Michigan", "type": "workshop" }
+    ]
+  },
+  {
+    "year": 2013,
+    "items": [
+      { "title": "Interview with OSWorld PL", "url": "https://www.youtube.com/watch?v=v_fhHZsGPaI", "venue": "OSWorld PL", "type": "interview" }
+    ]
+  },
+  {
+    "year": 2012,
+    "items": [
+      { "title": "Developing Firefox in 2012", "url": "https://blog.mozilla.org/addons/2012/01/30/addons-fosdem-2012/", "venue": "FOSDEM", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2010,
+    "items": [
+      { "title": "BarCamp Phnom Penh", "url": "https://youtube.com/watch?v=dYrLeDg5M0U", "venue": "BarCamp Phnom Penh", "type": "talk" },
+      { "title": "BarCamp Bangkok", "url": "", "venue": "BarCamp Bangkok", "type": "talk" },
+      { "title": "BarCamp Vientiane", "url": "", "venue": "BarCamp Vientiane", "type": "talk" },
+      { "title": "FOSSAsia", "url": "", "venue": "Hanoi Vietnam", "type": "talk" },
+      { "title": "PestaBlogger", "url": "", "venue": "Jakarta Indonesia", "type": "talk" },
+      { "title": "Firefox Add-ons with Jetpack", "url": "", "venue": "Japan", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2009,
+    "items": [
+      { "title": "Firefox Switchblade", "url": "", "venue": "Mozilla All-hands", "type": "talk" },
+      { "title": "Joyent Smart Platform", "url": "", "venue": "PDX JavaScript Meetup", "type": "talk" }
+    ]
+  },
+  {
+    "year": 2008,
+    "items": [
+      { "title": "Firefox 3.5 and Beyond", "url": "", "venue": "PDX Web Innovators", "type": "talk" }
+    ]
+  }
+]
