@@ -5,7 +5,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   	<title>Tagged &#39;people&#39;</title>
   	<meta name="description" content="website de dietrich ayala">
-  	<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich">
+  	<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="dietrich is always doing stuff">
   	
   	<style>.postlist { counter-reset: start-from 2 }
 /**
@@ -236,7 +236,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 40em;
+	max-width: 100%;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -485,6 +485,108 @@ header {
 header {
 	border-bottom: none;
 }
+header > .nav-item {
+	font-size: 1.5em;
+	font-weight: 700;
+	text-wrap: wrap;
+}
+header > .nav-item:link,
+header > .nav-item:visited {
+	color: var(--text-color);
+	text-decoration: none;
+}
+
+/* Home page 4-column grid */
+.home-grid {
+  display: grid;
+  grid-template-columns: 8rem 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 0;
+}
+main:has(.home-grid) {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.home-grid h2 {
+  margin-top: 0;
+}
+
+/* Contact column */
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+.contact-list li {
+  margin-bottom: 0.5em;
+}
+
+/* Talks column */
+.talks-list {
+  list-style: none;
+  padding: 0;
+}
+.talks-list li {
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+.talks-venue {
+  display: block;
+  font-size: 0.85em;
+  color: var(--color-gray-50);
+}
+.col-talks h3 {
+  margin-bottom: 0.5em;
+  margin-top: 1.2em;
+}
+.col-talks h3:first-of-type {
+  margin-top: 0;
+}
+
+/* Blog column */
+.col-blog .postlist {
+  padding-left: 0;
+}
+.col-blog .postlist-item {
+  margin-bottom: 0.75em;
+}
+.col-blog .postlist-link {
+  font-size: 1em;
+  flex-basis: 100%;
+  padding-left: 0;
+}
+
+/* Mobile nav items - hidden on desktop */
+.mobile-nav-item {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1em;
+  }
+  .contact-list li {
+    margin-bottom: 0;
+  }
+  .col-contact h2 {
+    margin-bottom: 0;
+  }
+  .col-contact {
+    margin-bottom: -1.5rem;
+  }
+  .col-talks,
+  .col-blog {
+    display: none;
+  }
+  .mobile-nav-item {
+    display: inline-block;
+  }
+}
 
 /* Color mode management */
 /*
@@ -540,34 +642,13 @@ a[href].post-tag:focus {
   	<a href="#skip" class="visually-hidden">Skip to main content</a>
 
   	<header>
-  		<a href="/" class="nav-item">dietrich</a>
+  		<a href="/" class="nav-item">dietrich is always doing stuff</a>
   		<nav>
   			<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
   			<ul class="nav">
   				<li class="nav-item"><a href="/posts/">blog</a></li>
   				<li class="nav-item"><a href="/about/">about</a></li>
-
-          <li class="nav-item">
-            <a href="mailto:me@burrito.space" target="_blank">email</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://bsky.app/profile/burrito.space" target="_blank" title="bluesky" rel="me">🦋 bluesky</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://signal.me/#eu/JgYm3GJ64TGkbg9r3RHPBeuowAO5eNAoi9kqELN2XGWX6-eJpzdMVbGAmXCy4BvK" target="_blank" title="signal" rel="me">signal</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://discord.com/users/364757227833131011" target="_blank" title="discord" rel="me">discord</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://t.me/dietricha" target="_blank" title="telegram" rel="me">telegram</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/autonome" target="_blank" title="github" rel="me">github</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.linkedin.com/in/dietrich" target="_blank" title="linkedin" rel="me">linkedin</a>
-          </li>
+  				<li class="nav-item mobile-nav-item"><a href="https://autonome.github.io/elephant/">talks</a></li>
   			</ul>
 
   		</nav>
@@ -579,7 +660,7 @@ a[href].post-tag:focus {
 <h1 id="tagged-people">Tagged &#39;people&#39;</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2026-01-28">28 January 2026</time></li>
+	<li><time datetime="2026-02-14">14 February 2026</time></li>
 </ul>
 
 <h1 id="tagged-people-2">Tagged “people”</h1>
@@ -614,7 +695,7 @@ a[href].post-tag:focus {
   		<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.1.2</a></em></p>
   	</footer>
 
-  	<!-- This page `/tags/people/` was built on 2026-01-28T00:10:18.452Z -->
+  	<!-- This page `/tags/people/` was built on 2026-02-14T12:17:40.169Z -->
   	<script type="module" src="/dist/cC8wS6ZjFU.js"></script>
 
     <!-- Fathom - beautiful, simple website analytics -->
