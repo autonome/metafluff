@@ -1,5 +1,5 @@
 export default {
-  "title": "dietrich is always doing stuff",
+  "title": "dietrich likes to do stuff",
   "url": "https://metafluff.com/",
   "language": "en",
   "description": "website de dietrich ayala",
