@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Firefox OS - Network Condition Awareness</title>
+
+    <meta name="description" content="Firefox OS - Network Condition Awareness">
+    <meta name="author" content="Dietrich Ayala">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/firefoxos.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+        <section>
+          <header>
+            <h1>Firefox OS</h1>
+            <h2>Network Condition<br>Awareness</h2>
+            <div id="foxtail"></div>
+          </header>
+        </section>
+
+        <!--
+        <section>
+          <h2>Dietrich Ayala</h2>
+          <p>@dietrich</p>
+          <p>dietrich@mozilla.com</p>
+          <img src="imgs/firefox-logo.png" />
+        </section>
+        -->
+
+        <section>
+          <h3>Graduate Research</h3>
+          <p>University of Michigan</p>
+          <p>Graduate research lab on mobile performance</p>
+          <p>Mostly focused on Android on fast networks</p>
+          <p>But a lot of findings apply...</p>
+        </section>
+
+        <section>
+          <h3>Poor Network Conditions</h3>
+          <p>Full stack impact:</p>
+          <p>Dropped requests</p>
+          <p>Non-functional apps</p>
+          <p>Waste of user's money</p>
+          <p>Battery quickdeath</p>
+          <p>Load on base station</p>
+          <p>Very unhappy users</p>
+          <p>Very unhappy operators</p>
+        </section>
+
+        <section>
+          <h3>Turns out...</h3>
+          <p>Not new problems</p>
+          <p>Tons of research in the field</p>
+          <p>Little being applied on the Web</p>
+          <p>Huge wins possible</p>
+        </section>
+
+        <section>
+          <h3>Tail Optimization</h3>
+          <p>Radio chips: high/low power</p>
+          <p>Radio Resource Controls (RRC) timers</p>
+          <p>High power mode stays on after activity</p>
+          <p>wasted power: "tail energy"</p>
+        </section>
+
+        <section>
+          <h3>Fast Dormancy</h3>
+          <p>Tell chip that we're done</p>
+          <p>Little/no access via chipset vendors</p>
+          <p>Can infer via power measurement</p>
+          <p>But variable per chipset/network</p>
+          <p>Even so, problematic to have that access</p>
+          <p>"Yo, I'm done."</p>
+        </section>
+
+        <section>
+          <h3>What to deux.</h3>
+          <p>Proactive: piggybacking</p>
+          <p>Last network access timestamp?</p>
+          <p>"now is good" events?</p>
+          <p>Projections</p>
+          <p>Scheduling</p>
+          <p>XHR option to defer?</p>
+        </section>
+
+        <section>
+          <h3>High Latency</h3>
+          <p>Local passive measurement of cellular load</p>
+          <p>Complex, requires low-level radio access</p>
+          <p>Could measure requests on ongoing basis?</p>
+          <p>Still requires high-level positive patterns</p>
+        </section>
+
+        <section>
+          <h3>Weak Link</h3>
+          <p>Bars don't tell the whole story</p>
+          <p>Strong link != low latency</p>
+          <p>Weak link != high latency</p>
+          <p>Neither signal throughput</p>
+        </section>
+
+        <section>
+          <h3>Network Information API</h3>
+          <p>Bandwith quotes from provider are wrong</p>
+          <p>"if (fast) then..." not granular enough</p>
+          <p>TMI</p>
+          <p>Keep it simple for devs</p>
+        </section>
+
+        <section>
+          <h3>Web Sweet Spot</h3>
+          <p>Tail energy, weak signal, high latency</p>
+          <p>App developers shouldn't have to care</p>
+          <p>Positive patterns for built-in awareness</p>
+          <p>Education isn't enough</p>
+        </section>
+
+        <section>
+          <h3>PSU Capstone Project</h3>
+          <p>Experiment</p>
+          <p>Helper library</p>
+          <p>Surveys network conditions</p>
+          <p>Throughout the day</p>
+          <p>Predict opportunity windows</p>
+        </section>
+
+        <section>
+          <h3>Other Research</h3>
+          <p>Multipath TCP</p>
+          <p>QUIC</p>
+          <p>Traffic pre-caching</p>
+          <p>https://wiki.mozilla.org/FirefoxOS/Research</p>
+        </section>
+
+        <!--
+        <section>
+          <h3></h3>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </section>
+        -->
+
+        <section>
+          <h3>THANKS.</h3>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

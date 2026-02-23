@@ -1,0 +1,460 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mozilla / China / SF / 2018</title>
+  <meta name="description" content="Web and tech in China - Dietrich Ayala, Mozilla">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- for web -->
+    <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9?size=16" />
+
+    <!-- for apple -->
+    <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
+    <link rel="apple-touch-icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Shenzhen Trip">
+    <meta itemprop="description" content="Shenzhen Trip">
+    <meta itemprop="image" content="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Shenzhen Trip">
+    <meta name="twitter:description" content="Shenzhen Trip">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="http://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="Shenzhen Trip">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Shenzhen Trip" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://metafluff.com" />
+    <meta property="og:image" content="http://metafluff.com/octo.jpg" />
+    <meta property="og:description" content="Shenzhen Trip" />
+    <meta property="og:site_name" content="Dietrich Ayala" />
+
+  <!-- source code pretty -->
+  <!--
+  <link rel="stylesheet" href="vendor/prism/prism.css">
+  <script src="vendor/prism/prism.js" defer></script>
+  -->
+
+  <!-- core styles -->
+  <link rel="stylesheet" href="css/style-scroller.css">
+
+  <!-- printing pretty -->
+  <!--
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css" media="only print">
+  -->
+
+</head>
+<body>
+<main>
+<!--
+  <nav>&amp;dietrich</nav>
+
+  TL;DR:
+    * Web devs: We can use the web now to build interesting things that prepare us for physical computing
+    * Startups: App install/metrics/stores are garbage fire. Web provides better access to TAM using emerging technologies.
+    * IoT: App-per-thing is absurd. Use beacons, NFC and QR codes to for frictionless interaction/onboarding with web in physical spaces.
+    * FOSS devs: Room-scale computing is confined to proprietary platforms.
+
+  OUTLINE:
+    * appocalypse now: we need new ways of onboarding people into digital experiences in physical spaces
+    * meanwhile, new technologies like iot, ar, vr: the room is the computer, the digital experience
+    * but how to get em in?
+
+  NOTES - roomscale
+    * developers: rooms can already be the computers
+    * startups: rooms are going to be the computers
+    * iot: rooms already are computers, cities are on the way
+
+  NOTES - ThingsCon:
+    * focus on user onboarding through beacons
+      * Rabimba info
+      * Nearby supported all the way back to Kit Kat (Android 4.4) - screenshot
+    * Friction free flow
+    * Flows:
+      * beacon -> url -> website
+      * beacon -> url -> bot integration
+      * beacon -> url -> app
+    * PWA - offline, push notifications, homescreen presence
+    * Demos
+      * sound -> notification
+    * Multi-user even!
+    * Social AR
+    * Shared Controls - zero setup, zero install
+
+  NOTES - TIA Singapore:
+    * direct to web, chat, app. frictionless and accountless. auth by proximity.
+		* colors, arrows, poisoned apple, ar.js, tom on app uptake, etc
+    * soundsize smoothing, and different obj. fix by making all changes relative to baseline of target object size?
+    * s/halo/privacysign/ - anti symbol rotating around speaker emoji?
+    * s/halo/he, him, his/ 
+    * s/halo/hello my name is/
+    * vertically center sinewave and flip colors
+    * hiro+qr demo w/ ar.js - for conference badges, or even stickers. ar conference ghosts/totems. AR business cards.
+
+  NOTES - CommunicAsia
+    * # Narrative: Accelerated and innovative smart city development with the web, bringing engaging interactive programs to the maximum number of people.
+    * Imagine citizens having to install app for every utility or smart cities program
+    * Smart nation is only beginning. there are two pages of apps.
+    * Homescreen is already cluttered. imagine when smart nation really picks up the pace.
+    * also, the ability to release software is dependent on Apple and Google. unnecessary.
+    * ## Choosing the right technologies to enable civic participation in smart cities programs
+    * Web a smart cities enabler - nimble and accelerated development
+    * lower barrier to entry for development and citizen innovators. city won't be able to meet all the needs. and citizens can build custom solutions for unforeseen problems.
+    * Web is also about access: the poorest people will have the least powerful devices, with less storage space or an older unsupported version of the OS that newer apps won't run on.
+    * The web allows for progressive enhancement - the idea that anyone can load the basic version, and newer devices can take advantage of newer capabilities.
+    * An example of some these newer capabilities are pwas. websites that can be added to the homescreen, run without any browser ui, get push notifications and work offline.
+    * Twitter lite
+    * ## Onboarding people from physical spaces into digital experiences
+    * QR codes
+    * IF+
+    * NFC
+    * - ergonomics dictate use-cases
+    * - the nfc dance
+    * - hotel doors vs MRT turnstiles
+    * Beacons
+    * - esp if a device.
+    * - beacon batteries last 6mos
+    * ## Interaction design patterns for public digital experiences
+    * Flows
+    * signage -> QR -> App
+    * signage -> QR -> bot/URL/
+    * beacon -> notification -> URL
+    * ## Engaging citizens with augmented reality, IoT and other emerging technologies
+    * Android supports QR code to join wifi network (pic of tpe cmmty space)
+    * geo AR
+    * Add demo for pm2.5
+
+  NOTES - Webconf.asia
+    * set context: iot/ar/vr/wearables are changing the endgame
+      * and *specifically* from a design standpoint
+      * we can't just 2d this shit anymore
+      * we're currently in limbo - the building blocks are there but the hardware isn't ready yet.
+    * permissions are a challenge
+    * privacy is a challenge - what are the patterns for anonymous participation in physical spaces? (firefox focus - what if was a qr widget)
+    * Geolocation as trigger, as authentication
+    * bonus demo: add qr+ar marker for gum2gif, and import into AR scene
+    * responsive design for physical computing - walking into a room, leaving a room, nonscary ways of interfacing with humans. we design the robots (for now).
+    * flows for payment -> add cryowerx
+
+  NOTES - HKOSCON
+    * set context: room scale is here. but only in the confines of proprietary platforms.
+    * set message: we can create fully open room scale experiences
+    * define the ask: in this new topology, define end-to-end first
+    * what's the role of a browser in a room-scale physical computing world?
+    * new topologies with undefinied parties
+    * security/privacy in room scale topologies
+    * patterns for privacy in physical computing: Focus or Orbot as unsafe URL handlers - beacons, qrcodes, etc
+    * slide for homescale proprietary
+    * slide for rpi "Alexa"
+    * what does "open" mean
+    * purism doesn't help people
+    * numbers: our impact as FOSS developers is way larger - punch above our weight
+    * how can we as FOSS developers help influence the larger patterns
+
+  NOTES - DEMOS
+    * screensharing from fx android back to slides for AR parts
+    * pm2.5 viz hooked up to live local datasource
+
+	TODO - PROCESS
+    * shake to bot connect in a room. shake to bot to web. audio detection to voice to shake to bot to web.
+    * AR use-cases are boring as shit
+		* components of ar infrastructure on the web. reference w3c work.
+    * walk symbols. moar large emoji.
+    * zero friction participation. strengthen app:thing story. add pwa back in. make flow diagrams. proximity auth. speaker flow: beacon ➡️ url ➡️ AR ➡️ what's playing, controls, etc. AR + beacon support at OS level. social AR.
+    * walk symbol plus arrows plus beacon symbol plus smart glasses. nearby. most startups die, care and feeding of baby unicorns.
+    * ThingsCon talk: Pitch for building in beacons. All about quickly moving from device to digital experience via beacons built-in. Instant AR experiences. AR controls. Write duck demo with a button you can press with reticle selection. beacon -> initial config. pwa instead of app. Alternate reality. 1:1 thing:app isn't a tenable future. todo: what's the status of Nearby on Android.
+    * beacon->slides, snow white's poisoned apple, hyperreality slide for design, web+vr as example of web unifying emerging tech (news stories on web vr), narrative of web as unifying/simplifying the platform choices and reaching most customers, add pm2.5 example
+    * for webconf asia: designing for presence of people, presence of cameras - higher level design language and abstractions
+    * slides: physical flows into web into web, msgng, app, OS, voice, AR
+    * slides: rfid for room scale discovery
+    * slides: look up Nearby status
+    * slides: supply chain AR
+    * slides: app-less. animate an install popup in aframe, add to slides. overlays on camera.
+    * cat in front of screen slide - animates in
+    * demo overlay, halo, panda, stats, agitation, probability of crime (cv + racism), sickness (ml + cv)
+    * panda demo replace face. anti surveillance glasses.
+    * slides: cookie puzzle sizes/color/etc change based on live views
+    * talk: thai and other country app acquisition barriers, promos, etc. Peter gasston tweet. reasons to not build an app or to continue investing in it. app time spent vs uniques on mobile. purchases are in mobile web (gartner?). patagonia.
+
+  NOTES - MISC:
+    * this is an appocalypse
+    * don't be led down the garden path
+    * app marketplaces are a garbage fire
+    *
+    * PWAs are coming (Chrome, Android, Firefox)
+    * Safari iOS just shipped new features like CSS Grid, so there's hope, but they're 5% of the global smartphone market
+    * 
+    * meanwhile, new opportunites are emerging for engaging users in new ways
+    * IoT, VR, AR, beacons, NFC 
+    * they're all physical
+    * not just the 2d screen, but the physical context they're *in*
+    * we're a few years out from real AR goggles, let alone contact lenses
+    * until contacts with camera and AR..."
+    * 
+    * how can we use the web now to build interesting things that prepare us for physical computing
+    *
+    * beacons, etc
+    *
+    * add webAR markers
+    * 
+    * add demo: crowd noise -> object on screen grows in size
+    * iot - pm2.5 and AR 
+    * imagine using this with projections at concerts or other events
+    * 
+    * physical computing experiences will change
+    * verticals like travel, fashion, retail, music, movie industries
+    *
+    * tl;dr: we can use the web now to build interesting things that prepare us for physical computing
+
+  NOTES - ICMAC 2017
+    * switch font to lato
+    * innovation - care and feeding tech for healthy and successful innovation for people
+    * Mitchell quote on urban digitization
+      * reference Peter's report
+      * we're not ready for that
+      * people engaging in community through for-profit verticalized apps
+      * standards for privacy and security at substructure layer are not mature
+      * which means the market is flowing with technology and products untrusted by consumers
+      * additionally, the tech we're building now will be obsolete in a few years
+      * how to build for a moving target? huge investments into massive projects with predictable obsolescence
+    * additional challenges slide
+      * list quickly here
+      * the churn is crazy
+    * TJ, Communism, Buddhism have in common?
+    * leapfrogging
+      * designing for permanent state of leapfrogginess
+    * (SLIDE - big question) how to make smart cities that are trusted, relevant, and ready for the future - even the immediately-different future
+      * i'm going to talk about some patterns for designing technology that can do that
+    * TODO: get all the patterns and characteristics in here?
+    * (SLIDE) relevant, trusted and resilient - city in the background (nepal, hong kong, taipei?)
+      * (or: how to build timeless classics instead of putting time and money into unused and quickly obsolete projects)
+    * relevancy: apps vs web
+    * (SLIDE) show singapore apps
+    * (SLIDE) show more singapore apps
+      * these are almost uniformly transient tasks
+      * smart cities for users is not about immersion
+      * it's about transiency - quickly/efficiently
+      * the least amount of friction you can achieve will make engaging and effective solutions
+    * (SLIDE) 1000x more web than install quote
+      * 7 apps per day (CITATION NEEDED)
+      * what if you didn't need to be one of them?
+    * introduce the web 
+    * (SLIDE - techart) the web is perfect for not being one of them
+    * (SLIDE) flow: public space -> task -> open a web page
+    * (SLIDE) qr code - original physical technology - room scale!
+      * hk
+    * (SLIDE) nfc
+      * those are user-initiated
+      * broadcast scenarios
+    * (SLIDE) beacons
+      * broadcast
+    * (SLIDE) voice
+    * (SLIDE) noise
+    * now we've got people accessing services and getting critical information with low-cost existing room-scale tech and almost zero barrier to entry
+    * (SLIDE) PWA
+      * vertical p,w,a in bold
+      * animated desktop screen reducing to smartphone size
+      * the square of 4 technologies, each showing color coded levels of readiness, browser support, and future support
+      * google, apple, samsung, microsoft and mozilla all investing in giving the web superpowers
+    * (SLIDE) Payment request
+    * (SLIDE) bots flow
+    * gum
+    * hello my name is
+    * mr/ar/vr
+      * computer vision in the client
+    * (SLIDE) ai
+      * on web: at the edges, small, personalized, trustable
+      * deeplearning.js
+    * decentralization / p2p
+      * beaker, dat, ipfs, blockchain
+      * science data
+    * close
+      * resilient infrastructure in our technologies
+      * resilient to change
+      * so that we can quickly adapt to what an immediately-different future brings
+
+-->
+
+  <section id="title" class="intro">
+    <h1>HK / Shenzhen / IoT</h1>
+    <h2></h2>
+    <h3>SF All Hands, June 14, 2018</h3>
+    <h3>
+      Dietrich Ayala
+      / <a href="https://twitter.com/dietrich">@dietrich</a>
+      / <a href="https://mozilla.org">Mozilla.org</a>
+    </h3>
+  </section>
+
+  <!--
+  <section class="me background-image-contain" style="background-image: url(imgs/me-newlogo.png);">
+  <section id="me" class="me background-image" style="background-image:url(imgs/me-newlogo.png);">
+    <pre hidden>
+    i'm dietrich ayala, and i work for the internet.
+    </pre>
+  </section>
+
+  <section class="mozilla splash background-image" style="background-image: url(imgs/mozilla-org.png);">
+    <pre hidden>
+      * most know us by firefox
+      * but firefox is a tool we use to guide the direction of web tech
+    </pre>
+  </section>
+  -->
+
+  <section class="geog background-image" style="background-image:url(imgs/hk-shenzhen.png);"></section>
+
+  <section class="hk splash megabig">
+    <center><h1>Hong Kong</h1></center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="geog background-image" style="background-image:url(imgs/webconfasia.png);"></section>
+
+  <section class="summary splash megabig">
+    <center>
+			<h1>Finance tech</h1>
+			<h1>Advertising tech</h1>
+			<h1>No choice in tools</h1>
+			<h1>No control</h1>
+			<h1>Sadness</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="geog background-image" style="background-image:url(imgs/hkoscon.png);"></section>
+
+  <section class="shenzhen splash megabig">
+    <center><h1>Shenzhen</h1></center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section id="szgif" class="background-image" style="background-image:url(imgs/shenzhen.gif);">
+    <pre hidden>
+			* sleepy port town 1hr from hong kong
+			* first SEZ
+			* 12-20m people
+			* estimated 90% of world electronics manufactured there
+    </pre>
+  </section>
+
+  <section class="mozilla splash background-image" style="background-image: url(imgs/thingscon.png);"></section>
+
+  <section id="kickstarter" class="background-image" style="background-image:url(imgs/kickstarter.jpg);">
+    <pre hidden>
+			* sleepy port town 1hr from hong kong
+			* 12-20m people
+			* first SEZ
+			* estimated 90% of world electronics manufactured there
+    </pre>
+  </section>
+
+  <section id="makerspaces" class="splash megabig">
+    <center>
+			<h1>"makers" and makerspaces</h1>
+    </center>
+    <pre hidden>
+      * big, well-funded
+      * government support
+      * $200/mo
+      * range of services
+      * but YMMV 
+    </pre>
+  </section>
+
+  <section id="makers1" class="background-image" style="background-image:url(sz-photos/2017-04-26%2013.05.10.jpg);"></section>
+
+  <!--
+  <section id="ideas" class="splash megabig">
+    <center>
+			<h1>IDEAS</h1>
+    </center>
+    <pre hidden>
+      * same story everywhere 
+      * give up IP
+      * maybe cultural
+      * maybe the idea of selling to US/EU markets
+    </pre>
+  </section>
+
+  <section id="design" class="splash megabig">
+    <center>
+			<h1>Design</h1>
+			<h1>east vs west</h1>
+			<h1>(vs both)</h1>
+    </center>
+    <pre hidden>
+      * product design happening in shenzhen for many years now
+      * ends up in the middle, but you can do it either way
+    </pre>
+  </section>
+  -->
+
+  <section id="oct-museum" class="background-image" style="background-image:url(imgs/oct-design-museum.jpg);"></section>
+
+  <section id="bespokevsexisting" class="background-image" style="background-image:url(sz-photos/2017-04-26%2014.07.55.jpg);"></section>
+
+  <!--
+  <section id="anythingggg" class="splash megabig">
+    <center>
+			<h1>Make anything...</h1>
+			<h1>That exists...</h1>
+			<h1>For cheap... maybe.</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section id="presence" class="splash megabig">
+    <center>
+			<h1>Presence</h1>
+      <h1>Listen > talk</h1>
+      <h1>Embrace SZ's strengths</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section id="next" class="splash megabig">
+    <center>
+			<h1>Next?</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section id="corp-home" class="background-image" style="background-image:url(imgs/corp-home.png);"></section>
+  <section id="bt-spkr" class="background-image" style="background-image:url(imgs/bt-spkr.png);"></section>
+  -->
+
+  <section id="ai-soc" class="background-image" style="background-image:url(imgs/ai-soc.png);"></section>
+  <section id="iot-core" class="background-image" style="background-image:url(imgs/allwinner-iot.png);"></section>
+
+  <section id="szoil" class="background-image" style="background-image:url(imgs/szoil.jpg);"></section>
+
+  <!--
+  <section id="next" class="splash megabig">
+    <center>
+			<h1>Thx</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+  -->
+
+</main>
+  <!--
+  <script src="vendor/mvsd/mvsd.js" defer></script>
+  -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

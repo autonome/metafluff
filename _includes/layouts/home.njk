@@ -34,7 +34,11 @@ layout: layouts/base.njk
       {%- for item in group.items %}
       <li>
         {%- if item.url %}
+        {%- if item.url.startsWith("/") %}
+        <a href="{{ item.url }}">{{ item.title }}</a>
+        {%- else %}
         <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+        {%- endif %}
         {%- else %}
         {{ item.title }}
         {%- endif %}

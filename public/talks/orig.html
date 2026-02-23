@@ -1,0 +1,560 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Talk Title - Dietrich Ayala</title>
+		<link rel="stylesheet" href="vendor/prism/prism.css">
+		<script src="vendor/prism/prism.js" defer></script>
+
+		<link rel="stylesheet" href="vendor/mvsd/mvsd.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<script src="vendor/mvsd/mvsd.js" defer></script>
+		<script src="js/main.js" defer></script>
+	</head>
+	<body>
+		<main>
+			<nav>@dietrich</nav>
+			<section class="intro">
+				<h1>Talk<br />Title</h1>
+				<h2>Dietrich Ayala</h2>
+				<h3><a href="https://metafluff.com">metafluff.com</a> / @dietrich</h3>
+			</section>
+
+			<section class="splash warning">
+				<h1><strong>Warning:</strong> moving images and maybe awful feedback in this presentation</h1>
+				<h2>If video loops or sound glitches make you feel unwell, <strong>please leave now</strong>. Sorry  😔</h2>
+			</section>
+
+			<section class="splash mozilla">
+				<h1>I work at</h1>
+				<img src="imgs/mozilla.gif" alt="Mozilla" />
+				<h3>On the Developer Relations team, Emerging Technology group.</h3>
+			</section>
+
+			<section class="splash">
+				<h1>Real time<br />front-end alchemy</h1>
+				<h2><em>or:</em> capturing, playing, altering and encoding video and audio streams, without servers or plugins!</h2>
+			</section>
+			
+			<section class="splash background-image" data-background="imgs/streams.png">
+				<h1>Streams!?!</h1>
+			</section>
+
+			<section class="splash background-image" data-background="imgs/streams2016.jpg">
+				<h1>Streams!?!</h1>
+			</section>
+
+			<section>
+				<div>
+					<h2>Not:</h2>
+					<ul>
+						<li class="fragment">Node.js streams</li>
+						<li class="fragment">Future JavaScript streams</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class="fragment">Yes:</h2>
+					<ul>
+						<li class="fragment"><tt>MediaStream</tt> instances</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="splash">
+				<h1><tt>MediaStream</tt>s are<br /><tt>track</tt> containers</h1>
+				<h2 class="fragment">Tracks can be <strong>audio</strong> or <strong>video</strong></h2>
+				<h2 class="fragment">There can be any number of tracks per stream</h2>
+			</section>
+
+			<section class="splash">
+				<h1>You might have used <tt>MediaStream</tt>s already...</h1>
+			</section>
+		
+			<section class="splash">
+				<h1><tt>getUserMedia()</tt></h1>
+			</section>
+
+			<section>
+				<h2><tt>getUserMedia()</tt></h2>
+				<pre>
+					<code class="language-js">
+						navigator.mediaDevices.getUserMedia({
+							 audio: true,
+							 video: true
+						}).then(function (stream) {
+							// do something with the stream
+						})
+					</code>
+				</pre>
+			</section>
+
+			<section class="two-rows">
+				<pre>
+					<code class="language-js">
+						navigator.mediaDevices.getUserMedia({
+							audio: true,
+							video: true
+						}).then(function (stream) {
+							var video = document.createElement('video');
+							document.body.appendChild(video);
+              video.srcObject = stream;
+							video.play();
+						}
+					</code>
+				</pre>
+				<div><iframe data-src="examples/display-webcam.html"></iframe></div>
+			</section>
+
+			<section class="splash megabig">
+				<h1>BORING</h1>
+				<h2 class="fragment">this is old news 😴</h2>
+			</section>
+
+			<section class="splash">
+				<h1>You didn't come here<br />to hear boring stuff<br />🙅🏻</h1>
+			</section>
+
+			<section class="splash">
+				<h1>What's 🆕 and 🆒?<br /><tt class="fragment">MediaRecorder</tt></h1>
+				<h2 class="fragment">Native JavaScript API</h2>
+				<h2 class="fragment">Familiar syntax with methods + DOM events</h2>
+			</section>
+
+			<section>
+				<h1><tt>MediaRecorder</tt> in a nutshell</h1>
+				<ul>
+					<li class="fragment">Constructor: <tt>new MediaRecorder(stream)</tt></li>
+					<li class="fragment">Methods: <tt>start()</tt>, <tt>stop()</tt>, <tt>pause()</tt>, <tt>resume()</tt>...</li>
+					<li class="fragment">Events: <tt>dataavailable</tt>, <tt>start</tt>, <tt>stop</tt>...</li>
+				</ul>
+			</section>
+
+			<section class="two-rows">
+				<pre>
+					<code class="language-js">
+						var recorder = new MediaRecorder(stream);
+						recorder.addEventListener('dataavailable', e => {
+              video.srcObject = e.data;
+							video.play();
+						});
+						recorder.start();
+						setTimeout(() => {
+							recorder.stop();
+						}, 5000);
+					</code>
+				</pre>
+				<div>
+					<iframe data-src="examples/record-av.html"></iframe>
+				</div>
+			</section>
+
+			<section class="splash">
+				<h1>I just encoded audio and video natively in the browser, without plug-ins.</h1>
+			</section>
+			
+			<section class="splash megabig">
+				<h1>💫🎙💥 MIC DROP</h1>
+				<h2 class="fragment">jk 😜</h2>
+			</section>
+
+			<section class="splash">
+				<h1>And we've just barely scratched the surface...</h1>
+			</section>
+			
+			<section class="splash">
+				<h1><tt>MediaRecorder</tt> doesn't care about where does the <tt>stream</tt> come from</h1>
+			</section>
+
+			<section class="splash">
+				<h1>Alternative stream sources, 1:</h1>
+				<h2><tt>getUserMedia</tt> <strong>screen</strong> and <strong>window</strong> sharing</h2>
+			</section>
+
+			<section>
+				<pre>
+					<code class="language-js">
+						// about:config -> add domain to media.getusermedia.screensharing.allowed_domains
+						navigator.mediaDevices.getUserMedia({
+							video: {
+								mediaSource: 'screen'
+							}
+						}).then(function (stream) {
+							// do something with stream
+							// ...
+						});
+					</code>
+				</pre>
+			</section>
+			
+			<section class="two-columns">
+				<div>
+					<iframe data-src="https://make8bitart.com/"></iframe>
+				</div>
+				<div>
+					<iframe data-src="examples/record-screen.html"></iframe>
+				</div>
+			</section>
+
+			<section class="splash">
+				<h1>Alternative stream sources, 2:</h1>
+				<h2><tt>canvas.captureStream()</tt></h2>
+			</section>
+
+			<section class="two-rows">
+				<pre>
+					<code class="language-js">
+						var canvasStream = canvas.captureStream(30 /* frames per second */ );
+						var recorder = new MediaRecorder(canvasStream);
+						// Simplified drawing white noise on the canvas
+						var pixels = ctx.getImageData(0, 0, width, height); var data = pixels.data; 
+						for(var i = 0; i < numPixels; i++) {
+							var grey = Math.round(Math.random() * 255);
+							data[offset++] = grey; data[offset++] = grey; data[offset++] = grey; offset++;
+						}
+						ctx.putImageData(pixels, 0, 0);
+						// plus usual recorder.start(), stop()...
+					</code>
+				</pre>
+				<div>
+					<iframe data-src="examples/record-canvas.html"></iframe>
+				</div>
+			</section>
+
+			<section class="splash">
+				<h1>We can also transform webcam images with <tt>canvas</tt> pixel manipulation</h1>
+			</section>
+
+			<section class="two-rows">
+				<pre>
+					<code class="language-js">
+					context.drawImage(video, 0, 0, width, height); // draw video into canvas
+					
+					var imageData = context.getImageData(0, 0, width, height);
+					var data = imageData.data;
+					for (var i = 0; i < data.length; i+=4) {
+						data[i] = data[i] >= cutOff ? 255 : 0; // red
+						data[i + 1] = data[i + 1] >= cutOff ? 255 : 0; // green
+						data[i + 2] = data[i + 2] >= cutOff ? 255 : 0; // blue
+					}
+					</code>
+				</pre>
+				<div>
+					<iframe data-src="examples/canvas-pixel-manipulation.html"></iframe>
+				</div>
+			</section>
+
+			<section class="splash">
+				<h1>And we can record the output of this canvas, using <tt>captureStream</tt></h1>
+			</section>
+
+			<section class="two-rows">
+				<pre>
+					<code class="language-js">
+					// some steps from before, combined
+					// 1. init webcam
+					// 2. make video stream
+					// 3. copy to canvas and alter pixels
+					// 4. get stream from canvas
+					// 5. record!
+					</code>
+				</pre>
+				<div>
+					<iframe data-src="examples/canvas-pixel-manipulation-and-record.html"></iframe>
+				</div>
+			</section>
+
+			<section>
+				<h1>You should not use <tt>canvas</tt> 2D pixel manipulation for this because it can be really slow. Use WebGL!</h1>
+				<h2 class="fragment">(but WebGL takes longer to setup and learn and explain, and won't fit on slides, so... 💁🏻)</h2>
+			</section>
+
+			<section class="splash">
+				<h1>Alternative stream sources, 3:</h1>
+				<h2>Web Audio's <tt>MediaStreamAudioDestinationNode</tt></h2>
+				<h3 class="fragment">(... and we made fun of Java class names 😂)</h3>
+			</section>
+
+			<section class="splash">
+				<h1>This enables us to modify and capture audio in real time, using an <tt>AudioContext</tt></h1>
+			</section>
+
+			<section class="two-columns">
+				<div>
+					<div>
+					<h1><tt>AudioContext</tt> is your door to the power of Web Audio</h1>
+					
+					<h2 class="fragment">It lets you <strong>create</strong> input and output <strong>nodes</strong> and <strong>connect</strong> them together to form an <strong>audio graph</strong> to <strong>route</strong> and <strong>manipulate</strong> sounds in various ways.</h2>
+					<h3 class="fragment">I cannot explain Web Audio to you in two minutes, so this will have to do!</h3>
+
+					</div>
+				</div>
+				<div class="fragment">
+					<img src="imgs/modular-routing.png" />
+				</div>
+			</section>
+
+			<section>
+				<h1>This is what we're going to do:</h1>
+				<h2><tt>input stream -&gt; audio context -&gt; output stream</tt></h2>
+			</section>
+
+			<section>
+				<h1>But we'll start with:</h1>
+				<h2><tt>input stream -&gt; audio context</tt></h2>
+			</section>
+
+			<section>
+				<pre>
+					<code class="language-js">
+					// we obtained a stream with an audio track, with getUserMedia
+					var ac = new AudioContext();
+					var inputNode = audioContext.createMediaStreamSource(stream);
+					var effect = makeEffect(audioContext);
+					// [...]
+					
+					inputNode.connect(effect.input);
+					effect.output.connect(ac.destination);
+					</code>
+				</pre>
+				<div><iframe data-src="examples/filter-live-audio.html"></iframe></div>
+			</section>
+
+			<section>
+				<h1>Let's add a <tt>MediaStreamAudioDestinationNode</tt> to record this:</h1>
+				<h2><tt>input stream -&gt; audio context <ins class="fragment">-&gt; output stream</ins></tt></h2>
+			</section>
+
+			<section>
+				<pre>
+					<code class="language-js">
+						var outputNode = audioContext.createMediaStreamDestination();
+						effect.output.connect(outputNode);
+
+						var recorder = new MediaRecorder(outputNode.stream);
+						// and record as usual...
+						recorder.start();
+					</code>
+				</pre>
+				<div><iframe data-src="examples/filter-and-record-live-audio.html"></iframe></div>
+			</section>
+
+			<section class="splash">
+				<h1>So far, we have looked at manipulating and recording video and audio separately</h1>
+			</section>
+		
+			<section class="splash">
+				<h1>When we process audio and video in parallel, we get <em>two</em> streams, but <tt>MediaRecorder</tt> only takes <u>one</u>...</h1>
+			</section>
+	
+			<section class="splash">
+				<h1>How can we join both streams together and capture it? 🤔</h1>
+			</section>
+	
+			<section class="splash">
+				<h1>What is <br/><strong>✨the ultimate secret✨</strong><br />to real time front-end alchemy?</h1>
+			</section>
+			
+			<section class="splash">
+				<h1><tt>MediaStream()</tt></h1>
+			</section>
+
+			<section>
+				<h2><tt>MediaStream</tt></h2>
+				<ul>
+					<li>we can create additional instances, as we have access to the constructor<span class="fragment">: <tt>new MediaStream()</tt></span></li>
+					<li class="fragment">and each instance has <em>very</em> useful methods
+						<ul>
+							<li class="fragment"><tt>getAudioTracks()</tt></li>
+							<li class="fragment"><tt>getVideoTracks()</tt></li>
+							<li class="fragment"><tt>addTrack()</tt></li>
+							<li class="fragment">etc...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h1>With this, we can recombine any number of streams into just one and keep on recording!</h1>
+				<h2 class="fragment">(as <tt>MediaRecorder</tt> doesn't care where did the stream come from)</h2>
+			</section>
+
+			<section>
+				<pre>
+					<code class="language-js">
+					// Video =========================
+					var videoTracks = inputStream.getVideoTracks();
+					var videoStream = new MediaStream();
+					videoTracks.forEach(function(track) {
+						videoStream.addTrack(track);
+					});
+					// [...] manipulate videoStream into a canvas
+					// then get result from canvas stream into videoOutputStream
+					var videoOutputStream = videoCanvas.captureStream();
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<pre>
+					<code class="language-js">
+					// Audio =========================
+					var audioTracks = inputStream.getAudioTracks();
+					var audioStream = new MediaStream();
+					audioTracks.forEach(function(track) {
+						audioStream.addTrack(track);
+					});
+					// [...] manipulate audio with an audio context
+					// then get result from audio destination node into audioOutputStream
+					var audioOutputStream = streamDestination.stream;
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<pre>
+					<code class="language-js">
+					// Merging into one stream only ==
+					var outputStream = new MediaStream();
+					[audioOutputStream, videoOutputStream].forEach(function(s) {
+						s.getTracks().forEach(function(t) {
+							outputStream.addTrack(t);
+						});
+					});
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<pre>
+					<code class="language-js">
+					// And recording! ================
+					var finalRecorder = new MediaRecorder(outputStream);
+					</code>
+				</pre>
+			</section>
+
+			<section class="splash megabig">
+				<h1>Why is this API important?</h1>
+			</section>
+			
+			<section>
+				<h1><tt>MediaRecorder</tt> + <tt>Web Audio</tt> + <tt>WebGL</tt> enable you to build really sophisticated apps without plugins or server side support <span class="fragment">so it's <strong>faster</strong> and respectful of your users' <strong>privacy</strong></span></h1>
+			</section>
+
+			<section class="splash">
+				<h1>Also</h1>
+				<h2>Photography and video apps are <strong>~kind of~</strong> a big deal 😌...</h2>
+			</section>
+
+			<section>
+				<h2>Play Store: 4th and 5th top apps</h2>
+				<img src="imgs/playstore.png">
+			</section>
+
+			<section>
+				<h2>App Store: 6th and 8th top apps</h2>
+				<img src="imgs/appstore.png">
+			</section>
+
+			<section class="splash">
+				<h2>My point being...</h2>
+				<h1 class="fragment"><tt>MediaRecorder</tt> enables you to build Instagram and SnapChat on the browser</h1>
+			</section>
+
+			<section class="splash">
+				<h2>Although maybe we don't need yet another social network?</h2>
+				<h1 class="fragment">Get creative instead!</h1>
+				<h3 class="fragment">For example...</h3>
+			</section>
+
+			<section class="fullscreen-demo">
+				<div><iframe data-src="examples/looping-mosaic.html"></iframe></div>
+			</section>
+
+			<section class="fullscreen-demo">
+				<div><iframe data-src="examples/transposing/index.html"></iframe></div>
+			</section>
+
+			<section class="splash">
+				<h2>Some more ideas</h2>
+				<ul>
+					<li class="fragment">Beatbox</li>
+					<li class="fragment">Sampling based music apps<span class="fragment">... combine with Web MIDI!</span></li>
+					<li class="fragment">Dictaphone</li>
+					<li class="fragment">Field recording<span class="fragment">... with Geolocation API</span></li>
+					<li class="fragment">Vine app, but without the 'app' bit</li>
+					<li class="fragment">Granular and glitch-based audio synthesis</li>
+					<li class="fragment">Your take?</li>
+				</ul>
+			</section>
+
+			<section class="splash">
+				<h1>More examples?</h1>
+			</section>
+
+			<section>
+				<h1>Example: Boo</h1>
+				<h2>A videobooth built with WebGL and Web Audio</h2>
+				<a href="https://mozdevs.github.io/boo/"><img src="imgs/boo.png" alt="Boo videobooth" /></a>
+			</section>
+
+			<section>
+				<h1>Example: Greenscreening Cookie Monster</h1>
+				<a href="https://www.darktrojan.net/test/green/green.html"><img src="imgs/cookie.png" alt="Greenscreening cookie monster" /></a>
+			</section>
+
+			<section class="splash">
+				<h1>Wrap up</h1>
+				<h2>The MediaCapture API is very cool!</h2>
+			</section>
+		
+			<section>
+				<h1>Wrap up</h1>
+				<h2>Support is so so 😔:</h2>
+				<ul>
+					<li class="fragment">Firefox supports everything I showed you (obviously)</li>
+					<li class="fragment">Chrome 57+ can do pretty much everything I demoed inc. rec streams from Web Audio <span class="fragment">(also: bugs)</span></li>
+					<li class="fragment">Safari lolsob 😂😥</li>
+					<li class="fragment">Internet Explorer: not in your dreams, but MS Edge seems open to develop this</li>
+					<li class="fragment">Firefox/Chrome on Android: bit hit and miss, and no hardware accelerated encoding yet</li>
+					<li class="fragment">I've no idea about Windows Phone or Blackberry</li>
+					<li class="fragment">I don't think Opera Mini will support this</li>
+					<li class="fragment">Definitely not in Lynx</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Wrap up</h1>
+				<h2>But it is getting great really quickly</h2>
+				<h3>... and we need you to play with it, contribute and help us make it better!</h3>
+				<ul>
+					<li class="fragment">Use it</li>
+					<li class="fragment">Break it</li>
+					<li class="fragment">File bugs</li>
+					<li class="fragment">Request features</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>More resources</h1>
+				<ul>
+					<li class="fragment">Mozilla Hacks blog post: <a href="https://hacks.mozilla.org/2016/04/record-almost-everything-in-the-browser-with-mediarecorder/">Record almost everything in the browser with MediaRecorder</a></li>
+					<li class="fragment"><a href="https://github.com/mozdevs/MediaRecorder-examples">Media recorder examples</a> collection</li>
+					<li class="fragment"><a href="https://mozdevs.github.io/boo/">Boo!</a></li>
+					<li class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API">MDN MediaRecorder API documentation</a></li>
+					<li class="fragment"><a href="https://mozilla.github.io/webrtc-landing/gum_test.html">getUserMedia Test Page</a></li>
+					<li class="fragment"><a href="https://soledadpenades.com/tag/mediarecorder/">soledadpenades.com/tag/mediarecorder</a></li>
+					<li class="fragment"><a href="https://soledadpenades.com/files/t/2016_rtalchemy/">soledadpenades.com/files/t/2016_rtalchemy/</a></li>
+				</ul>
+				<h1 class="fragment">I WILL TWEET THE LINK!</h1>
+			</section>
+
+			<section class="splash">
+				<h1>Thanks!</h1>
+				<h2><a href="https://soledadpenades.com">soledadpenades.com</a> / @supersole</h2>
+			</section>
+
+		</main>
+	</body>
+</html>

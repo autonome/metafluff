@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Mozilla Tech Speakers Program</title>
+
+    <meta name="description" content="Mozilla Tech Speakers Program">
+    <meta name="author" content="Dietrich Ayala">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/firefoxos.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+        <section>
+          <header>
+            <h1>Mozilla Tech Speakers</h1>
+            <h2>Dietrich Ayala<br>April 22, 2015</h2>
+            <div id="foxtail"></div>
+          </header>
+        </section>
+
+        <!--
+        <section>
+          <p>Dietrich Ayala (@dietrich)</p>
+          <p>Ralph Daub (@ralphdaub)</p>
+          <img src="imgs/firefox-logo.png" />
+        </section>
+        -->
+
+        <section>
+          <h2>What is Tech Speakers?</h2>
+          <ul>
+            <li>Community-driven technical speaker development program...
+            <li>Designed to be self-guided or run in your group...
+            <li><strike>In order to increase developer awareness and adoption of Mozilla products and the Open Web.</strike>
+            <li>In order to communicate clearly to your teams and groups!
+          </ul>
+        </section>
+
+        <section>
+          <h2>Nothing is free.</h2>
+          <ul>
+            <li>Being a good speaker is not magic.
+            <li>But becoming one might be uncomfortable.
+            <li>And will take a little bit of work.
+            <li>But a little work goes a LONG way.
+          </ul>
+        </section>
+
+        <section>
+          <h2>It's all about you.</h2>
+          <p>I am not running this.
+          <p>You are, as a group.
+          <p>It'll be hard. But fun!
+        </section>
+
+        <section>
+          <h2>The Program</h2>
+          <ul>
+            <li>Six weeks short.
+            <li>Combines content crafting and speaking practice.
+            <li>It is repeatable.
+          </ul>
+        </section>
+
+        <section>
+          <h2>Story Crafting</h2>
+          <ul>
+            <li>Who is your audience?
+            <li>What do you want them to do?
+            <li>What is the bottom line?
+          </ul>
+        </section>
+
+        <section>
+          <h2>The ThoughtBox</h2>
+          <img src="imgs/thoughtbox.png">
+        </section>
+
+        <section>
+          <h2>The ThoughtBox</h2>
+          <ul>
+            <li>A tool to craft your story.
+            <li>Organizes your thoughts.
+            <li>Makes sure you cover all the bases.
+            <li>Print as landscape and get to work.
+          </ul>
+        </section>
+
+        <section>
+          <h2>Speaking Practice</h2>
+            <p>Record yourself...
+            <p>Talking about anything...
+            <p>For 2 minutes...
+            <p>Watch as a group.
+            <p>Repeat!
+        </section>
+
+        <section>
+          <h2>Feedback Guidelines</h2>
+          <ul>
+            <li>Watch entire presentation without comment.
+            <li>At the end, go around the group.
+            <li>Say what you liked.
+            <li>Say what you want to see more of.
+            <li>Repeat!
+          </ul>
+        </section>
+
+
+        <section>
+          <h2>tl;dr Schedule</h2>
+          <ul>
+            <li>Week 1. Introduction. Homework: Pick a topic.
+            <li>Week 2. Watch recordings! HW: ThoughtBox.
+            <li>Week 3. Recordings + group feedback. HW: Preso outline.
+            <li>Week 4. Recordings + group feedback. HW: Preso draft.
+            <li>Week 5. Recordings + group feedback. HW: Preso polish.
+            <li>Week 6. Final presentations. Party party party.
+          </ul>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
