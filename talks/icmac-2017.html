@@ -1,0 +1,1474 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>(Em)Powering Smart Cities - ICMAC 2017, Dietrich Ayala, Mozilla</title>
+  <meta name="description" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- for web -->
+    <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9?size=16" />
+
+    <!-- for apple -->
+    <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
+    <link rel="apple-touch-icon" href="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9" />
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla">
+    <meta itemprop="description" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla">
+    <meta itemprop="image" content="https://secure.gravatar.com/avatar/16de8554bd4d2ec03c1c009935ea61c9">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dietrich">
+    <meta name="twitter:title" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla">
+    <meta name="twitter:description" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla">
+    <meta name="twitter:creator" content="@dietrich">
+    <meta name="twitter:image" content="http://metafluff.com/octo.jpg">
+    <meta name="twitter:image:alt" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla">
+
+    <!-- Open Graph for Facebook, Pinterest -->
+    <meta property="og:title" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://metafluff.com" />
+    <meta property="og:image" content="http://metafluff.com/octo.jpg" />
+    <meta property="og:description" content="Designing for Physical Experiences: The Web in the Age of Room-Scale Computing - Dietrich Ayala, Mozilla" />
+    <meta property="og:site_name" content="Dietrich Ayala" />
+
+  <!-- source code pretty -->
+  <!--
+  <link rel="stylesheet" href="vendor/prism/prism.css">
+  <script src="vendor/prism/prism.js" defer></script>
+  -->
+
+  <!-- core styles -->
+  <link rel="stylesheet" href="css/style-scroller.css">
+
+  <!-- printing pretty -->
+  <!--
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css" media="only print">
+  -->
+
+</head>
+<body>
+<main>
+<!--
+  <nav>&amp;dietrich</nav>
+
+  TL;DR:
+    * Web devs: We can use the web now to build interesting things that prepare us for physical computing
+    * Startups: App install/metrics/stores are garbage fire. Web provides better access to TAM using emerging technologies.
+    * IoT: App-per-thing is absurd. Use beacons, NFC and QR codes to for frictionless interaction/onboarding with web in physical spaces.
+    * FOSS devs: Room-scale computing is confined to proprietary platforms.
+
+  OUTLINE:
+    * appocalypse now: we need new ways of onboarding people into digital experiences in physical spaces
+    * meanwhile, new technologies like iot, ar, vr: the room is the computer, the digital experience
+    * but how to get em in?
+
+  NOTES - roomscale
+    * developers: rooms can already be the computers
+    * startups: rooms are going to be the computers
+    * iot: rooms already are computers, cities are on the way
+
+  NOTES - ThingsCon:
+    * focus on user onboarding through beacons
+      * Rabimba info
+      * Nearby supported all the way back to Kit Kat (Android 4.4) - screenshot
+    * Friction free flow
+    * Flows:
+      * beacon -> url -> website
+      * beacon -> url -> bot integration
+      * beacon -> url -> app
+    * PWA - offline, push notifications, homescreen presence
+    * Demos
+      * sound -> notification
+    * Multi-user even!
+    * Social AR
+    * Shared Controls - zero setup, zero install
+
+  NOTES - TIA Singapore:
+    * direct to web, chat, app. frictionless and accountless. auth by proximity.
+		* colors, arrows, poisoned apple, ar.js, tom on app uptake, etc
+    * soundsize smoothing, and different obj. fix by making all changes relative to baseline of target object size?
+    * s/halo/privacysign/ - anti symbol rotating around speaker emoji?
+    * s/halo/he, him, his/ 
+    * s/halo/hello my name is/
+    * vertically center sinewave and flip colors
+    * hiro+qr demo w/ ar.js - for conference badges, or even stickers. ar conference ghosts/totems. AR business cards.
+
+  NOTES - CommunicAsia
+    * # Narrative: Accelerated and innovative smart city development with the web, bringing engaging interactive programs to the maximum number of people.
+    * Imagine citizens having to install app for every utility or smart cities program
+    * Smart nation is only beginning. there are two pages of apps.
+    * Homescreen is already cluttered. imagine when smart nation really picks up the pace.
+    * also, the ability to release software is dependent on Apple and Google. unnecessary.
+    * ## Choosing the right technologies to enable civic participation in smart cities programs
+    * Web a smart cities enabler - nimble and accelerated development
+    * lower barrier to entry for development and citizen innovators. city won't be able to meet all the needs. and citizens can build custom solutions for unforeseen problems.
+    * Web is also about access: the poorest people will have the least powerful devices, with less storage space or an older unsupported version of the OS that newer apps won't run on.
+    * The web allows for progressive enhancement - the idea that anyone can load the basic version, and newer devices can take advantage of newer capabilities.
+    * An example of some these newer capabilities are pwas. websites that can be added to the homescreen, run without any browser ui, get push notifications and work offline.
+    * Twitter lite
+    * ## Onboarding people from physical spaces into digital experiences
+    * QR codes
+    * IF+
+    * NFC
+    * - ergonomics dictate use-cases
+    * - the nfc dance
+    * - hotel doors vs MRT turnstiles
+    * Beacons
+    * - esp if a device.
+    * - beacon batteries last 6mos
+    * ## Interaction design patterns for public digital experiences
+    * Flows
+    * signage -> QR -> App
+    * signage -> QR -> bot/URL/
+    * beacon -> notification -> URL
+    * ## Engaging citizens with augmented reality, IoT and other emerging technologies
+    * Android supports QR code to join wifi network (pic of tpe cmmty space)
+    * geo AR
+    * Add demo for pm2.5
+
+  NOTES - Webconf.asia
+    * set context: iot/ar/vr/wearables are changing the endgame
+      * and *specifically* from a design standpoint
+      * we can't just 2d this shit anymore
+      * we're currently in limbo - the building blocks are there but the hardware isn't ready yet.
+    * permissions are a challenge
+    * privacy is a challenge - what are the patterns for anonymous participation in physical spaces? (firefox focus - what if was a qr widget)
+    * Geolocation as trigger, as authentication
+    * bonus demo: add qr+ar marker for gum2gif, and import into AR scene
+    * responsive design for physical computing - walking into a room, leaving a room, nonscary ways of interfacing with humans. we design the robots (for now).
+    * flows for payment -> add cryowerx
+
+  NOTES - HKOSCON
+    * set context: room scale is here. but only in the confines of proprietary platforms.
+    * set message: we can create fully open room scale experiences
+    * define the ask: in this new topology, define end-to-end first
+    * what's the role of a browser in a room-scale physical computing world?
+    * new topologies with undefinied parties
+    * security/privacy in room scale topologies
+    * patterns for privacy in physical computing: Focus or Orbot as unsafe URL handlers - beacons, qrcodes, etc
+    * slide for homescale proprietary
+    * slide for rpi "Alexa"
+    * what does "open" mean
+    * purism doesn't help people
+    * numbers: our impact as FOSS developers is way larger - punch above our weight
+    * how can we as FOSS developers help influence the larger patterns
+
+  NOTES - DEMOS
+    * screensharing from fx android back to slides for AR parts
+    * pm2.5 viz hooked up to live local datasource
+
+	TODO - PROCESS
+    * shake to bot connect in a room. shake to bot to web. audio detection to voice to shake to bot to web.
+    * AR use-cases are boring as shit
+		* components of ar infrastructure on the web. reference w3c work.
+    * walk symbols. moar large emoji.
+    * zero friction participation. strengthen app:thing story. add pwa back in. make flow diagrams. proximity auth. speaker flow: beacon ➡️ url ➡️ AR ➡️ what's playing, controls, etc. AR + beacon support at OS level. social AR.
+    * walk symbol plus arrows plus beacon symbol plus smart glasses. nearby. most startups die, care and feeding of baby unicorns.
+    * ThingsCon talk: Pitch for building in beacons. All about quickly moving from device to digital experience via beacons built-in. Instant AR experiences. AR controls. Write duck demo with a button you can press with reticle selection. beacon -> initial config. pwa instead of app. Alternate reality. 1:1 thing:app isn't a tenable future. todo: what's the status of Nearby on Android.
+    * beacon->slides, snow white's poisoned apple, hyperreality slide for design, web+vr as example of web unifying emerging tech (news stories on web vr), narrative of web as unifying/simplifying the platform choices and reaching most customers, add pm2.5 example
+    * for webconf asia: designing for presence of people, presence of cameras - higher level design language and abstractions
+    * slides: physical flows into web into web, msgng, app, OS, voice, AR
+    * slides: rfid for room scale discovery
+    * slides: look up Nearby status
+    * slides: supply chain AR
+    * slides: app-less. animate an install popup in aframe, add to slides. overlays on camera.
+    * cat in front of screen slide - animates in
+    * demo overlay, halo, panda, stats, agitation, probability of crime (cv + racism), sickness (ml + cv)
+    * panda demo replace face. anti surveillance glasses.
+    * slides: cookie puzzle sizes/color/etc change based on live views
+    * talk: thai and other country app acquisition barriers, promos, etc. Peter gasston tweet. reasons to not build an app or to continue investing in it. app time spent vs uniques on mobile. purchases are in mobile web (gartner?). patagonia.
+
+  NOTES - MISC:
+    * this is an appocalypse
+    * don't be led down the garden path
+    * app marketplaces are a garbage fire
+    *
+    * PWAs are coming (Chrome, Android, Firefox)
+    * Safari iOS just shipped new features like CSS Grid, so there's hope, but they're 5% of the global smartphone market
+    * 
+    * meanwhile, new opportunites are emerging for engaging users in new ways
+    * IoT, VR, AR, beacons, NFC 
+    * they're all physical
+    * not just the 2d screen, but the physical context they're *in*
+    * we're a few years out from real AR goggles, let alone contact lenses
+    * until contacts with camera and AR..."
+    * 
+    * how can we use the web now to build interesting things that prepare us for physical computing
+    *
+    * beacons, etc
+    *
+    * add webAR markers
+    * 
+    * add demo: crowd noise -> object on screen grows in size
+    * iot - pm2.5 and AR 
+    * imagine using this with projections at concerts or other events
+    * 
+    * physical computing experiences will change
+    * verticals like travel, fashion, retail, music, movie industries
+    *
+    * tl;dr: we can use the web now to build interesting things that prepare us for physical computing
+
+  NOTES - ICMAC 2017
+    * switch font to lato
+    * innovation - care and feeding tech for healthy and successful innovation for people
+    * Mitchell quote on urban digitization
+      * reference Peter's report
+      * we're not ready for that
+      * people engaging in community through for-profit verticalized apps
+      * standards for privacy and security at substructure layer are not mature
+      * which means the market is flowing with technology and products untrusted by consumers
+      * additionally, the tech we're building now will be obsolete in a few years
+      * how to build for a moving target? huge investments into massive projects with predictable obsolescence
+    * additional challenges slide
+      * list quickly here
+      * the churn is crazy
+    * TJ, Communism, Buddhism have in common?
+    * leapfrogging
+      * designing for permanent state of leapfrogginess
+    * (SLIDE - big question) how to make smart cities that are trusted, relevant, and ready for the future - even the immediately-different future
+      * i'm going to talk about some patterns for designing technology that can do that
+    * TODO: get all the patterns and characteristics in here?
+    * (SLIDE) relevant, trusted and resilient - city in the background (nepal, hong kong, taipei?)
+      * (or: how to build timeless classics instead of putting time and money into unused and quickly obsolete projects)
+    * relevancy: apps vs web
+    * (SLIDE) show singapore apps
+    * (SLIDE) show more singapore apps
+      * these are almost uniformly transient tasks
+      * smart cities for users is not about immersion
+      * it's about transiency - quickly/efficiently
+      * the least amount of friction you can achieve will make engaging and effective solutions
+    * (SLIDE) 1000x more web than install quote
+      * 7 apps per day (CITATION NEEDED)
+      * what if you didn't need to be one of them?
+    * introduce the web 
+    * (SLIDE - techart) the web is perfect for not being one of them
+    * (SLIDE) flow: public space -> task -> open a web page
+    * (SLIDE) qr code - original physical technology - room scale!
+      * hk
+    * (SLIDE) nfc
+      * those are user-initiated
+      * broadcast scenarios
+    * (SLIDE) beacons
+      * broadcast
+    * (SLIDE) voice
+    * (SLIDE) noise
+    * now we've got people accessing services and getting critical information with low-cost existing room-scale tech and almost zero barrier to entry
+    * (SLIDE) PWA
+      * vertical p,w,a in bold
+      * animated desktop screen reducing to smartphone size
+      * the square of 4 technologies, each showing color coded levels of readiness, browser support, and future support
+      * google, apple, samsung, microsoft and mozilla all investing in giving the web superpowers
+    * (SLIDE) Payment request
+    * (SLIDE) bots flow
+    * gum
+    * hello my name is
+    * mr/ar/vr
+      * computer vision in the client
+    * (SLIDE) ai
+      * on web: at the edges, small, personalized, trustable
+      * deeplearning.js
+    * decentralization / p2p
+      * beaker, dat, ipfs, blockchain
+      * science data
+    * close
+      * resilient infrastructure in our technologies
+      * resilient to change
+      * so that we can quickly adapt to what an immediately-different future brings
+
+-->
+
+  <section id="title" class="intro">
+    <h1>(Em)Powering Smart Cities</h1>
+    <h2>Designing for Resiliency in the Leapfrog Age</h2>
+    <h3>ICMAC 2017, Denpasar, Bali</h3>
+    <h3>
+      Dietrich Ayala
+      / <a href="https://twitter.com/dietrich">@dietrich</a>
+      / <a href="https://mozilla.org">Mozilla.org</a>
+    </h3>
+  </section>
+
+  <!--
+  <section class="me background-image-contain" style="background-image: url(imgs/me-newlogo.png);">
+  -->
+  <section id="me" class="me background-image" style="background-image:url(imgs/me-newlogo.png);">
+    <pre hidden>
+    i'm dietrich ayala, and i work for the internet.
+    </pre>
+  </section>
+
+  <section class="mozilla splash background-image" style="background-image: url(imgs/mozilla-org.png);">
+    <pre hidden>
+      * most know us by firefox
+      * but firefox is a tool we use to guide the direction of web tech
+    </pre>
+  </section>
+
+  <section class="innovation splash background-image" style="background-image: url(imgs/innovation.png);">
+    <pre hidden>
+      * why does mozilla want to talk about smart cities at an event like this?
+      * care and feeding tech for healthy and successful innovation for people
+      * you're making decisions now about privacy, security and what technologies to use
+      * and we want to see you succeed
+      * we want to see your innovations work for *everyone*
+    </pre>
+  </section>
+
+  <section class="mitchell splash">
+    <center>
+      <blockquote>
+        "Within bitsphere communities, there will be subnetworks at a smaller scale still – that of architecture. Increasingly, computers will meld seamlessly into the fabric of buildings and buildings themselves will become computers – the outcome of a long evolution."
+        <br>
+        <br>
+        <br>
+        <cite>
+          William J. Mitchell,
+          City of Bits (1995).
+        </cite>
+      </blockquote>
+    </center>
+    <pre hidden>
+      * interestingly, the network turned out to be *people*
+      * buildings as computers is really only starting
+      * and i don't think we're ready yet
+      * people engaging in community through for-profit verticalized apps
+      * standards for privacy and security at substructure layer are not mature
+      * which means the market is flowing with technology and products untrusted by consumers
+      * additionally, the tech we're building now will be obsolete in a few years
+      * how to build for a moving target? huge investments into massive projects with predictable obsolescence
+    </pre>
+  </section>
+
+  <section class="loop-patterns background-image-contain" style="background-image: url(imgs/physloop-2.gif);">
+    <pre hidden>
+      * the stack today looks like this
+      * some of these are proprietary silos
+      * some are aging infrastructure
+      * some have no security or privacy standards
+      * hackers are using this one to run botnets
+    </pre>
+  </section>
+
+  <section class="tj-lt-b background-image-contain" style="background-image: url(imgs/tj-lt-b.png);">
+    <pre hidden>
+      * what do thomas jefferson, leon trotsky and buddha have in common?
+      * tj said each generation should have a revolution
+      * trotsky thought permanent revolution was key to true communism
+      * the buddha teaches us impermanency in every moment 
+      * they all designed for constant change
+    </pre>
+  </section>
+
+  <section class="leapfrogging background-image-contain" style="background-image: url(imgs/leapfrog.jpg);">
+    <pre hidden>
+      * designing for permanent state of leapfrogginess
+      * probably not possible, or even desirable
+      * but i'm going to talk about some patterns for designing technology that can do that
+      * specifically i'm going to talk about how to engage and empower users in relevant ways in public spaces
+    </pre>
+  </section>
+
+  <section class="smartnation splash background-image" style="background-image: url(imgs/singapore-smartnation.png);">
+    <pre hidden>
+      * example of advanced smart cities program
+      * 
+    </pre>
+  </section>
+
+  <section class="sg-apps splash background-image" style="background-image: url(imgs/singapore-app-icons.png);">
+  </section>
+
+  <!--
+  <section class="zero splash megabig">
+    <center><h1>ZERO</h1></center>
+    <pre hidden>
+      * But are you innovating if you have zero users?
+      * or your startup fails?
+      * Google, half of US users install zero apps per month
+      * Many have app exhaustion, most use 7 per day
+      * For many people, apk size is a blocker
+      * App stores are a garbage fire
+      * It's a tough world out there for a baby unicorn
+    </pre>
+  </section>
+
+  <section class="zero-aug17 splash background-image-contain" style="background-image: url(imgs/zero-aug17.png);">
+  </section>
+  -->
+
+  <section class="lens splash background-image" style="background-image: url(imgs/lens.gif);">
+    <pre hidden>
+      * right now room scale computing looks like this
+    </pre>
+  </section>
+
+  <section class="transient splash megabig">
+    <center><h1>transient<br>computing</h1></center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <!--
+  <section class="nobody splash">
+    <center>
+    <blockquote>
+      "One download for every one thousand web views."
+      <br>
+      <br>
+      <br>
+      <cite>
+        Ryan Sheffer,
+        Nobody Wants Your App.
+      </cite>
+    </blockquote>
+    </center>
+  </section>
+
+  <section>
+    <h1>Coming <strike>soon</strike> now.</h1>
+    <br>
+    <h2 class="fragment">Internet of Things</h2>
+    <h2 class="fragment">Augmented / Virtual Reality</h2>
+    <h2 class="fragment">Artificial Intelligence</h2>
+    <h2 class="fragment">Bots</h2>
+    <pre hidden>
+      Computing is changing.
+      This might seem like the distant future.
+      It's not. Commodification and miniaturization of continuously advancing technology
+      like voice recognition, sensors and machine learning means that these things will
+      soon be as ubiquitous as smartphones are now.
+      How people engage with things will be diffeent.
+    </pre>
+  </section>
+
+  <section class="roomscale splash background-image" style="background-image: url(imgs/roomscale.png);">
+    <pre hidden>
+      * the rooms are the computers
+      * walk into a room and it can react
+      * can say what's going on that day
+      * right now the concept is owned by amazon alexa, google home, siri coming this fall
+      * but when you can build these with commodity hardware, the cheap ones aren't far off
+      * and why do they even have to be visible really, as long as there's feedback
+      *
+      * when every *thing* is a computer or a bot, we can't have apps for all the things 
+      * the champions of iot and bots haven't solved this
+      * we need new models of user engagement for physical technologies
+      *
+      * what's the role of a browser in a room-scale physical computing world?
+      * nobody knows yet
+      * computers ate into tv time
+      * smartphones ate into computer time
+      * maybe we divide time yet again
+    </pre>
+  </section>
+  -->
+
+  <section class="timevsuniques background-image-contain" style="background-image: url(imgs/mobile-time-vs-uniques.png);">
+  </section>
+
+  <section class="openvsinstall splash">
+    <center>
+    <h1>Open or Install?</h1>
+    <h1>URL or App?</h1>
+    </center>
+    <pre hidden>
+      - easier to get someone to open a URL than to install an app
+      - instant content vs multiple steps
+      - ux and ix make the difference in access to information and services
+    </pre>
+  </section>
+
+  <!--
+  <section class="eot background-image-contain" style="background-image: url(imgs/end-of-typing.png);">
+  </section>
+
+  <section class="roomscale splash background-image" style="background-image: url(imgs/roomscale.png);">
+  </section>
+  -->
+
+  <!--
+  <section class="active-onboarding splash megabig">
+    <center><h1>ACTIVE<br>ONBOARDING</h1></center>
+    <pre hidden>
+      * onboarding sounds terrible, like the first day at a new job
+      * active onboarding methods require the user the initiate the digital experience
+    </pre>
+  </section>
+  -->
+
+  <section class="qr background-image-contain" style="background-image: url(imgs/mozilladotorg-qrcode.png);">
+  </section>
+
+  <!--
+  <section class="qr-mashable background-image-contain" style="background-image: url(imgs/qrcodes-mashable.png);">
+  </section>
+  -->
+
+  <section class="qr-a16z background-image-contain" style="background-image: url(imgs/qr-a16z.png);">
+  </section>
+
+  <section class="qr-tsujiri background-image-contain" style="background-image: url(imgs/tsujiri-social-qr-codes.jpg);">
+  </section>
+
+  <!--
+  <section class="qr-cristina splash background-image-contain" style="background-image: url(imgs/christinaxu-qrcode.png);">
+  </section>
+  -->
+
+  <section class="qr-ifplus splash background-image-contain" style="background-image: url(imgs/ifplus.png);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="nfc-easycard splash background-image" style="background-image: url(imgs/nfc-easycard.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <!--
+  <section class="nfc-octopus splash background-image" style="background-image: url(imgs/hongkong-octopus-card.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+  -->
+
+  <section class="nfc-elevator splash background-image-contain" style="background-image: url(imgs/hongkong-nfc-elevator.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <!--
+  <section class="passive-onboarding splash megabig">
+    <center><h1>PASSIVE<br>ONBOARDING</h1></center>
+    <pre hidden>
+      * like not showing up for the first day on the job?!
+    </pre>
+  </section>
+  -->
+
+  <section class="beacons splash background-image" style="background-image: url(imgs/beacons-pile.jpg);">
+    <pre hidden>
+      * bluetooth
+      * good for multi-floor spaces
+      * configurable radio signal for distance
+      * google backported nearby to Android Kit Kat, 4.4
+    </pre>
+  </section>
+
+  <section class="magnet splash background-image-contain" style="background-image: url(imgs/magnet.gif);">
+    <pre hidden>
+      * get notification as users experience a space
+      * potential for notification storm, abuse
+    </pre>
+  </section>
+
+  <!--
+  <section class="mozfestation background-image-contain" style="background-image: url(imgs/mozfestation.png);">
+    <pre hidden>
+      * mozilla festival
+      * 9 floor art school in london
+      * users find out what's going on around them
+      * leave with a digital archive of what they experienced
+      * instead of emails to self and whatnot
+    </pre>
+  </section>
+  -->
+
+  <section class="singapore-shake splash background-image" style="background-image: url(imgs/singapore-wechat-shake.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="hongkong-wonderwoman splash background-image" style="background-image: url(imgs/hongkong-wonderwoman.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <!--
+  <section class="hongkong-mtr-fail splash background-image" style="background-image: url(imgs/hongkong-mtr-fail.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+  -->
+
+  <section class="hongkong-oldtown splash background-image" style="background-image: url(imgs/hongkong-oldtown-qrcode.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="commonvoice background-image" style="background-image: url(imgs/commonvoice.png);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="noise megabig absolute-centered">
+    <center>
+      <h1><strike>SPEECH</strike> <br><br>NOISE!</h1>
+    </center>
+    <pre hidden>
+      * a lot of talk about speech recognition
+      * but differences in the ambient decibel level are a signal
+    </pre>
+  </section>
+
+  <section class="sinewave two-rows fullscreen-demo">
+    <div>
+      <iframe data-src="examples/sinewave/"></iframe>
+    </div>
+    <pre hidden>
+      * you don't need fancy speech recognition to know if someone walked in the room
+      * or if someone is asleep vs awake
+      * but how do you know if there's a computer in the room?
+      * how do you know if something is listening?
+      * noise can be a signaller for presence/absence and whether to send notification, have the robot say "hi", etc
+    </pre>
+  </section>
+
+  <section class="trashbeauty splash background-image" style="background-image: url(imgs/trashbeauty.jpg);">
+    <pre hidden>
+      * proximity
+      * also explored privacy concerns
+      * signaling in public spaces
+    </pre>
+  </section>
+
+  <section class="roomscale splash background-image" style="background-image: url(imgs/roomscale.png);">
+    <pre hidden>
+      * but what to do once you've got people connected?
+    </pre>
+  </section>
+
+  <section class="patterns splash megabig">
+    <center>
+      <h1>PATTERNS<br>&amp; FLOW</h1>
+    </center>
+    <pre hidden>
+      * onboarding technology has led to new software inputs
+      * and requires new patterns and task flows in our designs
+    </pre>
+  </section>
+
+  <section class="oldloop splash background-image-contain" style="background-image: url(imgs/flow-finger-screen.gif);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="flow-app absolute-centered">
+    <h1>
+      ➡️ <img src="imgs/physical-icons.png" class="flow-physical-icons"><br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;➡️ URL<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️ app<br>
+    </h1>
+  </section>
+
+  <section class="lens splash background-image" style="background-image: url(imgs/lens.gif);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="loop splash background-image-contain" style="background-image: url(imgs/physloop.gif);">
+    <pre hidden>
+      * now we've got an interaction flow going
+      * and with PWA we have things like push notifications
+      * so we can re-engage during app switching or whatever as someone moves through a space
+    </pre>
+  </section>
+
+  <section class="loop2 background-image-contain" style="background-image: url(imgs/physloop-2.gif);">
+    <pre hidden>
+      * complex topology in our interactions
+      * bluetooth mesh spec is coming soon
+    </pre>
+  </section>
+
+  <section class="flow-bot absolute-centered">
+    <h1>
+      ➡️ <img src="imgs/physical-icons.png" class="flow-physical-icons"><br>
+      &nbsp;&nbsp;➡️ URL<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;➡️ <img src="imgs/messaging.png" style="height: 4rem;"><br>
+    </h1>
+  </section>
+
+  <section class="web-msg absolute-centered">
+    <img src="imgs/web-and-messaging.png">
+  </section>
+
+  <section class="flow-web absolute-centered">
+    <h1>
+      ➡️ <img src="imgs/physical-icons.png" class="flow-physical-icons"><br>
+      &nbsp;&nbsp;➡️ URL<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;➡️ <img src="imgs/browsers.png" style="height: 4rem;"><br>
+    </h1>
+  </section>
+
+  <!--
+  <section class="flow-wtf absolute-centered">
+    <h1>
+      ➡️ <img src="imgs/physical-icons.png" class="flow-physical-icons"><br>
+      &nbsp;&nbsp;➡️ URL<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;➡️ ...<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️ ???
+    </h1>
+  </section>
+
+  <section class="buying-things megabig absolute-centered"">
+    <h1>BUYING<br>THINGS</h1>
+  </section>
+  -->
+
+  <section class="touchpaymadness background-image-contain" style="background-image: url(imgs/multi-pay-qr-codes.jpg);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="flow-payments megabig absolute-centered">
+    <h1>
+      ➡️ <img src="imgs/physical-icons.png" class="flow-physical-icons"><br>
+      &nbsp;&nbsp;➡️ URL<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;➡️ Payment API<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️ 💰💰💰
+    </h1>
+  </section>
+
+  <section class="paymentrequestdiagram background-image-contain" style="background-image: url(imgs/payment-request-diagram.png);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="paymentreqeust-code">
+    <h2>PaymentRequest Example</h2>
+    <pre>
+      <code class="language-js">
+var request = new PaymentRequest(  
+  supportedPaymentMethods,  
+  paymentDetails,  
+  options  
+);
+
+request.show();
+      </code>
+    </pre>
+  </section>
+
+  <section class="cryowerx background-image-contain" style="background-image: url(imgs/cryowerx.gif);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="flow-arvr megabig absolute-centered">
+    <h1>
+      ➡️ <img src="imgs/physical-icons.png" class="flow-physical-icons"><br>
+      &nbsp;&nbsp;➡️ URL<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;➡️  AR / VR
+    </h1>
+  </section>
+
+  <!--
+  <section class="frictionlessAR megabig">
+    <center>
+      <h1>CASUAL<br>AUGMENTED<br>REALITY</h1>
+    </center>
+  </section>
+
+  <section class="cam fullscreen-demo">
+    <div>
+      <iframe data-src="examples/display-webcam.html"></iframe>
+    </div>
+  </section>
+  -->
+
+  <!--
+  <section class="cam-3d megabig">
+    <center>
+    <h1>CAMERA +<br>3D</h1>
+    </center>
+  </section>
+  -->
+
+  <!--
+  <section class="aframe-ar fullscreen-demo">
+    <div>
+      <iframe data-src="examples/aframe-ar/"></iframe>
+    </div>
+  </section>
+  -->
+
+	<!--
+  <section class="cam-controls megabig">
+    <center>
+    <h1>CAMERA +<br>CONTROLS</h1>
+    </center>
+  </section>
+
+  <section class="aframe-ar-controls fullscreen-demo">
+    <div>
+      <iframe data-src="examples/aframe-ar/ar-controls.html"></iframe>
+    </div>
+  </section>
+
+  <section class="cam-3d-js megabig">
+    <center>
+    <h1>CAMERA +<br>JAVASCRIPT +<br>3D</h1>
+    </center>
+  </section>
+	-->
+
+  <section class="cam fullscreen-demo">
+    <div>
+      <iframe data-src="examples/display-webcam.html"></iframe>
+    </div>
+  </section>
+
+  <section class="aframe-ar fullscreen-demo">
+    <div>
+      <iframe data-src="examples/aframe-ar/"></iframe>
+    </div>
+  </section>
+
+  <section class="hellomynameis fullscreen-demo">
+    <div>
+      <iframe data-src="examples/hellomynameis/"></iframe>
+    </div>
+  </section>
+
+  <!--
+  <section class="hehishim fullscreen-demo">
+    <div>
+      <iframe data-src="examples/hehishim/"></iframe>
+    </div>
+  </section>
+  -->
+
+  <!--
+  <section class="cam-3d-js-audio megabig">
+    <center>
+    <h1>CAMERA +<br>JAVASCRIPT +<br>3D +<br>NOISE</h1>
+    </center>
+  </section>
+
+  <section class="soundsize fullscreen-demo">
+    <div>
+      <iframe data-src="examples/aframe-ar/soundsize.html"></iframe>
+    </div>
+  </section>
+  -->
+
+  <!--
+  <section class="arjs">
+    <center>
+      <img src="imgs/arjs.png">
+    </center>
+  </section>
+
+  <section class="arjs-multicard background-image-contain" style="background-image: url(imgs/arjs-multi.gif);">
+    <pre hidden>
+      * conference badges
+    </pre>
+  </section>
+  -->
+
+  <section class="ar-native background-image" style="background-image: url(imgs/ar-native.png);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="webxr">
+		<center>
+    	<img src="imgs/webxr.png" style="max-width: 80%;">
+		</center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <!--
+  <section class="pwa splash megabig">
+    <center><h1>PROGRESSIVE<br>WEB APPS<br>(AKA PWA)</h1></center>
+    <pre hidden>
+    </pre>
+  </section>
+  -->
+
+  <section class="pwa-features splash">
+    <center>
+      <img src="imgs/pwa.svg" style="height: 20vw;">
+    <h2>Web Manifest</h1>
+    <h2>ServiceWorkers</h1>
+    <h2>Push Notifications</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+
+	<!--
+  <section class="pwavsnative">
+    <center>
+      <img src="imgs/native-vs-pwa.png">
+    </center>
+  </section>
+	-->
+
+  <!--
+  <section class="enabler splash">
+    <center>
+    <h1>The Web is a Smart Cities Enabler.</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="pwa-features splash">
+    <center>
+    <h1>Accelerated Development</h1>
+    <h1>Instant Citizen Access</h1>
+    <h1>All Citizen Access</h1>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+  -->
+
+  <section>
+    <h2><tt>getUserMedia()</tt></h2>
+    <pre>
+      <code class="language-js">
+        navigator.mediaDevices.getUserMedia({
+           audio: true,
+           video: true
+        }).then(function (stream) {
+          // do something with the stream
+        })
+      </code>
+    </pre>
+  </section>
+
+  <section class="aframe splash background-image-contain" style="background-image: url(imgs/aframe.png);">
+  </section>
+
+  <section class="aframe-code">
+    <h2>A-Frame Example</h2>
+    <pre>
+      <code class="language-html">
+        &lt;a-scene&gt;
+          &lt;a-sphere radius="1.25"&gt;&lt;/a-sphere&gt;
+          &lt;a-box width="1" height="1" depth="1"&gt;&lt;/a-box&gt;
+          &lt;a-cylinder radius="0.5" height="1.5"&gt;&lt;/a-cylinder&gt;
+          &lt;a-plane rotation="-90 0 0" width="4" height="4"&gt;&lt;/a-plane&gt;
+        &lt;/a-scene&gt;
+      </code>
+    </pre>
+  </section>
+
+  <section class="aframe-example fullscreen-demo">
+    <div>
+      <iframe allowfullscreen data-src="examples/aframe-ar/example.html"></iframe>
+    </div>
+  </section>
+
+  <!--
+  <section class="mdn splash">
+    <img src="imgs/mdn.jpg">
+  </section>
+  -->
+
+  <!--
+  <section class="crowd splash background-image" style="background-image: url(imgs/crowd.jpg);">
+    <center>
+    <h1>Crowd Experiences...</h1>
+    <ul style="list-style-type: none;">
+      <li>Conferences
+      <li>Tours
+      <li>Museums
+      <li>Games
+      <li>Protests
+    </ul>
+    </center>
+    <pre hidden>
+      - puzzles
+      - interactive games
+      - meeting people
+    </pre>
+  </section>
+  -->
+
+  <!--
+  <section class="presummary megabig">
+    <h1>Beacon<br>&nbsp;&nbsp;➡️ URL<br>&nbsp;&nbsp;&nbsp;&nbsp;➡️ web app<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️ AR</h1>
+  </section>
+  -->
+
+  <!--
+  <section class="presummary megabig">
+    <h1>EVERYTHING<BR>IS A<BR>COMPUTER</h1>
+  </section>
+  -->
+
+  <section class="invisible splash megabig">
+    <center><h1>INVISIBLE<br>COMPUTING</h1></center>
+    <pre hidden>
+      * too many apps
+      * not enough choice
+      * but we're moving into an era of invisible computing
+      * right now the apps are at least visible
+    </pre>
+  </section>
+
+  <section class="corphome splash background-image-contain" style="background-image: url(imgs/corp-home.png);" style="background-color: #ffffff;);">
+    <pre hidden>
+      * is this the roomscale endgame?
+      * it's not the future we want
+    </pre>
+  </section>
+
+  <!--
+  <section class="amazapps splash background-image-contain" style="background-image: url(imgs/amazon-echo-apps.jpg);">
+    <pre hidden>
+      * actually, that much choice would be great
+      * more often it looks like this
+    </pre>
+  </section>
+
+  <section class="hackster-alexa splash background-image" style="background-image: url(imgs/hackster-alexa.png);">
+    <pre hidden>
+      * 
+    </pre>
+  </section>
+
+  <section class="jasper splash background-image" style="background-image: url(imgs/jasper-assistant.png);">
+    <pre hidden>
+      * 
+    </pre>
+  </section>
+  -->
+
+  <!--
+  <section class="project-things splash background-image-contain" style="background-image: url(imgs/project-things.png);">
+  </section>
+  <section class="things-gateway splash background-image-contain" style="background-image: url(imgs/things-gateway.png);">
+  </section>
+  <section class="wot-api splash background-image-contain" style="background-image: url(imgs/wot-api.png);">
+  </section>
+  -->
+
+  <!--
+  <section class="privsec megabig">
+    <center>
+      <h1>PRIVACY<br><br>SECURITY</h1>
+    <center>
+    <pre hidden>
+      * what does privacy look like in multi-entity topologies
+    </pre>
+  </section>
+  -->
+
+  <!--
+  <section class="corphome splash background-image-contain" style="background-image: url(imgs/corp-home.png);" style="background-color: #ffffff;);">
+    <pre hidden>
+    </pre>
+  </section>
+
+  <section class="splash" style="background-color: #ffffff;">
+    <pre hidden>
+    </pre>
+  </section>
+  -->
+
+  <section class="loop2-2 background-image-contain" style="background-image: url(imgs/physloop-2.gif);">
+    <pre hidden>
+      * but what's really going on is this.
+    </pre>
+  </section>
+
+  <section class="hyper-reality background-image-contain" style="background-image: url(imgs/hyper-reality.gif);">
+    <pre hidden>
+    * this is the new web
+    * integrated multisensory physical+digital experiences
+    * bridging platforms
+    * frictionless physical interaction flows
+    * ubiquitous physical computing
+    * mobile
+    *
+    * the hardware isn't here yet. but it's not far off.
+    * native and proprietary tech is here to stay in some form.
+    * the web is ready to glue these things together
+    * to make really interesting things
+    * and these are things you can do *now*
+    * 
+    * we need a responsive design for physical spaces
+    * we need a design language for physical interactions
+    * if we wait, amazon, google, apple will design this language for us
+    * using hardware to define the spaces we can design for
+    * but with the open web we have an opportunity now
+    * to get ready for these quickly coming technologies
+    * and fight the hegemony of the few big hardware providers
+    * and define the interactions we want to see.
+    </pre>
+  </section>
+
+
+  <!--
+  <section class="summary-webconfasia megabig">
+    <center>
+      <h1>Responsive<br>Design<br>For Spaces</h1>
+    <center>
+    <pre hidden>
+    * this is the new web
+    * integrated multisensory physical+digital experiences
+    * bridging platforms
+    * frictionless physical interaction flows
+    * ubiquitous physical computing
+    * mobile
+    *
+    * the hardware isn't here yet. but it's not far off.
+    * native and proprietary tech is here to stay in some form.
+    * the web is ready to glue these things together
+    * to make really interesting things
+    * and these are things you can do *now*
+    * 
+    * we need a responsive design for physical spaces
+    * we need a design language for physical interactions
+    * if we wait, amazon, google, apple will design this language for us
+    * using hardware to define the spaces we can design for
+    * but with the open web we have an opportunity now
+    * to get ready for these quickly coming technologies
+    * and fight the hegemony of the few big hardware providers
+    * and define the interactions we want to see.
+    </pre>
+  </section>
+  -->
+
+  <!--
+  <section class="summary-smartcities megabig">
+    <center>
+      <h1>SMART CITIES + WEB</h1>
+    <center>
+    <br>
+    <h2>Bridging platforms</h2>
+    <h2>Frictionless flows</h2>
+    <h2>Physical interactions</h2>
+    <pre hidden>
+    * this is the new web
+    * integrated multisensory physical+digital experiences
+    * ubiquitous physical computing
+    * mobile
+    </pre>
+  </section>
+  -->
+
+  <section class="constant-change background-image-contain" style="background-image: url(imgs/tj-lt-b.png);">
+    <pre hidden>
+      * they all designed for constant change
+      * flexible and resilient infrastructure in our technologies
+      * not only resilient to change, but inviting and encouraging of it.
+      * so that we can quickly adapt to what an immediately-different future brings
+    </pre>
+  </section>
+
+  <section class="fin splash">
+    <center>
+    <img src="imgs/mozlogo.png">
+    <br>
+    <br>
+    <br>
+    <h2>Dietrich Ayala</h2>
+    <h2>@dietrich</h2>
+    </center>
+    <pre hidden>
+    </pre>
+  </section>
+
+  <!--
+
+    <section>
+      <h1>CAMERA<br>+ JAVASCRIPT</h1>
+    </section>
+
+    <section class="two-rows fullscreen-demo">
+      <div>
+        <iframe data-src="/chyme/"></iframe>
+      </div>
+    </section>
+
+    <section class="corphome splash background-image" style="background-image: url(imgs/corphome.png);">
+    </section>
+
+    <section class="openurl">
+      <h1>bit.ly/dwmyph</h1>
+      <div>
+        <div>
+          <img src="imgs/qr-blah.png">
+        </div>
+      </div>
+        <div>
+          <div>
+            <span id="countConnected">0</span> connected people
+          </div>
+          <div>
+            mobile <span id="countMobile">0</span>
+            vs
+            desktop <span id="countDesktop">0</span>
+          </div>
+          <div>
+            android <span id="countAndroid">0</span>
+            vs
+            ios <span id="countIOS">0</span>
+            vs
+            other <span id="countOther">0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="otherwaystoopenurl">
+      <h1></h1>
+      <pre hidden>
+        - qr code
+        - nfc
+        - beacons
+        - voice
+        - other noises
+        - camera / cv
+        - presence / absence
+        - flyweb
+        - imagine walking into a room and getting a notification with a url
+      </pre>
+    </section>
+
+    <section class="qr-nfc splash background-image" style="background-image: url(imgs/qr-nfc.png);">
+      <h1>QR <br> NFC</h1>
+    </section>
+
+    <section class="two-rows">
+      <pre>
+        <code class="language-js">
+          var recorder = new MediaRecorder(stream);
+          recorder.addEventListener('dataavailable', e => {
+            video.srcObject = e.data;
+            video.play();
+          });
+          recorder.start();
+          setTimeout(() => {
+            recorder.stop();
+          }, 5000);
+        </code>
+      </pre>
+      <div>
+        <iframe data-src="examples/record-av.html"></iframe>
+      </div>
+    </section>
+
+    <section class="beacons splash background-image" style="background-image: url(imgs/beacons.png);">
+      <h1>Beacons</h1>
+      <pre hidden>
+        - bluetooth
+        - good for multi-floor spaces
+        - mozfest
+        - so far only works when you have a client
+        - you can be a beacon!
+      </pre>
+    </section>
+
+    <section class="webbluetooth">
+      <h1>WebBluetooth API</h1>
+      <pre>
+        <code class="language-js">
+        navigator.bluetooth.requestDevice(
+          { filters: [{ services: ['battery_service'] }] })
+            .then(device => { doStuff(); })
+            .catch(error => { console.log(error); });
+
+        </code>
+      </pre>
+      <pre hidden>
+      </pre>
+    </section>
+
+    <section class="beacon-simulator splash background-image" style="background-image: url(imgs/beacon-simulator.png);">
+      <pre hidden>
+        - phone broadcasts
+        - rooms listen
+        - send your social accounts, instead of all the badging
+      </pre>
+    </section>
+
+    <section class="magnet">
+      <h1>Project Magnet</h1>
+      <h2>https://trymagnet.org</h2>
+      <img src="imgs/magnet.png">
+      <img src="imgs/magnet.gif">
+      <pre hidden>
+      </pre>
+    </section>
+
+    <section class="voice splash background-image" style="background-image: url(imgs/voice.png);">
+      <h1>VOICE</h1>
+      <pre hidden>
+        - amazon echo, google home
+        - super expensive, require constant fast internet
+        - literacy is a blocker of technology access
+      </pre>
+    </section>
+
+    <section class="vaani splash background-image" style="background-image: url(imgs/vaani.png);">
+      <pre hidden>
+        - offline
+        - mobile
+        - custom voices
+      </pre>
+    </section>
+
+    <section class="noises">
+      <h1>noise as input mechanism?</h1>
+      <pre hidden>
+        - stress
+        - presence absence
+      </pre>
+    </section>
+
+    <section class="gum">
+      <h1>Microphone / Camera</h1>
+      <ul>
+        <li>computer vision
+        <li>ambient noise
+        <li>presence / absence
+      </ul>
+      <pre hidden>
+        - camera or mic detect walking into a room
+        - projector immediately starts up, or changes content
+      </pre>
+    </section>
+
+    <section class="ar-duck">
+      <h1>Augmented Reality</h1>
+        <div>
+          <img style="width: 400px;" src="imgs/duck.png">
+        </div>
+      <pre hidden>
+      </pre>
+    </section>
+
+    <section class="ar-web">
+      <h1>AR on the Web</h1>
+        <div>
+          <img src="imgs/qr-ar-duck.png">
+          <div>https://bit.ly/aframe-ar</div>
+        </div>
+      <pre hidden>
+      </pre>
+    </section>
+
+    <section class="ar-gmarty">
+      <h1>AR + CV...</h1>
+        <div>
+          <img src="imgs/ar-gmarty.png">
+          <div>http://gu.illau.me</div>
+        </div>
+      <pre hidden>
+      </pre>
+    </section>
+
+  -->
+
+  <!--
+    <section class="appux">
+      <h1>User Experience of Apps</h1>
+      <ul>
+        <li>Instant load</li>
+        <li>Offline</li>
+        <li>Single purpose</li>
+        <li>Permanent</li>
+      </ul>
+    </section>
+
+    <section class="pwa">
+      <h1>(Progressive Web Apps)</h1>
+      <ul>
+        <li>Instant load</li>
+        <li>Offline</li>
+        <li>On homescreen</li>
+        <li>Built into Android</li>
+      </ul>
+    </section>
+
+    <section class="webux">
+      <h1>User Experience of Web</h1>
+      <ul>
+        <li>Instant access</li>
+        <li>Online</li>
+        <li>Multipurpose</li>
+        <li>Transient</li>
+      </ul>
+    </section>
+
+    <section class="computing-changing splash">
+      <h1>Computing is changing</h1>
+      <pre hidden>
+        - awareness of physical spaces
+        - integration with physical spaces
+      </pre>
+    </section>
+
+    <section class="usecases">
+      <ul>
+        <li>What is in this room?</li>
+        <li>When is the bus coming?</li>
+        <li>What are these buildings?</li>
+        <li>How long is the wait?</li>
+        <li>Pay for this parking?</li>
+      </ul>
+    </section>
+
+    <section class="roomscale splash background-image" style="background-image: url(imgs/roomscale.png);">
+      <h1>What if rooms</h1>
+      <h1><em>are<em> the computers?</h1>
+      <pre hidden>
+        - walk into a room and it talks back
+      </pre>
+    </section>
+
+    <section class="openvsinstall splash">
+      <h1>Open vs Install</h1>
+      <h1>URL vs App</h1>
+      <h1>One click vs ???</h1>
+      <pre hidden>
+        - easier to get someone to open a URL than to install an app
+        - instant content vs multiple steps
+        - ux and ix make the difference in access to information and services
+      </pre>
+    </section>
+
+    <section class="futuristic splash background-image" style="background-image: url(imgs/futuristic.png);">
+      <pre hidden>
+        This might seem like the distant future.
+        It's not. Commodification and miniaturization of continuously advancing technology
+        like voice recognition, sensors and machine learning means that these things will
+        soon be as ubiquitous as smartphones are now.
+        In fact you can do a lot of these things now with your smartphone.
+        I'm going to show you how.
+      </pre>
+    </section>
+
+    <section>
+      <h1>THE WEB</h1>
+      <h1>ON YOUR PHONE</h1>
+      <ul>
+        <li class="fragment">accelerometer</li>
+        <li class="fragment">microphone</li>
+        <li class="fragment">camera</li>
+        <li class="fragment">speaker</li>
+      </ul>
+      <pre hidden>
+      </pre>
+    </section>
+
+  -->
+</main>
+  <!--
+  <script src="vendor/mvsd/mvsd.js" defer></script>
+  -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

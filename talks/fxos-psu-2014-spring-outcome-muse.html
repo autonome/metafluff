@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Firefox OS - Mobile Data and Power Consumption</title>
+
+    <meta name="description" content="Firefox OS - Mobile Data and Power Consumption">
+    <meta name="author" content="Dietrich Ayala">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/firefoxos.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+        <section>
+          <header>
+            <h1>Firefox OS</h1>
+            <h2>Mobile Data and<br>Power Consumption</h2>
+            <div id="foxtail"></div>
+          </header>
+        </section>
+
+        <!--
+        <section>
+          <h2>Dietrich Ayala</h2>
+          <p>@dietrich</p>
+          <p>dietrich@mozilla.com</p>
+          <img src="imgs/firefox-logo.png">
+        </section>
+
+        <section>
+          <h3></h3>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </section>
+        -->
+        
+        <section>
+          <h3>We shipped Firefox OS!</h3>
+          <p>to 23 markets</p>
+          <p>in 15 countries</p>
+          <p>more coming</p>
+          <p>more challenging markets</p>
+        </section>
+          
+        <section>
+          <h3>It often looks like this.</h3>
+          <img src="imgs/google-offline.png">
+        </section>
+
+        <section>
+          <h3>Poor Network Conditions</h3>
+          <p>Slow networks (3G = 2.1G)</p>
+          <p>Unreliable infrastructure</p>
+          <p>Overloaded base stations</p>
+          <p>Weather</p>
+        </section>
+
+        <section>
+          <h3>Users too!</h3>
+          <p>User research</p>
+          <p>*Very* aware of cost</p>
+          <p>Shut off data</p>
+          <p>Even wifi can cost</p>
+          <p>big opportunity to differentiate</p>
+        </section>
+          
+        <section>
+          <h3>Full-stack impact</h3>
+          <p>Dropped packets</p>
+          <p>Request timeouts</p>
+          <p>Non-functional apps</p>
+          <p>Waste of user's money</p>
+          <p>Battery quickdeath</p>
+          <p>Load on base station</p>
+        </section>
+
+        <section>
+          <p>Very unhappy users</p>
+          <p>Very unhappy operators</p>
+          <img src="imgs/trike.png">
+        </section>
+
+        <section>
+          <h3>Turns out...</h3>
+          <p>Not new problems</p>
+          <p>Lots of research in the field</p>
+          <p>Little being applied on the Web</p>
+          <p>Huge wins possible</p>
+        </section>
+
+        <section>
+          <h3>Graduate Research</h3>
+          <p>University of Michigan</p>
+          <p>Graduate research lab on mobile performance</p>
+          <p>Mostly focused on Android on fast networks</p>
+          <p>But a lot of the findings apply...</p>
+        </section>
+
+        <section>
+          <h3>Tail Optimization</h3>
+          <p>Radio chips: high/low power mode</p>
+          <p>Radio Resource Controls (RRC) timers</p>
+          <p>High power mode stays on after activity</p>
+          <p>wasted power: "tail energy"</p>
+        </section>
+
+        <section>
+          <h3>Fast Dormancy</h3>
+          <p>Tell chip that we're done</p>
+          <p>Little/no access via chipset vendors</p>
+          <p>Can infer via power measurement</p>
+          <p>But variable per chipset/network</p>
+          <p>Even so, problematic to have that access</p>
+          <p>"Yo, I'm done."</p>
+        </section>
+
+        <section>
+          <h3>High Latency</h3>
+          <p>Local passive measurement of cellular load</p>
+          <p>Complex, requires low-level radio access</p>
+          <p>Could measure requests on ongoing basis?</p>
+          <p>Still requires high-level positive patterns</p>
+        </section>
+
+        <section>
+          <h3>Weak Link</h3>
+          <p>Bars don't tell the whole story</p>
+          <p>Strong link != low latency</p>
+          <p>Weak link != high latency</p>
+          <p>Neither signal throughput well</p>
+        </section>
+
+        <section>
+          <h1>What to do?</h1>
+        </section>
+
+        <section>
+          <h3>What to deux.</h3>
+          <p>We need to think creatively about how to address these problems in a web-developer-friendly way that quantifiably impacts users.</p>
+        </section>
+
+        <section>
+          <h3>Web Sweet Spot</h3>
+          <p>Tail energy, weak signal, high latency</p>
+          <p>App developers shouldn't have to care</p>
+          <p>Positive patterns for built-in awareness</p>
+          <p>Or at least make it super easy</p>
+        </section>
+
+        <section>
+          <h3>Muse - PSU Capstone Project</h3>
+          <p>https://github.com/mmes2/muse</p>
+          <img src="imgs/muse.png">
+        </section>
+
+        <section>
+          <h3>Muse - Purpose</h3>
+          <p>Experiment based on the research our teams did in Brasil, Columbia, Thailand, India</p>
+          <p></p>
+          <p>News reader app that targets new smartphone user, mostly offline, commutes a lot.</p>
+        </section>
+
+        <section>
+          <h3>Muse - Features</h3>
+          <p>Self-configuring (geolocation)</p>
+          <p>Auto populating</p>
+          <p>Offline reading</p>
+          <p>Content skinny</p>
+          <p>Network condition aware</p>
+          <p>JUST WORKS</p>
+        </section>
+
+        <section>
+          <h3>Helper Libraries</h3>
+          <p>Passive network info collector</p>
+          <p>Network info database</p>
+          <p>Network analysis</p>
+          <p>= Predict opportunity windows</p>
+        </section>
+
+        <section>
+          <h3>More experiments</h3>
+          <p>Non-critical requests</p>
+          <p>Proactive: piggybacking</p>
+          <p>Last-network-access timestamp</p>
+          <p>"Now is good" events</p>
+          <p>Low-budget latency analysis</p>
+          <p>XHR option to defer</p>
+        </section>
+
+        <section>
+          <h3>Other Research</h3>
+          <p>https://wiki.mozilla.org/FirefoxOS/Research</p>
+        </section>
+
+        <!--
+        <section>
+          <h3></h3>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </section>
+        -->
+
+        <section>
+          <h3>THANKS.</h3>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
