@@ -1,0 +1,59 @@
+# Build the site with eleventy and publish it to the gh-pages branch on GitHub,
+# which GitHub Pages serves at the custom domain. Replaces the GitHub Actions
+# build; the mirror workflow skips gh-pages so the two never write the same
+# branch. Tangled's own gh-pages branch is not updated: pushing to Tangled from
+# CI would need an account-wide SSH key.
+#
+# Each publish is one commit on top of GitHub's gh-pages, "deploy: <source sha>",
+# with a .nojekyll file, the same shape the GitHub Actions build produced.
+
+when:
+  - event: ["push"]
+    branch: ["main"]
+  - event: ["manual"]
+
+engine: "nixery"
+
+dependencies:
+  nixpkgs: [nodejs_22, git, openssh, coreutils]
+
+environment:
+  GITHUB_REPO: "autonome/metafluff"
+
+steps:
+  - name: build
+    # package-lock.json is not committed, so npm ci cannot run.
+    command: |
+      npm install --no-audit --no-fund
+      npm run build-ghpages
+
+  - name: publish to github gh-pages
+    command: |
+      set -euo pipefail
+      # The nixery image has no passwd entry for the step's uid, and OpenSSH
+      # refuses to run without one.
+      id -un >/dev/null 2>&1 \
+        || echo "ci:x:$(id -u):$(id -g)::/tmp:/bin/sh" >> /etc/passwd
+      umask 077
+      d=$(mktemp -d)
+      printf '%s' "$GITHUB_MIRROR_KEY_B64" | base64 -d > "$d/key"
+      echo 'github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl' > "$d/known_hosts"
+      export GIT_SSH_COMMAND="ssh -i $d/key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$d/known_hosts"
+      remote="git@github.com:$GITHUB_REPO.git"
+
+      git fetch --depth=1 "$remote" gh-pages
+      parent=$(git rev-parse FETCH_HEAD)
+      touch _site/.nojekyll
+      # Stage _site as the whole tree in a throwaway index; -f because the
+      # source repo's .gitignore does not describe the built site.
+      export GIT_INDEX_FILE="$d/index"
+      git --work-tree=_site add -A -f .
+      tree=$(git write-tree)
+      if [ "$tree" = "$(git rev-parse "$parent^{tree}")" ]; then
+        echo "built site unchanged; nothing to publish"
+        exit 0
+      fi
+      commit=$(GIT_AUTHOR_NAME=tangled-ci GIT_AUTHOR_EMAIL=ci@invalid \
+        GIT_COMMITTER_NAME=tangled-ci GIT_COMMITTER_EMAIL=ci@invalid \
+        git commit-tree "$tree" -p "$parent" -m "deploy: $TANGLED_SHA")
+      git push "$remote" "$commit:refs/heads/gh-pages"
